@@ -34,7 +34,11 @@ cp .env.example .env # 如果没有 example，直接创建 .env
 
 在 `.env` 中设置你的数据库连接：
 ```text
+# 支持本地数据库格式：
 DATABASE_URL=postgres://localhost/stock_dividend_insight
+
+# 也支持远程数据库（如 Neon），支持 postgresql:// 协议及 SSL 参数：
+DATABASE_URL=postgresql://user:pass@host/dbname?sslmode=require
 ```
 
 ### 3. 初始化数据库
@@ -68,6 +72,14 @@ ruby sync_stocks.rb --incremental
 | `market_id` | Integer | 市场 ID | 0: 深证, 1: 上证 |
 | `dividend_yield` | Decimal | 历史股息率 (%) | 最后一次完整年度分红累计额 / 最新股价 |
 | `expected_dividend_yield` | Decimal | 预期股息率 (%) | 最近 12 个月内的分红累计额 / 最新股价 |
+| `pe` | Decimal | 当前市盈率 | PE (TTM) |
+| `pb` | Decimal | 当前市净率 | PB |
+| `price_position` | Decimal | 价格位置 (0-1) | (当前价 - 历史最低) / (历史最高 - 历史最低) |
+| `pe_position` | Decimal | PE 位置 (0-1) | (当前 PE - 历史最低) / (历史最高 - 历史最低) |
+| `pb_position` | Decimal | PB 位置 (0-1) | (当前 PB - 历史最低) / (历史最高 - 历史最低) |
+| `dividend_yield_position` | Decimal | 股息率位置 (0-1) | (当前股息率 - 历史最低) / (历史最高 - 历史最低) |
+| `comprehensive_position` | Decimal | 综合位置 (0-1) | `0.4*PricePos + 0.3*PePos + 0.3*PbPos` 或红利策略 |
+| `valuation_label` | String | 估值标签 | 底部区域, 偏低, 中位, 偏高, 高位区域 |
 
 ### 2. PriceHistory (价格历史行情表)
 存储每日的交易行情数据。
@@ -83,6 +95,8 @@ ruby sync_stocks.rb --incremental
 | `volume` | BigInt | 成交量 | 单位：手 |
 | `amount` | Decimal | 成交额 | |
 | `amplitude` | Decimal | 振幅 | |
+| `pe` | Decimal | 历史 PE | 抓取自估值接口 |
+| `pb` | Decimal | 历史 PB | 抓取自估值接口 |
 
 ### 3. Dividend (分红历史表)
 存储详细的分红方案及其实施日期。
