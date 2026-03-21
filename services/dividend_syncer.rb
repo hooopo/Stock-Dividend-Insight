@@ -59,16 +59,18 @@ class DividendSyncer
       end
 
       base = 10.0
-      base = $1.to_f if description =~ /(\d+)派|送|转/
+      if description =~ /(\d+)(?:派|送|转)/
+        base = $1.to_f
+      end
 
       cash = 0.0
       bonus = 0.0
       rights = 0.0
 
       if base > 0
-        cash = $1.to_f / base if description =~ /派([\d\.]+)元/
-        bonus = $1.to_f / base if description =~ /送([\d\.]+)股/
-        rights = $1.to_f / base if description =~ /转([\d\.]+)股/
+        cash = $1.to_f / base if description =~ /派\s*([\d\.]+)\s*元/
+        bonus = $1.to_f / base if description =~ /送\s*([\d\.]+)\s*股/
+        rights = $1.to_f / base if description =~ /转\s*([\d\.]+)\s*股/
       end
 
       div = Dividend.find_or_initialize_by(stock_id: stock.id, report_date: report_date)

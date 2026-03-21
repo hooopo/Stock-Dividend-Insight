@@ -7,3 +7,6 @@ gem 'yaml'
 gem 'json'
 gem 'rake'
 gem 'dotenv'
+gem 'sinatra'
+gem 'puma'
+gem 'sinatra-reloader', groups: [:development]

@@ -1,0 +1,76 @@
+<div class="bg-white rounded-lg shadow-md p-6">
+    <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
+        <h2 class="text-xl font-semibold text-gray-800 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+            股票概览列表 (<%= @stocks.count %>)
+        </h2>
+        <div class="text-sm text-gray-500 italic">
+            按 <%= @sort_field %> <%= @sort_order == 'desc' ? '降序' : '升序' %> 排序
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-gray-50 text-gray-700 text-sm uppercase tracking-wider">
+                    <th class="p-3 border-b border-gray-200 sticky left-0 bg-gray-50"><%= sort_link('name', '股票名称') %></th>
+                    <th class="p-3 border-b border-gray-200"><%= sort_link('code', '代码') %></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('current_price', '最新价') %></th>
+                    <th class="p-3 border-b border-gray-200 text-right font-bold"><%= sort_link('expected_dividend_yield', '预期股息率') %></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('dividend_yield', '历史股息率') %></th>
+                    <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pos_30d', '30d位置') %></th>
+                    <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pos_1y', '1y位置') %></th>
+                    <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pos_3y', '3y位置') %></th>
+                    <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pos_5y', '5y位置') %></th>
+                    <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('price_position', '全量位置') %></th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-600">
+                <% @stocks.each do |stock| %>
+                    <tr class="hover:bg-blue-50 transition-colors duration-150 border-b border-gray-100 group">
+                        <td class="p-3 font-medium text-gray-800 sticky left-0 bg-white group-hover:bg-blue-50">
+                            <a href="/stocks/<%= stock.id %>" class="text-blue-600 hover:text-blue-800 hover:underline">
+                                <%= stock.name %>
+                            </a>
+                        </td>
+                        <td class="p-3 font-mono text-xs"><%= stock.code %></td>
+                        <td class="p-3 text-right"><%= format_decimal(stock.current_price, 2) %></td>
+                        <td class="p-3 text-right font-bold text-blue-700"><%= format_percent(stock.expected_dividend_yield) %></td>
+                        <td class="p-3 text-right"><%= format_percent(stock.dividend_yield) %></td>
+                        
+                        <td class="p-3 text-center <%= position_color(stock.pos_30d) %>">
+                            <%= format_decimal(stock.pos_30d, 2) %>
+                        </td>
+                        <td class="p-3 text-center <%= position_color(stock.pos_1y) %>">
+                            <%= format_decimal(stock.pos_1y, 2) %>
+                        </td>
+                        <td class="p-3 text-center <%= position_color(stock.pos_3y) %>">
+                            <%= format_decimal(stock.pos_3y, 2) %>
+                        </td>
+                        <td class="p-3 text-center <%= position_color(stock.pos_5y) %>">
+                            <%= format_decimal(stock.pos_5y, 2) %>
+                        </td>
+                        <td class="p-3 text-center font-bold">
+                            <%= format_decimal(stock.price_position, 2) %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+        <h3 class="text-lg font-semibold text-blue-800 mb-2">💡 什么是位置指标？</h3>
+        <p class="text-blue-700 text-sm leading-relaxed">
+            位置指标表示当前收盘价在对应滚动窗口内的百分比。数值越小（越接近 0），说明当前价格越接近该周期的历史低位；数值越大（越接近 1），说明当前价格越接近该周期的历史高位。
+        </p>
+    </div>
+    <div class="bg-green-50 p-6 rounded-lg border border-green-100">
+        <h3 class="text-lg font-semibold text-green-800 mb-2">📈 什么是预期股息率？</h3>
+        <p class="text-green-700 text-sm leading-relaxed">
+            预期股息率是基于最近 12 个月内公布的现金分红总额除以当前股价计算得出。它是评估高股息投资价值的核心参考。
+        </p>
+    </div>
+</div>

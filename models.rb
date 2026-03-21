@@ -12,13 +12,12 @@ ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 # - market_id: 市场 ID (0:深证, 1:上证)
 # - dividend_yield: 历史股息率 (根据最后一次完整年度分红计算)
 # - expected_dividend_yield: 预期股息率 (基于最近 12 个月分红和最新股价)
-# - pe: 当前市盈率 (PE TTM)
-# - pb: 当前市净率 (PB)
-# - price_position: 当前价格在历史价格区间的百分位 (0-1)
-# - dividend_yield_position: 当前股息率在历史股息率区间的百分位 (0-1)
-# - pe_position: PE 历史百分位 (0-1)
-# - pb_position: PB 历史百分位 (0-1)
-# - comprehensive_position: 综合位置 (0.4*Price + 0.3*PE + 0.3*PB)
+# - current_price: 最新收盘价
+# - high_30d, low_30d, pos_30d: 30天滚动最高、最低及位置
+# - high_1y, low_1y, pos_1y: 1年滚动最高、最低及位置
+# - high_3y, low_3y, pos_3y: 3年滚动最高、最低及位置
+# - high_5y, low_5y, pos_5y: 5年滚动最高、最低及位置
+# - price_position: 全量价格百分位 (0-1)
 # - valuation_label: 估值标签
 class Stock < ActiveRecord::Base
   has_many :price_histories, dependent: :destroy

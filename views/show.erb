@@ -1,0 +1,149 @@
+<div class="space-y-6">
+    <!-- 头部卡片 -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div>
+                <div class="flex items-center space-x-3">
+                    <h1 class="text-3xl font-bold text-gray-900"><%= @stock.name %></h1>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-sm font-mono"><%= @stock.code %></span>
+                    <span class="px-2 py-1 <%= @stock.market_id == 1 ? 'bg-red-50 text-red-600' : 'bg-blue-50 text-blue-600' %> rounded text-xs">
+                        <%= @stock.market_id == 1 ? '上证' : '深证' %>
+                    </span>
+                </div>
+                <p class="mt-2 text-gray-500">最新收盘价: <span class="text-2xl font-semibold text-blue-600">¥<%= format_decimal(@stock.current_price, 2) %></span></p>
+            </div>
+            
+            <div class="mt-4 md:mt-0 grid grid-cols-2 gap-4 text-sm">
+                <div class="p-3 bg-blue-50 rounded-lg">
+                    <div class="text-blue-600 mb-1">预期股息率</div>
+                    <div class="text-xl font-bold text-blue-800"><%= format_percent(@stock.expected_dividend_yield) %></div>
+                </div>
+                <div class="p-3 bg-green-50 rounded-lg">
+                    <div class="text-green-600 mb-1">全量价格位置</div>
+                    <div class="text-xl font-bold text-green-800"><%= format_decimal(@stock.price_position, 2) %></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 滚动指标概览 -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-gray-100">
+            <% [["30d", @stock.pos_30d], ["1y", @stock.pos_1y], ["3y", @stock.pos_3y], ["5y", @stock.pos_5y]].each do |label, pos| %>
+                <div class="text-center">
+                    <div class="text-gray-400 text-xs uppercase mb-1"><%= label %> 位置</div>
+                    <div class="text-lg font-semibold <%= position_color(pos) %>">
+                        <%= format_decimal(pos, 2) %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+    <!-- 价格图表 -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+            10年历史价格走势 (收盘价)
+        </h2>
+        <div class="h-[400px]">
+            <canvas id="priceChart"></canvas>
+        </div>
+    </div>
+
+    <!-- 分红列表 -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            历史分红方案
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="bg-gray-50 text-gray-700 text-sm uppercase">
+                        <th class="p-3 border-b">报告期</th>
+                        <th class="p-3 border-b">分红方案</th>
+                        <th class="p-3 border-b text-right">每股派现(元)</th>
+                        <th class="p-3 border-b text-right font-bold text-green-700">当时股息率</th>
+                        <th class="p-3 border-b text-center">公告日期</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm text-gray-600">
+                    <% @dividends.each do |div| %>
+                        <tr class="hover:bg-gray-50 border-b border-gray-50">
+                            <td class="p-3"><%= div.report_date %></td>
+                            <td class="p-3 text-gray-800"><%= div.plan_description %></td>
+                            <td class="p-3 text-right"><%= format_decimal(div.cash_dividend, 4) %></td>
+                            <td class="p-3 text-right font-bold text-green-600"><%= format_percent(div.dividend_yield) %></td>
+                            <td class="p-3 text-center text-gray-400"><%= div.notice_date || '-' %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('priceChart').getContext('2d');
+    
+    const chartData = {
+        labels: [<%= @price_histories.map { |ph| "'#{ph.date}'" }.join(',') %>],
+        datasets: [{
+            label: '收盘价 (¥)',
+            data: [<%= @price_histories.map { |ph| ph.close.to_f }.join(',') %>],
+            borderColor: 'rgb(59, 130, 246)',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            borderWidth: 2,
+            pointRadius: 0,
+            fill: true,
+            tension: 0.1
+        }]
+    };
+
+    new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                intersect: false,
+                mode: 'index',
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    padding: 12,
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    titleColor: '#1f2937',
+                    bodyColor: '#4b5563',
+                    borderColor: '#e5e7eb',
+                    borderWidth: 1,
+                    displayColors: false
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        maxTicksLimit: 12
+                    }
+                },
+                y: {
+                    grid: {
+                        color: '#f3f4f6'
+                    },
+                    ticks: {
+                        callback: function(value) {
+                            return '¥' + value;
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
