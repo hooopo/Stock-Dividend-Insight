@@ -39,8 +39,8 @@ class PriceHistorySyncer
     market_prefix = stock.market_id == 1 ? 'sh' : 'sz'
     symbol = "#{market_prefix}#{stock.code}"
     
-    # 默认抓取 1000 条数据，如果是增量更新，则抓取 20 条
-    datalen = @incremental ? 20 : 1000
+    # 默认抓取 2600 条数据 (约 10 年交易日)，如果是增量更新，则抓取 20 条
+    datalen = @incremental ? 20 : 2600
 
     url = "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData"
     params = {
