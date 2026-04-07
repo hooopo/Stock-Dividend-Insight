@@ -8,8 +8,9 @@ require_relative 'services/dividend_syncer'
 require_relative 'services/valuation_calculator'
 
 class StockSyncService
-  def initialize(incremental: false)
+  def initialize(incremental: false, force: false)
     @incremental = incremental
+    @force = force
   end
 
   def run
@@ -17,7 +18,7 @@ class StockSyncService
     StockLoader.new.load
     
     # 2. 同步 K 线
-    PriceHistorySyncer.new(incremental: @incremental).sync
+    PriceHistorySyncer.new(incremental: @incremental, force: @force).sync
     
     # 3. 同步分红数据
     DividendSyncer.new.sync
@@ -31,5 +32,6 @@ end
 
 if __FILE__ == $0
   incremental = ARGV.include?('--incremental')
-  StockSyncService.new(incremental: incremental).run
+  force = ARGV.include?('--force')
+  StockSyncService.new(incremental: incremental, force: force).run
 end

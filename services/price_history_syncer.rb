@@ -1,22 +1,30 @@
-require 'shellwords'
 require 'json'
 require 'date'
 require 'faraday'
+require 'faraday/retry'
 
 class PriceHistorySyncer
-  def initialize(incremental: false)
+  def initialize(incremental: false, force: false, scope: Stock.all)
     @incremental = incremental
+    @force = force
+    @scope = scope
   end
 
   def sync
-    Stock.find_each do |stock|
+    @scope.find_each do |stock|
+      if !@force && stock.last_synced_at && stock.last_synced_at.to_date >= Date.today
+        puts "Skipping #{stock.name} (#{stock.secid}), already synced today."
+        next
+      end
+
       puts "Syncing price history for #{stock.name} (#{stock.secid})..."
       
       retries = 3
       begin
         fetch_and_save_kline(stock)
         PriceMetricsCalculator.calculate(stock) # 计算多维度价格指标
-      rescue => e
+        stock.update!(last_synced_at: Time.now) # 标记同步成功
+      rescue Faraday::Error, JSON::ParserError => e
         if retries > 0
           retries -= 1
           wait_time = (4 - retries) * 5 + rand(1..3)
@@ -52,9 +60,12 @@ class PriceHistorySyncer
 
     begin
       conn = Faraday.new(url: url) do |f|
-        f.request :url_encoded
-        f.adapter Faraday.default_adapter
-      end
+          f.request :url_encoded
+          f.request :retry, max: 3, interval: 0.05,
+                           interval_randomness: 0.5, backoff_factor: 2,
+                           exceptions: [Faraday::Error, JSON::ParserError]
+          f.adapter Faraday.default_adapter
+        end
 
       response = conn.get('', params, {
         'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
@@ -63,7 +74,7 @@ class PriceHistorySyncer
       return unless response.success?
       
       data = JSON.parse(response.body)
-      return if data.empty?
+      return if data.nil? || (data.respond_to?(:empty?) && data.empty?)
 
       records_created = 0
       data.each do |item|
@@ -84,7 +95,7 @@ class PriceHistorySyncer
         end
       end
       puts "Saved #{records_created} kline records for #{stock.name}."
-    rescue => e
+    rescue Faraday::Error, JSON::ParserError => e
       puts "Failed to fetch kline for #{stock.name}: #{e.message}"
       raise e
     end

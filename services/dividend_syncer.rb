@@ -1,4 +1,5 @@
 require 'faraday'
+require 'faraday/retry'
 require 'json'
 require 'date'
 
@@ -8,7 +9,7 @@ class DividendSyncer
       puts "Syncing dividends for #{stock.name} (#{stock.secid})..."
       begin
         fetch_and_save_dividends(stock)
-      rescue => e
+      rescue Faraday::Error, JSON::ParserError => e
         puts "Error syncing dividends for #{stock.name}: #{e.message}"
       end
       sleep(rand(1.0..2.0))
@@ -34,15 +35,19 @@ class DividendSyncer
 
     conn = Faraday.new(url: url) do |f|
       f.request :url_encoded
+      f.request :retry, max: 3, interval: 0.05,
+                       interval_randomness: 0.5, backoff_factor: 2,
+                       exceptions: [Faraday::Error, JSON::ParserError]
       f.adapter Faraday.default_adapter
     end
 
     response = conn.get('', params, headers)
     return unless response.success?
 
-    data = JSON.parse(response.body)
-    results = data.dig('result', 'data') || []
-    if results.empty?
+    data = JSON.parse(response.body) rescue nil
+    results = data.dig('result', 'data') if data
+    
+    if results.nil? || results.empty?
       puts "No dividend data in response for #{stock.name}: #{response.body[0..200]}"
       return
     end

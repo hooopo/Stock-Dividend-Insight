@@ -11,12 +11,20 @@ get '/' do
   
   sort_field = params[:sort] || 'expected_dividend_yield'
   sort_order = params[:order] || 'desc'
+  category_id = params[:category_id]
   
   # 验证排序字段，防止 SQL 注入
   sort_field = 'expected_dividend_yield' unless allowed_sort_fields.include?(sort_field)
   sort_order = 'desc' unless %w[asc desc].include?(sort_order)
   
-  @stocks = Stock.order("#{sort_field} #{sort_order} NULLS LAST")
+  @stocks = Stock.includes(:categories).order("#{sort_field} #{sort_order} NULLS LAST")
+  
+  if category_id && !category_id.to_s.empty?
+    @stocks = @stocks.joins(:categorizations).where(categorizations: { category_id: category_id })
+    @current_category = Category.find(category_id)
+  end
+
+  @categories = Category.joins(:categorizations).group('categories.id').order('count(categorizations.id) desc')
   @sort_field = sort_field
   @sort_order = sort_order
   
@@ -24,7 +32,7 @@ get '/' do
 end
 
 get '/stocks/:id' do
-  @stock = Stock.find(params[:id])
+  @stock = Stock.includes(:categories).find(params[:id])
   # 价格走势（取最近 10 年），按日期升序用于绘图
   @price_histories = @stock.price_histories.order(date: :asc)
   # 分红历史，按报告期降序展示
@@ -66,6 +74,11 @@ helpers do
            else
              ''
            end
-    "<a href='?sort=#{field}&order=#{new_order}' class='hover:underline text-blue-600'>#{label}#{icon}</a>"
+    
+    query_params = { sort: field, order: new_order }
+    query_params[:category_id] = params[:category_id] if params[:category_id] && !params[:category_id].to_s.empty?
+    
+    query_string = query_params.map { |k, v| "#{k}=#{v}" }.join('&')
+    "<a href='?#{query_string}' class='hover:underline text-blue-600'>#{label}#{icon}</a>"
   end
 end

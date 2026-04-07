@@ -9,4 +9,6 @@ gem 'rake'
 gem 'dotenv'
 gem 'sinatra'
 gem 'puma'
+gem 'faraday-retry'
+gem 'httplog'
 gem 'sinatra-reloader', groups: [:development]

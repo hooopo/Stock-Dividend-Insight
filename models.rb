@@ -1,5 +1,16 @@
 require 'active_record'
 require 'dotenv/load'
+require 'httplog'
+
+# HttpLog 配置
+HttpLog.configure do |config|
+  config.enabled = true
+  config.log_headers = false
+  config.log_data = false # 不打印请求 body
+  config.log_response = false # 不打印响应 body
+  config.compact_log = true # 使用单行日志
+  config.color = :blue
+end
 
 # 数据库配置
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
@@ -22,6 +33,20 @@ ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 class Stock < ActiveRecord::Base
   has_many :price_histories, dependent: :destroy
   has_many :dividends, dependent: :destroy
+  has_many :categorizations, dependent: :destroy
+  has_many :categories, through: :categorizations
+end
+
+# 分类模型
+class Category < ActiveRecord::Base
+  has_many :categorizations, dependent: :destroy
+  has_many :stocks, through: :categorizations
+end
+
+# 股票与分类的关联模型
+class Categorization < ActiveRecord::Base
+  belongs_to :stock
+  belongs_to :category
 end
 
 # 价格历史行情模型

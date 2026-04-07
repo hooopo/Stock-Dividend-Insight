@@ -1,11 +1,28 @@
 <div class="bg-white rounded-lg shadow-md p-6">
-    <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
-        <h2 class="text-xl font-semibold text-gray-800 flex items-center">
-            <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-            股票概览列表 (<%= @stocks.count %>)
-        </h2>
-        <div class="text-sm text-gray-500 italic">
-            按 <%= @sort_field %> <%= @sort_order == 'desc' ? '降序' : '升序' %> 排序
+    <div class="mb-6 border-b border-gray-100 pb-4">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold text-gray-800 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                股票概览列表 (<%= @stocks.count %>)
+            </h2>
+            <div class="text-sm text-gray-500 italic">
+                按 <%= @sort_field %> <%= @sort_order == 'desc' ? '降序' : '升序' %> 排序
+            </div>
+        </div>
+        
+        <!-- 分类过滤 -->
+        <div class="flex flex-wrap gap-2 items-center text-sm">
+            <span class="text-gray-600 font-medium mr-2">分类过滤:</span>
+            <a href="/?sort=<%= @sort_field %>&order=<%= @sort_order %>" 
+               class="px-3 py-1 rounded-full transition-colors <%= !@current_category ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' %>">
+               全部
+            </a>
+            <% @categories.each do |cat| %>
+                <a href="/?category_id=<%= cat.id %>&sort=<%= @sort_field %>&order=<%= @sort_order %>" 
+                   class="px-3 py-1 rounded-full transition-colors <%= @current_category&.id == cat.id ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' %>">
+                   <%= cat.name %>
+                </a>
+            <% end %>
         </div>
     </div>
 
@@ -14,6 +31,7 @@
             <thead>
                 <tr class="bg-gray-50 text-gray-700 text-sm uppercase tracking-wider">
                     <th class="p-3 border-b border-gray-200 sticky left-0 bg-gray-50"><%= sort_link('name', '股票名称') %></th>
+                    <th class="p-3 border-b border-gray-200">分类</th>
                     <th class="p-3 border-b border-gray-200"><%= sort_link('code', '代码') %></th>
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('current_price', '最新价') %></th>
                     <th class="p-3 border-b border-gray-200 text-right font-bold"><%= sort_link('expected_dividend_yield', '预期股息率') %></th>
@@ -32,6 +50,13 @@
                             <a href="/stocks/<%= stock.id %>" class="text-blue-600 hover:text-blue-800 hover:underline">
                                 <%= stock.name %>
                             </a>
+                        </td>
+                        <td class="p-3">
+                            <div class="flex flex-wrap gap-1">
+                                <% stock.categories.each do |cat| %>
+                                    <span class="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full"><%= cat.name %></span>
+                                <% end %>
+                            </div>
                         </td>
                         <td class="p-3 font-mono text-xs"><%= stock.code %></td>
                         <td class="p-3 text-right"><%= format_decimal(stock.current_price, 2) %></td>
