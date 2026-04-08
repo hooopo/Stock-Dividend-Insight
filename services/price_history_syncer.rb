@@ -4,10 +4,11 @@ require 'faraday'
 require 'faraday/retry'
 
 class PriceHistorySyncer
-  def initialize(incremental: false, force: false, scope: Stock.all)
+  def initialize(incremental: false, force: false, scope: Stock.all, sleep_range: (1.0..3.0))
     @incremental = incremental
     @force = force
     @scope = scope
+    @sleep_range = sleep_range
   end
 
   def sync
@@ -21,9 +22,13 @@ class PriceHistorySyncer
       
       retries = 3
       begin
-        fetch_and_save_kline(stock)
-        PriceMetricsCalculator.calculate(stock) # 计算多维度价格指标
-        stock.update!(last_synced_at: Time.now) # 标记同步成功
+        data_present = fetch_and_save_kline(stock)
+        if data_present
+          PriceMetricsCalculator.calculate(stock) # 计算多维度价格指标
+          stock.update!(last_synced_at: Time.now) # 标记同步成功
+        else
+          puts "No kline data for #{stock.name} (#{stock.secid})."
+        end
       rescue Faraday::Error, JSON::ParserError => e
         if retries > 0
           retries -= 1
@@ -36,7 +41,7 @@ class PriceHistorySyncer
         end
       end
       
-      sleep(rand(1.0..3.0))
+      sleep(rand(@sleep_range)) if @sleep_range
     end
   end
 
@@ -71,10 +76,10 @@ class PriceHistorySyncer
         'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
       })
       
-      return unless response.success?
+      raise Faraday::Error, "HTTP #{response.status}" unless response.success?
       
       data = JSON.parse(response.body)
-      return if data.nil? || (data.respond_to?(:empty?) && data.empty?)
+      return false if data.nil? || (data.respond_to?(:empty?) && data.empty?)
 
       records_created = 0
       data.each do |item|
@@ -95,6 +100,7 @@ class PriceHistorySyncer
         end
       end
       puts "Saved #{records_created} kline records for #{stock.name}."
+      true
     rescue Faraday::Error, JSON::ParserError => e
       puts "Failed to fetch kline for #{stock.name}: #{e.message}"
       raise e

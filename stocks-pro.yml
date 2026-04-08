@@ -1,2586 +1,2586 @@
 ---
 stocks:
-- code: '600519'
+- code: "600519"
   name: 贵州茅台
   categories:
   - 白酒
   - 消费
-- code: '601318'
+- code: "601318"
   name: 中国平安
   categories:
   - 保险
   - 金融
-- code: '600036'
+- code: "600036"
   name: 招商银行
   categories:
   - 银行
   - 金融
-- code: '601398'
+- code: "601398"
   name: 工商银行
   categories:
   - 银行
   - 金融
-- code: '300750'
+- code: "300750"
   name: 宁德时代
   categories:
   - 电力设备
   - 工业
-- code: '601288'
+- code: "601288"
   name: 农业银行
   categories:
   - 银行
   - 金融
-- code: '000858'
+- code: "000858"
   name: 五粮液
   categories:
   - 白酒
   - 消费
-- code: '601939'
+- code: "601939"
   name: 建设银行
   categories:
   - 银行
   - 金融
-- code: '600276'
+- code: "600276"
   name: 恒瑞医药
   categories:
   - 医药生物
   - 医药卫生
-- code: '300059'
+- code: "300059"
   name: 东方财富
   categories:
   - 证券
   - 金融
-- code: '001293'
+- code: "002415"
   name: 海康威视
   categories:
   - 计算机
   - 信息技术
-- code: '600900'
+- code: "600900"
   name: 长江电力
   categories:
   - 公用事业
   - 公用事业
-- code: '601328'
+- code: "601328"
   name: 交通银行
   categories:
   - 银行
   - 金融
-- code: '000001'
+- code: "000001"
   name: 平安银行
   categories:
   - 银行
   - 金融
-- code: '002594'
+- code: "002594"
   name: 比亚迪
   categories:
   - 汽车
   - 可选消费
-- code: '601012'
+- code: "601012"
   name: 隆基绿能
   categories:
   - 光伏设备
   - 工业
-- code: '601166'
+- code: "601166"
   name: 兴业银行
   categories:
   - 银行
   - 金融
-- code: '600030'
+- code: "600030"
   name: 中信证券
   categories:
   - 证券
   - 金融
-- code: '601899'
+- code: "601899"
   name: 紫金矿业
   categories:
   - 有色金属
   - 原材料
-- code: '300760'
+- code: "300760"
   name: 迈瑞医疗
   categories:
   - 医疗器械
   - 医药卫生
-- code: '001341'
+- code: "002475"
   name: 立讯精密
   categories:
   - 消费电子
   - 信息技术
-- code: '600887'
+- code: "600887"
   name: 伊利股份
   categories:
   - 乳制品
   - 消费
-- code: '601668'
+- code: "601668"
   name: 中国建筑
   categories:
   - 建筑装饰
   - 工业
-- code: '688981'
+- code: "688981"
   name: 中芯国际
   categories:
   - 半导体
   - 信息技术
-- code: '601816'
+- code: "601816"
   name: 京沪高铁
   categories:
   - 铁路运输
   - 工业
-- code: '300124'
+- code: "300124"
   name: 汇川技术
   categories:
   - 自动化设备
   - 工业
-- code: '001258'
+- code: "002352"
   name: 顺丰控股
   categories:
   - 快递
   - 交通运输
-- code: '001484'
+- code: "002714"
   name: 牧原股份
   categories:
   - 养殖业
   - 消费
-- code: '600050'
+- code: "600050"
   name: 中国联通
   categories:
   - 通信服务
   - 电信业务
-- code: '601688'
+- code: "601688"
   name: 华泰证券
   categories:
   - 证券
   - 金融
-- code: '601088'
+- code: "601088"
   name: 中国神华
   categories:
   - 煤炭
   - 能源
-- code: '600309'
+- code: "600309"
   name: 万华化学
   categories:
   - 化学制品
   - 原材料
-- code: '600000'
+- code: "600000"
   name: 浦发银行
   categories:
   - 银行
   - 金融
-- code: '601857'
+- code: "601857"
   name: 中国石油
   categories:
   - 石油天然气
   - 能源
-- code: '600016'
+- code: "600016"
   name: 民生银行
   categories:
   - 银行
   - 金融
-- code: '600028'
+- code: "600028"
   name: 中国石化
   categories:
   - 石油化工
   - 能源
-- code: '001220'
+- code: "002304"
   name: 洋河股份
   categories:
   - 白酒
   - 消费
-- code: '001122'
+- code: "002142"
   name: 宁波银行
   categories:
   - 银行
   - 金融
-- code: '300274'
+- code: "300274"
   name: 阳光电源
   categories:
   - 光伏设备
   - 工业
-- code: '603259'
+- code: "603259"
   name: 药明康德
   categories:
   - 医疗服务
   - 医药卫生
-- code: '600104'
+- code: "600104"
   name: 上汽集团
   categories:
   - 汽车整车
   - 可选消费
-- code: '601985'
+- code: "601985"
   name: 中国核电
   categories:
   - 电力
   - 公用事业
-- code: '600809'
+- code: "600809"
   name: 山西汾酒
   categories:
   - 白酒
   - 消费
-- code: '000002'
+- code: "000002"
   name: 万科A
   categories:
   - 房地产开发
   - 房地产
-- code: '001209'
+- code: "002271"
   name: 东方雨虹
   categories:
   - 建筑材料
   - 原材料
-- code: '300014'
+- code: "300014"
   name: 亿纬锂能
   categories:
   - 电池
   - 工业
-- code: '688111'
+- code: "688111"
   name: 金山办公
   categories:
   - 软件开发
   - 信息技术
-- code: '000792'
+- code: "000792"
   name: 盐湖股份
   categories:
   - 化学原料
   - 原材料
-- code: '600438'
+- code: "600438"
   name: 通威股份
   categories:
   - 光伏设备
   - 工业
-- code: '000469'
+- code: "000725"
   name: 京东方A
   categories:
   - 显示器件
   - 信息技术
-- code: '600406'
+- code: "600406"
   name: 国电南瑞
   categories:
   - 电网设备
   - 工业
-- code: '601633'
+- code: "601633"
   name: 长城汽车
   categories:
   - 汽车整车
   - 可选消费
-- code: '000510'
+- code: "000776"
   name: 广发证券
   categories:
   - 证券
   - 金融
-- code: '601989'
+- code: "601989"
   name: 中国重工
   categories:
   - 航海装备
   - 工业
-- code: '001176'
+- code: "002230"
   name: 科大讯飞
   categories:
   - 软件开发
   - 信息技术
-- code: '001328'
+- code: "002460"
   name: 赣锋锂业
   categories:
   - 能源金属
   - 原材料
-- code: '600999'
+- code: "600999"
   name: 招商证券
   categories:
   - 证券
   - 金融
-- code: '002129'
+- code: "002129"
   name: TCL中环
   categories:
   - 光伏设备
   - 工业
-- code: '600690'
+- code: "600690"
   name: 海尔智家
   categories:
   - 白色家电
   - 可选消费
-- code: '002459'
+- code: "002459"
   name: 晶澳科技
   categories:
   - 光伏设备
   - 工业
-- code: '002493'
+- code: "002493"
   name: 荣盛石化
   categories:
   - 化学纤维
   - 原材料
-- code: '603799'
+- code: "603799"
   name: 华友钴业
   categories:
   - 能源金属
   - 原材料
-- code: '600585'
+- code: "600585"
   name: 海螺水泥
   categories:
   - 水泥
   - 原材料
-- code: '601600'
+- code: "601600"
   name: 中国铝业
   categories:
   - 工业金属
   - 原材料
-- code: '000538'
+- code: "000538"
   name: 云南白药
   categories:
   - 中药
   - 医药卫生
-- code: '300498'
+- code: "300498"
   name: 温氏股份
   categories:
   - 养殖业
   - 消费
-- code: '000338'
+- code: "000338"
   name: 潍柴动力
   categories:
   - 汽车零部件
   - 可选消费
-- code: '001334'
+- code: "002466"
   name: 天齐锂业
   categories:
   - 能源金属
   - 原材料
-- code: '600958'
+- code: "600958"
   name: 东方证券
   categories:
   - 证券
   - 金融
-- code: '001031'
+- code: "002007"
   name: 华兰生物
   categories:
   - 生物制品
   - 医药卫生
-- code: '300408'
+- code: "300408"
   name: 三环集团
   categories:
   - 电子元件
   - 信息技术
-- code: '300122'
+- code: "300122"
   name: 智飞生物
   categories:
   - 生物制品
   - 医药卫生
-- code: '001225'
+- code: "002311"
   name: 海大集团
   categories:
   - 饲料
   - 消费
-- code: '603288'
+- code: "603288"
   name: 海天味业
   categories:
   - 调味品
   - 消费
-- code: '600015'
+- code: "600015"
   name: 华夏银行
   categories:
   - 银行
   - 金融
-- code: '600688'
+- code: "600688"
   name: 上海石化
   categories:
   - 石油化工
   - 能源
-- code: '001182'
+- code: "002236"
   name: 大华股份
   categories:
   - 计算机设备
   - 信息技术
-- code: '600837'
+- code: "600837"
   name: 海通证券
   categories:
   - 证券
   - 金融
-- code: '601901'
+- code: "601901"
   name: 方正证券
   categories:
   - 证券
   - 金融
-- code: '001047'
+- code: "002027"
   name: 分众传媒
   categories:
   - 广告营销
   - 传媒
-- code: '001389'
+- code: "002555"
   name: 三七互娱
   categories:
   - 游戏
   - 传媒
-- code: '601225'
+- code: "601225"
   name: 陕西煤业
   categories:
   - 煤炭
   - 能源
-- code: '600919'
+- code: "600919"
   name: 江苏银行
   categories:
   - 银行
   - 金融
-- code: '601818'
+- code: "601818"
   name: 光大银行
   categories:
   - 银行
   - 金融
-- code: '002920'
+- code: "002920"
   name: 德赛西威
   categories:
   - 汽车零部件
   - 可选消费
-- code: '001076'
+- code: "002064"
   name: 华峰化学
   categories:
   - 化学纤维
   - 原材料
-- code: '300033'
+- code: "300033"
   name: 同花顺
   categories:
   - 软件开发
   - 信息技术
-- code: '603986'
+- code: "603986"
   name: 兆易创新
   categories:
   - 半导体
   - 信息技术
-- code: '001409'
+- code: "002601"
   name: 龙佰集团
   categories:
   - 化学原料
   - 原材料
-- code: '600926'
+- code: "600926"
   name: 杭州银行
   categories:
   - 银行
   - 金融
-- code: '002821'
+- code: "002821"
   name: 凯莱英
   categories:
   - 医疗服务
   - 医药卫生
-- code: '000786'
+- code: "000786"
   name: 北新建材
   categories:
   - 建筑材料
   - 原材料
-- code: '001288'
+- code: "002410"
   name: 广联达
   categories:
   - 软件开发
   - 信息技术
-- code: '002916'
+- code: "002916"
   name: 深南电路
   categories:
   - 电子元件
   - 信息技术
-- code: '001185'
+- code: "002241"
   name: 歌尔股份
   categories:
   - 消费电子
   - 信息技术
-- code: '001060'
+- code: "002044"
   name: 美年健康
   categories:
   - 医疗服务
   - 医药卫生
-- code: '001171'
+- code: "002223"
   name: 鱼跃医疗
   categories:
   - 医疗器械
   - 医药卫生
-- code: '001410'
+- code: "002602"
   name: 世纪华通
   categories:
   - 游戏
   - 传媒
-- code: '001154'
+- code: "002202"
   name: 金风科技
   categories:
   - 风电设备
   - 工业
-- code: '001206'
+- code: "002266"
   name: 浙富控股
   categories:
   - 电力设备
   - 工业
-- code: '002180'
+- code: "002180"
   name: 纳思达
   categories:
   - 计算机设备
   - 信息技术
-- code: '002468'
+- code: "002468"
   name: 申通快递
   categories:
   - 快递
   - 交通运输
-- code: '001111'
+- code: "002127"
   name: 南极电商
   categories:
   - 电商服务
   - 可选消费
-- code: '001350'
+- code: "002506"
   name: 协鑫集成
   categories:
   - 光伏设备
   - 工业
-- code: '001428'
+- code: "002624"
   name: 完美世界
   categories:
   - 游戏
   - 传媒
-- code: '002183'
+- code: "002183"
   name: 怡亚通
   categories:
   - 供应链服务
   - 交通运输
-- code: '002008'
+- code: "002008"
   name: 大族激光
   categories:
   - 自动化设备
   - 工业
-- code: '001064'
+- code: "002050"
   name: 三花智控
   categories:
   - 家电零部件
   - 可选消费
-- code: '002385'
+- code: "002385"
   name: 大北农
   categories:
   - 饲料
   - 消费
-- code: '002399'
+- code: "002399"
   name: 海普瑞
   categories:
   - 化学制药
   - 医药卫生
-- code: '001326'
+- code: "002456"
   name: 欧菲光
   categories:
   - 光学光电子
   - 信息技术
-- code: '002268'
+- code: "002268"
   name: 电科网安
   categories:
   - 软件开发
   - 信息技术
-- code: '001025'
+- code: "002001"
   name: 新和成
   categories:
   - 化学制药
   - 医药卫生
-- code: '002294'
+- code: "002294"
   name: 信立泰
   categories:
   - 化学制药
   - 医药卫生
-- code: '002081'
+- code: "002081"
   name: 金螳螂
   categories:
   - 装修装饰
   - 工业
-- code: '001126'
+- code: "002146"
   name: 荣盛发展
   categories:
   - 房地产开发
   - 房地产
-- code: '001131'
+- code: "002153"
   name: 石基信息
   categories:
   - 软件开发
   - 信息技术
-- code: '002008'
+- code: "002008"
   name: 大族激光
   categories:
   - 自动化设备
   - 工业
-- code: '001044'
+- code: "002024"
   name: 苏宁易购
   categories:
   - 零售
   - 可选消费
-- code: '001050'
+- code: "002032"
   name: 苏泊尔
   categories:
   - 小家电
   - 可选消费
-- code: '002038'
+- code: "002038"
   name: 双鹭药业
   categories:
   - 生物制品
   - 医药卫生
-- code: '001083'
+- code: "002073"
   name: 软控股份
   categories:
   - 专用设备
   - 工业
-- code: '002092'
+- code: "002092"
   name: 中泰化学
   categories:
   - 化学原料
   - 原材料
-- code: '002128'
+- code: "002128"
   name: 电投能源
   categories:
   - 煤炭
   - 能源
-- code: '001113'
+- code: "002131"
   name: 利欧股份
   categories:
   - 通用设备
   - 工业
-- code: '002138'
+- code: "002138"
   name: 顺络电子
   categories:
   - 电子元件
   - 信息技术
-- code: '002185'
+- code: "002185"
   name: 华天科技
   categories:
   - 半导体
   - 信息技术
-- code: '002195'
+- code: "002195"
   name: 岩山科技
   categories:
   - 软件开发
   - 信息技术
-- code: '001162'
+- code: "002212"
   name: 天融信
   categories:
   - 软件开发
   - 信息技术
-- code: '002249'
+- code: "002249"
   name: 大洋电机
   categories:
   - 电机
   - 工业
-- code: '001194'
+- code: "002252"
   name: 上海莱士
   categories:
   - 生物制品
   - 医药卫生
-- code: '002281'
+- code: "002281"
   name: 光迅科技
   categories:
   - 通信设备
   - 信息技术
-- code: '002299'
+- code: "002299"
   name: 圣农发展
   categories:
   - 养殖业
   - 消费
-- code: '001248'
+- code: "002340"
   name: 格林美
   categories:
   - 环保
   - 公用事业
-- code: '002384'
+- code: "002384"
   name: 东山精密
   categories:
   - 电子元件
   - 信息技术
-- code: '001298'
+- code: "002422"
   name: 科伦药业
   categories:
   - 化学制药
   - 医药卫生
-- code: '001310'
+- code: "002436"
   name: 兴森科技
   categories:
   - 电子元件
   - 信息技术
-- code: '002439'
+- code: "002439"
   name: 启明星辰
   categories:
   - 软件开发
   - 信息技术
-- code: '001333'
+- code: "002465"
   name: 海格通信
   categories:
   - 通信设备
   - 信息技术
-- code: '001336'
+- code: "002470"
   name: 金正大
   categories:
   - 化肥
   - 原材料
-- code: '001344'
+- code: "002500"
   name: 山西证券
   categories:
   - 证券
   - 金融
-- code: '002508'
+- code: "002508"
   name: 老板电器
   categories:
   - 厨卫电器
   - 可选消费
-- code: '001402'
+- code: "002572"
   name: 索菲亚
   categories:
   - 家居用品
   - 可选消费
-- code: '002594'
+- code: "002594"
   name: 比亚迪
   categories:
   - 汽车整车
   - 可选消费
-- code: '001411'
+- code: "002603"
   name: 以岭药业
   categories:
   - 中药
   - 医药卫生
-- code: '001428'
+- code: "002624"
   name: 完美世界
   categories:
   - 游戏
   - 传媒
-- code: '001467'
+- code: "002673"
   name: 西部证券
   categories:
   - 证券
   - 金融
-- code: '001484'
+- code: "002714"
   name: 牧原股份
   categories:
   - 养殖业
   - 消费
-- code: '001502'
+- code: "002736"
   name: 国信证券
   categories:
   - 证券
   - 金融
-- code: '002739'
+- code: "002739"
   name: 万达电影
   categories:
   - 影视院线
   - 传媒
-- code: '002812'
+- code: "002812"
   name: 恩捷股份
   categories:
   - 电池
   - 工业
-- code: '002841'
+- code: "002841"
   name: 视源股份
   categories:
   - 消费电子
   - 信息技术
-- code: '002938'
+- code: "002938"
   name: 鹏鼎控股
   categories:
   - 电子元件
   - 信息技术
-- code: '002939'
+- code: "002939"
   name: 长城证券
   categories:
   - 证券
   - 金融
-- code: '002945'
+- code: "002945"
   name: 华林证券
   categories:
   - 证券
   - 金融
-- code: '002958'
+- code: "002958"
   name: 青农商行
   categories:
   - 银行
   - 金融
-- code: '300001'
+- code: "300001"
   name: 特锐德
   categories:
   - 电力设备
   - 工业
-- code: '300003'
+- code: "300003"
   name: 乐普医疗
   categories:
   - 医疗器械
   - 医药卫生
-- code: '300015'
+- code: "300015"
   name: 爱尔眼科
   categories:
   - 医疗服务
   - 医药卫生
-- code: '300017'
+- code: "300017"
   name: 网宿科技
   categories:
   - 通信服务
   - 信息技术
-- code: '300024'
+- code: "300024"
   name: 机器人
   categories:
   - 自动化设备
   - 工业
-- code: '300033'
+- code: "300033"
   name: 同花顺
   categories:
   - 软件开发
   - 信息技术
-- code: '300054'
+- code: "300054"
   name: 鼎龙股份
   categories:
   - 电子化学品
   - 原材料
-- code: '300058'
+- code: "300058"
   name: 蓝色光标
   categories:
   - 广告营销
   - 传媒
-- code: '300059'
+- code: "300059"
   name: 东方财富
   categories:
   - 证券
   - 金融
-- code: '300068'
+- code: "300068"
   name: 南都电源
   categories:
   - 电池
   - 工业
-- code: '300070'
+- code: "300070"
   name: 碧水源
   categories:
   - 环保
   - 公用事业
-- code: '300073'
+- code: "300073"
   name: 当升科技
   categories:
   - 电池
   - 工业
-- code: '300115'
+- code: "300115"
   name: 长盈精密
   categories:
   - 消费电子
   - 信息技术
-- code: '300122'
+- code: "300122"
   name: 智飞生物
   categories:
   - 生物制品
   - 医药卫生
-- code: '300124'
+- code: "300124"
   name: 汇川技术
   categories:
   - 自动化设备
   - 工业
-- code: '300136'
+- code: "300136"
   name: 信维通信
   categories:
   - 通信设备
   - 信息技术
-- code: '300142'
+- code: "300142"
   name: 沃森生物
   categories:
   - 生物制品
   - 医药卫生
-- code: '300144'
+- code: "300144"
   name: 宋城演艺
   categories:
   - 旅游
   - 可选消费
-- code: '300146'
+- code: "300146"
   name: 汤臣倍健
   categories:
   - 食品饮料
   - 消费
-- code: '300207'
+- code: "300207"
   name: 欣旺达
   categories:
   - 电池
   - 工业
-- code: '300223'
+- code: "300223"
   name: 北京君正
   categories:
   - 半导体
   - 信息技术
-- code: '300244'
+- code: "300244"
   name: 迪安诊断
   categories:
   - 医疗服务
   - 医药卫生
-- code: '300251'
+- code: "300251"
   name: 光线传媒
   categories:
   - 影视院线
   - 传媒
-- code: '300253'
+- code: "300253"
   name: 卫宁健康
   categories:
   - 软件开发
   - 信息技术
-- code: '300274'
+- code: "300274"
   name: 阳光电源
   categories:
   - 光伏设备
   - 工业
-- code: '300285'
+- code: "300285"
   name: 国瓷材料
   categories:
   - 化学原料
   - 原材料
-- code: '300294'
+- code: "300294"
   name: 博雅生物
   categories:
   - 生物制品
   - 医药卫生
-- code: '300296'
+- code: "300296"
   name: 利亚德
   categories:
   - 光学光电子
   - 信息技术
-- code: '300308'
+- code: "300308"
   name: 中际旭创
   categories:
   - 通信设备
   - 信息技术
-- code: '300316'
+- code: "300316"
   name: 晶盛机电
   categories:
   - 光伏设备
   - 工业
-- code: '300347'
+- code: "300347"
   name: 泰格医药
   categories:
   - 医疗服务
   - 医药卫生
-- code: '300357'
+- code: "300357"
   name: 我武生物
   categories:
   - 生物制品
   - 医药卫生
-- code: '300363'
+- code: "300363"
   name: 博腾股份
   categories:
   - 医疗服务
   - 医药卫生
-- code: '300376'
+- code: "300376"
   name: 易事特
   categories:
   - 电力设备
   - 工业
-- code: '300383'
+- code: "300383"
   name: 光环新网
   categories:
   - 通信服务
   - 信息技术
-- code: '300394'
+- code: "300394"
   name: 天孚通信
   categories:
   - 通信设备
   - 信息技术
-- code: '300395'
+- code: "300395"
   name: 菲利华
   categories:
   - 玻璃纤维
   - 原材料
-- code: '300408'
+- code: "300408"
   name: 三环集团
   categories:
   - 电子元件
   - 信息技术
-- code: '300413'
+- code: "300413"
   name: 芒果超媒
   categories:
   - 新媒体
   - 传媒
-- code: '300418'
+- code: "300418"
   name: 昆仑万维
   categories:
   - 游戏
   - 传媒
-- code: '300428'
+- code: "300428"
   name: 立中集团
   categories:
   - 汽车零部件
   - 可选消费
-- code: '300433'
+- code: "300433"
   name: 蓝思科技
   categories:
   - 消费电子
   - 信息技术
-- code: '300450'
+- code: "300450"
   name: 先导智能
   categories:
   - 电池
   - 工业
-- code: '300451'
+- code: "300451"
   name: 创业慧康
   categories:
   - 软件开发
   - 信息技术
-- code: '300454'
+- code: "300454"
   name: 深信服
   categories:
   - 软件开发
   - 信息技术
-- code: '300458'
+- code: "300458"
   name: 全志科技
   categories:
   - 半导体
   - 信息技术
-- code: '300459'
+- code: "300459"
   name: 汤姆猫
   categories:
   - 游戏
   - 传媒
-- code: '300474'
+- code: "300474"
   name: 景嘉微
   categories:
   - 半导体
   - 信息技术
-- code: '300476'
+- code: "300476"
   name: 胜宏科技
   categories:
   - 电子元件
   - 信息技术
-- code: '300482'
+- code: "300482"
   name: 万孚生物
   categories:
   - 医疗器械
   - 医药卫生
-- code: '300496'
+- code: "300496"
   name: 中科创达
   categories:
   - 软件开发
   - 信息技术
-- code: '300498'
+- code: "300498"
   name: 温氏股份
   categories:
   - 养殖业
   - 消费
-- code: '300502'
+- code: "300502"
   name: 新易盛
   categories:
   - 通信设备
   - 信息技术
-- code: '300529'
+- code: "300529"
   name: 健帆生物
   categories:
   - 医疗器械
   - 医药卫生
-- code: '300558'
+- code: "300558"
   name: 贝达药业
   categories:
   - 化学制药
   - 医药卫生
-- code: '300595'
+- code: "300595"
   name: 欧普康视
   categories:
   - 医疗器械
   - 医药卫生
-- code: '300601'
+- code: "300601"
   name: 康泰生物
   categories:
   - 生物制品
   - 医药卫生
-- code: '300618'
+- code: "300618"
   name: 寒锐钴业
   categories:
   - 能源金属
   - 原材料
-- code: '300628'
+- code: "300628"
   name: 亿联网络
   categories:
   - 通信设备
   - 信息技术
-- code: '300630'
+- code: "300630"
   name: 普利制药
   categories:
   - 化学制药
   - 医药卫生
-- code: '300633'
+- code: "300633"
   name: 开立医疗
   categories:
   - 医疗器械
   - 医药卫生
-- code: '300661'
+- code: "300661"
   name: 圣邦股份
   categories:
   - 半导体
   - 信息技术
-- code: '300676'
+- code: "300676"
   name: 华大基因
   categories:
   - 医疗服务
   - 医药卫生
-- code: '300677'
+- code: "300677"
   name: 英科医疗
   categories:
   - 医疗器械
   - 医药卫生
-- code: '300679'
+- code: "300679"
   name: 电连技术
   categories:
   - 电子元件
   - 信息技术
-- code: '300724'
+- code: "300724"
   name: 捷佳伟创
   categories:
   - 光伏设备
   - 工业
-- code: '300747'
+- code: "300747"
   name: 锐科激光
   categories:
   - 激光设备
   - 工业
-- code: '300748'
+- code: "300748"
   name: 金力永磁
   categories:
   - 金属新材料
   - 原材料
-- code: '300750'
+- code: "300750"
   name: 宁德时代
   categories:
   - 电池
   - 工业
-- code: '300751'
+- code: "300751"
   name: 迈为股份
   categories:
   - 光伏设备
   - 工业
-- code: '300759'
+- code: "300759"
   name: 康龙化成
   categories:
   - 医疗服务
   - 医药卫生
-- code: '300760'
+- code: "300760"
   name: 迈瑞医疗
   categories:
   - 医疗器械
   - 医药卫生
-- code: '300763'
+- code: "300763"
   name: 锦浪科技
   categories:
   - 光伏设备
   - 工业
-- code: '300769'
+- code: "300769"
   name: 德方纳米
   categories:
   - 电池
   - 工业
-- code: '300770'
+- code: "300770"
   name: 新媒股份
   categories:
   - 新媒体
   - 传媒
-- code: '300782'
+- code: "300782"
   name: 卓胜微
   categories:
   - 半导体
   - 信息技术
-- code: '300803'
+- code: "300803"
   name: 指南针
   categories:
   - 软件开发
   - 信息技术
-- code: '300832'
+- code: "300832"
   name: 新产业
   categories:
   - 医疗器械
   - 医药卫生
-- code: '300866'
+- code: "300866"
   name: 安克创新
   categories:
   - 消费电子
   - 信息技术
-- code: '300896'
+- code: "300896"
   name: 爱美客
   categories:
   - 美容护理
   - 可选消费
-- code: '300919'
+- code: "300919"
   name: 中伟股份
   categories:
   - 电池
   - 工业
-- code: '300957'
+- code: "300957"
   name: 贝泰妮
   categories:
   - 美容护理
   - 可选消费
-- code: '300979'
+- code: "300979"
   name: 华利集团
   categories:
   - 纺织服饰
   - 可选消费
-- code: '300999'
+- code: "300999"
   name: 金龙鱼
   categories:
   - 农产品加工
   - 消费
-- code: '600009'
+- code: "600009"
   name: 上海机场
   categories:
   - 机场
   - 交通运输
-- code: '600010'
+- code: "600010"
   name: 包钢股份
   categories:
   - 钢铁
   - 原材料
-- code: '600011'
+- code: "600011"
   name: 华能国际
   categories:
   - 电力
   - 公用事业
-- code: '600015'
+- code: "600015"
   name: 华夏银行
   categories:
   - 银行
   - 金融
-- code: '600016'
+- code: "600016"
   name: 民生银行
   categories:
   - 银行
   - 金融
-- code: '600018'
+- code: "600018"
   name: 上港集团
   categories:
   - 港口
   - 交通运输
-- code: '600019'
+- code: "600019"
   name: 宝钢股份
   categories:
   - 钢铁
   - 原材料
-- code: '600025'
+- code: "600025"
   name: 华能水电
   categories:
   - 电力
   - 公用事业
-- code: '600027'
+- code: "600027"
   name: 华电国际
   categories:
   - 电力
   - 公用事业
-- code: '600028'
+- code: "600028"
   name: 中国石化
   categories:
   - 石油化工
   - 能源
-- code: '600029'
+- code: "600029"
   name: 南方航空
   categories:
   - 航空
   - 交通运输
-- code: '600030'
+- code: "600030"
   name: 中信证券
   categories:
   - 证券
   - 金融
-- code: '600031'
+- code: "600031"
   name: 三一重工
   categories:
   - 工程机械
   - 工业
-- code: '600036'
+- code: "600036"
   name: 招商银行
   categories:
   - 银行
   - 金融
-- code: '600038'
+- code: "600038"
   name: 中直股份
   categories:
   - 航空装备
   - 工业
-- code: '600048'
+- code: "600048"
   name: 保利发展
   categories:
   - 房地产开发
   - 房地产
-- code: '600050'
+- code: "600050"
   name: 中国联通
   categories:
   - 通信服务
   - 电信业务
-- code: '600056'
+- code: "600056"
   name: 中国医药
   categories:
   - 医药商业
   - 医药卫生
-- code: '600060'
+- code: "600060"
   name: 海信视像
   categories:
   - 黑色家电
   - 可选消费
-- code: '600061'
+- code: "600061"
   name: 国投资本
   categories:
   - 证券
   - 金融
-- code: '600062'
+- code: "600062"
   name: 华润双鹤
   categories:
   - 化学制药
   - 医药卫生
-- code: '600066'
+- code: "600066"
   name: 宇通客车
   categories:
   - 汽车整车
   - 可选消费
-- code: '600072'
+- code: "600072"
   name: 中船科技
   categories:
   - 航海装备
   - 工业
-- code: '600073'
+- code: "600073"
   name: 上海梅林
   categories:
   - 食品加工
   - 消费
-- code: '600079'
+- code: "600079"
   name: 人福医药
   categories:
   - 化学制药
   - 医药卫生
-- code: '600085'
+- code: "600085"
   name: 同仁堂
   categories:
   - 中药
   - 医药卫生
-- code: '600089'
+- code: "600089"
   name: 特变电工
   categories:
   - 电网设备
   - 工业
-- code: '600093'
+- code: "600093"
   name: 易见股份
   categories:
   - 供应链服务
   - 交通运输
-- code: '600100'
+- code: "600100"
   name: 同方股份
   categories:
   - 计算机设备
   - 信息技术
-- code: '600104'
+- code: "600104"
   name: 上汽集团
   categories:
   - 汽车整车
   - 可选消费
-- code: '600109'
+- code: "600109"
   name: 国金证券
   categories:
   - 证券
   - 金融
-- code: '600111'
+- code: "600111"
   name: 北方稀土
   categories:
   - 小金属
   - 原材料
-- code: '600115'
+- code: "600115"
   name: 中国东航
   categories:
   - 航空
   - 交通运输
-- code: '600118'
+- code: "600118"
   name: 中国卫星
   categories:
   - 航天装备
   - 工业
-- code: '600132'
+- code: "600132"
   name: 重庆啤酒
   categories:
   - 啤酒
   - 消费
-- code: '600150'
+- code: "600150"
   name: 中国船舶
   categories:
   - 航海装备
   - 工业
-- code: '600160'
+- code: "600160"
   name: 巨化股份
   categories:
   - 化学原料
   - 原材料
-- code: '600161'
+- code: "600161"
   name: 天坛生物
   categories:
   - 生物制品
   - 医药卫生
-- code: '600166'
+- code: "600166"
   name: 福田汽车
   categories:
   - 汽车整车
   - 可选消费
-- code: '600170'
+- code: "600170"
   name: 上海建工
   categories:
   - 建筑装饰
   - 工业
-- code: '600176'
+- code: "600176"
   name: 中国巨石
   categories:
   - 玻璃纤维
   - 原材料
-- code: '600177'
+- code: "600177"
   name: 雅戈尔
   categories:
   - 纺织服饰
   - 可选消费
-- code: '600183'
+- code: "600183"
   name: 生益科技
   categories:
   - 电子元件
   - 信息技术
-- code: '600188'
+- code: "600188"
   name: 兖矿能源
   categories:
   - 煤炭
   - 能源
-- code: '600196'
+- code: "600196"
   name: 复星医药
   categories:
   - 化学制药
   - 医药卫生
-- code: '600219'
+- code: "600219"
   name: 南山铝业
   categories:
   - 工业金属
   - 原材料
-- code: '600221'
+- code: "600221"
   name: 海航控股
   categories:
   - 航空
   - 交通运输
-- code: '600233'
+- code: "600233"
   name: 圆通速递
   categories:
   - 快递
   - 交通运输
-- code: '600236'
+- code: "600236"
   name: 桂冠电力
   categories:
   - 电力
   - 公用事业
-- code: '600258'
+- code: "600258"
   name: 首旅酒店
   categories:
   - 酒店
   - 可选消费
-- code: '600271'
+- code: "600271"
   name: 航天信息
   categories:
   - 计算机设备
   - 信息技术
-- code: '600276'
+- code: "600276"
   name: 恒瑞医药
   categories:
   - 化学制药
   - 医药卫生
-- code: '600309'
+- code: "600309"
   name: 万华化学
   categories:
   - 化学制品
   - 原材料
-- code: '600332'
+- code: "600332"
   name: 白云山
   categories:
   - 中药
   - 医药卫生
-- code: '600340'
+- code: "600340"
   name: 华夏幸福
   categories:
   - 房地产开发
   - 房地产
-- code: '600346'
+- code: "600346"
   name: 恒力石化
   categories:
   - 化学纤维
   - 原材料
-- code: '600352'
+- code: "600352"
   name: 浙江龙盛
   categories:
   - 化学制品
   - 原材料
-- code: '600362'
+- code: "600362"
   name: 江西铜业
   categories:
   - 工业金属
   - 原材料
-- code: '600369'
+- code: "600369"
   name: 西南证券
   categories:
   - 证券
   - 金融
-- code: '600372'
+- code: "600372"
   name: 中航机载
   categories:
   - 航空装备
   - 工业
-- code: '600373'
+- code: "600373"
   name: 中文传媒
   categories:
   - 出版
   - 传媒
-- code: '600376'
+- code: "600376"
   name: 首开股份
   categories:
   - 房地产开发
   - 房地产
-- code: '600377'
+- code: "600377"
   name: 宁沪高速
   categories:
   - 高速公路
   - 交通运输
-- code: '600383'
+- code: "600383"
   name: 金地集团
   categories:
   - 房地产开发
   - 房地产
-- code: '600398'
+- code: "600398"
   name: 海澜之家
   categories:
   - 纺织服饰
   - 可选消费
-- code: '600406'
+- code: "600406"
   name: 国电南瑞
   categories:
   - 电网设备
   - 工业
-- code: '600415'
+- code: "600415"
   name: 小商品城
   categories:
   - 零售
   - 可选消费
-- code: '600426'
+- code: "600426"
   name: 华鲁恒升
   categories:
   - 化学原料
   - 原材料
-- code: '600436'
+- code: "600436"
   name: 片仔癀
   categories:
   - 中药
   - 医药卫生
-- code: '600438'
+- code: "600438"
   name: 通威股份
   categories:
   - 光伏设备
   - 工业
-- code: '600456'
+- code: "600456"
   name: 宝钛股份
   categories:
   - 小金属
   - 原材料
-- code: '600459'
+- code: "600459"
   name: 贵研铂业
   categories:
   - 小金属
   - 原材料
-- code: '600460'
+- code: "600460"
   name: 士兰微
   categories:
   - 半导体
   - 信息技术
-- code: '600466'
+- code: "600466"
   name: 蓝光发展
   categories:
   - 房地产开发
   - 房地产
-- code: '600482'
+- code: "600482"
   name: 中国动力
   categories:
   - 航海装备
   - 工业
-- code: '600487'
+- code: "600487"
   name: 亨通光电
   categories:
   - 通信设备
   - 信息技术
-- code: '600489'
+- code: "600489"
   name: 中金黄金
   categories:
   - 贵金属
   - 原材料
-- code: '600498'
+- code: "600498"
   name: 烽火通信
   categories:
   - 通信设备
   - 信息技术
-- code: '600499'
+- code: "600499"
   name: 科达制造
   categories:
   - 专用设备
   - 工业
-- code: '600500'
+- code: "600500"
   name: 中化国际
   categories:
   - 化学制品
   - 原材料
-- code: '600516'
+- code: "600516"
   name: 方大炭素
   categories:
   - 非金属材料
   - 原材料
-- code: '600519'
+- code: "600519"
   name: 贵州茅台
   categories:
   - 白酒
   - 消费
-- code: '600522'
+- code: "600522"
   name: 中天科技
   categories:
   - 通信设备
   - 信息技术
-- code: '600536'
+- code: "600536"
   name: 中国软件
   categories:
   - 软件开发
   - 信息技术
-- code: '600547'
+- code: "600547"
   name: 山东黄金
   categories:
   - 贵金属
   - 原材料
-- code: '600548'
+- code: "600548"
   name: 深高速
   categories:
   - 高速公路
   - 交通运输
-- code: '600549'
+- code: "600549"
   name: 厦门钨业
   categories:
   - 小金属
   - 原材料
-- code: '600570'
+- code: "600570"
   name: 恒生电子
   categories:
   - 软件开发
   - 信息技术
-- code: '600572'
+- code: "600572"
   name: 康恩贝
   categories:
   - 中药
   - 医药卫生
-- code: '600582'
+- code: "600582"
   name: 天地科技
   categories:
   - 专用设备
   - 工业
-- code: '600584'
+- code: "600584"
   name: 长电科技
   categories:
   - 半导体
   - 信息技术
-- code: '600585'
+- code: "600585"
   name: 海螺水泥
   categories:
   - 水泥
   - 原材料
-- code: '600588'
+- code: "600588"
   name: 用友网络
   categories:
   - 软件开发
   - 信息技术
-- code: '600600'
+- code: "600600"
   name: 青岛啤酒
   categories:
   - 啤酒
   - 消费
-- code: '600606'
+- code: "600606"
   name: 绿地控股
   categories:
   - 房地产开发
   - 房地产
-- code: '600637'
+- code: "600637"
   name: 东方明珠
   categories:
   - 新媒体
   - 传媒
-- code: '600642'
+- code: "600642"
   name: 申能股份
   categories:
   - 电力
   - 公用事业
-- code: '600655'
+- code: "600655"
   name: 豫园股份
   categories:
   - 零售
   - 可选消费
-- code: '600660'
+- code: "600660"
   name: 福耀玻璃
   categories:
   - 汽车零部件
   - 可选消费
-- code: '600663'
+- code: "600663"
   name: 陆家嘴
   categories:
   - 房地产开发
   - 房地产
-- code: '600674'
+- code: "600674"
   name: 川投能源
   categories:
   - 电力
   - 公用事业
-- code: '600688'
+- code: "600688"
   name: 上海石化
   categories:
   - 石油化工
   - 能源
-- code: '600690'
+- code: "600690"
   name: 海尔智家
   categories:
   - 白色家电
   - 可选消费
-- code: '600703'
+- code: "600703"
   name: 三安光电
   categories:
   - 光学光电子
   - 信息技术
-- code: '600705'
+- code: "600705"
   name: 中航产融
   categories:
   - 证券
   - 金融
-- code: '600741'
+- code: "600741"
   name: 华域汽车
   categories:
   - 汽车零部件
   - 可选消费
-- code: '600745'
+- code: "600745"
   name: 闻泰科技
   categories:
   - 消费电子
   - 信息技术
-- code: '600754'
+- code: "600754"
   name: 锦江酒店
   categories:
   - 酒店
   - 可选消费
-- code: '600760'
+- code: "600760"
   name: 中航沈飞
   categories:
   - 航空装备
   - 工业
-- code: '600763'
+- code: "600763"
   name: 通策医疗
   categories:
   - 医疗服务
   - 医药卫生
-- code: '600765'
+- code: "600765"
   name: 中航重机
   categories:
   - 航空装备
   - 工业
-- code: '600795'
+- code: "600795"
   name: 国电电力
   categories:
   - 电力
   - 公用事业
-- code: '600803'
+- code: "600803"
   name: 新奥股份
   categories:
   - 燃气
   - 公用事业
-- code: '600809'
+- code: "600809"
   name: 山西汾酒
   categories:
   - 白酒
   - 消费
-- code: '600837'
+- code: "600837"
   name: 海通证券
   categories:
   - 证券
   - 金融
-- code: '600845'
+- code: "600845"
   name: 宝信软件
   categories:
   - 软件开发
   - 信息技术
-- code: '600848'
+- code: "600848"
   name: 上海临港
   categories:
   - 房地产开发
   - 房地产
-- code: '600859'
+- code: "600859"
   name: 王府井
   categories:
   - 零售
   - 可选消费
-- code: '600863'
+- code: "600863"
   name: 内蒙华电
   categories:
   - 电力
   - 公用事业
-- code: '600867'
+- code: "600867"
   name: 通化东宝
   categories:
   - 生物制品
   - 医药卫生
-- code: '600872'
+- code: "600872"
   name: 中炬高新
   categories:
   - 调味品
   - 消费
-- code: '600873'
+- code: "600873"
   name: 梅花生物
   categories:
   - 食品加工
   - 消费
-- code: '600875'
+- code: "600875"
   name: 东方电气
   categories:
   - 电力设备
   - 工业
-- code: '600886'
+- code: "600886"
   name: 国投电力
   categories:
   - 电力
   - 公用事业
-- code: '600887'
+- code: "600887"
   name: 伊利股份
   categories:
   - 乳制品
   - 消费
-- code: '600893'
+- code: "600893"
   name: 航发动力
   categories:
   - 航空装备
   - 工业
-- code: '600900'
+- code: "600900"
   name: 长江电力
   categories:
   - 电力
   - 公用事业
-- code: '600905'
+- code: "600905"
   name: 三峡能源
   categories:
   - 电力
   - 公用事业
-- code: '600909'
+- code: "600909"
   name: 华安证券
   categories:
   - 证券
   - 金融
-- code: '600918'
+- code: "600918"
   name: 中泰证券
   categories:
   - 证券
   - 金融
-- code: '600919'
+- code: "600919"
   name: 江苏银行
   categories:
   - 银行
   - 金融
-- code: '600926'
+- code: "600926"
   name: 杭州银行
   categories:
   - 银行
   - 金融
-- code: '600930'
+- code: "600930"
   name: 华电新能
   categories:
   - 电力
   - 公用事业
-- code: '600958'
+- code: "600958"
   name: 东方证券
   categories:
   - 证券
   - 金融
-- code: '600989'
+- code: "600989"
   name: 宝丰能源
   categories:
   - 化学原料
   - 原材料
-- code: '600999'
+- code: "600999"
   name: 招商证券
   categories:
   - 证券
   - 金融
-- code: '601000'
+- code: "601000"
   name: 唐山港
   categories:
   - 港口
   - 交通运输
-- code: '601006'
+- code: "601006"
   name: 大秦铁路
   categories:
   - 铁路运输
   - 交通运输
-- code: '601009'
+- code: "601009"
   name: 南京银行
   categories:
   - 银行
   - 金融
-- code: '601012'
+- code: "601012"
   name: 隆基绿能
   categories:
   - 光伏设备
   - 工业
-- code: '601018'
+- code: "601018"
   name: 宁波港
   categories:
   - 港口
   - 交通运输
-- code: '601021'
+- code: "601021"
   name: 春秋航空
   categories:
   - 航空
   - 交通运输
-- code: '601058'
+- code: "601058"
   name: 赛轮轮胎
   categories:
   - 汽车零部件
   - 可选消费
-- code: '601066'
+- code: "601066"
   name: 中信建投
   categories:
   - 证券
   - 金融
-- code: '601077'
+- code: "601077"
   name: 渝农商行
   categories:
   - 银行
   - 金融
-- code: '601088'
+- code: "601088"
   name: 中国神华
   categories:
   - 煤炭
   - 能源
-- code: '601100'
+- code: "601100"
   name: 恒立液压
   categories:
   - 工程机械
   - 工业
-- code: '601108'
+- code: "601108"
   name: 财通证券
   categories:
   - 证券
   - 金融
-- code: '601111'
+- code: "601111"
   name: 中国国航
   categories:
   - 航空
   - 交通运输
-- code: '601117'
+- code: "601117"
   name: 中国化学
   categories:
   - 建筑装饰
   - 工业
-- code: '601127'
+- code: "601127"
   name: 赛力斯
   categories:
   - 汽车整车
   - 可选消费
-- code: '601128'
+- code: "601128"
   name: 常熟银行
   categories:
   - 银行
   - 金融
-- code: '601138'
+- code: "601138"
   name: 工业富联
   categories:
   - 消费电子
   - 信息技术
-- code: '601155'
+- code: "601155"
   name: 新城控股
   categories:
   - 房地产开发
   - 房地产
-- code: '601166'
+- code: "601166"
   name: 兴业银行
   categories:
   - 银行
   - 金融
-- code: '601169'
+- code: "601169"
   name: 北京银行
   categories:
   - 银行
   - 金融
-- code: '601186'
+- code: "601186"
   name: 中国铁建
   categories:
   - 建筑装饰
   - 工业
-- code: '601211'
+- code: "601211"
   name: 国泰君安
   categories:
   - 证券
   - 金融
-- code: '601216'
+- code: "601216"
   name: 君正集团
   categories:
   - 化学原料
   - 原材料
-- code: '601225'
+- code: "601225"
   name: 陕西煤业
   categories:
   - 煤炭
   - 能源
-- code: '601229'
+- code: "601229"
   name: 上海银行
   categories:
   - 银行
   - 金融
-- code: '601231'
+- code: "601231"
   name: 环旭电子
   categories:
   - 消费电子
   - 信息技术
-- code: '601236'
+- code: "601236"
   name: 红塔证券
   categories:
   - 证券
   - 金融
-- code: '601238'
+- code: "601238"
   name: 广汽集团
   categories:
   - 汽车整车
   - 可选消费
-- code: '601288'
+- code: "601288"
   name: 农业银行
   categories:
   - 银行
   - 金融
-- code: '601318'
+- code: "601318"
   name: 中国平安
   categories:
   - 保险
   - 金融
-- code: '601319'
+- code: "601319"
   name: 中国人保
   categories:
   - 保险
   - 金融
-- code: '601328'
+- code: "601328"
   name: 交通银行
   categories:
   - 银行
   - 金融
-- code: '601336'
+- code: "601336"
   name: 新华保险
   categories:
   - 保险
   - 金融
-- code: '601360'
+- code: "601360"
   name: 三六零
   categories:
   - 软件开发
   - 信息技术
-- code: '601377'
+- code: "601377"
   name: 兴业证券
   categories:
   - 证券
   - 金融
-- code: '601390'
+- code: "601390"
   name: 中国中铁
   categories:
   - 建筑装饰
   - 工业
-- code: '601398'
+- code: "601398"
   name: 工商银行
   categories:
   - 银行
   - 金融
-- code: '601456'
+- code: "601456"
   name: 国联民生
   categories:
   - 证券
   - 金融
-- code: '601555'
+- code: "601555"
   name: 东吴证券
   categories:
   - 证券
   - 金融
-- code: '601577'
+- code: "601577"
   name: 长沙银行
   categories:
   - 银行
   - 金融
-- code: '601600'
+- code: "601600"
   name: 中国铝业
   categories:
   - 工业金属
   - 原材料
-- code: '601601'
+- code: "601601"
   name: 中国太保
   categories:
   - 保险
   - 金融
-- code: '601607'
+- code: "601607"
   name: 上海医药
   categories:
   - 医药商业
   - 医药卫生
-- code: '601618'
+- code: "601618"
   name: 中国中冶
   categories:
   - 建筑装饰
   - 工业
-- code: '601628'
+- code: "601628"
   name: 中国人寿
   categories:
   - 保险
   - 金融
-- code: '601633'
+- code: "601633"
   name: 长城汽车
   categories:
   - 汽车整车
   - 可选消费
-- code: '601658'
+- code: "601658"
   name: 邮储银行
   categories:
   - 银行
   - 金融
-- code: '601668'
+- code: "601668"
   name: 中国建筑
   categories:
   - 建筑装饰
   - 工业
-- code: '601669'
+- code: "601669"
   name: 中国电建
   categories:
   - 建筑装饰
   - 工业
-- code: '601688'
+- code: "601688"
   name: 华泰证券
   categories:
   - 证券
   - 金融
-- code: '601689'
+- code: "601689"
   name: 拓普集团
   categories:
   - 汽车零部件
   - 可选消费
-- code: '601696'
+- code: "601696"
   name: 中银证券
   categories:
   - 证券
   - 金融
-- code: '601699'
+- code: "601699"
   name: 潞安环能
   categories:
   - 煤炭
   - 能源
-- code: '601717'
+- code: "601717"
   name: 郑煤机
   categories:
   - 专用设备
   - 工业
-- code: '601727'
+- code: "601727"
   name: 上海电气
   categories:
   - 电力设备
   - 工业
-- code: '601728'
+- code: "601728"
   name: 中国电信
   categories:
   - 通信服务
   - 电信业务
-- code: '601766'
+- code: "601766"
   name: 中国中车
   categories:
   - 轨交设备
   - 工业
-- code: '601788'
+- code: "601788"
   name: 光大证券
   categories:
   - 证券
   - 金融
-- code: '601799'
+- code: "601799"
   name: 星宇股份
   categories:
   - 汽车零部件
   - 可选消费
-- code: '601800'
+- code: "601800"
   name: 中国交建
   categories:
   - 建筑装饰
   - 工业
-- code: '601808'
+- code: "601808"
   name: 中海油服
   categories:
   - 油服工程
   - 能源
-- code: '601816'
+- code: "601816"
   name: 京沪高铁
   categories:
   - 铁路运输
   - 交通运输
-- code: '601818'
+- code: "601818"
   name: 光大银行
   categories:
   - 银行
   - 金融
-- code: '601825'
+- code: "601825"
   name: 沪农商行
   categories:
   - 银行
   - 金融
-- code: '601838'
+- code: "601838"
   name: 成都银行
   categories:
   - 银行
   - 金融
-- code: '601857'
+- code: "601857"
   name: 中国石油
   categories:
   - 石油天然气
   - 能源
-- code: '601865'
+- code: "601865"
   name: 福莱特
   categories:
   - 光伏设备
   - 工业
-- code: '601866'
+- code: "601866"
   name: 中远海发
   categories:
   - 航运港口
   - 交通运输
-- code: '601868'
+- code: "601868"
   name: 中国能建
   categories:
   - 建筑装饰
   - 工业
-- code: '601872'
+- code: "601872"
   name: 招商轮船
   categories:
   - 航运港口
   - 交通运输
-- code: '601877'
+- code: "601877"
   name: 正泰电器
   categories:
   - 电网设备
   - 工业
-- code: '601878'
+- code: "601878"
   name: 浙商证券
   categories:
   - 证券
   - 金融
-- code: '601880'
+- code: "601880"
   name: 辽港股份
   categories:
   - 港口
   - 交通运输
-- code: '601881'
+- code: "601881"
   name: 中国银河
   categories:
   - 证券
   - 金融
-- code: '601888'
+- code: "601888"
   name: 中国中免
   categories:
   - 旅游零售
   - 可选消费
-- code: '601898'
+- code: "601898"
   name: 中煤能源
   categories:
   - 煤炭
   - 能源
-- code: '601899'
+- code: "601899"
   name: 紫金矿业
   categories:
   - 贵金属
   - 原材料
-- code: '601901'
+- code: "601901"
   name: 方正证券
   categories:
   - 证券
   - 金融
-- code: '601919'
+- code: "601919"
   name: 中远海控
   categories:
   - 航运港口
   - 交通运输
-- code: '601933'
+- code: "601933"
   name: 永辉超市
   categories:
   - 零售
   - 可选消费
-- code: '601939'
+- code: "601939"
   name: 建设银行
   categories:
   - 银行
   - 金融
-- code: '601966'
+- code: "601966"
   name: 玲珑轮胎
   categories:
   - 汽车零部件
   - 可选消费
-- code: '601985'
+- code: "601985"
   name: 中国核电
   categories:
   - 电力
   - 公用事业
-- code: '601988'
+- code: "601988"
   name: 中国银行
   categories:
   - 银行
   - 金融
-- code: '601989'
+- code: "601989"
   name: 中国重工
   categories:
   - 航海装备
   - 工业
-- code: '601991'
+- code: "601991"
   name: 大唐发电
   categories:
   - 电力
   - 公用事业
-- code: '601995'
+- code: "601995"
   name: 中金公司
   categories:
   - 证券
   - 金融
-- code: '603019'
+- code: "603019"
   name: 中科曙光
   categories:
   - 计算机设备
   - 信息技术
-- code: '603195'
+- code: "603195"
   name: 公牛集团
   categories:
   - 电工
   - 可选消费
-- code: '603259'
+- code: "603259"
   name: 药明康德
   categories:
   - 医疗服务
   - 医药卫生
-- code: '603260'
+- code: "603260"
   name: 合盛硅业
   categories:
   - 化学原料
   - 原材料
-- code: '603288'
+- code: "603288"
   name: 海天味业
   categories:
   - 调味品
   - 消费
-- code: '603369'
+- code: "603369"
   name: 今世缘
   categories:
   - 白酒
   - 消费
-- code: '603501'
+- code: "603501"
   name: 韦尔股份
   categories:
   - 半导体
   - 信息技术
-- code: '603517'
+- code: "603517"
   name: 绝味食品
   categories:
   - 休闲食品
   - 消费
-- code: '603589'
+- code: "603589"
   name: 口子窖
   categories:
   - 白酒
   - 消费
-- code: '603658'
+- code: "603658"
   name: 安图生物
   categories:
   - 医疗器械
   - 医药卫生
-- code: '603659'
+- code: "603659"
   name: 璞泰来
   categories:
   - 电池
   - 工业
-- code: '603688'
+- code: "603688"
   name: 石英股份
   categories:
   - 非金属材料
   - 原材料
-- code: '603707'
+- code: "603707"
   name: 健友股份
   categories:
   - 化学制药
   - 医药卫生
-- code: '603799'
+- code: "603799"
   name: 华友钴业
   categories:
   - 能源金属
   - 原材料
-- code: '603806'
+- code: "603806"
   name: 福斯特
   categories:
   - 光伏设备
   - 工业
-- code: '603833'
+- code: "603833"
   name: 欧派家居
   categories:
   - 家居用品
   - 可选消费
-- code: '603882'
+- code: "603882"
   name: 金域医学
   categories:
   - 医疗服务
   - 医药卫生
-- code: '603893'
+- code: "603893"
   name: 瑞芯微
   categories:
   - 半导体
   - 信息技术
-- code: '603899'
+- code: "603899"
   name: 晨光股份
   categories:
   - 文娱用品
   - 可选消费
-- code: '603986'
+- code: "603986"
   name: 兆易创新
   categories:
   - 半导体
   - 信息技术
-- code: '603993'
+- code: "603993"
   name: 洛阳钼业
   categories:
   - 小金属
   - 原材料
-- code: '605499'
+- code: "605499"
   name: 东鹏饮料
   categories:
   - 饮料乳品
   - 消费
-- code: '688005'
+- code: "688005"
   name: 容百科技
   categories:
   - 电池
   - 工业
-- code: '688008'
+- code: "688008"
   name: 澜起科技
   categories:
   - 半导体
   - 信息技术
-- code: '688009'
+- code: "688009"
   name: 中国通号
   categories:
   - 轨交设备
   - 工业
-- code: '688012'
+- code: "688012"
   name: 中微公司
   categories:
   - 半导体
   - 信息技术
-- code: '688036'
+- code: "688036"
   name: 传音控股
   categories:
   - 消费电子
   - 信息技术
-- code: '688041'
+- code: "688041"
   name: 海光信息
   categories:
   - 半导体
   - 信息技术
-- code: '688047'
+- code: "688047"
   name: 龙芯中科
   categories:
   - 半导体
   - 信息技术
-- code: '688063'
+- code: "688063"
   name: 派能科技
   categories:
   - 电池
   - 工业
-- code: '688065'
+- code: "688065"
   name: 凯赛生物
   categories:
   - 化学制品
   - 原材料
-- code: '688082'
+- code: "688082"
   name: 盛美上海
   categories:
   - 半导体
   - 信息技术
-- code: '688099'
+- code: "688099"
   name: 晶晨股份
   categories:
   - 半导体
   - 信息技术
-- code: '688111'
+- code: "688111"
   name: 金山办公
   categories:
   - 软件开发
   - 信息技术
-- code: '688126'
+- code: "688126"
   name: 沪硅产业
   categories:
   - 半导体
   - 信息技术
-- code: '688169'
+- code: "688169"
   name: 石头科技
   categories:
   - 小家电
   - 可选消费
-- code: '688180'
+- code: "688180"
   name: 君实生物
   categories:
   - 生物制品
   - 医药卫生
-- code: '688187'
+- code: "688187"
   name: 时代电气
   categories:
   - 轨交设备
   - 工业
-- code: '688223'
+- code: "688223"
   name: 晶科能源
   categories:
   - 光伏设备
   - 工业
-- code: '688256'
+- code: "688256"
   name: 寒武纪
   categories:
   - 半导体
   - 信息技术
-- code: '688303'
+- code: "688303"
   name: 大全能源
   categories:
   - 光伏设备
   - 工业
-- code: '688363'
+- code: "688363"
   name: 华熙生物
   categories:
   - 美容护理
   - 可选消费
-- code: '688396'
+- code: "688396"
   name: 华润微
   categories:
   - 半导体
   - 信息技术
-- code: '688472'
+- code: "688472"
   name: 阿特斯
   categories:
   - 光伏设备
   - 工业
-- code: '688506'
+- code: "688506"
   name: 百利天恒
   categories:
   - 生物制品
   - 医药卫生
-- code: '688520'
+- code: "688520"
   name: 神州细胞
   categories:
   - 生物制品
   - 医药卫生
-- code: '688521'
+- code: "688521"
   name: 芯原股份
   categories:
   - 半导体
   - 信息技术
-- code: '688538'
+- code: "688538"
   name: 和辉光电
   categories:
   - 光学光电子
   - 信息技术
-- code: '688561'
+- code: "688561"
   name: 奇安信
   categories:
   - 软件开发
   - 信息技术
-- code: '688599'
+- code: "688599"
   name: 天合光能
   categories:
   - 光伏设备
   - 工业
-- code: '688617'
+- code: "688617"
   name: 惠泰医疗
   categories:
   - 医疗器械
   - 医药卫生
-- code: '688728'
+- code: "688728"
   name: 格科微
   categories:
   - 半导体
   - 信息技术
-- code: '688777'
+- code: "688777"
   name: 中控技术
   categories:
   - 自动化设备
   - 工业
-- code: '688981'
+- code: "688981"
   name: 中芯国际
   categories:
   - 半导体
