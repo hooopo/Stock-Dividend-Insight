@@ -37,7 +37,7 @@ class StockLoader
     entries_by_name.each do |name, idxs|
       sample = list[idxs.first]
       current_code = sample['code'].to_s.strip.rjust(6, '0')
-      current_market_id = current_code.start_with?('6') ? 1 : 0
+      current_market_id = infer_market_id_from_code(current_code)
 
       em = em_lookup(conn, url_em, name, current_code)
       unless em
@@ -69,7 +69,7 @@ class StockLoader
       end
 
       final_code = list[idxs.first]['code'].to_s.strip.rjust(6, '0')
-      final_market_id = final_code.start_with?('6') ? 1 : 0
+      final_market_id = infer_market_id_from_code(final_code)
       unless sina_ok?(conn, url_sina, final_market_id, final_code)
         unresolved << [name, final_code, em_code, 'sina_null_after']
       end
@@ -130,7 +130,7 @@ class StockLoader
       market_id = nil
       if code && !secid
         code = code.rjust(6, '0')
-        market_id = code.start_with?('6') ? 1 : 0
+        market_id = infer_market_id_from_code(code)
         secid = "#{market_id}.#{code}"
       elsif secid
         market_id, code = secid.split('.')
@@ -163,13 +163,8 @@ class StockLoader
 
       if code && !secid
         code = code.rjust(6, '0')
-        if code.start_with?('6')
-          market_id = 1
-          secid = "1.#{code}"
-        else
-          market_id = 0
-          secid = "0.#{code}"
-        end
+        market_id = infer_market_id_from_code(code)
+        secid = "#{market_id}.#{code}"
       elsif secid
         market_id, code = secid.split('.')
         market_id = market_id.to_i
@@ -394,5 +389,11 @@ class StockLoader
     end
   rescue Faraday::Error
     nil
+  end
+
+  def infer_market_id_from_code(code)
+    c = code.to_s
+    return 1 if c.start_with?('6') || c.start_with?('5') || c.start_with?('9')
+    0
   end
 end

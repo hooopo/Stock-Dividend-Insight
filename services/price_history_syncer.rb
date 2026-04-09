@@ -2,6 +2,7 @@ require 'json'
 require 'date'
 require 'faraday'
 require 'faraday/retry'
+require_relative 'price_metrics_calculator'
 
 class PriceHistorySyncer
   def initialize(incremental: false, force: false, scope: Stock.all, sleep_range: (1.0..3.0))

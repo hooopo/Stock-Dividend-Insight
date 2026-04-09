@@ -3612,3 +3612,343 @@ stocks:
   name: 陕国投A
   categories:
   - 多元金融
+- code: "002891"
+  name: 中宠股份
+  categories:
+  - 饲料
+  - 消费
+- code: "002701"
+  name: 奥瑞金
+  categories:
+  - 有色金属
+  - 原材料
+- code: "300083"
+  name: 创世纪
+  categories:
+  - 专用设备
+  - 工业
+- code: "000415"
+  name: 渤海租赁
+  categories:
+  - 多元金融
+  - 金融
+- code: "688608"
+  name: 恒玄科技
+  categories:
+  - 半导体
+  - 信息技术
+- code: "000426"
+  name: 兴业银锡
+  categories:
+  - 有色金属
+  - 原材料
+- code: "605589"
+  name: 圣泉集团
+  categories:
+  - 化学制品
+  - 原材料
+- code: "600864"
+  name: 哈投股份
+  categories:
+  - 多元金融
+  - 金融
+- code: "000032"
+  name: 深桑达A
+  categories:
+  - 计算机设备
+  - 信息技术
+- code: "300442"
+  name: 润泽科技
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "302132"
+  name: 中航成飞
+  categories:
+  - 工业
+- code: "001965"
+  name: 招商公路
+  categories:
+  - 高速公路
+  - 交通运输
+- code: "002318"
+  name: 久立特材
+  categories:
+  - 钢铁
+  - 原材料
+- code: "000651"
+  name: 格力电器
+  categories:
+  - 可选消费
+- code: "000630"
+  name: 铜陵有色
+  categories:
+  - 有色金属
+  - 原材料
+- code: "000998"
+  name: 隆平高科
+  categories:
+  - 农业
+  - 农业
+- code: "000988"
+  name: 华工科技
+  categories:
+  - 光学光电子
+  - 信息技术
+- code: "000977"
+  name: 浪潮信息
+  categories:
+  - 计算机设备
+  - 信息技术
+- code: "000708"
+  name: 中信特钢
+  categories:
+  - 钢铁
+  - 原材料
+- code: "000661"
+  name: 长春高新
+  categories:
+  - 生物制品
+  - 医药卫生
+- code: "002028"
+  name: 思源电气
+  categories:
+  - 工业
+- code: "000063"
+  name: 中兴通讯
+  categories:
+  - 通信设备
+  - 信息技术
+- code: "001979"
+  name: 招商蛇口
+  categories:
+  - 房地产开发
+  - 房地产
+- code: "001914"
+  name: 招商积余
+  categories:
+  - 房地产开发
+  - 房地产
+- code: "000999"
+  name: 华润三九
+  categories:
+  - 中药
+  - 医药卫生
+- code: "000333"
+  name: 美的集团
+  categories:
+  - 可选消费
+- code: "002292"
+  name: 奥飞娱乐
+  categories:
+  - 传媒
+- code: "002371"
+  name: 北方华创
+  categories:
+  - 半导体
+  - 信息技术
+- code: "002389"
+  name: 航天彩虹
+  categories:
+  - 工业
+- code: "002405"
+  name: 四维图新
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "002407"
+  name: 多氟多
+  categories:
+  - 化学制品
+  - 原材料
+- code: "002414"
+  name: 高德红外
+  categories:
+  - 光学光电子
+  - 信息技术
+- code: "002463"
+  name: 沪电股份
+  categories:
+  - 电子元件
+  - 信息技术
+- code: "002472"
+  name: 双环传动
+  categories:
+  - 汽车零部件
+  - 可选消费
+- code: "002497"
+  name: 雅化集团
+  categories:
+  - 化学制品
+  - 原材料
+- code: "002517"
+  name: 恺英网络
+  categories:
+  - 传媒
+- code: "002544"
+  name: 普天科技
+  categories:
+  - 通信设备
+  - 信息技术
+- code: "300088"
+  name: 长信科技
+  categories:
+  - 光学光电子
+  - 信息技术
+- code: "300118"
+  name: 东方日升
+  categories:
+  - 光伏设备
+  - 工业
+- code: "300438"
+  name: 鹏辉能源
+  categories:
+  - 煤炭
+  - 能源
+- code: "300457"
+  name: 赢合科技
+  categories:
+  - 专用设备
+  - 工业
+- code: "300567"
+  name: 精测电子
+  categories:
+  - 工业
+- code: "300568"
+  name: 星源材质
+  categories:
+  - 电池
+  - 工业
+- code: "300573"
+  name: 兴齐眼药
+  categories:
+  - 化学制药
+  - 医药卫生
+- code: "301236"
+  name: 软通动力
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "600026"
+  name: 中远海能
+  categories:
+  - 航运港口
+  - 交通运输
+- code: "600039"
+  name: 四川路桥
+  categories:
+  - 建筑装饰
+  - 工业
+- code: "600096"
+  name: 云天化
+  categories:
+  - 原材料
+- code: "600515"
+  name: 海南机场
+  categories:
+  - 机场
+  - 交通运输
+- code: "600529"
+  name: 山东药玻
+  categories:
+  - 化学制药
+  - 医药卫生
+- code: "600667"
+  name: 太极实业
+  categories:
+  - 半导体
+  - 信息技术
+- code: "600839"
+  name: 四川长虹
+  categories:
+  - 白色家电
+  - 可选消费
+- code: "600895"
+  name: 张江高科
+  categories:
+  - 房地产开发
+  - 房地产
+- code: "600938"
+  name: 中国海油
+  categories:
+  - 能源
+- code: "600941"
+  name: 中国移动
+  categories:
+  - 通信服务
+  - 电信业务
+- code: "601677"
+  name: 明泰铝业
+  categories:
+  - 有色金属
+  - 原材料
+- code: "603392"
+  name: 万泰生物
+  categories:
+  - 生物制品
+  - 医药卫生
+- code: "605117"
+  name: 德业股份
+  categories:
+  - 光伏设备
+  - 工业
+- code: "688072"
+  name: 拓荆科技
+  categories:
+  - 半导体
+  - 信息技术
+- code: "688271"
+  name: 联影医疗
+  categories:
+  - 医疗服务
+  - 医药卫生
+- code: "688390"
+  name: 固德威
+  categories:
+  - 光伏设备
+  - 工业
+- code: "601916"
+  name: 浙商银行
+  categories:
+  - 银行
+  - 金融
+- code: "600123"
+  name: 兰花科创
+  categories:
+  - 煤炭
+  - 能源
+- code: "600256"
+  name: 广汇能源
+  categories:
+  - 煤炭
+  - 能源
+- code: "600997"
+  name: 开滦股份
+  categories:
+  - 煤炭
+  - 能源
+- code: "601339"
+  name: 百隆东方
+  categories:
+  - 纺织服饰
+  - 可选消费
+- code: "600755"
+  name: 厦门国贸
+  categories:
+  - 供应链服务
+  - 交通运输
+- code: "600971"
+  name: 恒源煤电
+  categories:
+  - 煤炭
+  - 能源
+- code: "601998"
+  name: 中信银行
+  categories:
+  - 银行
+  - 金融
+- code: "600350"
+  name: 山东高速
+  categories:
+  - 高速公路
+  - 交通运输

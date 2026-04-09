@@ -3,8 +3,10 @@ require 'json'
 require 'yaml'
 
 class Csi500StockAppender
-  def initialize(file_path: 'stocks-pro.yml')
+  def initialize(file_path: 'stocks-pro.yml', index_id: '000905', metric_prefix: 'csi500')
     @file_path = file_path
+    @index_id = index_id.to_s
+    @metric_prefix = metric_prefix.to_s
   end
 
   def run
@@ -15,11 +17,11 @@ class Csi500StockAppender
     puts "stocks_deduped=#{dedupe_report[:deduped]}" if dedupe_report[:deduped] > 0
     changed = dedupe_report[:deduped] > 0
 
-    constituents = fetch_sina_csi500_constituents
-    puts "csi500_total=#{constituents.size}"
+    constituents = fetch_sina_index_constituents
+    puts "#{@metric_prefix}_total=#{constituents.size}"
 
     missing = constituents.reject { |x| existing_codes[x[:code]] }
-    puts "csi500_missing=#{missing.size}"
+    puts "#{@metric_prefix}_missing=#{missing.size}"
 
     prepared = []
     skipped_st = []
@@ -76,12 +78,12 @@ class Csi500StockAppender
     prepared.each { |x| existing_codes[x['code']] = true }
     prepared = prepared.uniq { |x| x['code'] }.reject { |x| list.any? { |e| e['code'].to_s.rjust(6, '0') == x['code'] } }
 
-    puts "csi500_add=#{prepared.size}"
-    puts "csi500_skip_st=#{skipped_st.size}"
-    puts "csi500_skip_delist=#{skipped_delist.size}"
-    puts "csi500_skip_mismatch=#{skipped_mismatch.size}"
-    puts "csi500_skip_unresolved=#{skipped_unresolved.size}"
-    puts "csi500_renamed=#{renamed.size}"
+    puts "#{@metric_prefix}_add=#{prepared.size}"
+    puts "#{@metric_prefix}_skip_st=#{skipped_st.size}"
+    puts "#{@metric_prefix}_skip_delist=#{skipped_delist.size}"
+    puts "#{@metric_prefix}_skip_mismatch=#{skipped_mismatch.size}"
+    puts "#{@metric_prefix}_skip_unresolved=#{skipped_unresolved.size}"
+    puts "#{@metric_prefix}_renamed=#{renamed.size}"
 
     skipped_st.first(30).each { |x| puts "skip_st\t#{x[0]}\t#{x[1]}" }
     skipped_delist.first(30).each { |x| puts "skip_delist\t#{x[0]}\t#{x[1]}\t#{x[2]}" }
@@ -112,38 +114,86 @@ class Csi500StockAppender
     out = out.gsub(/^(\s*code:\s*)'?(\d{6})'?\s*$/, '\\1"\\2"')
     File.write(@file_path, out)
 
-    puts "csi500_written=#{prepared.size} file=#{@file_path}"
+    puts "#{@metric_prefix}_written=#{prepared.size} file=#{@file_path}"
   end
 
   private
 
-  def fetch_sina_csi500_constituents
+  def fetch_sina_index_constituents
     rows = []
     page = 1
     loop do
-      url = "https://vip.stock.finance.sina.com.cn/corp/go.php/vII_NewestComponent/indexid/000905.phtml?page=#{page}"
-      resp = Faraday.get(url, {}, { 'User-Agent' => 'Mozilla/5.0' }) do |req|
-        req.options.timeout = 15
-        req.options.open_timeout = 8
+      url = "https://vip.stock.finance.sina.com.cn/corp/go.php/vII_NewestComponent/indexid/#{@index_id}.phtml?page=#{page}"
+      resp = nil
+      retries = 4
+      begin
+        resp = Faraday.get(url, {}, { 'User-Agent' => 'Mozilla/5.0', 'Connection' => 'close' }) do |req|
+          req.options.timeout = 20
+          req.options.open_timeout = 8
+        end
+      rescue Faraday::Error
+        retries -= 1
+        if retries >= 0
+          sleep((5 - retries) * 0.8 + rand(0.0..0.6))
+          retry
+        end
+        break
       end
+
+      if resp.status.to_i == 456
+        retries -= 1
+        if retries >= 0
+          sleep((5 - retries) * 2.0 + rand(0.0..1.2))
+          next
+        end
+        break
+      end
+
       break unless resp.success?
 
       html = resp.body.to_s
       html = html.force_encoding('GBK').encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
 
-      page_rows = html.scan(%r{<tr[^>]*>\s*<td><div align="center">(?<code>\d{6})</div></td>\s*<td><div align="center"><a[^>]*>(?<name>[^<]+)</a>}m)
-      break if page_rows.empty?
+      codes = html.scan(/<td><div align="center">(\d{6})<\/div><\/td>/).flatten
+      if codes.empty?
+        3.times do |attempt|
+          sleep((attempt + 1) * 1.2 + rand(0.0..0.8))
+          begin
+            resp2 = Faraday.get(url, {}, { 'User-Agent' => 'Mozilla/5.0', 'Connection' => 'close' }) do |req|
+              req.options.timeout = 20
+              req.options.open_timeout = 8
+            end
+            break unless resp2.success?
 
-      page_rows.each do |code, name|
+            html2 = resp2.body.to_s.force_encoding('GBK').encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
+            codes = html2.scan(/<td><div align="center">(\d{6})<\/div><\/td>/).flatten
+            if !codes.empty?
+              html = html2
+              break
+            end
+          rescue Faraday::Error
+          end
+        end
+      end
+
+      break if codes.empty?
+
+      name_rows = html.scan(%r{<tr[^>]*>\s*<td><div align="center">(?<code>\d{6})</div></td>\s*<td><div align="center"><a[^>]*>(?<name>[^<]+)</a>}m)
+      names_by_code = name_rows.each_with_object({}) do |(code, name), acc|
+        c = code.to_s.strip.rjust(6, '0')
+        n = name.to_s.strip
+        acc[c] = n unless n.empty?
+      end
+
+      codes.each do |code|
         code = code.to_s.strip.rjust(6, '0')
-        name = name.to_s.strip
         next unless code.match?(/^\d{6}$/)
-        rows << { code: code, name: name }
+        rows << { code: code, name: names_by_code[code].to_s }
       end
 
       page += 1
       break if page > 40
-      sleep(0.08 + rand(0.0..0.12))
+      sleep(0.35 + rand(0.0..0.35))
     end
 
     rows.uniq { |x| x[:code] }
@@ -153,7 +203,7 @@ class Csi500StockAppender
     rows = em_suggest_rows(conn, url_em, code)
     return nil if rows.nil? || rows.empty?
 
-    expected_quoteid = (code.start_with?('6') ? '1.' : '0.') + code
+    expected_quoteid = (infer_market_id_from_code(code) == 1 ? '1.' : '0.') + code
     exact = rows.find { |x| x['Code'].to_s == code && x['QuoteID'].to_s == expected_quoteid }
     return exact if exact
 
@@ -234,7 +284,13 @@ class Csi500StockAppender
   end
 
   def to_tencent_symbol(code)
-    (code.start_with?('6') ? 'sh' : 'sz') + code
+    (infer_market_id_from_code(code) == 1 ? 'sh' : 'sz') + code
+  end
+
+  def infer_market_id_from_code(code)
+    c = code.to_s
+    return 1 if c.start_with?('6') || c.start_with?('5') || c.start_with?('9')
+    0
   end
 
   def st_or_delist?(name)
