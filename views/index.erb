@@ -36,6 +36,13 @@
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('current_price', '最新价') %></th>
                     <th class="p-3 border-b border-gray-200 text-right font-bold"><%= sort_link('expected_dividend_yield', '预期股息率') %></th>
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('dividend_yield', '历史股息率') %></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('turnover_rate', '换手率') %></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('market_cap', '总市值') %></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('volume', '成交量') %></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('avg_price', '均价') %></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('pe_ttm', 'PE(TTM)') %></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('pb', 'PB') %></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('total_shares', '总股本') %></th>
                     <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pos_30d', '30d位置') %></th>
                     <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pos_1y', '1y位置') %></th>
                     <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pos_3y', '3y位置') %></th>
@@ -62,6 +69,13 @@
                         <td class="p-3 text-right"><%= format_decimal(stock.current_price, 2) %></td>
                         <td class="p-3 text-right font-bold text-blue-700"><%= format_percent(stock.expected_dividend_yield) %></td>
                         <td class="p-3 text-right"><%= format_percent(stock.dividend_yield) %></td>
+                        <td class="p-3 text-right"><%= format_percent(stock.turnover_rate) %></td>
+                        <td class="p-3 text-right"><%= format_market_cap(stock.market_cap) %></td>
+                        <td class="p-3 text-right"><%= format_volume(stock.volume) %></td>
+                        <td class="p-3 text-right"><%= format_decimal(stock.avg_price, 2) %></td>
+                        <td class="p-3 text-right"><%= format_decimal(stock.pe_ttm, 2) %></td>
+                        <td class="p-3 text-right"><%= format_decimal(stock.pb, 2) %></td>
+                        <td class="p-3 text-right"><%= format_shares(stock.total_shares) %></td>
                         
                         <td class="p-3 text-center <%= position_color(stock.pos_30d) %>">
                             <%= format_decimal(stock.pos_30d, 2) %>

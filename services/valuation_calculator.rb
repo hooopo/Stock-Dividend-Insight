@@ -7,7 +7,7 @@ class ValuationCalculator
   end
 
   def calculate_for_stock(stock)
-    latest_price = stock.price_histories.order(date: :desc).first&.close
+    latest_price = stock.current_price || stock.price_histories.order(date: :desc).first&.close
     return if latest_price.nil? || latest_price == 0
 
     # 1. 预期股息率

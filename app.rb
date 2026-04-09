@@ -7,7 +7,11 @@ set :port, 4567
 
 get '/' do
   # 排序字段白名单
-  allowed_sort_fields = %w[name code expected_dividend_yield dividend_yield current_price pos_30d pos_1y pos_3y pos_5y price_position]
+  allowed_sort_fields = %w[
+    name code current_price expected_dividend_yield dividend_yield
+    turnover_rate market_cap volume avg_price pe_ttm pb total_shares
+    pos_30d pos_1y pos_3y pos_5y price_position
+  ]
   
   sort_field = params[:sort] || 'expected_dividend_yield'
   sort_order = params[:order] || 'desc'
@@ -50,6 +54,21 @@ helpers do
   def format_percent(value)
     return '-' if value.nil?
     "#{format_decimal(value, 2)}%"
+  end
+
+  def format_market_cap(value)
+    return '-' if value.nil?
+    "#{format_decimal(value.to_f / 100_000_000.0, 1)}亿"
+  end
+
+  def format_volume(value)
+    return '-' if value.nil?
+    "#{format_decimal(value.to_f / 10_000.0, 2)}万手"
+  end
+
+  def format_shares(value)
+    return '-' if value.nil?
+    "#{format_decimal(value.to_f / 100_000_000.0, 2)}亿股"
   end
 
   def position_color(pos)

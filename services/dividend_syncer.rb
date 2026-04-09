@@ -4,15 +4,17 @@ require 'json'
 require 'date'
 
 class DividendSyncer
-  def initialize(scope: Stock.all, sleep_range: (1.0..2.0))
+  def initialize(scope: Stock.all, sleep_range: (1.0..2.0), force: false)
     @scope = scope
     @sleep_range = sleep_range
+    @force = force
   end
 
   def sync
     @scope.find_each do |stock|
       puts "Syncing dividends for #{stock.name} (#{stock.secid})..."
       begin
+        Dividend.where(stock_id: stock.id).delete_all if @force
         fetch_and_save_dividends(stock)
       rescue Faraday::Error, JSON::ParserError => e
         puts "Error syncing dividends for #{stock.name}: #{e.message}"

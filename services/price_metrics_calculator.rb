@@ -4,10 +4,8 @@ class PriceMetricsCalculator
     latest_history = stock.price_histories.order(date: :desc).first
     return if latest_history.nil?
 
-    base_price = latest_history.close
+    base_price = stock.current_price && stock.current_price.to_f > 0 ? stock.current_price.to_f : latest_history.close
     base_date = latest_history.date
-    
-    stock.current_price = base_price
 
     # 1. 30天滚动 (月度)
     update_metrics(stock, "30d", 30, base_date, base_price)

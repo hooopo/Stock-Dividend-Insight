@@ -28,7 +28,7 @@
                         </a>
                     </div>
                 </div>
-                <p class="mt-2 text-gray-500">最新收盘价: <span class="text-2xl font-semibold text-blue-600">¥<%= format_decimal(@stock.current_price, 2) %></span></p>
+                <p class="mt-2 text-gray-500">最新价: <span class="text-2xl font-semibold text-blue-600">¥<%= format_decimal(@stock.current_price, 2) %></span></p>
             </div>
             
             <div class="mt-4 md:mt-0 grid grid-cols-2 gap-4 text-sm">
@@ -40,6 +40,37 @@
                     <div class="text-green-600 mb-1">全量价格位置</div>
                     <div class="text-xl font-bold text-green-800"><%= format_decimal(@stock.price_position, 2) %></div>
                 </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+            <div class="p-3 bg-gray-50 rounded-lg">
+                <div class="text-gray-500 text-xs mb-1">换手率</div>
+                <div class="text-base font-semibold text-gray-800"><%= format_percent(@stock.turnover_rate) %></div>
+            </div>
+            <div class="p-3 bg-gray-50 rounded-lg">
+                <div class="text-gray-500 text-xs mb-1">总市值</div>
+                <div class="text-base font-semibold text-gray-800"><%= format_market_cap(@stock.market_cap) %></div>
+            </div>
+            <div class="p-3 bg-gray-50 rounded-lg">
+                <div class="text-gray-500 text-xs mb-1">成交量</div>
+                <div class="text-base font-semibold text-gray-800"><%= format_volume(@stock.volume) %></div>
+            </div>
+            <div class="p-3 bg-gray-50 rounded-lg">
+                <div class="text-gray-500 text-xs mb-1">均价</div>
+                <div class="text-base font-semibold text-gray-800">¥<%= format_decimal(@stock.avg_price, 2) %></div>
+            </div>
+            <div class="p-3 bg-gray-50 rounded-lg">
+                <div class="text-gray-500 text-xs mb-1">市盈率(TTM)</div>
+                <div class="text-base font-semibold text-gray-800"><%= format_decimal(@stock.pe_ttm, 2) %></div>
+            </div>
+            <div class="p-3 bg-gray-50 rounded-lg">
+                <div class="text-gray-500 text-xs mb-1">市净率</div>
+                <div class="text-base font-semibold text-gray-800"><%= format_decimal(@stock.pb, 2) %></div>
+            </div>
+            <div class="p-3 bg-gray-50 rounded-lg">
+                <div class="text-gray-500 text-xs mb-1">总股本</div>
+                <div class="text-base font-semibold text-gray-800"><%= format_shares(@stock.total_shares) %></div>
             </div>
         </div>
         
