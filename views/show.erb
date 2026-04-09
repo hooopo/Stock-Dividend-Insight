@@ -72,6 +72,11 @@
                 <div class="text-gray-500 text-xs mb-1">总股本</div>
                 <div class="text-base font-semibold text-gray-800"><%= format_shares(@stock.total_shares) %></div>
             </div>
+            <div class="p-3 bg-gray-50 rounded-lg">
+                <div class="text-gray-500 text-xs mb-1">中国10年期国债</div>
+                <div class="text-base font-semibold text-gray-800"><%= format_percent(@cn_10y&.yield_pct) %></div>
+                <div class="text-xs text-gray-400 mt-1"><%= @cn_10y&.date %></div>
+            </div>
         </div>
         
         <!-- 滚动指标概览 -->

@@ -31,8 +31,15 @@ get '/' do
   @categories = Category.joins(:categorizations).group('categories.id').order('count(categorizations.id) desc')
   @sort_field = sort_field
   @sort_order = sort_order
+  @cn_10y = TreasuryYield.where(country: 'CN', tenor: '10Y').order(date: :desc).first
   
   erb :index
+end
+
+get '/macro' do
+  @cn_10y_latest = TreasuryYield.where(country: 'CN', tenor: '10Y').order(date: :desc).first
+  @cn_10y_series = TreasuryYield.where(country: 'CN', tenor: '10Y').order(date: :asc).pluck(:date, :yield_pct)
+  erb :macro
 end
 
 get '/stocks/:id' do
@@ -41,6 +48,7 @@ get '/stocks/:id' do
   @price_histories = @stock.price_histories.order(date: :asc)
   # 分红历史，按报告期降序展示
   @dividends = @stock.dividends.order(report_date: :desc)
+  @cn_10y = TreasuryYield.where(country: 'CN', tenor: '10Y').order(date: :desc).first
   
   erb :show
 end

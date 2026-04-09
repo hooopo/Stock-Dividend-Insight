@@ -9,6 +9,16 @@
                 按 <%= @sort_field %> <%= @sort_order == 'desc' ? '降序' : '升序' %> 排序
             </div>
         </div>
+
+        <div class="flex flex-wrap items-center gap-3 text-sm text-gray-600">
+            <a href="/macro" class="text-blue-600 hover:underline">宏观指标</a>
+            <span class="text-gray-300">|</span>
+            <span>
+                中国10年期国债收益率：
+                <span class="font-semibold text-gray-800"><%= format_percent(@cn_10y&.yield_pct) %></span>
+                <span class="text-gray-400">(<%= @cn_10y&.date %>)</span>
+            </span>
+        </div>
         
         <!-- 分类过滤 -->
         <div class="flex flex-wrap gap-2 items-center text-sm">

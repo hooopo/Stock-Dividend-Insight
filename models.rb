@@ -70,3 +70,6 @@ end
 class Dividend < ActiveRecord::Base
   belongs_to :stock
 end
+
+class TreasuryYield < ActiveRecord::Base
+end

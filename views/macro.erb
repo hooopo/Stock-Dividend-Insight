@@ -1,0 +1,59 @@
+<div class="bg-white rounded-lg shadow-md p-6">
+    <div class="flex items-center justify-between mb-6 border-b border-gray-100 pb-4">
+        <h2 class="text-xl font-semibold text-gray-800">宏观指标</h2>
+        <a href="/" class="text-sm text-blue-600 hover:underline">返回股票列表</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <div class="text-gray-500 text-xs mb-1">中国 10 年期国债收益率</div>
+            <div class="text-2xl font-semibold text-gray-800">
+                <%= format_percent(@cn_10y_latest&.yield_pct) %>
+            </div>
+            <div class="text-xs text-gray-500 mt-1">
+                <%= @cn_10y_latest&.date %>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg border border-gray-100">
+        <canvas id="cn10yChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const cn10yCtx = document.getElementById('cn10yChart').getContext('2d');
+    const cn10yLabels = [<%= @cn_10y_series.map { |d, _y| "'#{d}'" }.join(',') %>];
+    const cn10yValues = [<%= @cn_10y_series.map { |_d, y| y.to_f }.join(',') %>];
+
+    new Chart(cn10yCtx, {
+        type: 'line',
+        data: {
+            labels: cn10yLabels,
+            datasets: [{
+                label: '中国10年期国债收益率(%)',
+                data: cn10yValues,
+                borderColor: 'rgb(37, 99, 235)',
+                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                tension: 0.1,
+                pointRadius: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true }
+            },
+            scales: {
+                x: {
+                    grid: { display: false },
+                    ticks: { maxTicksLimit: 12 }
+                },
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+</script>
