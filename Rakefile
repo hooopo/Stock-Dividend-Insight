@@ -42,3 +42,17 @@ task :create do
   # 重新连回目标数据库
   ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 end
+
+namespace :clean do
+  desc "Remove price_histories records whose stock_id is missing (orphan rows)"
+  task :orphan_price_histories do
+    require_relative 'models'
+    require_relative 'services/price_history_cleaner'
+
+    cleaner = PriceHistoryCleaner.new
+    before = cleaner.orphan_count
+    deleted = cleaner.delete_orphans
+    after = cleaner.orphan_count
+    puts "orphan_before=#{before} deleted=#{deleted} orphan_after=#{after}"
+  end
+end

@@ -1,0 +1,134 @@
+<div class="bg-white rounded-lg shadow-md p-6 space-y-8">
+    <div class="flex items-start justify-between gap-4">
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-900">PB（市净率）知识库</h2>
+            <p class="mt-2 text-gray-600 text-sm">用于理解“资产定价”的核心指标之一：价格相对净资产的倍数。适合与行业特性、ROE、资产质量、周期位置一起看。</p>
+        </div>
+        <div class="text-sm">
+            <a href="/kb" class="text-blue-600 hover:underline">知识库</a>
+            <span class="text-gray-300 mx-2">/</span>
+            <a href="/" class="text-blue-600 hover:underline">股票列表</a>
+        </div>
+    </div>
+
+    <section class="space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">1. PB 是什么？</h3>
+        <div class="text-gray-700 leading-relaxed space-y-2">
+            <p>PB（Price-to-Book）= 市值 / 净资产（股东权益）。直观含义是：你用多少倍的“账面净资产”去买一家公司的股权。</p>
+            <p>PB 的信息密度主要来自两点：资产端的“质量与可变现性”，以及利润端的“资产回报率（ROE）”。同样的 PB，在不同商业模式下含义差异很大。</p>
+        </div>
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-gray-700 text-sm leading-relaxed">
+            <div class="font-semibold text-gray-800 mb-1">经验框架（直觉版）</div>
+            <div>PB ≈ 未来可持续 ROE ×（投资者愿意给的溢价/折价）</div>
+            <div class="mt-2">ROE 高且稳定、资产轻、品牌/渠道/技术壁垒强的公司，常见更高 PB；资产重、周期强、资产质量不确定的公司，PB 常见更低。</div>
+        </div>
+    </section>
+
+    <section class="space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">2. 不同行业 PB 差异怎么理解？</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-blue-50 border border-blue-100 rounded-lg p-4">
+                <div class="font-semibold text-blue-900 mb-2">金融（银行/保险/券商）</div>
+                <div class="text-blue-900/90 text-sm leading-relaxed space-y-2">
+                    <p>金融类公司资产负债表是“经营本体”，PB 的可比性更强。</p>
+                    <p>银行 PB 低并不必然便宜，关键看资产质量（不良、拨备）、息差趋势、监管与资本约束；保险 PB 受投资收益与负债久期影响显著；券商 PB 常受市场周期与业务杠杆影响。</p>
+                </div>
+            </div>
+            <div class="bg-emerald-50 border border-emerald-100 rounded-lg p-4">
+                <div class="font-semibold text-emerald-900 mb-2">消费（品牌/渠道）</div>
+                <div class="text-emerald-900/90 text-sm leading-relaxed space-y-2">
+                    <p>消费龙头常见更高 PB，原因是品牌力与渠道能力很难完整体现在账面净资产里。</p>
+                    <p>更重要的是“ROE 的稳定性与持续性”。当增长放缓或竞争格局改变时，高 PB 往往会先通过估值收缩来反映。</p>
+                </div>
+            </div>
+            <div class="bg-purple-50 border border-purple-100 rounded-lg p-4">
+                <div class="font-semibold text-purple-900 mb-2">科技/医药（研发驱动）</div>
+                <div class="text-purple-900/90 text-sm leading-relaxed space-y-2">
+                    <p>研发与人才投入往往费用化，账面净资产偏“薄”，PB 天然偏高。</p>
+                    <p>这类行业 PB 的比较更需要结合商业化阶段、竞争壁垒、现金流质量。单看 PB 容易误判。</p>
+                </div>
+            </div>
+            <div class="bg-amber-50 border border-amber-100 rounded-lg p-4">
+                <div class="font-semibold text-amber-900 mb-2">周期/资源（煤炭/有色/化工/航运等）</div>
+                <div class="text-amber-900/90 text-sm leading-relaxed space-y-2">
+                    <p>PB 会随周期波动，且资产价值受价格、折旧、减值与资本开支影响明显。</p>
+                    <p>更关键的是判断周期位置：高景气时 PB 可能不高但风险并不低；低景气时 PB 可能很低但“赔率”可能更好。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">3. 历史分位（PB Percentile）怎么用？</h3>
+        <div class="text-gray-700 leading-relaxed space-y-2">
+            <p>同一只股票的 PB 在不同阶段会波动。用“历史分位”可以回答：当前 PB 在过去一段时间（例如近 10 年）处在什么位置。</p>
+            <p>历史分位更像“相对自我估值”，适合用来做同一标的的分档与再平衡；而行业横向比较更多要看行业属性与ROE。</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                <div class="font-semibold text-gray-800">1 历史低位</div>
+                <div class="text-sm text-gray-600 mt-1">&lt; 20%</div>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                <div class="font-semibold text-gray-800">2 偏低</div>
+                <div class="text-sm text-gray-600 mt-1">20% - 50%</div>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                <div class="font-semibold text-gray-800">3 偏高</div>
+                <div class="text-sm text-gray-600 mt-1">50% - 80%</div>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                <div class="font-semibold text-gray-800">4 历史高位</div>
+                <div class="text-sm text-gray-600 mt-1">&gt; 80%</div>
+            </div>
+        </div>
+        <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 text-yellow-900/90 text-sm leading-relaxed">
+            <div class="font-semibold text-yellow-900 mb-1">常见误区</div>
+            <div>历史低位不等于“必涨”，也可能是基本面恶化、资产减值、商业模式改变导致的估值下修。</div>
+            <div class="mt-1">历史高位不等于“马上跌”，但通常意味着对未来的预期更乐观，容错率更低。</div>
+        </div>
+    </section>
+
+    <section class="space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">4. 本系统里的 PB 等级（PB Level）</h3>
+        <div class="text-gray-700 text-sm leading-relaxed">基于当前 PB 的绝对区间，将股票分为 6 档（更偏“横向粗筛”）：</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3"><span class="font-semibold text-gray-800">1 破净</span> <span class="text-gray-600 text-sm">(0 - 0.8]</span></div>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3"><span class="font-semibold text-gray-800">2 低估</span> <span class="text-gray-600 text-sm">(0.8 - 1.5]</span></div>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3"><span class="font-semibold text-gray-800">3 合理估值</span> <span class="text-gray-600 text-sm">(1.5 - 3]</span></div>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3"><span class="font-semibold text-gray-800">4 成长溢价</span> <span class="text-gray-600 text-sm">(3 - 6]</span></div>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3"><span class="font-semibold text-gray-800">5 高估</span> <span class="text-gray-600 text-sm">(6 - 10]</span></div>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-3"><span class="font-semibold text-gray-800">6 泡沫区</span> <span class="text-gray-600 text-sm">&gt; 10</span></div>
+        </div>
+        <div class="text-gray-700 leading-relaxed text-sm">
+            <div class="font-semibold text-gray-800 mb-1">使用建议</div>
+            <div>PB Level 适合做“第一层筛选”，PB 分位适合做“第二层同标的分档”。真正的决策还需要结合 ROE、现金流、负债结构与行业周期。</div>
+        </div>
+    </section>
+
+    <section class="space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">5. 把 PB 放到“投资决策”里的一套顺序</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white border border-gray-200 rounded-lg p-4">
+                <div class="font-semibold text-gray-800 mb-2">A. 横向：行业与商业模式</div>
+                <ol class="list-decimal pl-5 text-gray-700 text-sm space-y-1">
+                    <li>先确认行业属性：资产重/轻、周期强/弱、监管与会计口径</li>
+                    <li>用 ROE 与盈利质量解释 PB：高 ROE/高确定性 → 可承受更高 PB</li>
+                    <li>识别“低 PB 的陷阱”：资产减值、盈利不可持续、隐性负债</li>
+                </ol>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg p-4">
+                <div class="font-semibold text-gray-800 mb-2">B. 纵向：历史分位与再平衡</div>
+                <ol class="list-decimal pl-5 text-gray-700 text-sm space-y-1">
+                    <li>看 PB 分位：在自身历史中的位置（低位/高位）</li>
+                    <li>结合基本面变化：ROE、杠杆、景气、竞争格局是否发生结构性变化</li>
+                    <li>用分档做动作：逐步加减仓，而不是单点“抄底/逃顶”</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-4">
+        <div>提示：以上内容仅用于解释指标与方法论，不构成任何投资建议。市场有风险，决策需自担。</div>
+    </section>
+</div>

@@ -12,7 +12,7 @@
                     
                     <div class="flex flex-wrap gap-1 ml-4">
                         <% @stock.categories.each do |cat| %>
-                            <a href="/?category_id=<%= cat.id %>" class="px-2 py-0.5 bg-blue-50 text-blue-600 text-xs rounded-full hover:bg-blue-100"><%= cat.name %></a>
+                            <a href="/?include_category_ids[]=<%= cat.id %>" class="px-2 py-0.5 bg-blue-50 text-blue-600 text-xs rounded-full hover:bg-blue-100"><%= cat.name %></a>
                         <% end %>
                     </div>
                     
@@ -67,6 +67,8 @@
             <div class="p-3 bg-gray-50 rounded-lg">
                 <div class="text-gray-500 text-xs mb-1">市净率</div>
                 <div class="text-base font-semibold text-gray-800"><%= format_decimal(@stock.pb, 2) %></div>
+                <div class="text-xs text-gray-400 mt-1"><%= pb_level_label(@stock.pb_level) %></div>
+                <div class="text-xs text-gray-400"><%= pb_percentile_level_label(@stock.pb_percentile_level) %></div>
             </div>
             <div class="p-3 bg-gray-50 rounded-lg">
                 <div class="text-gray-500 text-xs mb-1">总股本</div>

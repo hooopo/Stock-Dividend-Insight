@@ -21,8 +21,13 @@
         </div>
 
         <% base_params = { sort: @sort_param } %>
-        <% base_params[:category_id] = @current_category.id if @current_category %>
         <% base_params[:only_div5y] = '1' if @only_div5y %>
+        <% base_params[:include_category_ids] = @include_category_ids unless @include_category_ids.empty? %>
+        <% base_params[:exclude_category_ids] = @exclude_category_ids unless @exclude_category_ids.empty? %>
+        <% base_params[:include_pb_levels] = @include_pb_levels unless @include_pb_levels.empty? %>
+        <% base_params[:exclude_pb_levels] = @exclude_pb_levels unless @exclude_pb_levels.empty? %>
+        <% base_params[:include_pb_percentile_levels] = @include_pb_percentile_levels unless @include_pb_percentile_levels.empty? %>
+        <% base_params[:exclude_pb_percentile_levels] = @exclude_pb_percentile_levels unless @exclude_pb_percentile_levels.empty? %>
         <div class="mt-4 flex flex-wrap items-center gap-2 text-sm">
             <span class="text-gray-600 font-medium mr-1">当前条件:</span>
             <% @sorts.each do |s| %>
@@ -32,40 +37,145 @@
                     <a href="/?<%= build_query(base_params.merge(remove_sort: s[:field])) %>" class="ml-2 text-blue-500 hover:text-blue-800">×</a>
                 </span>
             <% end %>
-            <% if @current_category %>
+            <% @included_categories.each do |cat| %>
                 <span class="inline-flex items-center px-2 py-1 bg-gray-50 text-gray-700 rounded-full border border-gray-200">
-                    <span class="font-semibold">分类</span>
-                    <span class="ml-1"><%= @current_category.name %></span>
-                    <a href="/?<%= build_query({ sort: @sort_param, only_div5y: (@only_div5y ? '1' : nil) }) %>" class="ml-2 text-gray-500 hover:text-gray-800">×</a>
+                    <span class="font-semibold">包含</span>
+                    <span class="ml-1"><%= cat.name %></span>
+                    <a href="/?<%= build_query(base_params.merge(remove_include_category_id: cat.id)) %>" class="ml-2 text-gray-500 hover:text-gray-800">×</a>
+                </span>
+            <% end %>
+            <% @excluded_categories.each do |cat| %>
+                <span class="inline-flex items-center px-2 py-1 bg-gray-50 text-gray-700 rounded-full border border-gray-200">
+                    <span class="font-semibold">排除</span>
+                    <span class="ml-1"><%= cat.name %></span>
+                    <a href="/?<%= build_query(base_params.merge(remove_exclude_category_id: cat.id)) %>" class="ml-2 text-gray-500 hover:text-gray-800">×</a>
+                </span>
+            <% end %>
+            <% @include_pb_levels.each do |lvl| %>
+                <span class="inline-flex items-center px-2 py-1 bg-gray-50 text-gray-700 rounded-full border border-gray-200">
+                    <span class="font-semibold">包含PB</span>
+                    <span class="ml-1"><%= pb_level_label(lvl) %></span>
+                    <a href="/?<%= build_query(base_params.merge(remove_include_pb_level: lvl)) %>" class="ml-2 text-gray-500 hover:text-gray-800">×</a>
+                </span>
+            <% end %>
+            <% @exclude_pb_levels.each do |lvl| %>
+                <span class="inline-flex items-center px-2 py-1 bg-gray-50 text-gray-700 rounded-full border border-gray-200">
+                    <span class="font-semibold">排除PB</span>
+                    <span class="ml-1"><%= pb_level_label(lvl) %></span>
+                    <a href="/?<%= build_query(base_params.merge(remove_exclude_pb_level: lvl)) %>" class="ml-2 text-gray-500 hover:text-gray-800">×</a>
+                </span>
+            <% end %>
+            <% @include_pb_percentile_levels.each do |lvl| %>
+                <span class="inline-flex items-center px-2 py-1 bg-gray-50 text-gray-700 rounded-full border border-gray-200">
+                    <span class="font-semibold">包含PB分位</span>
+                    <span class="ml-1"><%= pb_percentile_level_label(lvl) %></span>
+                    <a href="/?<%= build_query(base_params.merge(remove_include_pb_percentile_level: lvl)) %>" class="ml-2 text-gray-500 hover:text-gray-800">×</a>
+                </span>
+            <% end %>
+            <% @exclude_pb_percentile_levels.each do |lvl| %>
+                <span class="inline-flex items-center px-2 py-1 bg-gray-50 text-gray-700 rounded-full border border-gray-200">
+                    <span class="font-semibold">排除PB分位</span>
+                    <span class="ml-1"><%= pb_percentile_level_label(lvl) %></span>
+                    <a href="/?<%= build_query(base_params.merge(remove_exclude_pb_percentile_level: lvl)) %>" class="ml-2 text-gray-500 hover:text-gray-800">×</a>
                 </span>
             <% end %>
             <% if @only_div5y %>
                 <span class="inline-flex items-center px-2 py-1 bg-green-50 text-green-700 rounded-full border border-green-100">
                     <span class="font-semibold">连续5年分红</span>
-                    <a href="/?<%= build_query({ sort: @sort_param, category_id: (@current_category&.id), only_div5y: nil }) %>" class="ml-2 text-green-600 hover:text-green-900">×</a>
+                    <a href="/?<%= build_query(base_params.merge(only_div5y: nil)) %>" class="ml-2 text-green-600 hover:text-green-900">×</a>
                 </span>
             <% end %>
             <a href="/?<%= build_query(base_params.merge(clear_sorts: '1')) %>" class="ml-2 text-blue-600 hover:underline">清空排序</a>
             <a href="/" class="text-blue-600 hover:underline">清空全部</a>
         </div>
         
-        <!-- 分类过滤 -->
-        <div class="flex flex-wrap gap-2 items-center text-sm">
-            <span class="text-gray-600 font-medium mr-2">分类过滤:</span>
-            <a href="/?<%= build_query({ sort: @sort_param, only_div5y: (@only_div5y ? '1' : nil) }) %>" 
-               class="px-3 py-1 rounded-full transition-colors <%= !@current_category ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' %>">
-               全部
-            </a>
-            <% @categories.each do |cat| %>
-                <a href="/?<%= build_query({ category_id: cat.id, sort: @sort_param, only_div5y: (@only_div5y ? '1' : nil) }) %>" 
-                   class="px-3 py-1 rounded-full transition-colors <%= @current_category&.id == cat.id ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' %>">
-                   <%= cat.name %>
-                </a>
-            <% end %>
+        <div class="mt-3 flex flex-wrap items-center gap-3 text-sm">
+            <form method="get" action="/" class="flex flex-wrap items-center gap-3">
+                <input type="hidden" name="sort" value="<%= @sort_param %>">
+                <% if @only_div5y %>
+                    <input type="hidden" name="only_div5y" value="1">
+                <% end %>
+
+                <details class="relative">
+                    <summary class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 cursor-pointer select-none">包含分类 (<%= @include_category_ids.size %>)</summary>
+                    <div class="absolute z-10 mt-2 w-64 max-h-72 overflow-auto bg-white border border-gray-200 rounded shadow p-2">
+                        <% @categories.each do |cat| %>
+                            <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded">
+                                <input type="checkbox" name="include_category_ids[]" value="<%= cat.id %>" <%= @include_category_ids.include?(cat.id) ? 'checked' : '' %>>
+                                <span><%= cat.name %></span>
+                            </label>
+                        <% end %>
+                    </div>
+                </details>
+
+                <details class="relative">
+                    <summary class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 cursor-pointer select-none">排除分类 (<%= @exclude_category_ids.size %>)</summary>
+                    <div class="absolute z-10 mt-2 w-64 max-h-72 overflow-auto bg-white border border-gray-200 rounded shadow p-2">
+                        <% @categories.each do |cat| %>
+                            <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded">
+                                <input type="checkbox" name="exclude_category_ids[]" value="<%= cat.id %>" <%= @exclude_category_ids.include?(cat.id) ? 'checked' : '' %>>
+                                <span><%= cat.name %></span>
+                            </label>
+                        <% end %>
+                    </div>
+                </details>
+
+                <details class="relative">
+                    <summary class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 cursor-pointer select-none">包含PB等级 (<%= @include_pb_levels.size %>)</summary>
+                    <div class="absolute z-10 mt-2 w-64 max-h-72 overflow-auto bg-white border border-gray-200 rounded shadow p-2">
+                        <% (1..6).each do |lvl| %>
+                            <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded">
+                                <input type="checkbox" name="include_pb_levels[]" value="<%= lvl %>" <%= @include_pb_levels.include?(lvl) ? 'checked' : '' %>>
+                                <span><%= pb_level_label(lvl) %></span>
+                            </label>
+                        <% end %>
+                    </div>
+                </details>
+
+                <details class="relative">
+                    <summary class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 cursor-pointer select-none">排除PB等级 (<%= @exclude_pb_levels.size %>)</summary>
+                    <div class="absolute z-10 mt-2 w-64 max-h-72 overflow-auto bg-white border border-gray-200 rounded shadow p-2">
+                        <% (1..6).each do |lvl| %>
+                            <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded">
+                                <input type="checkbox" name="exclude_pb_levels[]" value="<%= lvl %>" <%= @exclude_pb_levels.include?(lvl) ? 'checked' : '' %>>
+                                <span><%= pb_level_label(lvl) %></span>
+                            </label>
+                        <% end %>
+                    </div>
+                </details>
+
+                <details class="relative">
+                    <summary class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 cursor-pointer select-none">包含PB分位 (<%= @include_pb_percentile_levels.size %>)</summary>
+                    <div class="absolute z-10 mt-2 w-64 max-h-72 overflow-auto bg-white border border-gray-200 rounded shadow p-2">
+                        <% (1..4).each do |lvl| %>
+                            <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded">
+                                <input type="checkbox" name="include_pb_percentile_levels[]" value="<%= lvl %>" <%= @include_pb_percentile_levels.include?(lvl) ? 'checked' : '' %>>
+                                <span><%= pb_percentile_level_label(lvl) %></span>
+                            </label>
+                        <% end %>
+                    </div>
+                </details>
+
+                <details class="relative">
+                    <summary class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 cursor-pointer select-none">排除PB分位 (<%= @exclude_pb_percentile_levels.size %>)</summary>
+                    <div class="absolute z-10 mt-2 w-64 max-h-72 overflow-auto bg-white border border-gray-200 rounded shadow p-2">
+                        <% (1..4).each do |lvl| %>
+                            <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded">
+                                <input type="checkbox" name="exclude_pb_percentile_levels[]" value="<%= lvl %>" <%= @exclude_pb_percentile_levels.include?(lvl) ? 'checked' : '' %>>
+                                <span><%= pb_percentile_level_label(lvl) %></span>
+                            </label>
+                        <% end %>
+                    </div>
+                </details>
+
+                <button type="submit" class="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700">应用</button>
+                <a href="/?<%= build_query({ sort: @sort_param, only_div5y: (@only_div5y ? '1' : nil) }) %>" class="text-blue-600 hover:underline">清空过滤</a>
+            </form>
+
             <% if @only_div5y %>
-                <a href="/?<%= build_query({ category_id: (@current_category&.id), sort: @sort_param }) %>" class="px-3 py-1 rounded-full bg-green-600 text-white">仅5年分红✓</a>
+                <a href="/?<%= build_query(base_params.merge(only_div5y: nil)) %>" class="px-3 py-1 rounded bg-green-600 text-white">仅5年分红✓</a>
             <% else %>
-                <a href="/?<%= build_query({ category_id: (@current_category&.id), sort: @sort_param, only_div5y: '1' }) %>" class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">仅显示连续5年分红</a>
+                <a href="/?<%= build_query(base_params.merge(only_div5y: '1')) %>" class="px-3 py-1 rounded bg-gray-100 text-gray-600 hover:bg-gray-200">仅显示连续5年分红</a>
             <% end %>
         </div>
     </div>
@@ -81,11 +191,11 @@
                     <th class="p-3 border-b border-gray-200 text-right font-bold"><%= sort_link('expected_dividend_yield', '预期股息率') %></th>
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('dividend_yield', '历史股息率') %></th>
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('turnover_rate', '换手率') %></th>
-                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('market_cap', '总市值') %></th>
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('volume', '成交量') %></th>
-                    <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('avg_price', '均价') %></th>
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('pe_ttm', 'PE(TTM)') %></th>
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('pb', 'PB') %></th>
+                    <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pb_level', 'PB等级') %></th>
+                    <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pb_percentile', 'PB分位') %></th>
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('total_shares', '总股本') %></th>
                     <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pos_30d', '30d位置') %></th>
                     <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pos_1y', '1y位置') %></th>
@@ -114,11 +224,17 @@
                         <td class="p-3 text-right font-bold text-blue-700"><%= format_percent(stock.expected_dividend_yield) %></td>
                         <td class="p-3 text-right"><%= format_percent(stock.dividend_yield) %></td>
                         <td class="p-3 text-right"><%= format_percent(stock.turnover_rate) %></td>
-                        <td class="p-3 text-right"><%= format_market_cap(stock.market_cap) %></td>
                         <td class="p-3 text-right"><%= format_volume(stock.volume) %></td>
-                        <td class="p-3 text-right"><%= format_decimal(stock.avg_price, 2) %></td>
                         <td class="p-3 text-right"><%= format_decimal(stock.pe_ttm, 2) %></td>
                         <td class="p-3 text-right"><%= format_decimal(stock.pb, 2) %></td>
+                        <td class="p-3 text-center">
+                            <div><%= pb_level_label(stock.pb_level) %></div>
+                            <div class="text-xs text-gray-400"><%= stock.pb_level || '-' %></div>
+                        </td>
+                        <td class="p-3 text-center">
+                            <div><%= pb_percentile_level_label(stock.pb_percentile_level) %></div>
+                            <div class="text-xs text-gray-400"><%= format_ratio_percent(stock.pb_percentile) %></div>
+                        </td>
                         <td class="p-3 text-right"><%= format_shares(stock.total_shares) %></td>
                         
                         <td class="p-3 text-center <%= position_color(stock.pos_30d) %>">

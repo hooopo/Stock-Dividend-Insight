@@ -90,6 +90,54 @@ class ValuationCalculator
       end
     end
 
+    stock.pb_level = pb_level_for(stock.pb)
+    pb_percentile = pb_percentile_for(stock)
+    stock.pb_percentile = pb_percentile
+    stock.pb_percentile_level = pb_percentile_level_for(pb_percentile)
+
     stock.save! if stock.changed?
+  end
+
+  def pb_percentile_for(stock)
+    pb = stock.pb
+    return nil if pb.nil?
+    current = pb.to_f
+    return nil unless current.finite? && current > 0
+
+    from_date = Date.today << 120
+    arr = stock.price_histories.where('date >= ?', from_date).where.not(pb: nil).pluck(:pb).map { |x| x.to_f }.select { |x| x.finite? && x > 0 }
+    return nil if arr.size < 20
+
+    sorted = arr.sort
+    idx = sorted.bsearch_index { |x| x >= current } || (sorted.size - 1)
+
+    if sorted.size <= 1
+      0.5
+    else
+      (idx.to_f / (sorted.size - 1).to_f)
+    end
+  end
+
+  def pb_percentile_level_for(p)
+    return nil if p.nil?
+    v = p.to_f
+    return nil unless v.finite?
+    return 1 if v < 0.2
+    return 2 if v < 0.5
+    return 3 if v < 0.8
+    4
+  end
+
+  def pb_level_for(pb)
+    return nil if pb.nil?
+    v = pb.to_f
+    return nil unless v.finite? && v > 0
+
+    return 1 if v <= 0.8
+    return 2 if v <= 1.5
+    return 3 if v <= 3
+    return 4 if v <= 6
+    return 5 if v <= 10
+    6
   end
 end
