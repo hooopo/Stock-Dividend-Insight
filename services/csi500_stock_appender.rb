@@ -118,7 +118,6 @@ class Csi500StockAppender
   end
 
   private
-
   def fetch_sina_index_constituents
     rows = []
     page = 1

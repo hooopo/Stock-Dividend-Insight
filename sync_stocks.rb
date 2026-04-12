@@ -15,13 +15,16 @@ require_relative 'services/valuation_history_syncer'
 require_relative 'services/roe_history_syncer'
 
 class StockSyncService
-  def initialize(incremental: false, force: false, force_pull: false, backfill_cn10y: false, add_csi500: false, add_a500: false, add_dividend_etf_constituents: false, fill_categories: false, sync_valuation_history: false, valuation_years: 10, valuation_force: false, sync_roe_history: false, roe_years: 12)
+  def initialize(incremental: false, force: false, force_pull: false, backfill_cn10y: false, add_csi500: false, add_a500: false, add_kc50: false, add_tech50: false, add_ai50: false, add_dividend_etf_constituents: false, fill_categories: false, sync_valuation_history: false, valuation_years: 10, valuation_force: false, sync_roe_history: false, roe_years: 12)
     @incremental = incremental
     @force = force
     @force_pull = force_pull
     @backfill_cn10y = backfill_cn10y
     @add_csi500 = add_csi500
     @add_a500 = add_a500
+    @add_kc50 = add_kc50
+    @add_tech50 = add_tech50
+    @add_ai50 = add_ai50
     @add_dividend_etf_constituents = add_dividend_etf_constituents
     @fill_categories = fill_categories
     @sync_valuation_history = sync_valuation_history
@@ -40,10 +43,19 @@ class StockSyncService
     if @add_a500
       Csi500StockAppender.new(file_path: 'stocks-pro.yml', index_id: '000510', metric_prefix: 'a500').run
     end
+    if @add_kc50
+      Csi500StockAppender.new(file_path: 'stocks-pro.yml', index_id: '000688', metric_prefix: 'kc50').run
+    end
+    if @add_tech50
+      Csi500StockAppender.new(file_path: 'stocks-pro.yml', index_id: '399279', metric_prefix: 'tech50').run
+    end
+    if @add_ai50
+      Csi500StockAppender.new(file_path: 'stocks-pro.yml', index_id: '399284', metric_prefix: 'ai50').run
+    end
     if @add_dividend_etf_constituents
       DividendEtfConstituentsAppender.new(file_path: 'stocks-pro.yml', index_ids: ['000015']).run
     end
-    if @fill_categories || @add_csi500 || @add_a500 || @add_dividend_etf_constituents
+    if @fill_categories || @add_csi500 || @add_a500 || @add_kc50 || @add_tech50 || @add_ai50 || @add_dividend_etf_constituents
       CategoryBackfiller.new(file_path: 'stocks-pro.yml').run
     end
 
@@ -85,6 +97,9 @@ if __FILE__ == $0
   add_csi500 = ARGV.include?('--add-csi500')
   fill_categories = ARGV.include?('--fill-categories')
   add_a500 = ARGV.include?('--add-a500')
+  add_kc50 = ARGV.include?('--add-kc50')
+  add_tech50 = ARGV.include?('--add-tech50')
+  add_ai50 = ARGV.include?('--add-ai50')
   add_dividend_etf_constituents = ARGV.include?('--add-dividend-etf-constituents')
   sync_valuation_history = ARGV.include?('--sync-valuation-history')
   valuation_years = (ARGV.find { |x| x.start_with?('--valuation-years=') } || '').split('=', 2)[1].to_i
@@ -93,5 +108,5 @@ if __FILE__ == $0
   sync_roe_history = ARGV.include?('--sync-roe-history')
   roe_years = (ARGV.find { |x| x.start_with?('--roe-years=') } || '').split('=', 2)[1].to_i
   roe_years = 12 if roe_years <= 0
-  StockSyncService.new(incremental: incremental, force: force, force_pull: force_pull, backfill_cn10y: backfill_cn10y, add_csi500: add_csi500, add_a500: add_a500, add_dividend_etf_constituents: add_dividend_etf_constituents, fill_categories: fill_categories, sync_valuation_history: sync_valuation_history, valuation_years: valuation_years, valuation_force: valuation_force, sync_roe_history: sync_roe_history, roe_years: roe_years).run
+  StockSyncService.new(incremental: incremental, force: force, force_pull: force_pull, backfill_cn10y: backfill_cn10y, add_csi500: add_csi500, add_a500: add_a500, add_kc50: add_kc50, add_tech50: add_tech50, add_ai50: add_ai50, add_dividend_etf_constituents: add_dividend_etf_constituents, fill_categories: fill_categories, sync_valuation_history: sync_valuation_history, valuation_years: valuation_years, valuation_force: valuation_force, sync_roe_history: sync_roe_history, roe_years: roe_years).run
 end

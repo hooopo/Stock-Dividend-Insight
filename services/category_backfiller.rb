@@ -207,7 +207,6 @@ class CategoryBackfiller
   end
 
   private
-
   def parse_stocks_yml_sections(path)
     return {} unless path && File.exist?(path)
 

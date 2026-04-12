@@ -3346,7 +3346,6 @@ stocks:
   name: 北大荒
   categories:
   - 农业
-  - 农业
 - code: "000027"
   name: 深圳能源
   categories:
@@ -3689,7 +3688,6 @@ stocks:
   name: 隆平高科
   categories:
   - 农业
-  - 农业
 - code: "000988"
   name: 华工科技
   categories:
@@ -3952,3 +3950,136 @@ stocks:
   categories:
   - 高速公路
   - 交通运输
+- code: "688568"
+  name: 中科星图
+  categories:
+  - IT服务
+- code: "689009"
+  name: 九号公司-WD
+  categories:
+  - 其他交运设备
+- code: "688249"
+  name: 晶合集成
+  categories:
+  - 其他电子
+- code: "002261"
+  name: 拓维信息
+  categories:
+  - 移动互联网服务
+- code: "000066"
+  name: 中国长城
+  categories:
+  - 计算机设备
+  - 信息技术
+- code: "002558"
+  name: 巨人网络
+  categories:
+  - 移动互联网服务
+- code: "000938"
+  name: 紫光股份
+  categories:
+  - IT服务
+- code: "002049"
+  name: 紫光国微
+  categories:
+  - 集成电路
+- code: "300520"
+  name: 科大国创
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "301488"
+  name: 豪恩汽电
+  categories:
+  - 汽车零部件
+- code: "002368"
+  name: 太极股份
+  categories:
+  - IT服务
+- code: "002401"
+  name: 中远海科
+  categories:
+  - IT服务
+- code: "002747"
+  name: 埃斯顿
+  categories:
+  - 其它通用机械
+- code: "300075"
+  name: 数字政通
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "301339"
+  name: 通行宝
+  categories:
+  - 其他互联网服务
+- code: "300532"
+  name: 今天国际
+  categories:
+  - IT服务
+- code: "301091"
+  name: 深城交
+  categories:
+  - 城轨建设
+- code: "300168"
+  name: 万达信息
+  categories:
+  - IT服务
+- code: "300036"
+  name: 超图软件
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "300229"
+  name: 拓尔思
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "300098"
+  name: 高新兴
+  categories:
+  - 通信配套服务
+- code: "300166"
+  name: 东方国信
+  categories:
+  - IT服务
+- code: "300590"
+  name: 移为通信
+  categories:
+  - 通信设备
+  - 信息技术
+- code: "300222"
+  name: 科大智能
+  categories:
+  - 其它通用机械
+- code: "300170"
+  name: 汉得信息
+  categories:
+  - IT服务
+- code: "300188"
+  name: 国投智能
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "300212"
+  name: 易华录
+  categories:
+  - IT服务
+- code: "002063"
+  name: 远光软件
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "002151"
+  name: 北斗星通
+  categories:
+  - 航天装备
+  - 工业
+- code: "002373"
+  name: 千方科技
+  categories:
+  - IT服务
+- code: "300613"
+  name: 富瀚微
+  categories:
+  - 集成电路
