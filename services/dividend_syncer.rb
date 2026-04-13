@@ -99,6 +99,19 @@ class DividendSyncer
         records_created += 1
       end
     end
+    latest_price = stock.current_price || stock.price_histories.order(date: :desc).limit(1).pluck(:close).first
+    if latest_price && latest_price.to_f > 0
+      latest_dividend = stock.dividends.order(report_date: :desc).first
+      if latest_dividend
+        latest_year = latest_dividend.report_date.year
+        year_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend)
+        stock.dividend_yield = year_sum.to_f > 0 ? (year_sum.to_f / latest_price.to_f) * 100.0 : 0.0
+      else
+        stock.dividend_yield = 0.0
+      end
+      stock.save! if stock.changed?
+    end
+
     puts "Saved #{records_created} dividend records for #{stock.name}."
   end
 end

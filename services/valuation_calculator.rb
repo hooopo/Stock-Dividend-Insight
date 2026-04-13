@@ -29,6 +29,16 @@ class ValuationCalculator
       stock.expected_dividend_yield = 0.0
     end
 
+    # 1.5 历史股息率（按最近一个完整年度的累计派现 / 最新价）
+    latest_dividend = stock.dividends.order(report_date: :desc).first
+    if latest_dividend
+      latest_year = latest_dividend.report_date.year
+      year_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend)
+      stock.dividend_yield = year_sum.to_f > 0 ? (year_sum / latest_price) * 100 : 0.0
+    else
+      stock.dividend_yield = 0.0
+    end
+
     # 2. 连续5年有分红
     current_year = Date.today.year
     years = (current_year - 5...current_year).to_a
