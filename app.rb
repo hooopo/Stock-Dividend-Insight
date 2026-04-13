@@ -534,6 +534,13 @@ get '/stocks/:id' do
   end
   # 价格走势（取最近 10 年），按日期升序用于绘图
   @price_histories = @stock.price_histories.where('date >= ?', from_date).order(date: :asc)
+  ph_arr = @price_histories.to_a
+  if ph_arr.size > 700
+    stride = (ph_arr.size / 700.0).ceil
+    sampled = ph_arr.each_with_index.filter_map { |row, idx| idx % stride == 0 ? row : nil }
+    sampled << ph_arr.last if sampled.last != ph_arr.last
+    @price_histories = sampled
+  end
   # 分红历史，按报告期降序展示
   @dividends = @stock.dividends.order(report_date: :desc)
   @roe_annual_rows =

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="A股抓手">
+  <title>A股抓手</title>
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <path d="M20 44L32 20L44 44" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M26 34H38" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+  <path d="M19 38C17.5 44.5 20.5 50 28 50C34.5 50 39 46.2 39 40.5" fill="none" stroke="#10b981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="46.5" cy="25.5" r="2.2" fill="#10b981"/>
+</svg>
