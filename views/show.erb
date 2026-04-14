@@ -9,6 +9,12 @@
                     <span class="px-2 py-1 <%= @stock.market_id == 1 ? 'bg-red-50 text-red-600' : 'bg-blue-50 text-blue-600' %> rounded text-xs">
                         <%= @stock.market_id == 1 ? '上证' : '深证' %>
                     </span>
+                    <% if cyclical_stock?(@stock) %>
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= tag_badge_class('cycle') %> text-xs font-semibold" title="行业属性偏周期">周期</span>
+                    <% end %>
+                    <% if high_volatility_stock?(@stock) %>
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= tag_badge_class('volatile') %> text-xs font-semibold" title="行业属性波动相对更大">波动大</span>
+                    <% end %>
                     
                     <div class="flex flex-wrap gap-1 ml-4">
                         <% @stock.categories.each do |cat| %>

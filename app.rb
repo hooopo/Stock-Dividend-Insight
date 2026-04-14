@@ -22,7 +22,7 @@ get '/' do
   allowed_sort_fields = %w[
     current_price dividend_yield
     turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
-    peg net_profit_yoy asset_liability_ratio interest_debt_ratio
+    peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio
     pos_30d pos_1y pos_3y pos_5y price_position
   ]
   
@@ -308,6 +308,10 @@ get '/kb/debt' do
   erb :kb_debt
 end
 
+get '/kb/cycle' do
+  erb :kb_cycle_volatility
+end
+
 get '/kb/roe' do
   erb :kb_roe
 end
@@ -416,6 +420,7 @@ helpers do
       'volume' => '成交量',
       'pe_ttm' => 'PE(TTM)',
       'peg' => 'PEG',
+      'peg_level' => 'PEG等级',
       'net_profit_yoy' => '净利同比',
       'asset_liability_ratio' => '资产负债率',
       'interest_debt_ratio' => '有息负债率',
@@ -573,6 +578,46 @@ helpers do
     when 5 then 'bg-gray-100 text-gray-800 border-gray-200'
     else
       'bg-gray-50 text-gray-500 border-gray-200'
+    end
+  end
+
+  def cyclical_stock?(stock)
+    names = stock.categories.map(&:name)
+    keywords = %w[
+      煤炭 钢铁 普钢 特钢 有色 贵金属 小金属 工业金属 能源金属
+      石油 石油化工 石油天然气 油服 油气钻采
+      化学 化工 化肥 农药
+      水泥 建筑材料 建筑装饰 建筑
+      航运 港口 航运港口 机场 高速公路 铁路运输
+      房地产 房地产开发
+      火电 电力 燃气 水务 公用事业
+    ]
+    names.any? { |n| keywords.any? { |k| n.include?(k) } }
+  end
+
+  def high_volatility_stock?(stock)
+    names = stock.categories.map(&:name)
+    keywords = %w[
+      半导体 集成电路 电子 消费电子 电子元件 电子化学品
+      IT服务 信息技术 软件 软件开发 计算机 计算机设备
+      互联网 互联网信息服务 其他互联网服务 移动互联网服务
+      通信 通信设备 通信服务 通信传输设备 终端设备 电商 电商服务
+      新媒体 游戏 影视 传媒
+      光伏 风电 电池 储能 新能源 新能源发电
+      航天 航空 航空装备 航海装备 地面兵装
+      医药生物 生物制品 医疗器械 医疗服务
+    ]
+    names.any? { |n| keywords.any? { |k| n.include?(k) } }
+  end
+
+  def tag_badge_class(tag)
+    case tag.to_s
+    when 'cycle'
+      'bg-amber-50 text-amber-800 border-amber-200'
+    when 'volatile'
+      'bg-purple-50 text-purple-800 border-purple-200'
+    else
+      'bg-gray-50 text-gray-700 border-gray-200'
     end
   end
 

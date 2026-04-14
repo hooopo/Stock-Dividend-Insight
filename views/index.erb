@@ -424,11 +424,11 @@
             <thead>
                 <tr class="bg-gray-50 text-gray-700 text-xs uppercase tracking-wider">
                     <th class="p-3 border-b border-gray-200 sticky left-0 bg-gray-50">股票名称</th>
-                    <th class="p-3 border-b border-gray-200">分类</th>
                     <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell"><%= sort_link('current_price', '最新价') %></th>
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('dividend_yield', '历史股息率') %></th>
                     <th class="p-3 border-b border-gray-200 text-right"><%= sort_link('pe_ttm', 'PE(TTM)') %></th>
                     <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell"><%= sort_link('peg', 'PEG') %></th>
+                    <th class="p-3 border-b border-gray-200 text-center hidden md:table-cell"><%= sort_link('peg_level', 'PEG等级') %></th>
                     <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell"><%= sort_link('asset_liability_ratio', '资产负债率') %></th>
                     <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pe_level', 'PE等级') %></th>
                     <th class="p-3 border-b border-gray-200 text-center"><%= sort_link('pe_percentile', 'PE分位') %></th>
@@ -447,23 +447,32 @@
             <tbody class="text-gray-600">
                 <% @stocks.each do |stock| %>
                     <tr class="hover:bg-blue-50 transition-colors duration-150 border-b border-gray-100 group">
+                        <% categories_text = stock.categories.map(&:name).join(' / ') %>
                         <td class="p-3 font-medium text-gray-800 sticky left-0 bg-white group-hover:bg-blue-50">
-                            <a href="/stocks/<%= stock.id %>" class="text-blue-600 hover:text-blue-800 hover:underline">
+                            <a href="/stocks/<%= stock.id %>" class="text-blue-600 hover:text-blue-800 hover:underline" title="<%= categories_text %>">
                                 <%= stock.name %>
                             </a>
-                            <div class="text-xs text-gray-400 font-mono"><%= stock.code %></div>
-                        </td>
-                        <td class="p-3">
-                            <div class="flex flex-wrap gap-1">
-                                <% stock.categories.each do |cat| %>
-                                    <span class="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full"><%= cat.name %></span>
+                            <div class="text-xs text-gray-400 font-mono" title="<%= categories_text %>"><%= stock.code %></div>
+                            <div class="mt-1 flex flex-wrap items-center gap-1">
+                                <% if cyclical_stock?(stock) %>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= tag_badge_class('cycle') %> text-xs font-semibold" title="行业属性偏周期">周期</span>
+                                <% end %>
+                                <% if high_volatility_stock?(stock) %>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= tag_badge_class('volatile') %> text-xs font-semibold" title="行业属性波动相对更大">波动大</span>
                                 <% end %>
                             </div>
                         </td>
                         <td class="p-3 text-right hidden md:table-cell"><%= format_decimal(stock.current_price, 2) %></td>
-                <td class="p-3 text-right font-bold text-blue-700"><%= stock.dividend_yield.nil? ? '未同步' : format_percent(stock.dividend_yield) %></td>
+                        <td class="p-3 text-right font-bold text-blue-700"><%= stock.dividend_yield.nil? ? '未同步' : format_percent(stock.dividend_yield) %></td>
                         <td class="p-3 text-right"><%= format_decimal(stock.pe_ttm, 2) %></td>
                         <td class="p-3 text-right hidden md:table-cell"><%= stock.peg.nil? ? '-' : format_decimal(stock.peg, 2) %></td>
+                        <td class="p-3 text-center hidden md:table-cell">
+                            <% if stock.peg_level.nil? %>
+                                <span class="text-gray-400">-</span>
+                            <% else %>
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= peg_level_badge_class(stock.peg_level) %> font-semibold"><%= peg_level_label(stock.peg_level) %></span>
+                            <% end %>
+                        </td>
                         <td class="p-3 text-right hidden md:table-cell"><%= stock.asset_liability_ratio.nil? ? '未同步' : format_percent(stock.asset_liability_ratio) %></td>
                         <td class="p-3 text-center">
                             <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= pe_level_badge_class(stock.pe_level) %> font-semibold"><%= pe_level_label(stock.pe_level) %></span>
