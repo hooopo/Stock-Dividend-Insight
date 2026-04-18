@@ -1,0 +1,83 @@
+<div class="bg-white rounded-lg shadow-md p-6 space-y-8">
+    <div class="flex items-start justify-between gap-4">
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-900">自由现金流（FCF）知识库</h2>
+            <p class="mt-2 text-gray-600 text-sm">自由现金流是“公司在维持经营与必要投资之后，真正能自由支配的现金”。它比利润更贴近现金创造能力，适合用来做估值与安全边际判断。</p>
+        </div>
+        <div class="text-sm">
+            <a href="/kb" class="text-blue-600 hover:underline">知识库</a>
+            <span class="text-gray-300 mx-2">/</span>
+            <a href="/" class="text-blue-600 hover:underline">股票列表</a>
+        </div>
+    </div>
+
+    <section class="space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">1. 自由现金流是什么？</h3>
+        <div class="text-gray-700 leading-relaxed space-y-2 text-sm">
+            <div>常见理解：FCF ≈ 经营活动现金流 - 资本开支（CAPEX）。</div>
+            <div>FCF 为正且稳定，通常意味着公司有能力分红、回购、还债或进行更高质量的再投资。</div>
+        </div>
+    </section>
+
+    <section class="space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">2. FCF Yield（自由现金流收益率）</h3>
+        <div class="text-gray-700 leading-relaxed space-y-2 text-sm">
+            <div>FCF Yield = FCF / 市值。</div>
+            <div>直观含义：你以当前市值买入公司，公司的自由现金流“回报率”大概是多少。</div>
+        </div>
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-gray-700 text-sm leading-relaxed">
+            <div class="font-semibold text-gray-800 mb-1">读数要点</div>
+            <div>数值更高通常更便宜，但要确认 FCF 的可持续性（是否靠一次性回款/压应付、是否削减了必要 CAPEX）。</div>
+            <div>强周期行业在景气顶部可能出现短期高 FCF Yield，需要结合周期位置解读。</div>
+        </div>
+    </section>
+
+    <section class="space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">3. FCF/EV（用 EV 修正的现金流收益率）</h3>
+        <div class="text-gray-700 leading-relaxed space-y-2 text-sm">
+            <div>EV（企业价值）通常用于把“股权 + 债务”放在同一个尺度上比较。</div>
+            <div>FCF/EV = FCF / EV。</div>
+            <div>直观含义：考虑一定的融资负担后，公司的自由现金流对“企业整体估值”的回报率。</div>
+        </div>
+        <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 text-yellow-900/90 text-sm leading-relaxed">
+            <div class="font-semibold text-yellow-900 mb-1">为什么有用</div>
+            <div>两家公司市值相近，但一家负债更重时，仅看 FCF Yield 可能低估杠杆风险；FCF/EV 能更直观看到“融资结构差异”。</div>
+        </div>
+    </section>
+
+    <section class="space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">4. 常见坑</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 text-yellow-900/90 text-sm leading-relaxed">
+                <div class="font-semibold text-yellow-900 mb-1">营运资本扭曲</div>
+                <div>应收/存货回收、应付拉长会让某期 FCF 偏高（或偏低），不代表长期能力。建议看多期平均与趋势。</div>
+            </div>
+            <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 text-yellow-900/90 text-sm leading-relaxed">
+                <div class="font-semibold text-yellow-900 mb-1">CAPEX 被动减少</div>
+                <div>削减必要投资会短期抬升 FCF，但可能损害未来增长与竞争力。</div>
+            </div>
+            <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 text-yellow-900/90 text-sm leading-relaxed">
+                <div class="font-semibold text-yellow-900 mb-1">周期与一次性因素</div>
+                <div>景气周期、补贴、处置收益会让现金流短期不稳定，适合配合“周期/波动”标签一起看。</div>
+            </div>
+            <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 text-yellow-900/90 text-sm leading-relaxed">
+                <div class="font-semibold text-yellow-900 mb-1">负债结构没看清</div>
+                <div>同样的资产负债率，若有息负债占比更高，现金流压力更大。建议同时看资产负债率与有息负债率。</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">5. 本系统里的口径</h3>
+        <div class="text-gray-700 leading-relaxed space-y-2 text-sm">
+            <div><span class="font-semibold text-gray-800">FCF（fcff_back）</span>：来自数据源的自由现金流口径（用于回溯计算）。</div>
+            <div><span class="font-semibold text-gray-800">FCF Yield</span>：FCF / 总市值 × 100%。</div>
+            <div><span class="font-semibold text-gray-800">FCF/EV</span>：FCF / (总市值 + 有息负债估算) × 100%。</div>
+            <div>由于市值是实时的，FCF 是财报口径的，因此两者结合属于“用最新价格衡量最近一期财务能力”的近似指标。</div>
+        </div>
+    </section>
+
+    <section class="text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-4">
+        <div>提示：以上内容仅用于解释指标与方法论，不构成任何投资建议。市场有风险，决策需自担。</div>
+    </section>
+</div>

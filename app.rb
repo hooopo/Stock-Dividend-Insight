@@ -22,7 +22,7 @@ get '/' do
   allowed_sort_fields = %w[
     current_price dividend_yield
     turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
-    peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio
+    peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev
     pos_30d pos_1y pos_3y pos_5y price_position
   ]
   
@@ -39,6 +39,7 @@ get '/' do
   exclude_pe_percentile_levels = parse_id_list(params[:exclude_pe_percentile_levels]).select { |x| x >= 1 && x <= 3 }
   include_peg_levels = parse_id_list(params[:include_peg_levels]).select { |x| x >= 1 && x <= 5 }
   exclude_peg_levels = parse_id_list(params[:exclude_peg_levels]).select { |x| x >= 1 && x <= 5 }
+  exclude_high_debt = params[:exclude_high_debt].to_s == '1'
   roe_5y_avg_ge_12 = params[:roe_5y_avg_ge_12].to_s == '1'
   roe_5y_min_ge_8 = params[:roe_5y_min_ge_8].to_s == '1'
   roe_min = nil
@@ -65,6 +66,7 @@ get '/' do
     query_params[:exclude_pe_percentile_levels] = exclude_pe_percentile_levels unless exclude_pe_percentile_levels.empty?
     query_params[:include_peg_levels] = include_peg_levels unless include_peg_levels.empty?
     query_params[:exclude_peg_levels] = exclude_peg_levels unless exclude_peg_levels.empty?
+    query_params[:exclude_high_debt] = '1' if exclude_high_debt
     query_params[:include_roe_levels] = include_roe_levels unless include_roe_levels.empty?
     query_params[:exclude_roe_levels] = exclude_roe_levels unless exclude_roe_levels.empty?
     query_params[:roe_min] = roe_min if roe_min
@@ -234,6 +236,9 @@ get '/' do
   if exclude_pe_percentile_levels.any?
     base_scope = base_scope.where.not(pe_percentile_level: exclude_pe_percentile_levels)
   end
+  if exclude_high_debt
+    base_scope = base_scope.where('asset_liability_ratio <= 60 OR asset_liability_ratio IS NULL')
+  end
   sorts.each do |s|
     if s[:field] == 'pe_ttm' && s[:order] == 'asc'
       base_scope = base_scope.where('pe_ttm > 0')
@@ -253,6 +258,9 @@ get '/' do
 
   ordered_scope = sorts.empty? ? base_scope.order(id: :desc) : base_scope.order(order_sql)
   @stocks = ordered_scope.offset((page - 1) * per_page).limit(per_page)
+  stock_ids = @stocks.map(&:id)
+  @pe_hist_counts = PriceHistory.where(stock_id: stock_ids).where.not(pe_ttm: nil).group(:stock_id).count
+  @pb_hist_counts = PriceHistory.where(stock_id: stock_ids).where.not(pb: nil).group(:stock_id).count
 
   @categories = Category.joins(:categorizations).group('categories.id').order('count(categorizations.id) desc')
   @include_category_ids = include_category_ids
@@ -269,6 +277,7 @@ get '/' do
   @exclude_pe_percentile_levels = exclude_pe_percentile_levels
   @include_peg_levels = include_peg_levels
   @exclude_peg_levels = exclude_peg_levels
+  @exclude_high_debt = exclude_high_debt
   @include_roe_levels = include_roe_levels
   @exclude_roe_levels = exclude_roe_levels
   @allowed_sort_fields = allowed_sort_fields
@@ -318,6 +327,10 @@ end
 
 get '/kb/dividend' do
   erb :kb_dividend
+end
+
+get '/kb/fcf' do
+  erb :kb_fcf
 end
 
 get '/stocks/:id' do
@@ -424,6 +437,8 @@ helpers do
       'net_profit_yoy' => '净利同比',
       'asset_liability_ratio' => '资产负债率',
       'interest_debt_ratio' => '有息负债率',
+      'fcf_yield' => 'FCF收益率',
+      'fcf_ev' => 'FCF/EV',
       'pe_level' => 'PE等级',
       'pe_percentile' => 'PE历史分位',
       'pb' => 'PB',

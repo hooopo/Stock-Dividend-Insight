@@ -4083,3 +4083,252 @@ stocks:
   name: 富瀚微
   categories:
   - 集成电路
+- code: "001338"
+  name: 永顺泰
+  categories:
+  - 啤酒
+  - 消费
+- code: "002454"
+  name: 松芝股份
+  categories:
+  - 汽车零部件
+- code: "002758"
+  name: 浙农股份
+  categories:
+  - 医药商业
+  - 医药卫生
+- code: "600163"
+  name: 中闽能源
+  categories:
+  - 新能源发电
+  - 公用事业
+- code: "600853"
+  name: 龙建股份
+  categories:
+  - 路桥施工
+- code: "600897"
+  name: 厦门空港
+  categories:
+  - 机场
+  - 交通运输
+- code: "600966"
+  name: 博汇纸业
+  categories:
+  - 造纸
+  - 原材料
+- code: "603878"
+  name: 武进不锈
+  categories:
+  - 普钢
+- code: "000065"
+  name: 北方国际
+  categories:
+  - 国际工程承包
+- code: "000650"
+  name: 仁和药业
+  categories:
+  - 中药
+  - 医药卫生
+- code: "000915"
+  name: 华特达因
+  categories:
+  - 化学制剂
+- code: "000921"
+  name: 海信家电
+  categories:
+  - 冰箱
+- code: "002462"
+  name: 嘉事堂
+  categories:
+  - 医药商业
+  - 医药卫生
+- code: "002648"
+  name: 卫星化学
+  categories:
+  - 其他化学原料
+- code: "002668"
+  name: TCL智家
+  categories:
+  - 冰箱
+- code: "002918"
+  name: 蒙娜丽莎
+  categories:
+  - 其他建材
+- code: "300228"
+  name: 富瑞特装
+  categories:
+  - 金属制品
+- code: "300389"
+  name: 艾比森
+  categories:
+  - LED
+- code: "600216"
+  name: 浙江医药
+  categories:
+  - 化学原料药
+  - 医药卫生
+- code: "600300"
+  name: 维维股份
+  categories:
+  - 软饮料
+  - 消费
+- code: "600351"
+  name: 亚宝药业
+  categories:
+  - 中药
+  - 医药卫生
+- code: "600496"
+  name: 精工钢构
+  categories:
+  - 钢结构
+- code: "600694"
+  name: 大商股份
+  categories:
+  - 多业态零售
+- code: "600961"
+  name: 株冶集团
+  categories:
+  - 铅锌
+- code: "603111"
+  name: 康尼机电
+  categories:
+  - 铁路设备
+  - 交通运输
+- code: "603173"
+  name: 福斯达
+  categories:
+  - 其它通用机械
+- code: "603279"
+  name: 景津装备
+  categories:
+  - 环保设备
+- code: "603313"
+  name: 梦百合
+  categories:
+  - 家具
+- code: "603367"
+  name: 辰欣药业
+  categories:
+  - 医疗器械
+  - 医药卫生
+- code: "603611"
+  name: 诺力股份
+  categories:
+  - 机械设备
+- code: "688336"
+  name: 三生国健
+  categories:
+  - 生物制品
+  - 医药卫生
+- code: "000597"
+  name: 东北制药
+  categories:
+  - 化学制剂
+- code: "000959"
+  name: 首钢股份
+  categories:
+  - 普钢
+- code: "603883"
+  name: 老百姓
+  categories:
+  - 医药商业
+  - 医药卫生
+- code: "000807"
+  name: 云铝股份
+  categories:
+  - 铝
+- code: "002255"
+  name: 海陆重工
+  categories:
+  - 电气设备
+- code: "002416"
+  name: 爱施德
+  categories:
+  - 专业连锁
+- code: "002761"
+  name: 浙江建投
+  categories:
+  - 房屋建设
+- code: "301039"
+  name: 中集车辆
+  categories:
+  - 商用载货车
+- code: "301408"
+  name: 华人健康
+  categories:
+  - 中药
+  - 医药卫生
+- code: "600428"
+  name: 中远海特
+  categories:
+  - 航运
+  - 交通运输
+- code: "600682"
+  name: 南京新百
+  categories:
+  - 生物制品
+  - 医药卫生
+- code: "600729"
+  name: 重庆百货
+  categories:
+  - 多业态零售
+- code: "600758"
+  name: 辽宁能源
+  categories:
+  - 煤炭开采
+- code: "601083"
+  name: 锦江航运
+  categories:
+  - 交通运输
+- code: "603031"
+  name: 安孚科技
+  categories:
+  - 超市
+- code: "600267"
+  name: 海正药业
+  categories:
+  - 化学原料药
+  - 医药卫生
+- code: "600320"
+  name: 振华重工
+  categories:
+  - 重型机械
+- code: "002043"
+  name: 兔宝宝
+  categories:
+  - 其他建材
+- code: "000957"
+  name: 中通客车
+  categories:
+  - 商用载客车
+- code: "002727"
+  name: 一心堂
+  categories:
+  - 医药商业
+  - 医药卫生
+- code: "600057"
+  name: 厦门象屿
+  categories:
+  - 物流
+- code: "000719"
+  name: 中原传媒
+  categories:
+  - 平面媒体
+- code: "002697"
+  name: 红旗连锁
+  categories:
+  - 超市
+- code: "600033"
+  name: 福建高速
+  categories:
+  - 高速公路
+  - 交通运输
+- code: "600420"
+  name: 国药现代
+  categories:
+  - 化学制剂
+- code: "603929"
+  name: 亚翔集成
+  categories:
+  - 建筑装饰
+  - 工业

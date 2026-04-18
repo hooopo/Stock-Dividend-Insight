@@ -75,7 +75,11 @@
                 <% if @stock.pe_ttm && @stock.pe_ttm.to_f < 0 %>
                     <div class="text-xs text-gray-400 mt-1">亏损</div>
                 <% elsif @stock.pe_ttm && @stock.pe_ttm.to_f > 0 && @stock.pe_percentile.nil? %>
-                    <div class="text-xs text-gray-400 mt-1">未同步历史估值</div>
+                    <% if @price_histories.any? { |x| !x.pe_ttm.nil? } %>
+                        <div class="text-xs text-gray-400 mt-1">未同步历史估值</div>
+                    <% else %>
+                        <div class="text-xs text-gray-400 mt-1">无估值数据</div>
+                    <% end %>
                 <% else %>
                     <div class="text-xs text-gray-400 mt-1"><%= pe_percentile_level_label(@stock.pe_percentile_level) %> (<%= format_ratio_percent(@stock.pe_percentile) %>)</div>
                 <% end %>
@@ -100,7 +104,11 @@
                     <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= pb_level_badge_class(@stock.pb_level) %> text-xs font-semibold"><%= pb_level_label(@stock.pb_level) %></span>
                 </div>
                 <% if @stock.pb && @stock.pb.to_f > 0 && @stock.pb_percentile.nil? %>
-                    <div class="text-xs text-gray-400 mt-1">未同步历史估值</div>
+                    <% if @price_histories.any? { |x| !x.pb.nil? } %>
+                        <div class="text-xs text-gray-400 mt-1">未同步历史估值</div>
+                    <% else %>
+                        <div class="text-xs text-gray-400 mt-1">无估值数据</div>
+                    <% end %>
                 <% else %>
                     <div class="text-xs text-gray-400 mt-1"><%= pb_percentile_level_label(@stock.pb_percentile_level) %> (<%= format_ratio_percent(@stock.pb_percentile) %>)</div>
                 <% end %>
@@ -110,6 +118,15 @@
                 <div class="text-base font-semibold text-gray-800"><%= @stock.asset_liability_ratio.nil? ? '未同步' : format_percent(@stock.asset_liability_ratio) %></div>
                 <div class="text-xs text-gray-400 mt-1">有息负债率: <%= @stock.interest_debt_ratio.nil? ? '-' : format_percent(@stock.interest_debt_ratio) %></div>
                 <div class="text-xs text-gray-400 mt-1">财报期: <%= @stock.finance_report_date || '-' %></div>
+            </div>
+            <div class="p-3 bg-gray-50 rounded-lg">
+                <div class="text-gray-500 text-xs mb-1">
+                    <span>自由现金流</span>
+                    <a href="/kb/fcf" class="ml-1 text-gray-400 hover:text-blue-600" title="查看知识库：自由现金流（FCF）">?</a>
+                </div>
+                <div class="text-base font-semibold text-gray-800"><%= @stock.fcf_yield.nil? ? '未同步' : format_percent(@stock.fcf_yield) %></div>
+                <div class="text-xs text-gray-400 mt-1">FCF/EV: <%= @stock.fcf_ev.nil? ? '-' : format_percent(@stock.fcf_ev) %></div>
+                <div class="text-xs text-gray-400 mt-1">FCF: <%= @stock.fcff_back.nil? ? '-' : format_market_cap(@stock.fcff_back) %></div>
             </div>
             <div class="p-3 bg-gray-50 rounded-lg">
                 <div class="text-gray-500 text-xs mb-1">ROE(加权)</div>

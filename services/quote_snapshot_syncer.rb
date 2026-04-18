@@ -40,9 +40,6 @@ class QuoteSnapshotSyncer
     stocks = []
     @scope.find_each { |s| stocks << s }
 
-    codes = stocks.map { |s| s.code.to_s.rjust(6, '0') }.uniq
-    eastmoney = fetch_eastmoney_snapshot(codes)
-
     symbols = stocks.map { |s| market_prefix(s.market_id) + s.code.to_s }.uniq
 
     ok_batches = 0
@@ -67,8 +64,6 @@ class QuoteSnapshotSyncer
       parse_tencent_lines(payload).each do |symbol, fields|
         stock = symbol_to_stock[symbol]
         next unless stock
-
-        em = eastmoney[stock.code.to_s.rjust(6, '0')]
 
         price = parse_float(fields[3])
         volume = parse_int(fields[6])
@@ -101,6 +96,8 @@ class QuoteSnapshotSyncer
         stock.pe_ttm = pe_ttm if pe_ttm
         stock.pb = pb if pb
 
+        update_fcf_metrics(stock)
+
         if stock.changed?
           stock.save!
           updated += 1
@@ -114,77 +111,33 @@ class QuoteSnapshotSyncer
   end
 
   private
-
-  def fetch_eastmoney_snapshot(codes)
-    wanted = codes.to_h { |c| [c, true] }
-    out = {}
-
-    conn = Faraday.new do |f|
-      f.request :url_encoded
-      f.adapter Faraday.default_adapter
+  def update_fcf_metrics(stock)
+    market_cap = stock.market_cap.to_f
+    unless market_cap.finite? && market_cap > 0
+      stock.fcf_yield = nil
+      stock.fcf_ev = nil
+      return
     end
 
-    url = 'https://push2.eastmoney.com/api/qt/clist/get'
-    fs = 'm:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23'
-    fields = 'f12,f43,f162'
-
-    pn = 1
-    loop do
-      break if wanted.empty?
-      params = {
-        pn: pn,
-        pz: 200,
-        po: 1,
-        np: 1,
-        ut: 'bd1d9ddb04089700cf9c27f6f7426281',
-        fltt: 2,
-        invt: 2,
-        fid: 'f12',
-        fs: fs,
-        fields: fields
-      }
-
-      resp = conn.get(url, params, { 'User-Agent' => 'Mozilla/5.0', 'Referer' => 'https://quote.eastmoney.com/', 'Connection' => 'close' }) do |req|
-        req.options.timeout = 10
-        req.options.open_timeout = 5
-      end
-      break unless resp.success?
-
-      parsed = JSON.parse(resp.body) rescue nil
-      data = parsed && parsed['data']
-      diff = data && data['diff']
-
-      items =
-        case diff
-        when Array
-          diff
-        when Hash
-          diff.values
-        else
-          []
-        end
-
-      break if items.empty?
-
-      items.each do |x|
-        code = x['f12'].to_s.rjust(6, '0')
-        next unless wanted[code]
-
-        out[code] = {
-          price: parse_float(x['f43']),
-          pe_ttm: parse_float(x['f162'])
-        }
-        wanted.delete(code)
-      end
-
-      pn += 1
-      break if pn > 80
-      sleep(0.05 + rand(0.0..0.08))
-    rescue Faraday::Error
-      break
+    if stock.fcff_back.nil?
+      stock.fcf_yield = nil
+      stock.fcf_ev = nil
+      return
     end
+    fcf = stock.fcff_back.to_f
+    return unless fcf.finite?
 
-    out
+    stock.fcf_yield = (fcf / market_cap) * 100.0
+
+    total_liabilities = stock.total_liabilities.to_f
+    interest_debt_ratio = stock.interest_debt_ratio.to_f
+    if total_liabilities.finite? && total_liabilities > 0 && interest_debt_ratio.finite? && interest_debt_ratio >= 0
+      interest_debt_amount = (interest_debt_ratio / 100.0) * total_liabilities
+      ev = market_cap + interest_debt_amount
+      stock.fcf_ev = ev > 0 ? (fcf / ev) * 100.0 : nil
+    else
+      stock.fcf_ev = nil
+    end
   end
 
   def tune_batch_sleep

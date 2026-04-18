@@ -67,6 +67,18 @@ class FinanceSnapshotSyncer
       end
 
     interest_debt_ratio = parse_decimal(row['INTEREST_DEBT_RATIO'])
+    fcff_back = parse_decimal(row['FCFF_BACK'])
+    market_cap = stock.market_cap.to_f
+    fcf_yield =
+      if fcff_back && market_cap.finite? && market_cap > 0
+        (fcff_back.to_f / market_cap) * 100.0
+      end
+    fcf_ev =
+      if fcff_back && market_cap.finite? && market_cap > 0 && total_liabilities && total_liabilities > 0 && interest_debt_ratio
+        interest_debt_amount = (interest_debt_ratio.to_f / 100.0) * total_liabilities.to_f
+        ev = market_cap + interest_debt_amount
+        ev > 0 ? (fcff_back.to_f / ev) * 100.0 : nil
+      end
 
     growth = net_profit_yoy_deducted || net_profit_yoy
     peg = compute_peg(stock.pe_ttm, growth)
@@ -81,6 +93,9 @@ class FinanceSnapshotSyncer
       total_liabilities: total_liabilities,
       asset_liability_ratio: asset_liability_ratio,
       interest_debt_ratio: interest_debt_ratio,
+      fcff_back: fcff_back,
+      fcf_yield: fcf_yield,
+      fcf_ev: fcf_ev,
       peg: peg,
       peg_level: peg_level
     )
