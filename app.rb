@@ -19,6 +19,7 @@ set :bind, '0.0.0.0'
 set :port, 4567
 
 get '/' do
+  @layout_full_width = true
   allowed_sort_fields = %w[
     current_price dividend_yield
     turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
