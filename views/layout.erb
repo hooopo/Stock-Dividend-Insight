@@ -27,6 +27,7 @@
                 <a href="/" class="hover:text-blue-200">股票列表</a>
                 <a href="/kb" class="hover:text-blue-200">知识库</a>
                 <% if logged_in? %>
+                    <a href="/pools" class="hover:text-blue-200">股票池</a>
                     <span class="text-blue-200 text-sm"><%= current_user.email %></span>
                     <form action="/logout" method="post" class="inline">
                         <button type="submit" class="hover:text-blue-200 text-sm">退出</button>

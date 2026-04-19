@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validate :validate_password_on_create
   validate :validate_password_confirmation, if: -> { @password }
+  has_many :saved_pools, dependent: :destroy
 
   def email=(value)
     super(value.to_s.strip.downcase)
@@ -118,4 +119,20 @@ class RoeHistory < ActiveRecord::Base
 end
 
 class TreasuryYield < ActiveRecord::Base
+end
+
+class SavedPool < ActiveRecord::Base
+  belongs_to :user
+  has_many :pool_snapshots, dependent: :destroy
+  attr_readonly :user_id, :name, :query_string
+end
+
+class PoolSnapshot < ActiveRecord::Base
+  belongs_to :saved_pool
+  has_many :pool_snapshot_items, dependent: :destroy
+end
+
+class PoolSnapshotItem < ActiveRecord::Base
+  belongs_to :pool_snapshot
+  belongs_to :stock
 end

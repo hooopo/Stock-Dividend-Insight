@@ -1,0 +1,44 @@
+<div class="bg-white rounded-lg shadow-md p-6 text-sm">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <div>
+            <h2 class="text-xl font-semibold text-gray-800">股票池</h2>
+            <div class="text-xs text-gray-500 mt-1">已保存 <%= @pools.size %> 个（保存后不可编辑，只能重新快照/新建）</div>
+        </div>
+        <a href="/" class="text-blue-600 hover:underline">回到列表</a>
+    </div>
+
+    <% if @pools.empty? %>
+        <div class="p-4 bg-gray-50 border border-gray-200 rounded-lg text-gray-600">
+            还没有股票池。去“股票列表”应用筛选/排序后，点击“保存为股票池”即可创建并生成快照。
+        </div>
+    <% else %>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <% @pools.each do |pool| %>
+                <% snap = @latest_snapshot_by_pool_id[pool.id] %>
+                <% snap_count = @snapshot_count_by_pool_id[pool.id].to_i %>
+                <a href="/pools/<%= pool.id %>" class="block rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md hover:border-blue-200 transition-shadow">
+                    <div class="p-4">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="min-w-0">
+                                <div class="text-sm font-semibold text-gray-900 truncate"><%= pool.name %></div>
+                                <div class="mt-1 text-xs text-gray-500">
+                                    <% if snap %>
+                                        <span>最新快照：<%= snap.taken_at %></span>
+                                    <% else %>
+                                        <span>暂无快照</span>
+                                    <% end %>
+                                </div>
+                            </div>
+                            <div class="shrink-0 flex items-center gap-2">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-full border bg-gray-50 text-gray-700 border-gray-200 text-xs font-semibold">快照 <%= snap_count %></span>
+                                <% if snap %>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full border bg-blue-50 text-blue-700 border-blue-200 text-xs font-semibold">基准 <%= snap.total_count %></span>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <% end %>
+        </div>
+    <% end %>
+</div>

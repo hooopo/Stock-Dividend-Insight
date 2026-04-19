@@ -1,0 +1,554 @@
+<div class="bg-white rounded-lg shadow-md p-6 text-sm">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <div>
+            <div class="text-gray-500 text-xs">股票池</div>
+            <h2 class="text-xl font-semibold text-gray-800"><%= @pool.name %></h2>
+            <div class="mt-1 text-xs text-gray-500">
+                <a href="/pools" class="text-blue-600 hover:underline">返回股票池列表</a>
+            </div>
+        </div>
+        <form method="post" action="/pools/<%= @pool.id %>/delete" class="flex items-center gap-2" onsubmit="return confirm('确认删除该股票池？删除后无法恢复');">
+            <button type="submit" class="px-3 py-1 rounded bg-red-600 text-white hover:bg-red-700 text-xs">删除</button>
+        </form>
+    </div>
+
+    <div class="mt-4 flex flex-wrap items-center gap-2 text-sm">
+        <% @sorts.each_with_index do |s, idx| %>
+            <span class="inline-flex items-center px-2 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-100">
+                <span class="text-blue-400 mr-1"><%= (idx + 1).to_s %>.</span>
+                <span class="font-semibold"><%= sort_label(s[:field]) %></span>
+                <span class="ml-2 text-blue-600"><%= s[:order] == 'desc' ? '↓' : '↑' %></span>
+            </span>
+        <% end %>
+        <% if @sorts.empty? %>
+            <span class="text-gray-400">未设置排序</span>
+        <% end %>
+    </div>
+
+    <div class="mt-4 flex flex-wrap items-center gap-2 text-sm">
+        <% if @only_div5y %>
+            <span class="inline-flex items-center px-2 py-1 bg-green-50 text-green-700 rounded-full border border-green-100">
+                <span class="font-semibold">连续5年分红</span>
+            </span>
+        <% end %>
+        <% if @roe_5y_avg_ge_12 %>
+            <span class="inline-flex items-center px-2 py-1 bg-green-50 text-green-700 rounded-full border border-green-100">
+                <span class="font-semibold">ROE近5年均值≥12%</span>
+            </span>
+        <% end %>
+        <% if @roe_5y_min_ge_8 %>
+            <span class="inline-flex items-center px-2 py-1 bg-green-50 text-green-700 rounded-full border border-green-100">
+                <span class="font-semibold">ROE近5年最低≥8%</span>
+            </span>
+        <% end %>
+    </div>
+
+    <% any_include = @included_categories.any? || @include_pb_levels.any? || @include_pb_percentile_levels.any? || @include_pe_levels.any? || @include_pe_percentile_levels.any? || @include_peg_levels.any? || @include_roe_levels.any? %>
+    <% any_exclude = @excluded_categories.any? || @exclude_pb_levels.any? || @exclude_pb_percentile_levels.any? || @exclude_pe_levels.any? || @exclude_pe_percentile_levels.any? || @exclude_peg_levels.any? || @exclude_roe_levels.any? || @exclude_high_debt %>
+    <% if any_include || any_exclude %>
+    <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+        <% if any_include %>
+        <div class="p-3 bg-blue-50 border border-blue-100 rounded-lg">
+            <div class="text-xs font-semibold text-blue-700 mb-2">选择</div>
+            <div class="flex flex-wrap items-center gap-2">
+                <% @included_categories.each do |cat| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
+                        <span class="font-semibold">分类</span>
+                        <span class="ml-1"><%= cat.name %></span>
+                    </span>
+                <% end %>
+                <% @include_pb_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
+                        <span class="font-semibold">PB等级</span>
+                        <span class="ml-1"><%= pb_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% @include_pb_percentile_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
+                        <span class="font-semibold">PB分位</span>
+                        <span class="ml-1"><%= pb_percentile_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% @include_pe_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
+                        <span class="font-semibold">PE等级</span>
+                        <span class="ml-1"><%= pe_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% @include_pe_percentile_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
+                        <span class="font-semibold">PE分位</span>
+                        <span class="ml-1"><%= pe_percentile_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% @include_peg_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
+                        <span class="font-semibold">PEG等级</span>
+                        <span class="ml-1"><%= peg_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% @include_roe_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
+                        <span class="font-semibold">ROE等级</span>
+                        <span class="ml-1"><%= roe_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+
+        <% if any_exclude %>
+        <div class="p-3 bg-red-50 border border-red-100 rounded-lg">
+            <div class="text-xs font-semibold text-red-700 mb-2">排除</div>
+            <div class="flex flex-wrap items-center gap-2">
+                <% @excluded_categories.each do |cat| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
+                        <span class="font-semibold">分类</span>
+                        <span class="ml-1"><%= cat.name %></span>
+                    </span>
+                <% end %>
+                <% @exclude_pb_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
+                        <span class="font-semibold">PB等级</span>
+                        <span class="ml-1"><%= pb_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% @exclude_pb_percentile_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
+                        <span class="font-semibold">PB分位</span>
+                        <span class="ml-1"><%= pb_percentile_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% @exclude_pe_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
+                        <span class="font-semibold">PE等级</span>
+                        <span class="ml-1"><%= pe_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% @exclude_pe_percentile_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
+                        <span class="font-semibold">PE分位</span>
+                        <span class="ml-1"><%= pe_percentile_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% @exclude_peg_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
+                        <span class="font-semibold">PEG等级</span>
+                        <span class="ml-1"><%= peg_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% @exclude_roe_levels.each do |lvl| %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
+                        <span class="font-semibold">ROE等级</span>
+                        <span class="ml-1"><%= roe_level_label(lvl) %></span>
+                    </span>
+                <% end %>
+                <% if @exclude_high_debt %>
+                    <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
+                        <span class="font-semibold">高负债</span>
+                        <span class="ml-1">(资产负债率&gt;60%)</span>
+                    </span>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <% end %>
+
+    <% if @adv_filters && @adv_filters.any? %>
+    <div class="mt-3 p-3 bg-purple-50 border border-purple-100 rounded-lg text-sm">
+        <div class="text-xs font-semibold text-purple-700 mb-2">高级搜索 (<%= @adv_filters.size %>)</div>
+        <div class="flex flex-wrap items-center gap-2">
+            <% @adv_filters.each do |f| %>
+                <% spec = (@adv_fields || []).find { |x| x[:field].to_s == f[:field].to_s } %>
+                <% field_label = spec ? spec[:label].to_s : f[:field].to_s %>
+                <% op_label = { 'is_null' => '为空', 'not_null' => '不为空' }[f[:op].to_s] || f[:op].to_s %>
+                <% value_label = %w[is_null not_null].include?(f[:op].to_s) ? '' : f[:raw_value].to_s %>
+                <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-purple-200">
+                    <span class="font-semibold"><%= field_label %></span>
+                    <span class="ml-1"><%= op_label %></span>
+                    <% if value_label != '' %>
+                        <span class="ml-1"><%= value_label %></span>
+                    <% end %>
+                </span>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+        <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
+            <div class="text-xs text-gray-500">基准快照</div>
+            <div class="mt-1 font-semibold text-gray-900"><%= @snapshot.taken_at %></div>
+            <div class="mt-1 text-gray-700 text-xs">数量：<%= @snapshot.total_count %></div>
+        </div>
+        <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
+            <div class="text-xs text-gray-500">当前结果</div>
+            <div class="mt-1 font-semibold text-gray-900"><%= @current_total_count %></div>
+            <div class="mt-1 text-gray-700 text-xs">进：<%= @added_ids.size %>，出：<%= @removed_ids.size %></div>
+        </div>
+        <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
+            <div class="text-xs text-gray-500">当前展示</div>
+            <div class="mt-1 font-semibold text-gray-900">第 <%= @page %> / <%= @total_pages %> 页</div>
+            <div class="mt-1 text-gray-700 text-xs">本页：<%= @stocks.size %> 只</div>
+        </div>
+    </div>
+
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div class="p-3 bg-green-50 border border-green-100 rounded-lg">
+            <div class="text-xs font-semibold text-green-700 mb-2">进池 (<%= @added_ids.size %>)</div>
+            <% if @added_stocks.empty? %>
+                <div class="text-xs text-gray-600">-</div>
+            <% else %>
+                <div class="flex flex-wrap items-center gap-2">
+                    <% @added_stocks.each do |s| %>
+                        <a href="/stocks/<%= s.id %>" class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-green-200 hover:bg-green-50">
+                            <span class="font-semibold"><%= s.name %></span>
+                            <span class="ml-1 text-gray-500"><%= s.code %></span>
+                        </a>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+        <div class="p-3 bg-red-50 border border-red-100 rounded-lg">
+            <div class="text-xs font-semibold text-red-700 mb-2">出池 (<%= @removed_ids.size %>)</div>
+            <% if @removed_items.empty? %>
+                <div class="text-xs text-gray-600">-</div>
+            <% else %>
+                <div class="flex flex-wrap items-center gap-2">
+                    <% @removed_items.each do |it| %>
+                        <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
+                            <span class="font-semibold"><%= it.name %></span>
+                            <span class="ml-1 text-gray-500"><%= it.code %></span>
+                        </span>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="mt-4 bg-white border border-gray-200 rounded-lg">
+        <div class="p-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="text-xs font-semibold text-gray-700">池子股票（快照 vs 当前）</div>
+            <div class="text-xs text-gray-500">快照时间：<%= @snapshot.taken_at %></div>
+        </div>
+        <div class="table-container">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-gray-50 text-gray-700 text-xs uppercase tracking-wider">
+                        <th class="p-3 border-b border-gray-200 sticky left-0 bg-gray-50">股票名称</th>
+                        <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">最新价</th>
+                        <th class="p-3 border-b border-gray-200 text-right">
+                            <div class="inline-flex items-center gap-1 justify-end w-full">
+                                <span>历史股息率</span>
+                                <a href="/kb/dividend" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：股息率与分红">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-right">
+                            <div class="inline-flex items-center gap-1 justify-end w-full">
+                                <span>PE(TTM)</span>
+                                <a href="/kb/pe" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：PE">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">
+                            <div class="inline-flex items-center gap-1 justify-end w-full">
+                                <span>PEG</span>
+                                <a href="/kb/peg" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：PEG">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-center hidden md:table-cell">
+                            <div class="inline-flex items-center gap-1 justify-center w-full">
+                                <span>PEG等级</span>
+                                <a href="/kb/peg" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：PEG">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">
+                            <div class="inline-flex items-center gap-1 justify-end w-full">
+                                <span>资产负债率</span>
+                                <a href="/kb/debt" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：资产负债率与负债">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">
+                            <div class="inline-flex items-center gap-1 justify-end w-full">
+                                <span>FCF收益率</span>
+                                <a href="/kb/fcf" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：自由现金流（FCF）">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">
+                            <div class="inline-flex items-center gap-1 justify-end w-full">
+                                <span>FCF/EV</span>
+                                <a href="/kb/fcf" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：自由现金流（FCF）">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-center">
+                            <div class="inline-flex items-center gap-1 justify-center w-full">
+                                <span>PE等级</span>
+                                <a href="/kb/pe" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：PE">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-center">
+                            <div class="inline-flex items-center gap-1 justify-center w-full">
+                                <span>PE分位</span>
+                                <a href="/kb/pe" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：PE">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-right">
+                            <div class="inline-flex items-center gap-1 justify-end w-full">
+                                <span>PB</span>
+                                <a href="/kb/pb" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：PB">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-center">
+                            <div class="inline-flex items-center gap-1 justify-center w-full">
+                                <span>PB等级</span>
+                                <a href="/kb/pb" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：PB">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-center">
+                            <div class="inline-flex items-center gap-1 justify-center w-full">
+                                <span>PB分位</span>
+                                <a href="/kb/pb" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：PB">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-right">
+                            <div class="inline-flex items-center gap-1 justify-end w-full">
+                                <span>ROE</span>
+                                <a href="/kb/roe" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：ROE">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-center">
+                            <div class="inline-flex items-center gap-1 justify-center w-full">
+                                <span>ROE等级</span>
+                                <a href="/kb/roe" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：ROE">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-center hidden md:table-cell">30d分位</th>
+                        <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">30日跌幅</th>
+                        <th class="p-3 border-b border-gray-200 text-center hidden md:table-cell">1y分位</th>
+                        <th class="p-3 border-b border-gray-200 text-center hidden md:table-cell">3y分位</th>
+                        <th class="p-3 border-b border-gray-200 text-center hidden md:table-cell">5y分位</th>
+                        <th class="p-3 border-b border-gray-200 text-center">全量分位</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600">
+                    <% @stocks.each do |stock| %>
+                        <% base = @base_item_by_stock_id[stock.id] %>
+                        <% price_change = base ? pct_change(base.current_price, stock.current_price) : nil %>
+                        <% categories_text = stock.categories.map(&:name).join(' / ') %>
+                        <tr class="hover:bg-blue-50 transition-colors duration-150 border-b border-gray-100 group">
+                            <td class="p-3 font-medium text-gray-800 sticky left-0 bg-white group-hover:bg-blue-50">
+                                <a href="/stocks/<%= stock.id %>" class="text-blue-600 hover:text-blue-800 hover:underline" title="<%= categories_text %>">
+                                    <%= stock.name %>
+                                </a>
+                                <div class="text-xs text-gray-400 font-mono" title="<%= categories_text %>"><%= stock.code %></div>
+                                <div class="mt-1 flex flex-wrap items-center gap-1">
+                                    <% if cyclical_stock?(stock) %>
+                                        <a href="/kb/cycle" class="inline-flex items-center px-2 py-0.5 rounded-full border <%= tag_badge_class('cycle') %> text-xs font-semibold hover:opacity-90" title="查看知识库：周期与波动">周期</a>
+                                    <% end %>
+                                    <% if high_volatility_stock?(stock) %>
+                                        <a href="/kb/cycle" class="inline-flex items-center px-2 py-0.5 rounded-full border <%= tag_badge_class('volatile') %> text-xs font-semibold hover:opacity-90" title="查看知识库：周期与波动">波动大</a>
+                                    <% end %>
+                                    <% if base.nil? %>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full border bg-green-50 text-green-700 border-green-200 text-xs font-semibold">新进</span>
+                                    <% else %>
+                                        <% if (lbl = format_signed(price_change, 2, '%')) %>
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= price_change.to_f >= 0 ? 'bg-red-50 text-red-700 border-red-200' : 'bg-green-50 text-green-700 border-green-200' %> text-xs font-semibold"><%= lbl %></span>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                            </td>
+                            <td class="p-3 text-right hidden md:table-cell">
+                                <div><%= format_decimal(stock.current_price, 2) %></div>
+                                <% if base && base.current_price && stock.current_price %>
+                                    <% if (lbl = format_signed(delta(base.current_price, stock.current_price), 2)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-right">
+                                <div class="font-bold text-blue-700"><%= stock.dividend_yield.nil? ? '未同步' : format_percent(stock.dividend_yield) %></div>
+                                <% if base && base.dividend_yield && stock.dividend_yield %>
+                                    <% if (lbl = format_signed_pp(delta(base.dividend_yield, stock.dividend_yield), 2)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-right">
+                                <div><%= format_decimal(stock.pe_ttm, 2) %></div>
+                                <% if base && base.pe_ttm && stock.pe_ttm %>
+                                    <% if (lbl = format_signed(delta(base.pe_ttm, stock.pe_ttm), 2)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-right hidden md:table-cell">
+                                <div><%= stock.peg.nil? ? '-' : format_decimal(stock.peg, 2) %></div>
+                                <% if base && base.peg && stock.peg %>
+                                    <% if (lbl = format_signed(delta(base.peg, stock.peg), 2)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-center hidden md:table-cell">
+                                <% if stock.peg_level.nil? %>
+                                    <span class="text-gray-400">-</span>
+                                <% else %>
+                                    <a href="/kb/peg" class="inline-flex items-center px-2 py-0.5 rounded-full border <%= peg_level_badge_class(stock.peg_level) %> font-semibold hover:opacity-90" title="查看知识库：PEG"><%= peg_level_label(stock.peg_level) %></a>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-right hidden md:table-cell">
+                                <div><%= stock.asset_liability_ratio.nil? ? '未同步' : format_percent(stock.asset_liability_ratio) %></div>
+                                <% if base && base.asset_liability_ratio && stock.asset_liability_ratio %>
+                                    <% if (lbl = format_signed_pp(delta(base.asset_liability_ratio, stock.asset_liability_ratio), 2)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-right hidden md:table-cell">
+                                <div><%= stock.fcf_yield.nil? ? '未同步' : format_percent(stock.fcf_yield) %></div>
+                                <% if base && base.fcf_yield && stock.fcf_yield %>
+                                    <% if (lbl = format_signed_pp(delta(base.fcf_yield, stock.fcf_yield), 2)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-right hidden md:table-cell">
+                                <div><%= stock.fcf_ev.nil? ? '未同步' : format_percent(stock.fcf_ev) %></div>
+                                <% if base && base.fcf_ev && stock.fcf_ev %>
+                                    <% if (lbl = format_signed_pp(delta(base.fcf_ev, stock.fcf_ev), 2)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-center">
+                                <a href="/kb/pe" class="inline-flex items-center px-2 py-0.5 rounded-full border <%= pe_level_badge_class(stock.pe_level) %> font-semibold hover:opacity-90" title="查看知识库：PE"><%= pe_level_label(stock.pe_level) %></a>
+                            </td>
+                            <td class="p-3 text-center">
+                                <% if stock.pe_ttm && stock.pe_ttm.to_f < 0 %>
+                                    <div>亏损</div>
+                                    <div class="text-xs text-gray-400">-</div>
+                                <% elsif stock.pe_ttm && stock.pe_ttm.to_f > 0 && stock.pe_percentile.nil? %>
+                                    <% if (@pe_hist_counts[stock.id] || 0) == 0 %>
+                                        <div>无数据</div>
+                                    <% else %>
+                                        <div>未同步</div>
+                                    <% end %>
+                                    <div class="text-xs text-gray-400">-</div>
+                                <% else %>
+                                    <div><%= pe_percentile_level_label(stock.pe_percentile_level) %></div>
+                                    <div class="text-xs text-gray-400"><%= format_ratio_percent(stock.pe_percentile) %></div>
+                                    <% if base && base.pe_percentile && stock.pe_percentile %>
+                                        <% if (lbl = format_signed_ratio_delta(delta(base.pe_percentile, stock.pe_percentile), 0)) %>
+                                            <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-right">
+                                <div><%= format_decimal(stock.pb, 2) %></div>
+                                <% if base && base.pb && stock.pb %>
+                                    <% if (lbl = format_signed(delta(base.pb, stock.pb), 2)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-center">
+                                <a href="/kb/pb" class="inline-flex items-center px-2 py-0.5 rounded-full border <%= pb_level_badge_class(stock.pb_level) %> font-semibold hover:opacity-90" title="查看知识库：PB"><%= pb_level_label(stock.pb_level) %></a>
+                            </td>
+                            <td class="p-3 text-center">
+                                <% if stock.pb && stock.pb.to_f > 0 && stock.pb_percentile.nil? %>
+                                    <% if (@pb_hist_counts[stock.id] || 0) == 0 %>
+                                        <div>无数据</div>
+                                    <% else %>
+                                        <div>未同步</div>
+                                    <% end %>
+                                    <div class="text-xs text-gray-400">-</div>
+                                <% else %>
+                                    <div><%= pb_percentile_level_label(stock.pb_percentile_level) %></div>
+                                    <div class="text-xs text-gray-400"><%= format_ratio_percent(stock.pb_percentile) %></div>
+                                    <% if base && base.pb_percentile && stock.pb_percentile %>
+                                        <% if (lbl = format_signed_ratio_delta(delta(base.pb_percentile, stock.pb_percentile), 0)) %>
+                                            <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-right">
+                                <div><%= stock.roe_jq.nil? ? '未同步' : format_percent(stock.roe_jq) %></div>
+                                <% if base && base.roe_jq && stock.roe_jq %>
+                                    <% if (lbl = format_signed_pp(delta(base.roe_jq, stock.roe_jq), 2)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-center">
+                                <% if stock.roe_level.nil? %>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full border bg-gray-50 text-gray-500 border-gray-200 font-semibold">未同步</span>
+                                <% else %>
+                                    <a href="/kb/roe" class="inline-flex items-center px-2 py-0.5 rounded-full border <%= roe_level_badge_class(stock.roe_level) %> font-semibold hover:opacity-90" title="查看知识库：ROE"><%= roe_level_label(stock.roe_level) %></a>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-center <%= position_color(stock.pos_30d) %> hidden md:table-cell">
+                                <div><%= format_ratio_percent(stock.pos_30d) %></div>
+                                <% if base && base.pos_30d && stock.pos_30d %>
+                                    <% if (lbl = format_signed_ratio_delta(delta(base.pos_30d, stock.pos_30d), 0)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-right hidden md:table-cell">
+                                <div>
+                                    <% if stock.drop_30d.nil? %>
+                                        <span class="text-gray-400">-</span>
+                                    <% else %>
+                                        <span class="<%= stock.drop_30d.to_f > 0 ? 'text-red-600 font-semibold' : (stock.drop_30d.to_f < 0 ? 'text-green-600 font-semibold' : 'text-gray-500') %>"><%= format_percent(stock.drop_30d) %></span>
+                                    <% end %>
+                                </div>
+                                <% if base && base.drop_30d && stock.drop_30d %>
+                                    <% if (lbl = format_signed_pp(delta(base.drop_30d, stock.drop_30d), 2)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-center <%= position_color(stock.pos_1y) %> hidden md:table-cell">
+                                <%= format_ratio_percent(stock.pos_1y) %>
+                            </td>
+                            <td class="p-3 text-center <%= position_color(stock.pos_3y) %> hidden md:table-cell">
+                                <%= format_ratio_percent(stock.pos_3y) %>
+                            </td>
+                            <td class="p-3 text-center <%= position_color(stock.pos_5y) %> hidden md:table-cell">
+                                <%= format_ratio_percent(stock.pos_5y) %>
+                            </td>
+                            <td class="p-3 text-center font-bold">
+                                <div><%= format_ratio_percent(stock.price_position) %></div>
+                                <% if base && base.price_position && stock.price_position %>
+                                    <% if (lbl = format_signed_ratio_delta(delta(base.price_position, stock.price_position), 0)) %>
+                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-4 flex items-center justify-between text-sm">
+        <div class="text-gray-600">第 <%= @page %> / <%= @total_pages %> 页</div>
+        <div class="flex items-center gap-2">
+            <% prev_page = @page > 1 ? (@page - 1) : nil %>
+            <% next_page = @page < @total_pages ? (@page + 1) : nil %>
+            <% if prev_page %>
+                <a class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" href="/pools/<%= @pool.id %>?page=<%= prev_page %>">上一页</a>
+            <% else %>
+                <span class="px-3 py-1 rounded bg-gray-50 text-gray-400">上一页</span>
+            <% end %>
+            <% if next_page %>
+                <a class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" href="/pools/<%= @pool.id %>?page=<%= next_page %>">下一页</a>
+            <% else %>
+                <span class="px-3 py-1 rounded bg-gray-50 text-gray-400">下一页</span>
+            <% end %>
+        </div>
+    </div>
+</div>

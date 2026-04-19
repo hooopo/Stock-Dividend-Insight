@@ -1,5 +1,6 @@
 require 'date'
 require 'securerandom'
+require 'set'
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require_relative 'models'
@@ -52,6 +53,25 @@ helpers do
     to = session.delete(:return_to)
     redirect(to && to.to_s.size > 0 ? to : default_path)
   end
+
+  def require_login!
+    return if logged_in?
+    session[:return_to] = request.fullpath
+    set_flash('请先登录')
+    redirect '/login'
+  end
+
+  def ensure_pool_tables!
+    conn = ActiveRecord::Base.connection
+    needed = %w[saved_pools pool_snapshots pool_snapshot_items]
+    missing = needed.reject { |t| conn.data_source_exists?(t) }
+    return if missing.empty?
+    set_flash("股票池功能需要先跑数据库迁移：rake migrate（缺少表：#{missing.join(', ')}）")
+    redirect '/'
+  rescue StandardError => e
+    set_flash("数据库未就绪：#{e.class}")
+    redirect '/'
+  end
 end
 
 get '/health' do
@@ -59,6 +79,9 @@ get '/health' do
 end
 
 get '/signup' do
+  if (rt = params[:return_to].to_s.strip).size > 0
+    session[:return_to] = rt
+  end
   erb :signup
 end
 
@@ -92,6 +115,9 @@ post '/signup' do
 end
 
 get '/login' do
+  if (rt = params[:return_to].to_s.strip).size > 0
+    session[:return_to] = rt
+  end
   erb :login
 end
 
@@ -112,6 +138,121 @@ end
 post '/logout' do
   log_out
   redirect '/login'
+end
+
+get '/pools' do
+  require_login!
+  ensure_pool_tables!
+  @layout_full_width = true
+  @pools = current_user.saved_pools.order(updated_at: :desc, id: :desc).to_a
+  pool_ids = @pools.map(&:id)
+  snapshots =
+    pool_ids.empty? ? [] : PoolSnapshot.where(saved_pool_id: pool_ids).order(taken_at: :desc, id: :desc).to_a
+  @latest_snapshot_by_pool_id = snapshots.group_by(&:saved_pool_id).transform_values { |arr| arr.first }
+  @snapshot_count_by_pool_id = pool_ids.empty? ? {} : PoolSnapshot.where(saved_pool_id: pool_ids).group(:saved_pool_id).count
+  erb :pools
+end
+
+post '/pools' do
+  require_login!
+  ensure_pool_tables!
+  name = params[:name].to_s.strip
+  query_string = params[:query].to_s.strip
+
+  if name.empty?
+    set_flash('股票池名称不能为空')
+    redirect_back_or('/')
+  end
+
+  if query_string.empty?
+    set_flash('没有可保存的筛选条件')
+    redirect_back_or('/')
+  end
+
+  pool = current_user.saved_pools.create!(name: name, query_string: normalized_pool_query_string(query_string))
+  create_pool_snapshot!(pool)
+  redirect "/pools/#{pool.id}"
+end
+
+get '/pools/:id' do
+  require_login!
+  ensure_pool_tables!
+  @layout_full_width = true
+  @pool = current_user.saved_pools.find(params[:id])
+  @snapshot = @pool.pool_snapshots.order(taken_at: :desc, id: :desc).first
+  @snapshot ||= create_pool_snapshot!(@pool)
+
+  pool_params = Rack::Utils.parse_nested_query(@pool.query_string.to_s)
+  @adv_filters = parse_advanced_filters(pool_params)
+  @adv_fields = advanced_field_specs
+  @only_div5y = pool_params['only_div5y'].to_s == '1'
+  @roe_5y_avg_ge_12 = pool_params['roe_5y_avg_ge_12'].to_s == '1'
+  @roe_5y_min_ge_8 = pool_params['roe_5y_min_ge_8'].to_s == '1'
+  @exclude_high_debt = pool_params['exclude_high_debt'].to_s == '1'
+
+  @include_category_ids = parse_id_list(pool_params['include_category_ids'])
+  @exclude_category_ids = parse_id_list(pool_params['exclude_category_ids'])
+  @include_pb_levels = parse_id_list(pool_params['include_pb_levels']).select { |x| x >= 1 && x <= 6 }
+  @exclude_pb_levels = parse_id_list(pool_params['exclude_pb_levels']).select { |x| x >= 1 && x <= 6 }
+  @include_pb_percentile_levels = parse_id_list(pool_params['include_pb_percentile_levels']).select { |x| x >= 1 && x <= 4 }
+  @exclude_pb_percentile_levels = parse_id_list(pool_params['exclude_pb_percentile_levels']).select { |x| x >= 1 && x <= 4 }
+  @include_pe_levels = parse_id_list(pool_params['include_pe_levels']).select { |x| x >= 1 && x <= 7 }
+  @exclude_pe_levels = parse_id_list(pool_params['exclude_pe_levels']).select { |x| x >= 1 && x <= 7 }
+  @include_pe_percentile_levels = parse_id_list(pool_params['include_pe_percentile_levels']).select { |x| x >= 1 && x <= 3 }
+  @exclude_pe_percentile_levels = parse_id_list(pool_params['exclude_pe_percentile_levels']).select { |x| x >= 1 && x <= 3 }
+  @include_peg_levels = parse_id_list(pool_params['include_peg_levels']).select { |x| x >= 1 && x <= 5 }
+  @exclude_peg_levels = parse_id_list(pool_params['exclude_peg_levels']).select { |x| x >= 1 && x <= 5 }
+  @include_roe_levels = parse_id_list(pool_params['include_roe_levels']).select { |x| x >= 1 && x <= 3 }
+  @exclude_roe_levels = parse_id_list(pool_params['exclude_roe_levels']).select { |x| x >= 1 && x <= 3 }
+
+  @included_categories = @include_category_ids.empty? ? [] : Category.where(id: @include_category_ids)
+  @excluded_categories = @exclude_category_ids.empty? ? [] : Category.where(id: @exclude_category_ids)
+
+  sorts = sorts_from_query_string(@pool.query_string)
+  @sorts = sorts
+  @sort_param = serialize_sorts_param(sorts)
+
+  current_scope = stock_scope_from_query_string(@pool.query_string)
+  @current_total_count = current_scope.count
+
+  ordered_scope = order_scope_by_sorts(current_scope, sorts)
+
+  page = params[:page].to_i
+  page = 1 if page < 1
+  per_page = 20
+  @total_pages = (@current_total_count.to_f / per_page).ceil
+  @total_pages = 1 if @total_pages < 1
+  page = @total_pages if page > @total_pages
+  @page = page
+  @stocks = ordered_scope.offset((page - 1) * per_page).limit(per_page).to_a
+  stock_ids = @stocks.map(&:id)
+  @pe_hist_counts = stock_ids.empty? ? {} : PriceHistory.where(stock_id: stock_ids).where.not(pe_ttm: nil).group(:stock_id).count
+  @pb_hist_counts = stock_ids.empty? ? {} : PriceHistory.where(stock_id: stock_ids).where.not(pb: nil).group(:stock_id).count
+  @base_item_by_stock_id =
+    stock_ids.empty? ? {} : @snapshot.pool_snapshot_items.where(stock_id: stock_ids).index_by(&:stock_id)
+
+  base_ids = @snapshot.pool_snapshot_items.pluck(:stock_id)
+  current_ids = current_scope.pluck(:id)
+
+  base_set = base_ids.to_set
+  current_set = current_ids.to_set
+  @added_ids = (current_set - base_set).to_a
+  @removed_ids = (base_set - current_set).to_a
+  @common_ids = (base_set & current_set).to_a
+
+  @added_stocks = @added_ids.empty? ? [] : Stock.where(id: @added_ids).order(:id).to_a
+  @removed_items =
+    @removed_ids.empty? ? [] : @snapshot.pool_snapshot_items.where(stock_id: @removed_ids).order(:id).to_a
+  erb :pool_show
+end
+
+post '/pools/:id/delete' do
+  require_login!
+  ensure_pool_tables!
+  pool = current_user.saved_pools.find(params[:id])
+  pool.destroy!
+  set_flash('已删除股票池')
+  redirect '/pools'
 end
 
 get '/' do
@@ -494,6 +635,180 @@ get '/stocks/:id' do
 end
 
 helpers do
+  def allowed_sort_fields_for_list
+    %w[
+      current_price dividend_yield
+      turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
+      peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev
+      drop_30d pos_30d pos_1y pos_3y pos_5y price_position
+    ]
+  end
+
+  def sorts_from_query_string(query_string)
+    p = Rack::Utils.parse_nested_query(query_string.to_s)
+    parse_sorts_param(p['sort'], allowed_sort_fields_for_list)
+  end
+
+  def order_scope_by_sorts(scope, sorts)
+    s = Array(sorts)
+    return scope.order(id: :desc) if s.empty?
+    order_sql = s.map { |x| "#{x[:field]} #{x[:order]} NULLS LAST" }.join(', ')
+    scope.order(order_sql)
+  end
+
+  def format_signed(value, precision = 2, suffix = '')
+    return nil if value.nil?
+    v = value.to_f
+    return nil if v.abs < 1e-9
+    sign = v > 0 ? '+' : ''
+    "#{sign}#{format_decimal(v, precision)}#{suffix}"
+  end
+
+  def format_signed_pp(value, precision = 2)
+    format_signed(value, precision, 'pp')
+  end
+
+  def format_signed_ratio_delta(value, precision = 0)
+    return nil if value.nil?
+    format_signed(value.to_f * 100.0, precision, '%')
+  end
+
+  def normalized_pool_query_string(query_string)
+    h = Rack::Utils.parse_nested_query(query_string.to_s)
+    %w[
+      page move_sort move_dir add_sort_field add_sort_order add_sort_pos clear_sorts
+      remove_include_category_id remove_exclude_category_id
+      remove_include_pb_level remove_exclude_pb_level
+      remove_include_pb_percentile_level remove_exclude_pb_percentile_level
+      remove_include_pe_level remove_exclude_pe_level
+      remove_include_pe_percentile_level remove_exclude_pe_percentile_level
+      remove_include_peg_level remove_exclude_peg_level
+      remove_include_roe_level remove_exclude_roe_level
+    ].each { |k| h.delete(k) }
+
+    build_query(h)
+  end
+
+  def stock_scope_from_query_string(query_string)
+    p = Rack::Utils.parse_nested_query(query_string.to_s)
+    adv_filters = parse_advanced_filters(p)
+    only_div5y = p['only_div5y'].to_s == '1'
+    roe_5y_avg_ge_12 = p['roe_5y_avg_ge_12'].to_s == '1'
+    roe_5y_min_ge_8 = p['roe_5y_min_ge_8'].to_s == '1'
+    exclude_high_debt = p['exclude_high_debt'].to_s == '1'
+
+    include_category_ids = parse_id_list(p['include_category_ids'])
+    exclude_category_ids = parse_id_list(p['exclude_category_ids'])
+    include_pb_levels = parse_id_list(p['include_pb_levels']).select { |x| x >= 1 && x <= 6 }
+    exclude_pb_levels = parse_id_list(p['exclude_pb_levels']).select { |x| x >= 1 && x <= 6 }
+    include_pb_percentile_levels = parse_id_list(p['include_pb_percentile_levels']).select { |x| x >= 1 && x <= 4 }
+    exclude_pb_percentile_levels = parse_id_list(p['exclude_pb_percentile_levels']).select { |x| x >= 1 && x <= 4 }
+    include_pe_levels = parse_id_list(p['include_pe_levels']).select { |x| x >= 1 && x <= 7 }
+    exclude_pe_levels = parse_id_list(p['exclude_pe_levels']).select { |x| x >= 1 && x <= 7 }
+    include_pe_percentile_levels = parse_id_list(p['include_pe_percentile_levels']).select { |x| x >= 1 && x <= 3 }
+    exclude_pe_percentile_levels = parse_id_list(p['exclude_pe_percentile_levels']).select { |x| x >= 1 && x <= 3 }
+    include_peg_levels = parse_id_list(p['include_peg_levels']).select { |x| x >= 1 && x <= 5 }
+    exclude_peg_levels = parse_id_list(p['exclude_peg_levels']).select { |x| x >= 1 && x <= 5 }
+    include_roe_levels = parse_id_list(p['include_roe_levels']).select { |x| x >= 1 && x <= 3 }
+    exclude_roe_levels = parse_id_list(p['exclude_roe_levels']).select { |x| x >= 1 && x <= 3 }
+
+    sorts = parse_sorts_param(p['sort'], allowed_sort_fields_for_list)
+
+    scope = Stock.includes(:categories)
+    scope = scope.where(has_dividend_5y: true) if only_div5y
+    scope = scope.where(roe_5y_avg_ge_12: true) if roe_5y_avg_ge_12
+    scope = scope.where(roe_5y_min_ge_8: true) if roe_5y_min_ge_8
+    scope = scope.where(roe_level: include_roe_levels) if include_roe_levels.any?
+    scope = scope.where.not(roe_level: exclude_roe_levels) if exclude_roe_levels.any?
+    if include_category_ids.any?
+      scope = scope.joins(:categorizations).where(categorizations: { category_id: include_category_ids }).distinct
+    end
+    if exclude_category_ids.any?
+      excluded = scope.joins(:categorizations).where(categorizations: { category_id: exclude_category_ids }).select(:id)
+      scope = scope.where.not(id: excluded)
+    end
+    scope = scope.where(pb_level: include_pb_levels) if include_pb_levels.any?
+    scope = scope.where.not(pb_level: exclude_pb_levels) if exclude_pb_levels.any?
+    scope = scope.where(pb_percentile_level: include_pb_percentile_levels) if include_pb_percentile_levels.any?
+    scope = scope.where.not(pb_percentile_level: exclude_pb_percentile_levels) if exclude_pb_percentile_levels.any?
+    scope = scope.where(peg_level: include_peg_levels) if include_peg_levels.any?
+    scope = scope.where.not(peg_level: exclude_peg_levels) if exclude_peg_levels.any?
+    scope = scope.where(pe_level: include_pe_levels) if include_pe_levels.any?
+    scope = scope.where.not(pe_level: exclude_pe_levels) if exclude_pe_levels.any?
+    scope = scope.where(pe_percentile_level: include_pe_percentile_levels) if include_pe_percentile_levels.any?
+    scope = scope.where.not(pe_percentile_level: exclude_pe_percentile_levels) if exclude_pe_percentile_levels.any?
+    scope = scope.where('asset_liability_ratio <= 60 OR asset_liability_ratio IS NULL') if exclude_high_debt
+    sorts.each do |s|
+      scope = scope.where('pe_ttm > 0') if s[:field] == 'pe_ttm' && s[:order] == 'asc'
+    end
+    apply_advanced_filters(scope, adv_filters)
+  end
+
+  def create_pool_snapshot!(pool)
+    scope = stock_scope_from_query_string(pool.query_string)
+    taken_at = Time.now
+    snapshot = pool.pool_snapshots.create!(taken_at: taken_at, total_count: scope.count)
+
+    cols = %i[
+      id code name current_price dividend_yield expected_dividend_yield pe_ttm pb peg roe_jq
+      asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev pe_percentile pb_percentile
+      price_position pos_30d drop_30d market_cap turnover_rate volume
+    ]
+
+    scope.in_batches(of: 500) do |rel|
+      rows =
+        rel.pluck(*cols).map do |r|
+          id, code, name, current_price, dividend_yield, expected_dividend_yield, pe_ttm, pb, peg, roe_jq,
+            asset_liability_ratio, interest_debt_ratio, fcf_yield, fcf_ev, pe_percentile, pb_percentile,
+            price_position, pos_30d, drop_30d, market_cap, turnover_rate, volume = r
+
+          {
+            pool_snapshot_id: snapshot.id,
+            stock_id: id,
+            code: code,
+            name: name,
+            current_price: current_price,
+            dividend_yield: dividend_yield,
+            expected_dividend_yield: expected_dividend_yield,
+            pe_ttm: pe_ttm,
+            pb: pb,
+            peg: peg,
+            roe_jq: roe_jq,
+            asset_liability_ratio: asset_liability_ratio,
+            interest_debt_ratio: interest_debt_ratio,
+            fcf_yield: fcf_yield,
+            fcf_ev: fcf_ev,
+            pe_percentile: pe_percentile,
+            pb_percentile: pb_percentile,
+            price_position: price_position,
+            pos_30d: pos_30d,
+            drop_30d: drop_30d,
+            market_cap: market_cap,
+            turnover_rate: turnover_rate,
+            volume: volume,
+            created_at: taken_at,
+            updated_at: taken_at
+          }
+        end
+
+      PoolSnapshotItem.insert_all(rows) if rows.any?
+    end
+
+    snapshot
+  end
+
+  def delta(base, cur)
+    return nil if base.nil? || cur.nil?
+    cur.to_f - base.to_f
+  end
+
+  def pct_change(base, cur)
+    return nil if base.nil? || cur.nil?
+    b = base.to_f
+    return nil if b == 0.0
+    (cur.to_f - b) / b * 100.0
+  end
+
   def parse_id_list(value)
     return [] if value.nil?
     arr =

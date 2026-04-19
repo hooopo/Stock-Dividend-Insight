@@ -1,10 +1,19 @@
 <div class="bg-white rounded-lg shadow-md p-6 text-sm">
     <div class="mb-6 border-b border-gray-100 pb-4">
-        <div class="flex justify-between items-center mb-4">
+        <div class="flex flex-wrap justify-between items-center gap-3 mb-4">
             <h2 class="text-xl font-semibold text-gray-800 flex items-center">
                 <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                 股票概览列表 (<%= @total_count %>)
             </h2>
+            <% if logged_in? %>
+                <form method="post" action="/pools" class="flex items-center gap-2">
+                    <input type="hidden" name="query" value="<%= request.query_string %>">
+                    <input type="hidden" name="name" id="poolNameField" value="">
+                    <button type="button" id="savePoolBtn" class="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-xs">保存为股票池</button>
+                </form>
+            <% else %>
+                <a href="/login?<%= build_query(return_to: request.fullpath) %>" class="text-blue-600 hover:underline text-xs">登录后可保存股票池</a>
+            <% end %>
         </div>
 
         <div class="flex flex-wrap items-center gap-3 text-sm text-gray-600">
@@ -1006,6 +1015,27 @@
                 filterForm.requestSubmit();
             } else {
                 filterForm.submit();
+            }
+        });
+    })();
+
+    (function() {
+        const btn = document.getElementById('savePoolBtn');
+        const nameField = document.getElementById('poolNameField');
+        if (!btn || !nameField) return;
+        const form = btn.closest('form');
+        if (!form) return;
+
+        btn.addEventListener('click', () => {
+            const name = window.prompt('股票池名称：', '');
+            if (!name) return;
+            const trimmed = name.trim();
+            if (!trimmed) return;
+            nameField.value = trimmed;
+            if (typeof form.requestSubmit === 'function') {
+                form.requestSubmit();
+            } else {
+                form.submit();
             }
         });
     })();
