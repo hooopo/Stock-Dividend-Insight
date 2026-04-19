@@ -4332,3 +4332,116 @@ stocks:
   categories:
   - 建筑装饰
   - 工业
+- code: "000404"
+  name: 长虹华意
+  categories:
+  - 家电零部件
+  - 消费
+- code: "002061"
+  name: 浙江交科
+  categories:
+  - 路桥施工
+- code: "002507"
+  name: 涪陵榨菜
+  categories:
+  - 食品综合
+  - 消费
+- code: "002746"
+  name: 仙坛股份
+  categories:
+  - 畜禽养殖
+- code: "002832"
+  name: 比音勒芬
+  categories:
+  - 其他服装
+- code: "600285"
+  name: 羚锐制药
+  categories:
+  - 中药
+  - 医药卫生
+- code: "601801"
+  name: 皖新传媒
+  categories:
+  - 平面媒体
+- code: "603866"
+  name: 桃李面包
+  categories:
+  - 食品综合
+  - 消费
+- code: "601952"
+  name: 苏垦农发
+  categories:
+  - 种植业
+- code: "603323"
+  name: 苏农银行
+  categories:
+  - 银行
+  - 金融
+- code: "000589"
+  name: 贵州轮胎
+  categories:
+  - 轮胎
+- code: "001286"
+  name: 陕西能源
+  categories:
+  - 煤炭
+  - 能源
+- code: "600098"
+  name: 广州发展
+  categories:
+  - 火电
+- code: "600461"
+  name: 洪城环境
+  categories:
+  - 水务
+- code: "600908"
+  name: 无锡银行
+  categories:
+  - 银行
+  - 金融
+- code: "603368"
+  name: 柳药集团
+  categories:
+  - 医药商业
+  - 医药卫生
+- code: "600757"
+  name: 长江传媒
+  categories:
+  - 平面媒体
+- code: "600750"
+  name: 华润江中
+  categories:
+  - 中药
+  - 医药卫生
+- code: "600502"
+  name: 安徽建工
+  categories:
+  - 水利工程
+- code: "001227"
+  name: 兰州银行
+  categories:
+  - 银行
+  - 金融
+- code: "000429"
+  name: 粤高速A
+  categories:
+  - 高速公路
+  - 交通运输
+- code: "002839"
+  name: 张家港行
+  categories:
+  - 银行
+  - 金融
+- code: "000895"
+  name: 双汇发展
+  categories:
+  - 肉制品
+- code: "601860"
+  name: 紫金银行
+  categories:
+  - 银行
+  - 金融
+- code: "600064"
+  name: 南京高科
+  categories:
+  - 园区开发
