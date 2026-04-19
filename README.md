@@ -1,141 +1,113 @@
 # A股捡垃圾
 
-这是一个基于 Ruby 的 A 股股票分红数据同步与分析工具。它可以自动从新浪财经和东方财富抓取历史行情及分红数据，并计算股票的**历史股息率**与**预期股息率**。
+一个面向 A 股的同步 + 看板工具：把行情、分红、估值、财务、价格分位与筛选/排序，统一落在一个本地数据库里，打开网页就能“按框架捡垃圾”。
 
-## 功能特点
+## 你能得到什么
 
-- **多数据源同步**: 
-  - 使用新浪财经 API 同步历史 K 线数据（日线级）。
-  - 使用东方财富 API 同步详细的历史分红方案。
-- **智能股息率计算**:
-  - **历史股息率**: 取股票最后一次完整年度分红累计额 / 最新股价。
-  - **预期股息率**: 取最近 12 个月内的分红累计额 / 最新股价。
-- **分红方案解析**: 自动将“10派X元”等文字描述转换为数值。
-- **数据库驱动**: 使用 PostgreSQL 存储数据，支持增量更新。
-- **现代化架构**: 采用 `ActiveRecord` ORM，支持 `rake migrate` 和 `dotenv` 配置。
+- **一页股票概览**：股息率、PE/PB、PEG、ROE、资产负债率、有息负债率、FCF 指标、价格分位、30 日跌幅等集中展示
+- **多维排序**：支持多字段组合排序（可拖拽调整优先级），适合做“从一堆里挑出更像垃圾的”
+- **筛选体系**：支持“选择/排除”分类、PB/PE/PEG/ROE 等等级与分位；支持一键排除高负债（资产负债率 > 60%）；支持仅显示连续 5 年分红等
+- **指标解释**：内置知识库（PB/PE/PEG/ROE/负债/分红/FCF），表头带入口
+- **宏观参考**：提供中国 10 年期国债收益率页面（用于做贴现/无风险利率参考）
+- **可重复同步**：脚本默认会做“补漏第二遍”（避免网络抖动导致漏同步），并输出缺口统计
+
+## 核心指标（部分）
+
+- **分红/收益**：历史股息率、预期股息率、连续 5 年分红标记
+- **估值**：PE(TTM)、PB、历史分位与分位等级、估值等级（结合分位）
+- **成长与质量**：净利同比、PEG 与等级、ROE（加权）与等级、ROE 近 5 年门槛筛选
+- **风险**：资产负债率、有息负债率、高负债排除器（>60%）
+- **价格位置**：30d/1y/3y/5y 分位、全量分位、30 日跌幅
+- **现金流**：FCF（回溯）、FCF Yield、FCF/EV
+
+## 数据同步内容
+
+`sync_stocks.rb` 会按顺序同步并计算：
+
+- 股票清单与分类（来自 `stocks-pro.yml`）
+- 实时快照：价格/市值/换手率/PE/PB 等
+- 财务快照：资产负债率、有息负债率、净利同比、PEG 等；以及 FCF 相关字段
+- ROE 历史（用于 ROE 稳定性相关指标）
+- K 线历史（用于价格分位、30 日跌幅等）
+- 估值历史（用于 PE/PB 分位）
+- 分红历史（用于股息率与连续分红标记）
+- 统一计算与打标（把分位/等级等衍生指标写回 stocks 表）
+
+## Web 界面
+
+启动后访问：`http://localhost:4567`
+
+- `/`：股票列表（筛选/排序/指标）
+- `/stocks/:id`：个股详情（含走势与关键指标）
+- `/kb`：知识库
+- `/macro`：宏观指标（10Y 国债）
 
 ## 快速开始
 
-### 1. 安装依赖
+### 1) 安装依赖
 
-确保你已经安装了 Ruby 和 PostgreSQL。
+确保已安装 Ruby 与 PostgreSQL：
 
 ```bash
 bundle install
 ```
 
-### 2. 配置环境
+### 2) 配置数据库
 
-复制并编辑 `.env` 文件：
+创建 `.env` 并设置 `DATABASE_URL`：
 
 ```bash
-cp .env.example .env # 如果没有 example，直接创建 .env
+cp .env.example .env
 ```
 
-在 `.env` 中设置你的数据库连接：
+`.env` 示例：
+
 ```text
-# 支持本地数据库格式：
-DATABASE_URL=postgres://localhost/stock_dividend_insight
-
-# 也支持远程数据库（如 Neon），支持 postgresql:// 协议及 SSL 参数：
-DATABASE_URL=postgresql://user:pass@host/dbname?sslmode=require
+DATABASE_URL=postgresql://localhost/stock_dividend_insight
 ```
 
-### 3. 初始化数据库
+### 3) 初始化数据库
 
 ```bash
 rake setup
 ```
 
-### 4. 同步数据
-
-首次运行建议全量同步，之后可使用增量同步：
+### 4) 初始化全量同步
 
 ```bash
-# 全量同步（抓取 1000 条历史 K 线）
 ruby sync_stocks.rb
+```
 
-# 增量同步（仅抓取最近 20 条 K 线，适合每日运行）
+### 5) 日常增量同步
+
+```bash
 ruby sync_stocks.rb --incremental
+```
 
-# 启动 Web 服务器
+### 6) 启动网页
+
+```bash
 ruby app.rb
 ```
 
-## Web 界面说明
+## 常用参数
 
-系统提供了一个基于 Sinatra 的轻量级 Web 界面，你可以访问 `http://localhost:4567` 查看：
+- `--incremental`：K 线只拉最近一小段（适合日常跑）
+- `--force` / `--force-pull`：更激进的重拉（用于你觉得数据不对时）
+- `--skip-second-pass`：跳过补漏第二遍（追求速度时）
+- `--skip-valuation-history`：跳过估值历史（只要列表快照/财务时）
+- `--skip-roe-history`：跳过 ROE 历史
+- `--add-fcf`：把“国证自由现金流指数”成分股补到 `stocks-pro.yml`
+- `--backfill-fcf`：只跑“快照 + 财务快照”用于快速回填 FCF（不跑后续耗时任务）
 
-- **股票列表**: 展示所有 102 只股票的详细信息。
-- **多维排序**: 点击表头可按股息率、价格位置（30d/1y/3y/5y）等进行升序或降序排列。
-- **可视化标注**: 自动高亮处于“底部区域”的低位机会。
+## 数据来源（按用途）
 
-## 核心模型说明
+- K 线：新浪财经
+- 实时快照：腾讯行情接口
+- 分红/财务/估值历史：东方财富数据中心接口
+- 国债收益率：中债（Chinabond）
 
-### 1. Stock (股票信息表)
-存储股票的基本信息以及计算出的股息率指标。
+## 常见问题
 
-| 字段名 | 类型 | 描述 | 备注 |
-| :--- | :--- | :--- | :--- |
-| `name` | String | 股票名称 | e.g., 平安银行 |
-| `secid` | String | 东方财富格式 ID | e.g., 0.000001 |
-| `code` | String | 股票代码 | e.g., 000001 |
-| `market_id` | Integer | 市场 ID | 0: 深证, 1: 上证 |
-| `dividend_yield` | Decimal | 历史股息率 (%) | 最后一次完整年度分红累计额 / 最新股价 |
-| `expected_dividend_yield` | Decimal | 预期股息率 (%) | 最近 12 个月内的分红累计额 / 最新股价 |
-| `current_price` | Decimal | 最新收盘价 | 数据库中最近一个交易日的收盘价 |
-| `high_30d` | Decimal | 30天最高价 | |
-| `low_30d` | Decimal | 30天最低价 | |
-| `pos_30d` | Decimal | 30天价格位置 | (当前价-最低)/(最高-最低) |
-| `high_1y` | Decimal | 1年最高价 | |
-| `low_1y` | Decimal | 1年最低价 | |
-| `pos_1y` | Decimal | 1年价格位置 | |
-| `high_3y` | Decimal | 3年最高价 | |
-| `low_3y` | Decimal | 3年最低价 | |
-| `pos_3y` | Decimal | 3年价格位置 | |
-| `high_5y` | Decimal | 5年最高价 | |
-| `low_5y` | Decimal | 5年最低价 | |
-| `pos_5y` | Decimal | 5年价格位置 | |
-| `price_position` | Decimal | 历史全量价格位置 (0-1) | (当前价 - 历史最低) / (历史最高 - 历史最低) |
-
-### 2. PriceHistory (价格历史行情表)
-存储每日的交易行情数据。
-
-| 字段名 | 类型 | 描述 | 备注 |
-| :--- | :--- | :--- | :--- |
-| `stock_id` | References | 关联股票 ID | 外键关联 `stocks` 表 |
-| `date` | Date | 交易日期 | |
-| `open` | Decimal | 开盘价 | |
-| `close` | Decimal | 收盘价 | |
-| `high` | Decimal | 最高价 | |
-| `low` | Decimal | 最低价 | |
-| `volume` | BigInt | 成交量 | 单位：手 |
-
-### 3. Dividend (分红历史表)
-存储详细的分红方案及其实施日期。
-
-| 字段名 | 类型 | 描述 | 备注 |
-| :--- | :--- | :--- | :--- |
-| `stock_id` | References | 关联股票 ID | 外键关联 `stocks` 表 |
-| `report_date` | Date | 报告期 | e.g., 2023-12-31 |
-| `notice_date` | Date | 公告日期 | |
-| `plan_description` | String | 分红方案描述 | e.g., 10派1.60元 |
-| `cash_dividend` | Decimal | 每股派现 | 单位：元 |
-| `bonus_issue` | Decimal | 每股送股 | 单位：股 |
-| `rights_issue` | Decimal | 每股转增 | 单位：股 |
-| `dividend_yield` | Decimal | 当时股息率 (%) | 抓取自 API 的实时参考值 |
-
-## 常用命令
-
-- **查看高股息率股票排名**:
-  ```bash
-  psql -d stock_dividend_insight -c "SELECT name, dividend_yield, expected_dividend_yield FROM stocks WHERE expected_dividend_yield IS NOT NULL ORDER BY expected_dividend_yield DESC LIMIT 20;"
-  ```
-- **数据库迁移**:
-  - `rake migrate`: 执行迁移。
-  - `rake rollback`: 回退迁移。
-
-## 数据来源
-
-- 历史行情: [新浪财经](https://finance.sina.com.cn/)
-- 分红数据: [东方财富网](https://www.eastmoney.com/)
+- **为什么某些字段长期是“未同步/无数据”？**  
+  常见原因是数据源对特定证券不返回对应字段（或数据口径不覆盖）。脚本会输出缺口统计，方便定位属于“网络漏同步”还是“数据源缺失”。  
