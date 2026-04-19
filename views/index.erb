@@ -36,9 +36,50 @@
         <% base_params[:include_roe_levels] = @include_roe_levels unless @include_roe_levels.empty? %>
         <% base_params[:exclude_roe_levels] = @exclude_roe_levels unless @exclude_roe_levels.empty? %>
         <% base_params[:exclude_high_debt] = '1' if @exclude_high_debt %>
+        <% if @adv_filters && @adv_filters.any? %>
+            <% base_params[:adv_field] = @adv_filters.map { |x| x[:field] } %>
+            <% base_params[:adv_op] = @adv_filters.map { |x| x[:op] } %>
+            <% base_params[:adv_value] = @adv_filters.map { |x| x[:raw_value] } %>
+        <% end %>
 
         <form id="filterForm" method="get" action="/" class="mt-4 text-xs">
             <input type="hidden" id="sortInput" name="sort" value="<%= @sort_param %>">
+
+            <details class="mt-4" <%= (@adv_filters && @adv_filters.any?) ? 'open' : '' %>>
+                <summary class="text-gray-600 font-medium cursor-pointer select-none">
+                    高级搜索 (<%= (@adv_filters || []).size %>)
+                </summary>
+                <div class="mt-2 p-3 bg-gray-50 border border-gray-200 rounded-lg">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button type="button" id="advAddRow" class="px-3 py-1 rounded bg-white text-gray-700 border border-gray-200 hover:bg-gray-50">添加条件</button>
+                        <button type="button" id="advApply" class="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700">应用</button>
+                        <a href="/?<%= build_query(base_params.merge(adv_field: nil, adv_op: nil, adv_value: nil, page: nil)) %>" class="text-blue-600 hover:underline">清空高级搜索</a>
+                    </div>
+                    <div id="advRows" class="mt-3 space-y-2">
+                        <% rows = (@adv_filters && @adv_filters.any?) ? @adv_filters : [{ field: '', op: '', raw_value: '' }] %>
+                        <% rows.each do |r| %>
+                            <div class="adv-row flex flex-wrap items-center gap-2">
+                                <select name="adv_field[]" class="px-3 py-1 rounded bg-white text-gray-700 border border-gray-200 adv-field">
+                                    <option value="">字段</option>
+                                    <% (@adv_fields || []).each do |f| %>
+                                        <option value="<%= f[:field] %>" data-type="<%= f[:type] %>" data-placeholder="<%= f[:placeholder] %>" <%= (r[:field].to_s == f[:field]) ? 'selected' : '' %>><%= f[:label] %></option>
+                                    <% end %>
+                                </select>
+                                <select name="adv_op[]" class="px-3 py-1 rounded bg-white text-gray-700 border border-gray-200 adv-op">
+                                    <% ops = ['>', '>=', '<', '<=', '=', '!=', 'is_null', 'not_null'] %>
+                                    <option value="">条件</option>
+                                    <% ops.each do |op| %>
+                                        <option value="<%= op %>" <%= (r[:op].to_s == op) ? 'selected' : '' %>><%= op %></option>
+                                    <% end %>
+                                </select>
+                                <input name="adv_value[]" value="<%= r[:raw_value].to_s %>" class="px-3 py-1 rounded bg-white text-gray-700 border border-gray-200 adv-value" placeholder="">
+                                <button type="button" class="px-2 py-1 rounded bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 adv-remove">移除</button>
+                            </div>
+                        <% end %>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-500">同一字段可添加多次，条件会按 AND 叠加。</div>
+                </div>
+            </details>
 
             <div class="mt-4 text-gray-600 font-medium">过滤</div>
             <div class="mt-2 space-y-3">
@@ -429,6 +470,40 @@
             </div>
         </div>
         <% end %>
+    </div>
+    <% end %>
+
+    <% if @adv_filters && @adv_filters.any? %>
+    <div class="mt-3 p-3 bg-purple-50 border border-purple-100 rounded-lg text-sm">
+        <div class="flex items-center justify-between gap-3 mb-2">
+            <div class="text-xs font-semibold text-purple-700">高级搜索</div>
+            <a href="/?<%= build_query(base_params.merge(adv_field: nil, adv_op: nil, adv_value: nil, page: nil)) %>" class="text-purple-700 hover:underline text-xs">清空</a>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <% adv_fields = @adv_filters.map { |x| x[:field].to_s } %>
+            <% adv_ops = @adv_filters.map { |x| x[:op].to_s } %>
+            <% adv_values = @adv_filters.map { |x| x[:raw_value].to_s } %>
+            <% @adv_filters.each_with_index do |f, idx| %>
+                <% spec = (@adv_fields || []).find { |x| x[:field].to_s == f[:field].to_s } %>
+                <% field_label = spec ? spec[:label].to_s : f[:field].to_s %>
+                <% op_label = { 'is_null' => '为空', 'not_null' => '不为空' }[f[:op].to_s] || f[:op].to_s %>
+                <% value_label = %w[is_null not_null].include?(f[:op].to_s) ? '' : f[:raw_value].to_s %>
+                <% next_fields = adv_fields.dup %>
+                <% next_ops = adv_ops.dup %>
+                <% next_values = adv_values.dup %>
+                <% next_fields.delete_at(idx) %>
+                <% next_ops.delete_at(idx) %>
+                <% next_values.delete_at(idx) %>
+                <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-purple-200">
+                    <span class="font-semibold"><%= field_label %></span>
+                    <span class="ml-1"><%= op_label %></span>
+                    <% if value_label != '' %>
+                        <span class="ml-1"><%= value_label %></span>
+                    <% end %>
+                    <a href="/?<%= build_query(base_params.merge(adv_field: next_fields.any? ? next_fields : nil, adv_op: next_ops.any? ? next_ops : nil, adv_value: next_values.any? ? next_values : nil, page: nil)) %>" class="ml-2 text-purple-700 hover:text-purple-900">×</a>
+                </span>
+            <% end %>
+        </div>
     </div>
     <% end %>
 
@@ -840,10 +915,99 @@
         filterForm.addEventListener('change', (e) => {
             const t = e.target;
             if (t && t.id === 'sortInput') return;
+            if (t && (t.classList.contains('adv-field') || t.classList.contains('adv-op') || t.classList.contains('adv-value'))) return;
             submitForm();
         });
 
         syncSortUi();
+    })();
+
+    (function() {
+        const advRows = document.getElementById('advRows');
+        const addBtn = document.getElementById('advAddRow');
+        const applyBtn = document.getElementById('advApply');
+        if (!advRows || !addBtn || !applyBtn) return;
+
+        function syncRowUi(row) {
+            const fieldSel = row.querySelector('.adv-field');
+            const opSel = row.querySelector('.adv-op');
+            const valueInput = row.querySelector('.adv-value');
+            if (!fieldSel || !opSel || !valueInput) return;
+
+            const op = opSel.value;
+            const opt = fieldSel.options[fieldSel.selectedIndex];
+            const placeholder = opt ? (opt.getAttribute('data-placeholder') || '') : '';
+
+            if (op === 'is_null' || op === 'not_null') {
+                valueInput.value = '';
+                valueInput.disabled = true;
+                valueInput.placeholder = '';
+            } else {
+                valueInput.disabled = false;
+                valueInput.placeholder = placeholder;
+            }
+        }
+
+        function createRow() {
+            const row = document.createElement('div');
+            row.className = 'adv-row flex flex-wrap items-center gap-2';
+            row.innerHTML = advRows.querySelector('.adv-row') ? advRows.querySelector('.adv-row').innerHTML : '';
+            return row;
+        }
+
+        function bindRow(row) {
+            const removeBtn = row.querySelector('.adv-remove');
+            const fieldSel = row.querySelector('.adv-field');
+            const opSel = row.querySelector('.adv-op');
+            const valueInput = row.querySelector('.adv-value');
+            if (removeBtn) {
+                removeBtn.addEventListener('click', () => {
+                    if (advRows.querySelectorAll('.adv-row').length <= 1) {
+                        row.querySelectorAll('select, input').forEach((el) => {
+                            if (el.tagName === 'SELECT') el.value = '';
+                            if (el.tagName === 'INPUT') el.value = '';
+                        });
+                        syncRowUi(row);
+                        return;
+                    }
+                    row.remove();
+                });
+            }
+            if (fieldSel) fieldSel.addEventListener('change', () => syncRowUi(row));
+            if (opSel) opSel.addEventListener('change', () => syncRowUi(row));
+            if (valueInput) {
+                valueInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        applyBtn.click();
+                    }
+                });
+            }
+            syncRowUi(row);
+        }
+
+        Array.from(advRows.querySelectorAll('.adv-row')).forEach(bindRow);
+
+        addBtn.addEventListener('click', () => {
+            const row = createRow();
+            if (!row.innerHTML) return;
+            row.querySelectorAll('select, input').forEach((el) => {
+                if (el.tagName === 'SELECT') el.value = '';
+                if (el.tagName === 'INPUT') el.value = '';
+            });
+            advRows.appendChild(row);
+            bindRow(row);
+        });
+
+        applyBtn.addEventListener('click', () => {
+            const filterForm = document.getElementById('filterForm');
+            if (!filterForm) return;
+            if (typeof filterForm.requestSubmit === 'function') {
+                filterForm.requestSubmit();
+            } else {
+                filterForm.submit();
+            }
+        });
     })();
 </script>
 

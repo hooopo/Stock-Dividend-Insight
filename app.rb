@@ -123,6 +123,8 @@ get '/' do
     drop_30d pos_30d pos_1y pos_3y pos_5y price_position
   ]
   
+  adv_filters = parse_advanced_filters(params)
+
   only_div5y = params[:only_div5y].to_s == '1'
   include_category_ids = parse_id_list(params[:include_category_ids])
   exclude_category_ids = parse_id_list(params[:exclude_category_ids])
@@ -148,6 +150,11 @@ get '/' do
 
   build_index_query_params = lambda do
     query_params = { sort: serialize_sorts_param(sorts) }
+    if adv_filters.any?
+      query_params[:adv_field] = adv_filters.map { |x| x[:field] }
+      query_params[:adv_op] = adv_filters.map { |x| x[:op] }
+      query_params[:adv_value] = adv_filters.map { |x| x[:raw_value] }
+    end
     query_params[:only_div5y] = '1' if only_div5y
     query_params[:roe_5y_avg_ge_12] = '1' if roe_5y_avg_ge_12
     query_params[:roe_5y_min_ge_8] = '1' if roe_5y_min_ge_8
@@ -341,6 +348,7 @@ get '/' do
       base_scope = base_scope.where('pe_ttm > 0')
     end
   end
+  base_scope = apply_advanced_filters(base_scope, adv_filters)
 
   order_sql = sorts.map { |s| "#{s[:field]} #{s[:order]} NULLS LAST" }.join(', ')
   page = params[:page].to_i
@@ -380,6 +388,8 @@ get '/' do
   @allowed_sort_fields = allowed_sort_fields
   @sorts = sorts
   @sort_param = serialize_sorts_param(sorts)
+  @adv_filters = adv_filters
+  @adv_fields = advanced_field_specs
   @only_div5y = only_div5y
   @roe_5y_avg_ge_12 = roe_5y_avg_ge_12
   @roe_5y_min_ge_8 = roe_5y_min_ge_8
@@ -518,6 +528,137 @@ helpers do
 
   def build_query(params_hash)
     Rack::Utils.build_query(params_hash.reject { |_, v| v.nil? || v.to_s.empty? })
+  end
+
+  def advanced_field_specs
+    [
+      { field: 'fcf_ev', label: 'FCF/EV', type: 'pct', placeholder: '3 或 3%' },
+      { field: 'fcf_yield', label: 'FCF收益率', type: 'pct', placeholder: '3 或 3%' },
+      { field: 'peg', label: 'PEG', type: 'number', placeholder: '0.8' },
+      { field: 'pe_ttm', label: 'PE(TTM)', type: 'number', placeholder: '10' },
+      { field: 'pb', label: 'PB', type: 'number', placeholder: '1.2' },
+      { field: 'pe_percentile', label: 'PE分位', type: 'ratio', placeholder: '30% 或 0.3' },
+      { field: 'pb_percentile', label: 'PB分位', type: 'ratio', placeholder: '30% 或 0.3' },
+      { field: 'roe_jq', label: 'ROE(加权)', type: 'pct', placeholder: '10 或 10%' },
+      { field: 'net_profit_yoy', label: '净利同比', type: 'pct', placeholder: '5 或 5%' },
+      { field: 'asset_liability_ratio', label: '资产负债率', type: 'pct', placeholder: '60 或 60%' },
+      { field: 'interest_debt_ratio', label: '有息负债率', type: 'pct', placeholder: '20 或 20%' },
+      { field: 'dividend_yield', label: '历史股息率', type: 'pct', placeholder: '5 或 5%' },
+      { field: 'expected_dividend_yield', label: '预期股息率', type: 'pct', placeholder: '5 或 5%' },
+      { field: 'drop_30d', label: '30日跌幅', type: 'pct', placeholder: '10 或 10%' },
+      { field: 'pos_30d', label: '30d分位', type: 'ratio', placeholder: '20% 或 0.2' },
+      { field: 'pos_1y', label: '1y分位', type: 'ratio', placeholder: '20% 或 0.2' },
+      { field: 'pos_3y', label: '3y分位', type: 'ratio', placeholder: '20% 或 0.2' },
+      { field: 'pos_5y', label: '5y分位', type: 'ratio', placeholder: '20% 或 0.2' },
+      { field: 'price_position', label: '全量分位', type: 'ratio', placeholder: '20% 或 0.2' }
+    ]
+  end
+
+  def advanced_field_spec_by_name(field)
+    advanced_field_specs.find { |x| x[:field] == field.to_s }
+  end
+
+  def parse_advanced_filters(params_hash)
+    fields = Array(params_hash[:adv_field] || params_hash['adv_field'])
+    ops = Array(params_hash[:adv_op] || params_hash['adv_op'])
+    values = Array(params_hash[:adv_value] || params_hash['adv_value'])
+
+    n = [fields.size, ops.size, values.size].max
+    return [] if n == 0
+
+    out = []
+    n.times do |i|
+      field = fields[i].to_s.strip
+      op = ops[i].to_s.strip
+      raw_value = values[i]
+      raw_value = raw_value.nil? ? '' : raw_value.to_s.strip
+
+      next if field.empty? || op.empty?
+      spec = advanced_field_spec_by_name(field)
+      next unless spec
+
+      if %w[is_null not_null].include?(op)
+        out << { field: field, op: op, raw_value: '' }
+        next
+      end
+
+      next if raw_value.empty?
+      out << { field: field, op: op, raw_value: raw_value }
+    end
+
+    out
+  end
+
+  def apply_advanced_filters(scope, adv_filters)
+    return scope if adv_filters.nil? || adv_filters.empty?
+    table = Stock.arel_table
+
+    adv_filters.each do |f|
+      field = f[:field].to_s
+      op = f[:op].to_s
+      spec = advanced_field_spec_by_name(field)
+      next unless spec
+
+      col = table[field]
+      if op == 'is_null'
+        scope = scope.where(col.eq(nil))
+        next
+      end
+      if op == 'not_null'
+        scope = scope.where(col.not_eq(nil))
+        next
+      end
+
+      v = parse_advanced_value(spec[:type], f[:raw_value])
+      next if v.nil?
+
+      predicate =
+        case op
+        when '>'
+          col.gt(v)
+        when '>='
+          col.gteq(v)
+        when '<'
+          col.lt(v)
+        when '<='
+          col.lteq(v)
+        when '=', '=='
+          col.eq(v)
+        when '!=', '<>'
+          col.not_eq(v)
+        else
+          nil
+        end
+
+      scope = predicate ? scope.where(predicate) : scope
+    end
+
+    scope
+  end
+
+  def parse_advanced_value(type, raw)
+    s = raw.to_s.strip
+    return nil if s.empty?
+
+    if type.to_s == 'ratio'
+      if s.end_with?('%')
+        return s.sub(/%\z/, '').to_f / 100.0
+      end
+      return s.to_f if s.match?(/\A-?\d+(\.\d+)?\z/)
+      nil
+    elsif type.to_s == 'pct'
+      if s.end_with?('%')
+        return s.sub(/%\z/, '').to_f
+      end
+      return s.to_f if s.match?(/\A-?\d+(\.\d+)?\z/)
+      nil
+    elsif type.to_s == 'number'
+      return s.to_f if s.match?(/\A-?\d+(\.\d+)?\z/)
+      nil
+    else
+      return s.to_f if s.match?(/\A-?\d+(\.\d+)?\z/)
+      nil
+    end
   end
 
   def sort_label(field)
