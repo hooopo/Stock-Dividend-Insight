@@ -158,6 +158,7 @@ post '/pools' do
   ensure_pool_tables!
   name = params[:name].to_s.strip
   query_string = params[:query].to_s.strip
+  edit_pool_id = params[:edit_pool_id].to_s.strip
 
   if name.empty?
     set_flash('股票池名称不能为空')
@@ -169,9 +170,18 @@ post '/pools' do
     redirect_back_or('/')
   end
 
-  pool = current_user.saved_pools.create!(name: name, query_string: normalized_pool_query_string(query_string))
-  create_pool_snapshot!(pool)
-  redirect "/pools/#{pool.id}"
+  if edit_pool_id.size > 0
+    pool = current_user.saved_pools.find(edit_pool_id)
+    if pool.pool_snapshots.exists?
+      set_flash('已生成快照，股票池不可编辑')
+      redirect "/pools/#{pool.id}"
+    end
+    pool.update!(name: name, query_string: normalized_pool_query_string(query_string))
+    redirect "/pools/#{pool.id}"
+  else
+    pool = current_user.saved_pools.create!(name: name, query_string: normalized_pool_query_string(query_string))
+    redirect "/pools/#{pool.id}"
+  end
 end
 
 get '/pools/:id' do
@@ -180,9 +190,8 @@ get '/pools/:id' do
   @layout_full_width = true
   @pool = current_user.saved_pools.find(params[:id])
   @snapshot = @pool.pool_snapshots.order(taken_at: :desc, id: :desc).first
-  @snapshot ||= create_pool_snapshot!(@pool)
 
-  pool_params = Rack::Utils.parse_nested_query(@pool.query_string.to_s)
+  pool_params = parse_query_string_multi(@pool.query_string)
   @adv_filters = parse_advanced_filters(pool_params)
   @adv_fields = advanced_field_specs
   @only_div5y = pool_params['only_div5y'].to_s == '1'
@@ -228,22 +237,42 @@ get '/pools/:id' do
   stock_ids = @stocks.map(&:id)
   @pe_hist_counts = stock_ids.empty? ? {} : PriceHistory.where(stock_id: stock_ids).where.not(pe_ttm: nil).group(:stock_id).count
   @pb_hist_counts = stock_ids.empty? ? {} : PriceHistory.where(stock_id: stock_ids).where.not(pb: nil).group(:stock_id).count
-  @base_item_by_stock_id =
-    stock_ids.empty? ? {} : @snapshot.pool_snapshot_items.where(stock_id: stock_ids).index_by(&:stock_id)
+  if @snapshot
+    @base_item_by_stock_id =
+      stock_ids.empty? ? {} : @snapshot.pool_snapshot_items.where(stock_id: stock_ids).index_by(&:stock_id)
 
-  base_ids = @snapshot.pool_snapshot_items.pluck(:stock_id)
-  current_ids = current_scope.pluck(:id)
+    base_ids = @snapshot.pool_snapshot_items.pluck(:stock_id)
+    current_ids = current_scope.pluck(:id)
 
-  base_set = base_ids.to_set
-  current_set = current_ids.to_set
-  @added_ids = (current_set - base_set).to_a
-  @removed_ids = (base_set - current_set).to_a
-  @common_ids = (base_set & current_set).to_a
+    base_set = base_ids.to_set
+    current_set = current_ids.to_set
+    @added_ids = (current_set - base_set).to_a
+    @removed_ids = (base_set - current_set).to_a
 
-  @added_stocks = @added_ids.empty? ? [] : Stock.where(id: @added_ids).order(:id).to_a
-  @removed_items =
-    @removed_ids.empty? ? [] : @snapshot.pool_snapshot_items.where(stock_id: @removed_ids).order(:id).to_a
+    @added_stocks = @added_ids.empty? ? [] : Stock.where(id: @added_ids).order(:id).to_a
+    @removed_items =
+      @removed_ids.empty? ? [] : @snapshot.pool_snapshot_items.where(stock_id: @removed_ids).order(:id).to_a
+  else
+    @base_item_by_stock_id = {}
+    @added_ids = []
+    @removed_ids = []
+    @added_stocks = []
+    @removed_items = []
+  end
   erb :pool_show
+end
+
+post '/pools/:id/snapshot' do
+  require_login!
+  ensure_pool_tables!
+  pool = current_user.saved_pools.find(params[:id])
+  if pool.pool_snapshots.exists?
+    set_flash('已生成快照')
+    redirect "/pools/#{pool.id}"
+  end
+  create_pool_snapshot!(pool)
+  set_flash('已生成快照，股票池已锁定不可编辑')
+  redirect "/pools/#{pool.id}"
 end
 
 post '/pools/:id/delete' do
@@ -428,68 +457,7 @@ get '/' do
     redirect '/'
   end
 
-  base_scope = Stock.includes(:categories)
-  if only_div5y
-    base_scope = base_scope.where(has_dividend_5y: true)
-  end
-  if roe_5y_avg_ge_12
-    base_scope = base_scope.where(roe_5y_avg_ge_12: true)
-  end
-  if roe_5y_min_ge_8
-    base_scope = base_scope.where(roe_5y_min_ge_8: true)
-  end
-  if include_roe_levels.any?
-    base_scope = base_scope.where(roe_level: include_roe_levels)
-  end
-  if exclude_roe_levels.any?
-    base_scope = base_scope.where.not(roe_level: exclude_roe_levels)
-  end
-  if include_category_ids.any?
-    base_scope = base_scope.joins(:categorizations).where(categorizations: { category_id: include_category_ids }).distinct
-  end
-  if exclude_category_ids.any?
-    excluded = Stock.joins(:categorizations).where(categorizations: { category_id: exclude_category_ids }).select(:id)
-    base_scope = base_scope.where.not(id: excluded)
-  end
-  if include_pb_levels.any?
-    base_scope = base_scope.where(pb_level: include_pb_levels)
-  end
-  if exclude_pb_levels.any?
-    base_scope = base_scope.where.not(pb_level: exclude_pb_levels)
-  end
-  if include_pb_percentile_levels.any?
-    base_scope = base_scope.where(pb_percentile_level: include_pb_percentile_levels)
-  end
-  if exclude_pb_percentile_levels.any?
-    base_scope = base_scope.where.not(pb_percentile_level: exclude_pb_percentile_levels)
-  end
-  if include_peg_levels.any?
-    base_scope = base_scope.where(peg_level: include_peg_levels)
-  end
-  if exclude_peg_levels.any?
-    base_scope = base_scope.where.not(peg_level: exclude_peg_levels)
-  end
-  if include_pe_levels.any?
-    base_scope = base_scope.where(pe_level: include_pe_levels)
-  end
-  if exclude_pe_levels.any?
-    base_scope = base_scope.where.not(pe_level: exclude_pe_levels)
-  end
-  if include_pe_percentile_levels.any?
-    base_scope = base_scope.where(pe_percentile_level: include_pe_percentile_levels)
-  end
-  if exclude_pe_percentile_levels.any?
-    base_scope = base_scope.where.not(pe_percentile_level: exclude_pe_percentile_levels)
-  end
-  if exclude_high_debt
-    base_scope = base_scope.where('asset_liability_ratio <= 60 OR asset_liability_ratio IS NULL')
-  end
-  sorts.each do |s|
-    if s[:field] == 'pe_ttm' && s[:order] == 'asc'
-      base_scope = base_scope.where('pe_ttm > 0')
-    end
-  end
-  base_scope = apply_advanced_filters(base_scope, adv_filters)
+  base_scope = build_filtered_scope(params)
 
   order_sql = sorts.map { |s| "#{s[:field]} #{s[:order]} NULLS LAST" }.join(', ')
   page = params[:page].to_i
@@ -535,6 +503,18 @@ get '/' do
   @roe_5y_avg_ge_12 = roe_5y_avg_ge_12
   @roe_5y_min_ge_8 = roe_5y_min_ge_8
   @cn_10y = TreasuryYield.where(country: 'CN', tenor: '10Y').order(date: :desc).first
+  @edit_pool_id = nil
+  @edit_pool_name = nil
+  if logged_in?
+    edit_pool_id = params[:edit_pool_id].to_s.strip
+    if edit_pool_id.size > 0
+      pool = current_user.saved_pools.find_by(id: edit_pool_id)
+      if pool && !pool.pool_snapshots.exists?
+        @edit_pool_id = pool.id
+        @edit_pool_name = pool.name.to_s
+      end
+    end
+  end
   
   erb :index
 end
@@ -644,8 +624,67 @@ helpers do
     ]
   end
 
+  def param_value(params_hash, key)
+    params_hash[key] || params_hash[key.to_s]
+  end
+
+  def build_filtered_scope(params_hash)
+    adv_filters = parse_advanced_filters(params_hash)
+    only_div5y = param_value(params_hash, :only_div5y).to_s == '1'
+    roe_5y_avg_ge_12 = param_value(params_hash, :roe_5y_avg_ge_12).to_s == '1'
+    roe_5y_min_ge_8 = param_value(params_hash, :roe_5y_min_ge_8).to_s == '1'
+    exclude_high_debt = param_value(params_hash, :exclude_high_debt).to_s == '1'
+
+    include_category_ids = parse_id_list(param_value(params_hash, :include_category_ids))
+    exclude_category_ids = parse_id_list(param_value(params_hash, :exclude_category_ids))
+    include_pb_levels = parse_id_list(param_value(params_hash, :include_pb_levels)).select { |x| x >= 1 && x <= 6 }
+    exclude_pb_levels = parse_id_list(param_value(params_hash, :exclude_pb_levels)).select { |x| x >= 1 && x <= 6 }
+    include_pb_percentile_levels = parse_id_list(param_value(params_hash, :include_pb_percentile_levels)).select { |x| x >= 1 && x <= 4 }
+    exclude_pb_percentile_levels = parse_id_list(param_value(params_hash, :exclude_pb_percentile_levels)).select { |x| x >= 1 && x <= 4 }
+    include_pe_levels = parse_id_list(param_value(params_hash, :include_pe_levels)).select { |x| x >= 1 && x <= 7 }
+    exclude_pe_levels = parse_id_list(param_value(params_hash, :exclude_pe_levels)).select { |x| x >= 1 && x <= 7 }
+    include_pe_percentile_levels = parse_id_list(param_value(params_hash, :include_pe_percentile_levels)).select { |x| x >= 1 && x <= 3 }
+    exclude_pe_percentile_levels = parse_id_list(param_value(params_hash, :exclude_pe_percentile_levels)).select { |x| x >= 1 && x <= 3 }
+    include_peg_levels = parse_id_list(param_value(params_hash, :include_peg_levels)).select { |x| x >= 1 && x <= 5 }
+    exclude_peg_levels = parse_id_list(param_value(params_hash, :exclude_peg_levels)).select { |x| x >= 1 && x <= 5 }
+    include_roe_levels = parse_id_list(param_value(params_hash, :include_roe_levels)).select { |x| x >= 1 && x <= 3 }
+    exclude_roe_levels = parse_id_list(param_value(params_hash, :exclude_roe_levels)).select { |x| x >= 1 && x <= 3 }
+
+    sorts = parse_sorts_param(param_value(params_hash, :sort), allowed_sort_fields_for_list)
+
+    scope = Stock.includes(:categories)
+    scope = scope.where(has_dividend_5y: true) if only_div5y
+    scope = scope.where(roe_5y_avg_ge_12: true) if roe_5y_avg_ge_12
+    scope = scope.where(roe_5y_min_ge_8: true) if roe_5y_min_ge_8
+    scope = scope.where(roe_level: include_roe_levels) if include_roe_levels.any?
+    scope = scope.where.not(roe_level: exclude_roe_levels) if exclude_roe_levels.any?
+    if include_category_ids.any?
+      scope = scope.joins(:categorizations).where(categorizations: { category_id: include_category_ids }).distinct
+    end
+    if exclude_category_ids.any?
+      excluded = Stock.joins(:categorizations).where(categorizations: { category_id: exclude_category_ids }).select(:id)
+      scope = scope.where.not(id: excluded)
+    end
+    scope = scope.where(pb_level: include_pb_levels) if include_pb_levels.any?
+    scope = scope.where.not(pb_level: exclude_pb_levels) if exclude_pb_levels.any?
+    scope = scope.where(pb_percentile_level: include_pb_percentile_levels) if include_pb_percentile_levels.any?
+    scope = scope.where.not(pb_percentile_level: exclude_pb_percentile_levels) if exclude_pb_percentile_levels.any?
+    scope = scope.where(peg_level: include_peg_levels) if include_peg_levels.any?
+    scope = scope.where.not(peg_level: exclude_peg_levels) if exclude_peg_levels.any?
+    scope = scope.where(pe_level: include_pe_levels) if include_pe_levels.any?
+    scope = scope.where.not(pe_level: exclude_pe_levels) if exclude_pe_levels.any?
+    scope = scope.where(pe_percentile_level: include_pe_percentile_levels) if include_pe_percentile_levels.any?
+    scope = scope.where.not(pe_percentile_level: exclude_pe_percentile_levels) if exclude_pe_percentile_levels.any?
+    scope = scope.where('asset_liability_ratio <= 60 OR asset_liability_ratio IS NULL') if exclude_high_debt
+    sorts.each do |s|
+      scope = scope.where('pe_ttm > 0') if s[:field] == 'pe_ttm' && s[:order] == 'asc'
+    end
+
+    apply_advanced_filters(scope, adv_filters)
+  end
+
   def sorts_from_query_string(query_string)
-    p = Rack::Utils.parse_nested_query(query_string.to_s)
+    p = parse_query_string_multi(query_string)
     parse_sorts_param(p['sort'], allowed_sort_fields_for_list)
   end
 
@@ -673,8 +712,15 @@ helpers do
     format_signed(value.to_f * 100.0, precision, '%')
   end
 
+  def delta_text_class(value)
+    return 'text-gray-500' if value.nil?
+    v = value.to_f
+    return 'text-gray-500' if v.abs < 1e-9
+    v > 0 ? 'text-red-600' : 'text-gray-500'
+  end
+
   def normalized_pool_query_string(query_string)
-    h = Rack::Utils.parse_nested_query(query_string.to_s)
+    h = parse_query_string_multi(query_string)
     %w[
       page move_sort move_dir add_sort_field add_sort_order add_sort_pos clear_sorts
       remove_include_category_id remove_exclude_category_id
@@ -690,58 +736,8 @@ helpers do
   end
 
   def stock_scope_from_query_string(query_string)
-    p = Rack::Utils.parse_nested_query(query_string.to_s)
-    adv_filters = parse_advanced_filters(p)
-    only_div5y = p['only_div5y'].to_s == '1'
-    roe_5y_avg_ge_12 = p['roe_5y_avg_ge_12'].to_s == '1'
-    roe_5y_min_ge_8 = p['roe_5y_min_ge_8'].to_s == '1'
-    exclude_high_debt = p['exclude_high_debt'].to_s == '1'
-
-    include_category_ids = parse_id_list(p['include_category_ids'])
-    exclude_category_ids = parse_id_list(p['exclude_category_ids'])
-    include_pb_levels = parse_id_list(p['include_pb_levels']).select { |x| x >= 1 && x <= 6 }
-    exclude_pb_levels = parse_id_list(p['exclude_pb_levels']).select { |x| x >= 1 && x <= 6 }
-    include_pb_percentile_levels = parse_id_list(p['include_pb_percentile_levels']).select { |x| x >= 1 && x <= 4 }
-    exclude_pb_percentile_levels = parse_id_list(p['exclude_pb_percentile_levels']).select { |x| x >= 1 && x <= 4 }
-    include_pe_levels = parse_id_list(p['include_pe_levels']).select { |x| x >= 1 && x <= 7 }
-    exclude_pe_levels = parse_id_list(p['exclude_pe_levels']).select { |x| x >= 1 && x <= 7 }
-    include_pe_percentile_levels = parse_id_list(p['include_pe_percentile_levels']).select { |x| x >= 1 && x <= 3 }
-    exclude_pe_percentile_levels = parse_id_list(p['exclude_pe_percentile_levels']).select { |x| x >= 1 && x <= 3 }
-    include_peg_levels = parse_id_list(p['include_peg_levels']).select { |x| x >= 1 && x <= 5 }
-    exclude_peg_levels = parse_id_list(p['exclude_peg_levels']).select { |x| x >= 1 && x <= 5 }
-    include_roe_levels = parse_id_list(p['include_roe_levels']).select { |x| x >= 1 && x <= 3 }
-    exclude_roe_levels = parse_id_list(p['exclude_roe_levels']).select { |x| x >= 1 && x <= 3 }
-
-    sorts = parse_sorts_param(p['sort'], allowed_sort_fields_for_list)
-
-    scope = Stock.includes(:categories)
-    scope = scope.where(has_dividend_5y: true) if only_div5y
-    scope = scope.where(roe_5y_avg_ge_12: true) if roe_5y_avg_ge_12
-    scope = scope.where(roe_5y_min_ge_8: true) if roe_5y_min_ge_8
-    scope = scope.where(roe_level: include_roe_levels) if include_roe_levels.any?
-    scope = scope.where.not(roe_level: exclude_roe_levels) if exclude_roe_levels.any?
-    if include_category_ids.any?
-      scope = scope.joins(:categorizations).where(categorizations: { category_id: include_category_ids }).distinct
-    end
-    if exclude_category_ids.any?
-      excluded = scope.joins(:categorizations).where(categorizations: { category_id: exclude_category_ids }).select(:id)
-      scope = scope.where.not(id: excluded)
-    end
-    scope = scope.where(pb_level: include_pb_levels) if include_pb_levels.any?
-    scope = scope.where.not(pb_level: exclude_pb_levels) if exclude_pb_levels.any?
-    scope = scope.where(pb_percentile_level: include_pb_percentile_levels) if include_pb_percentile_levels.any?
-    scope = scope.where.not(pb_percentile_level: exclude_pb_percentile_levels) if exclude_pb_percentile_levels.any?
-    scope = scope.where(peg_level: include_peg_levels) if include_peg_levels.any?
-    scope = scope.where.not(peg_level: exclude_peg_levels) if exclude_peg_levels.any?
-    scope = scope.where(pe_level: include_pe_levels) if include_pe_levels.any?
-    scope = scope.where.not(pe_level: exclude_pe_levels) if exclude_pe_levels.any?
-    scope = scope.where(pe_percentile_level: include_pe_percentile_levels) if include_pe_percentile_levels.any?
-    scope = scope.where.not(pe_percentile_level: exclude_pe_percentile_levels) if exclude_pe_percentile_levels.any?
-    scope = scope.where('asset_liability_ratio <= 60 OR asset_liability_ratio IS NULL') if exclude_high_debt
-    sorts.each do |s|
-      scope = scope.where('pe_ttm > 0') if s[:field] == 'pe_ttm' && s[:order] == 'asc'
-    end
-    apply_advanced_filters(scope, adv_filters)
+    p = parse_query_string_multi(query_string)
+    build_filtered_scope(p)
   end
 
   def create_pool_snapshot!(pool)
@@ -842,7 +838,36 @@ helpers do
   end
 
   def build_query(params_hash)
-    Rack::Utils.build_query(params_hash.reject { |_, v| v.nil? || v.to_s.empty? })
+    cleaned =
+      params_hash.reject do |_, v|
+        v.nil? || (v.respond_to?(:empty?) && v.empty?) || v.to_s.empty?
+      end
+    Rack::Utils.build_nested_query(cleaned)
+  end
+
+  def parse_query_string_multi(query_string)
+    qs = query_string.to_s
+    return {} if qs.empty?
+
+    out = {}
+    qs.split('&').each do |part|
+      next if part.to_s.empty?
+      k, v = part.split('=', 2)
+      key = Rack::Utils.unescape(k.to_s)
+      val = Rack::Utils.unescape(v.to_s)
+      next if key.empty?
+
+      if key.end_with?('[]')
+        base = key[0..-3]
+        (out[base] ||= []) << val
+      elsif out.key?(key)
+        out[key] = Array(out[key]) << val
+      else
+        out[key] = val
+      end
+    end
+
+    out
   end
 
   def advanced_field_specs

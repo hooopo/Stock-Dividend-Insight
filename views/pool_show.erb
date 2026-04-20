@@ -7,9 +7,19 @@
                 <a href="/pools" class="text-blue-600 hover:underline">返回股票池列表</a>
             </div>
         </div>
-        <form method="post" action="/pools/<%= @pool.id %>/delete" class="flex items-center gap-2" onsubmit="return confirm('确认删除该股票池？删除后无法恢复');">
-            <button type="submit" class="px-3 py-1 rounded bg-red-600 text-white hover:bg-red-700 text-xs">删除</button>
-        </form>
+        <div class="flex items-center gap-2">
+            <% if @snapshot.nil? %>
+                <a href="/?<%= @pool.query_string %>&edit_pool_id=<%= @pool.id %>" class="px-3 py-1 rounded bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-xs">编辑</a>
+                <form method="post" action="/pools/<%= @pool.id %>/snapshot" class="inline">
+                    <button type="submit" class="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-xs">生成快照</button>
+                </form>
+            <% else %>
+                <span class="inline-flex items-center px-2 py-1 rounded-full border bg-gray-50 text-gray-700 border-gray-200 text-xs font-semibold">已锁定</span>
+            <% end %>
+            <form method="post" action="/pools/<%= @pool.id %>/delete" class="inline" onsubmit="return confirm('确认删除该股票池？删除后无法恢复');">
+                <button type="submit" class="px-3 py-1 rounded bg-red-600 text-white hover:bg-red-700 text-xs">删除</button>
+            </form>
+        </div>
     </div>
 
     <div class="mt-4 flex flex-wrap items-center gap-2 text-sm">
@@ -176,61 +186,69 @@
     </div>
     <% end %>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
-        <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
-            <div class="text-xs text-gray-500">基准快照</div>
-            <div class="mt-1 font-semibold text-gray-900"><%= @snapshot.taken_at %></div>
-            <div class="mt-1 text-gray-700 text-xs">数量：<%= @snapshot.total_count %></div>
+    <% if @snapshot %>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+            <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
+                <div class="text-xs text-gray-500">基准快照</div>
+                <div class="mt-1 font-semibold text-gray-900"><%= @snapshot.taken_at %></div>
+                <div class="mt-1 text-gray-700 text-xs">数量：<%= @snapshot.total_count %></div>
+            </div>
+            <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
+                <div class="text-xs text-gray-500">当前结果</div>
+                <div class="mt-1 font-semibold text-gray-900"><%= @current_total_count %></div>
+                <div class="mt-1 text-gray-700 text-xs">进：<%= @added_ids.size %>，出：<%= @removed_ids.size %></div>
+            </div>
+            <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
+                <div class="text-xs text-gray-500">当前展示</div>
+                <div class="mt-1 font-semibold text-gray-900">第 <%= @page %> / <%= @total_pages %> 页</div>
+                <div class="mt-1 text-gray-700 text-xs">本页：<%= @stocks.size %> 只</div>
+            </div>
         </div>
-        <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
-            <div class="text-xs text-gray-500">当前结果</div>
-            <div class="mt-1 font-semibold text-gray-900"><%= @current_total_count %></div>
-            <div class="mt-1 text-gray-700 text-xs">进：<%= @added_ids.size %>，出：<%= @removed_ids.size %></div>
-        </div>
-        <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg">
-            <div class="text-xs text-gray-500">当前展示</div>
-            <div class="mt-1 font-semibold text-gray-900">第 <%= @page %> / <%= @total_pages %> 页</div>
-            <div class="mt-1 text-gray-700 text-xs">本页：<%= @stocks.size %> 只</div>
-        </div>
-    </div>
 
-    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-        <div class="p-3 bg-green-50 border border-green-100 rounded-lg">
-            <div class="text-xs font-semibold text-green-700 mb-2">进池 (<%= @added_ids.size %>)</div>
-            <% if @added_stocks.empty? %>
-                <div class="text-xs text-gray-600">-</div>
-            <% else %>
-                <div class="flex flex-wrap items-center gap-2">
-                    <% @added_stocks.each do |s| %>
-                        <a href="/stocks/<%= s.id %>" class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-green-200 hover:bg-green-50">
-                            <span class="font-semibold"><%= s.name %></span>
-                            <span class="ml-1 text-gray-500"><%= s.code %></span>
-                        </a>
-                    <% end %>
-                </div>
-            <% end %>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="p-3 bg-green-50 border border-green-100 rounded-lg">
+                <div class="text-xs font-semibold text-green-700 mb-2">进池 (<%= @added_ids.size %>)</div>
+                <% if @added_stocks.empty? %>
+                    <div class="text-xs text-gray-600">-</div>
+                <% else %>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <% @added_stocks.each do |s| %>
+                            <a href="/stocks/<%= s.id %>" class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-green-200 hover:bg-green-50">
+                                <span class="font-semibold"><%= s.name %></span>
+                                <span class="ml-1 text-gray-500"><%= s.code %></span>
+                            </a>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
+            <div class="p-3 bg-red-50 border border-red-100 rounded-lg">
+                <div class="text-xs font-semibold text-red-700 mb-2">出池 (<%= @removed_ids.size %>)</div>
+                <% if @removed_items.empty? %>
+                    <div class="text-xs text-gray-600">-</div>
+                <% else %>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <% @removed_items.each do |it| %>
+                            <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
+                                <span class="font-semibold"><%= it.name %></span>
+                                <span class="ml-1 text-gray-500"><%= it.code %></span>
+                            </span>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
         </div>
-        <div class="p-3 bg-red-50 border border-red-100 rounded-lg">
-            <div class="text-xs font-semibold text-red-700 mb-2">出池 (<%= @removed_ids.size %>)</div>
-            <% if @removed_items.empty? %>
-                <div class="text-xs text-gray-600">-</div>
-            <% else %>
-                <div class="flex flex-wrap items-center gap-2">
-                    <% @removed_items.each do |it| %>
-                        <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
-                            <span class="font-semibold"><%= it.name %></span>
-                            <span class="ml-1 text-gray-500"><%= it.code %></span>
-                        </span>
-                    <% end %>
-                </div>
-            <% end %>
+    <% else %>
+        <div class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-900">
+            未生成快照：当前仅展示筛选结果。点击“生成快照”后将锁定股票池并开始显示进出与指标变化。
         </div>
-    </div>
+    <% end %>
 
     <div class="mt-4 bg-white border border-gray-200 rounded-lg">
         <div class="p-3 flex flex-wrap items-center justify-between gap-3">
-            <div class="text-xs font-semibold text-gray-700">池子股票（快照 vs 当前）</div>
-            <div class="text-xs text-gray-500">快照时间：<%= @snapshot.taken_at %></div>
+            <div class="text-xs font-semibold text-gray-700"><%= @snapshot ? '池子股票（快照 vs 当前）' : '池子股票（当前）' %></div>
+            <% if @snapshot %>
+                <div class="text-xs text-gray-500">快照时间：<%= @snapshot.taken_at %></div>
+            <% end %>
         </div>
         <div class="table-container">
             <table class="w-full text-left border-collapse text-xs">
@@ -352,7 +370,7 @@
                                         <span class="inline-flex items-center px-2 py-0.5 rounded-full border bg-green-50 text-green-700 border-green-200 text-xs font-semibold">新进</span>
                                     <% else %>
                                         <% if (lbl = format_signed(price_change, 2, '%')) %>
-                                            <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= price_change.to_f >= 0 ? 'bg-red-50 text-red-700 border-red-200' : 'bg-green-50 text-green-700 border-green-200' %> text-xs font-semibold"><%= lbl %></span>
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= price_change.to_f >= 0 ? 'bg-red-50 text-red-700 border-red-200' : 'bg-gray-50 text-gray-700 border-gray-200' %> text-xs font-semibold"><%= lbl %></span>
                                         <% end %>
                                     <% end %>
                                 </div>
@@ -360,32 +378,36 @@
                             <td class="p-3 text-right hidden md:table-cell">
                                 <div><%= format_decimal(stock.current_price, 2) %></div>
                                 <% if base && base.current_price && stock.current_price %>
-                                    <% if (lbl = format_signed(delta(base.current_price, stock.current_price), 2)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.current_price, stock.current_price) %>
+                                    <% if (lbl = format_signed(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
                             <td class="p-3 text-right">
                                 <div class="font-bold text-blue-700"><%= stock.dividend_yield.nil? ? '未同步' : format_percent(stock.dividend_yield) %></div>
                                 <% if base && base.dividend_yield && stock.dividend_yield %>
-                                    <% if (lbl = format_signed_pp(delta(base.dividend_yield, stock.dividend_yield), 2)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.dividend_yield, stock.dividend_yield) %>
+                                    <% if (lbl = format_signed_pp(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
                             <td class="p-3 text-right">
                                 <div><%= format_decimal(stock.pe_ttm, 2) %></div>
                                 <% if base && base.pe_ttm && stock.pe_ttm %>
-                                    <% if (lbl = format_signed(delta(base.pe_ttm, stock.pe_ttm), 2)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.pe_ttm, stock.pe_ttm) %>
+                                    <% if (lbl = format_signed(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
                             <td class="p-3 text-right hidden md:table-cell">
                                 <div><%= stock.peg.nil? ? '-' : format_decimal(stock.peg, 2) %></div>
                                 <% if base && base.peg && stock.peg %>
-                                    <% if (lbl = format_signed(delta(base.peg, stock.peg), 2)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.peg, stock.peg) %>
+                                    <% if (lbl = format_signed(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
@@ -399,24 +421,27 @@
                             <td class="p-3 text-right hidden md:table-cell">
                                 <div><%= stock.asset_liability_ratio.nil? ? '未同步' : format_percent(stock.asset_liability_ratio) %></div>
                                 <% if base && base.asset_liability_ratio && stock.asset_liability_ratio %>
-                                    <% if (lbl = format_signed_pp(delta(base.asset_liability_ratio, stock.asset_liability_ratio), 2)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.asset_liability_ratio, stock.asset_liability_ratio) %>
+                                    <% if (lbl = format_signed_pp(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
                             <td class="p-3 text-right hidden md:table-cell">
                                 <div><%= stock.fcf_yield.nil? ? '未同步' : format_percent(stock.fcf_yield) %></div>
                                 <% if base && base.fcf_yield && stock.fcf_yield %>
-                                    <% if (lbl = format_signed_pp(delta(base.fcf_yield, stock.fcf_yield), 2)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.fcf_yield, stock.fcf_yield) %>
+                                    <% if (lbl = format_signed_pp(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
                             <td class="p-3 text-right hidden md:table-cell">
                                 <div><%= stock.fcf_ev.nil? ? '未同步' : format_percent(stock.fcf_ev) %></div>
                                 <% if base && base.fcf_ev && stock.fcf_ev %>
-                                    <% if (lbl = format_signed_pp(delta(base.fcf_ev, stock.fcf_ev), 2)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.fcf_ev, stock.fcf_ev) %>
+                                    <% if (lbl = format_signed_pp(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
@@ -438,8 +463,9 @@
                                     <div><%= pe_percentile_level_label(stock.pe_percentile_level) %></div>
                                     <div class="text-xs text-gray-400"><%= format_ratio_percent(stock.pe_percentile) %></div>
                                     <% if base && base.pe_percentile && stock.pe_percentile %>
-                                        <% if (lbl = format_signed_ratio_delta(delta(base.pe_percentile, stock.pe_percentile), 0)) %>
-                                            <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                        <% dv = delta(base.pe_percentile, stock.pe_percentile) %>
+                                        <% if (lbl = format_signed_ratio_delta(dv, 0)) %>
+                                            <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                         <% end %>
                                     <% end %>
                                 <% end %>
@@ -447,8 +473,9 @@
                             <td class="p-3 text-right">
                                 <div><%= format_decimal(stock.pb, 2) %></div>
                                 <% if base && base.pb && stock.pb %>
-                                    <% if (lbl = format_signed(delta(base.pb, stock.pb), 2)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.pb, stock.pb) %>
+                                    <% if (lbl = format_signed(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
@@ -467,8 +494,9 @@
                                     <div><%= pb_percentile_level_label(stock.pb_percentile_level) %></div>
                                     <div class="text-xs text-gray-400"><%= format_ratio_percent(stock.pb_percentile) %></div>
                                     <% if base && base.pb_percentile && stock.pb_percentile %>
-                                        <% if (lbl = format_signed_ratio_delta(delta(base.pb_percentile, stock.pb_percentile), 0)) %>
-                                            <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                        <% dv = delta(base.pb_percentile, stock.pb_percentile) %>
+                                        <% if (lbl = format_signed_ratio_delta(dv, 0)) %>
+                                            <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                         <% end %>
                                     <% end %>
                                 <% end %>
@@ -476,8 +504,9 @@
                             <td class="p-3 text-right">
                                 <div><%= stock.roe_jq.nil? ? '未同步' : format_percent(stock.roe_jq) %></div>
                                 <% if base && base.roe_jq && stock.roe_jq %>
-                                    <% if (lbl = format_signed_pp(delta(base.roe_jq, stock.roe_jq), 2)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.roe_jq, stock.roe_jq) %>
+                                    <% if (lbl = format_signed_pp(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
@@ -491,8 +520,9 @@
                             <td class="p-3 text-center <%= position_color(stock.pos_30d) %> hidden md:table-cell">
                                 <div><%= format_ratio_percent(stock.pos_30d) %></div>
                                 <% if base && base.pos_30d && stock.pos_30d %>
-                                    <% if (lbl = format_signed_ratio_delta(delta(base.pos_30d, stock.pos_30d), 0)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.pos_30d, stock.pos_30d) %>
+                                    <% if (lbl = format_signed_ratio_delta(dv, 0)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
@@ -505,8 +535,9 @@
                                     <% end %>
                                 </div>
                                 <% if base && base.drop_30d && stock.drop_30d %>
-                                    <% if (lbl = format_signed_pp(delta(base.drop_30d, stock.drop_30d), 2)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.drop_30d, stock.drop_30d) %>
+                                    <% if (lbl = format_signed_pp(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>
@@ -522,8 +553,9 @@
                             <td class="p-3 text-center font-bold">
                                 <div><%= format_ratio_percent(stock.price_position) %></div>
                                 <% if base && base.price_position && stock.price_position %>
-                                    <% if (lbl = format_signed_ratio_delta(delta(base.price_position, stock.price_position), 0)) %>
-                                        <div class="text-xs <%= lbl.start_with?('+') ? 'text-red-600' : 'text-green-600' %>"><%= lbl %></div>
+                                    <% dv = delta(base.price_position, stock.price_position) %>
+                                    <% if (lbl = format_signed_ratio_delta(dv, 0)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
                                 <% end %>
                             </td>

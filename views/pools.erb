@@ -2,7 +2,7 @@
     <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
         <div>
             <h2 class="text-xl font-semibold text-gray-800">股票池</h2>
-            <div class="text-xs text-gray-500 mt-1">已保存 <%= @pools.size %> 个（保存后不可编辑，只能重新快照/新建）</div>
+            <div class="text-xs text-gray-500 mt-1">已保存 <%= @pools.size %> 个（未生成快照可编辑；生成快照后锁定不可编辑）</div>
         </div>
         <a href="/" class="text-blue-600 hover:underline">回到列表</a>
     </div>

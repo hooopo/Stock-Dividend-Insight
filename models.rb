@@ -124,7 +124,14 @@ end
 class SavedPool < ActiveRecord::Base
   belongs_to :user
   has_many :pool_snapshots, dependent: :destroy
-  attr_readonly :user_id, :name, :query_string
+  attr_readonly :user_id
+
+  before_update do
+    if pool_snapshots.exists?
+      errors.add(:base, '已生成快照，股票池不可编辑')
+      throw(:abort)
+    end
+  end
 end
 
 class PoolSnapshot < ActiveRecord::Base

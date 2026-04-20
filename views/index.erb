@@ -9,7 +9,8 @@
                 <form method="post" action="/pools" class="flex items-center gap-2">
                     <input type="hidden" name="query" value="<%= request.query_string %>">
                     <input type="hidden" name="name" id="poolNameField" value="">
-                    <button type="button" id="savePoolBtn" class="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-xs">保存为股票池</button>
+                    <input type="hidden" name="edit_pool_id" id="poolEditIdField" value="<%= @edit_pool_id %>">
+                    <button type="button" id="savePoolBtn" class="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-xs" data-mode="<%= @edit_pool_id ? 'edit' : 'new' %>" data-default-name="<%= (@edit_pool_name || '').to_s %>"><%= @edit_pool_id ? '更新股票池' : '保存为股票池' %></button>
                 </form>
             <% else %>
                 <a href="/login?<%= build_query(return_to: request.fullpath) %>" class="text-blue-600 hover:underline text-xs">登录后可保存股票池</a>
@@ -1027,7 +1028,10 @@
         if (!form) return;
 
         btn.addEventListener('click', () => {
-            const name = window.prompt('股票池名称：', '');
+            const mode = btn.dataset.mode || 'new';
+            const defaultName = btn.dataset.defaultName || '';
+            const title = mode === 'edit' ? '更新股票池名称：' : '股票池名称：';
+            const name = window.prompt(title, defaultName);
             if (!name) return;
             const trimmed = name.trim();
             if (!trimmed) return;
