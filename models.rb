@@ -121,6 +121,12 @@ end
 class TreasuryYield < ActiveRecord::Base
 end
 
+class QiemanIndexEval < ActiveRecord::Base
+end
+
+class MacroMetric < ActiveRecord::Base
+end
+
 class SavedPool < ActiveRecord::Base
   belongs_to :user
   has_many :pool_snapshots, dependent: :destroy

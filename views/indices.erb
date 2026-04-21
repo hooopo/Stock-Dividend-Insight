@@ -1,0 +1,49 @@
+<div class="bg-white rounded-lg shadow-md p-6 text-sm">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <div>
+            <h2 class="text-xl font-semibold text-gray-800">指数 (<%= @indices.size %>)</h2>
+            <div class="text-xs text-gray-500 mt-1">且慢指数估值 · <a href="/kb/index_eval" class="text-blue-600 hover:underline">知识库</a></div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table class="w-full text-left border-collapse text-xs">
+            <thead>
+                <tr class="bg-gray-50 text-gray-700 text-xs uppercase tracking-wider">
+                    <th class="p-3 border-b border-gray-200 sticky left-0 bg-gray-50">名称</th>
+                    <th class="p-3 border-b border-gray-200 text-center">估值</th>
+                    <th class="p-3 border-b border-gray-200 text-right"><a class="hover:underline" href="<%= qieman_sort_href('/indices', 'pe', @sort, @dir) %>">PE</a></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><a class="hover:underline" href="<%= qieman_sort_href('/indices', 'pe_percentile', @sort, @dir) %>">PE分位</a></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><a class="hover:underline" href="<%= qieman_sort_href('/indices', 'pb', @sort, @dir) %>">PB</a></th>
+                    <th class="p-3 border-b border-gray-200 text-right"><a class="hover:underline" href="<%= qieman_sort_href('/indices', 'pb_percentile', @sort, @dir) %>">PB分位</a></th>
+                    <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell"><a class="hover:underline" href="<%= qieman_sort_href('/indices', 'roe', @sort, @dir) %>">ROE</a></th>
+                    <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell"><a class="hover:underline" href="<%= qieman_sort_href('/indices', 'eval_date', @sort, @dir) %>">估值日</a></th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-600">
+                <% @indices.each do |a| %>
+                    <tr class="hover:bg-blue-50 transition-colors duration-150 border-b border-gray-100">
+                        <td class="p-3 font-medium text-gray-800 sticky left-0 bg-white hover:bg-blue-50">
+                            <span class="text-gray-900"><%= a.index_name %></span>
+                            <div class="text-xs text-gray-400 font-mono"><%= a.index_code %></div>
+                        </td>
+                        <td class="p-3 text-center">
+                            <% lbl = qieman_valuation_label(a.pe_percentile, a.pb_percentile) %>
+                            <% if lbl == '-' %>
+                                <span class="text-gray-400">-</span>
+                            <% else %>
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-full border <%= qieman_valuation_badge_class(a.pe_percentile, a.pb_percentile) %> font-semibold"><%= lbl %></span>
+                            <% end %>
+                        </td>
+                        <td class="p-3 text-right"><%= a.pe.nil? ? '-' : format_decimal(a.pe, 2) %></td>
+                        <td class="p-3 text-right"><%= a.pe_percentile.nil? ? '-' : format_ratio_percent(a.pe_percentile) %></td>
+                        <td class="p-3 text-right"><%= a.pb.nil? ? '-' : format_decimal(a.pb, 2) %></td>
+                        <td class="p-3 text-right"><%= a.pb_percentile.nil? ? '-' : format_ratio_percent(a.pb_percentile) %></td>
+                        <td class="p-3 text-right hidden md:table-cell"><%= a.roe.nil? ? '-' : format_percent(a.roe.to_f * 100.0) %></td>
+                        <td class="p-3 text-right hidden md:table-cell"><%= a.eval_date %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -4,7 +4,6 @@ require 'set'
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require_relative 'models'
-require_relative 'services/valuation_history_syncer'
 
 unless defined?(RoeHistory)
   class RoeHistory < ActiveRecord::Base
@@ -522,7 +521,94 @@ end
 get '/macro' do
   @cn_10y_latest = TreasuryYield.where(country: 'CN', tenor: '10Y').order(date: :desc).first
   @cn_10y_series = TreasuryYield.where(country: 'CN', tenor: '10Y').order(date: :asc).pluck(:date, :yield_pct)
+
+  @hs300_eval = QiemanIndexEval.where(index_code: '000300.SH').order(eval_date: :desc).first
+  @a500_eval = QiemanIndexEval.where(index_code: '000510.SH').order(eval_date: :desc).first
+
   erb :macro
+end
+
+get '/etfs' do
+  @layout_full_width = true
+  @sort = params[:sort].to_s.strip
+  @dir = params[:dir].to_s.strip.downcase
+  @sort = 'pb_percentile' if @sort.empty?
+  @dir = %w[asc desc].include?(@dir) ? @dir : 'asc'
+
+  @index_evals =
+    QiemanIndexEval
+      .select('DISTINCT ON (index_code) *')
+      .order('index_code, eval_date DESC')
+      .to_a
+      .select { |x| Array(x.fund_codes).any? }
+
+  allowed = %w[index_code index_name pe pe_percentile pb pb_percentile roe eval_date]
+  @sort = 'pb_percentile' unless allowed.include?(@sort)
+  field = @sort
+  dir = @dir
+  @index_evals =
+    @index_evals.sort do |a, b|
+      av = a.public_send(field)
+      bv = b.public_send(field)
+
+      if av.nil? && bv.nil?
+        a.index_code.to_s <=> b.index_code.to_s
+      elsif av.nil?
+        1
+      elsif bv.nil?
+        -1
+      else
+        if av.is_a?(String) || bv.is_a?(String) || field.end_with?('_code') || field.end_with?('_name')
+          av.to_s <=> bv.to_s
+        else
+          av.to_f <=> bv.to_f
+        end
+      end
+    end
+  @index_evals.reverse! if dir == 'desc'
+
+  erb :etfs
+end
+
+get '/indices' do
+  @layout_full_width = true
+  @sort = params[:sort].to_s.strip
+  @dir = params[:dir].to_s.strip.downcase
+  @sort = 'pb_percentile' if @sort.empty?
+  @dir = %w[asc desc].include?(@dir) ? @dir : 'asc'
+
+  @indices =
+    QiemanIndexEval
+      .select('DISTINCT ON (index_code) *')
+      .order('index_code, eval_date DESC')
+      .to_a
+
+  allowed = %w[index_code index_name pe pe_percentile pb pb_percentile roe eval_date]
+  @sort = 'pb_percentile' unless allowed.include?(@sort)
+  field = @sort
+  dir = @dir
+  @indices =
+    @indices.sort do |a, b|
+      av = a.public_send(field)
+      bv = b.public_send(field)
+
+      if av.nil? && bv.nil?
+        a.index_code.to_s <=> b.index_code.to_s
+      elsif av.nil?
+        1
+      elsif bv.nil?
+        -1
+      else
+        if av.is_a?(String) || bv.is_a?(String) || field.end_with?('_code') || field.end_with?('_name')
+          av.to_s <=> bv.to_s
+        else
+          av.to_f <=> bv.to_f
+        end
+      end
+    end
+  @indices.reverse! if dir == 'desc'
+
+  erb :indices
 end
 
 get '/kb' do
@@ -539,6 +625,10 @@ end
 
 get '/kb/peg' do
   erb :kb_peg
+end
+
+get '/kb/index_eval' do
+  erb :kb_index_eval
 end
 
 get '/kb/debt' do
@@ -564,10 +654,6 @@ end
 get '/stocks/:id' do
   @stock = Stock.includes(:categories).find(params[:id])
   from_date = Date.today << 120
-  need_val = @stock.price_histories.where('date >= ?', Date.today - 365).where(pb: nil).exists?
-  if need_val
-    ValuationHistorySyncer.new(scope: Stock.where(id: @stock.id), years: 10, sleep_range: nil).sync
-  end
   # 价格走势（取最近 10 年），按日期升序用于绘图
   @price_histories = @stock.price_histories.where('date >= ?', from_date).order(date: :asc)
   ph_arr = @price_histories.to_a
@@ -652,7 +738,7 @@ helpers do
 
     sorts = parse_sorts_param(param_value(params_hash, :sort), allowed_sort_fields_for_list)
 
-    scope = Stock.includes(:categories)
+    scope = Stock.where(asset_type: 'stock').includes(:categories)
     scope = scope.where(has_dividend_5y: true) if only_div5y
     scope = scope.where(roe_5y_avg_ge_12: true) if roe_5y_avg_ge_12
     scope = scope.where(roe_5y_min_ge_8: true) if roe_5y_min_ge_8
@@ -1213,6 +1299,37 @@ helpers do
     else
       'bg-gray-50 text-gray-700 border-gray-200'
     end
+  end
+
+  def qieman_valuation_label(pe_percentile, pb_percentile)
+    p = pe_percentile || pb_percentile
+    return '-' if p.nil?
+    v = p.to_f
+    return '-' unless v.finite?
+    return '低估' if v < 0.3
+    return '适中' if v < 0.7
+    '高估'
+  end
+
+  def qieman_valuation_badge_class(pe_percentile, pb_percentile)
+    p = pe_percentile || pb_percentile
+    return 'bg-gray-50 text-gray-500 border-gray-200' if p.nil?
+    v = p.to_f
+    return 'bg-gray-50 text-gray-500 border-gray-200' unless v.finite?
+    return 'bg-green-50 text-green-700 border-green-200' if v < 0.3
+    return 'bg-yellow-50 text-yellow-800 border-yellow-200' if v < 0.7
+    'bg-red-50 text-red-800 border-red-200'
+  end
+
+  def qieman_sort_href(base_path, field, current_sort, current_dir)
+    dir =
+      if current_sort.to_s == field.to_s && current_dir.to_s == 'asc'
+        'desc'
+      else
+        'asc'
+      end
+    q = Rack::Utils.build_nested_query({ sort: field, dir: dir })
+    "#{base_path}?#{q}"
   end
 
   def pe_percentile_level_label(level)

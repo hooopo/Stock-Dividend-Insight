@@ -69,10 +69,12 @@ class QuoteSnapshotSyncer
         volume = parse_int(fields[6])
         amount_wan = parse_float(fields[37])
         turnover_rate = parse_float(fields[38])
-        pe_ttm = parse_float(fields[39])
+        raw_pe_ttm = fields[39]
+        pe_ttm = parse_float(raw_pe_ttm)
         float_mv_yi = parse_float(fields[44])
         total_mv_yi = parse_float(fields[45])
-        pb = parse_float(fields[46])
+        raw_pb = fields[46]
+        pb = parse_float(raw_pb)
 
         stock.current_price = price if price
         stock.volume = volume if volume
@@ -93,8 +95,20 @@ class QuoteSnapshotSyncer
           stock.total_shares = total_shares.to_i if total_shares.finite?
         end
 
-        stock.pe_ttm = pe_ttm if pe_ttm
-        stock.pb = pb if pb
+        pe_missing = raw_pe_ttm.nil? || raw_pe_ttm.to_s.strip.empty? || (pe_ttm && pe_ttm <= 0)
+        pb_missing = raw_pb.nil? || raw_pb.to_s.strip.empty? || (pb && pb <= 0)
+
+        if pe_missing
+          stock.pe_ttm = nil if stock.pe_ttm.nil? || stock.pe_ttm.to_f <= 0
+        else
+          stock.pe_ttm = pe_ttm if pe_ttm
+        end
+
+        if pb_missing
+          stock.pb = nil if stock.pb.nil? || stock.pb.to_f <= 0
+        else
+          stock.pb = pb if pb
+        end
 
         update_fcf_metrics(stock)
 

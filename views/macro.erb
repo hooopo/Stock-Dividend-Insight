@@ -14,6 +14,22 @@
                 <%= @cn_10y_latest&.date %>
             </div>
         </div>
+
+        <% [@hs300_eval, @a500_eval].compact.each do |a| %>
+            <div class="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                <div class="text-gray-500 text-xs mb-1">指数</div>
+                <div class="text-sm font-semibold text-gray-900"><%= a.index_name %> <span class="text-gray-400 font-mono text-xs"><%= a.index_code %></span></div>
+                <div class="text-2xl font-semibold text-gray-800">
+                    <%= a.pe_percentile.nil? ? '-' : "#{format_decimal(a.pe_percentile.to_f * 100.0, 2)}%" %>
+                </div>
+                <div class="mt-2 grid grid-cols-2 gap-2 text-xs text-gray-600">
+                    <div>PE：<%= a.pe.nil? ? '-' : format_decimal(a.pe, 2) %></div>
+                    <div>PB：<%= a.pb.nil? ? '-' : format_decimal(a.pb, 2) %></div>
+                    <div>PB分位：<%= a.pb_percentile.nil? ? '-' : "#{format_decimal(a.pb_percentile.to_f * 100.0, 2)}%" %></div>
+                    <div>更新时间：<%= a.as_of_at || a.updated_at %></div>
+                </div>
+            </div>
+        <% end %>
     </div>
 
     <div class="bg-white p-4 rounded-lg border border-gray-100">

@@ -1,7 +1,7 @@
 class ValuationCalculator
   def calculate_all
     puts "Calculating yields and valuation positions for all stocks..."
-    Stock.find_each do |stock|
+    Stock.where(asset_type: 'stock').find_each do |stock|
       calculate_for_stock(stock)
     end
   end
@@ -12,40 +12,45 @@ class ValuationCalculator
     return if latest_price.nil? || latest_price == 0
     base_date = latest_history&.date
 
-    # 1. 预期股息率
-    one_year_ago = Date.today - 365
-    recent_dividends_sum = stock.dividends.where('report_date > ?', one_year_ago).sum(:cash_dividend)
-    
-    if recent_dividends_sum == 0
+    if stock.asset_type == 'stock'
+      one_year_ago = Date.today - 365
+      recent_dividends_sum = stock.dividends.where('report_date > ?', one_year_ago).sum(:cash_dividend)
+      
+      if recent_dividends_sum == 0
+        latest_dividend = stock.dividends.order(report_date: :desc).first
+        if latest_dividend
+          latest_year = latest_dividend.report_date.year
+          recent_dividends_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend)
+        end
+      end
+      if recent_dividends_sum > 0
+        stock.expected_dividend_yield = (recent_dividends_sum / latest_price) * 100
+      else
+        stock.expected_dividend_yield = 0.0
+      end
+
       latest_dividend = stock.dividends.order(report_date: :desc).first
       if latest_dividend
         latest_year = latest_dividend.report_date.year
-        recent_dividends_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend)
+        year_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend)
+        stock.dividend_yield = year_sum.to_f > 0 ? (year_sum / latest_price) * 100 : 0.0
+      else
+        stock.dividend_yield = 0.0
       end
-    end
-    if recent_dividends_sum > 0
-      stock.expected_dividend_yield = (recent_dividends_sum / latest_price) * 100
-    else
-      stock.expected_dividend_yield = 0.0
-    end
 
-    # 1.5 历史股息率（按最近一个完整年度的累计派现 / 最新价）
-    latest_dividend = stock.dividends.order(report_date: :desc).first
-    if latest_dividend
-      latest_year = latest_dividend.report_date.year
-      year_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend)
-      stock.dividend_yield = year_sum.to_f > 0 ? (year_sum / latest_price) * 100 : 0.0
+      current_year = Date.today.year
+      years = (current_year - 5...current_year).to_a
+      all_years_have_dividend = years.all? do |y|
+        stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', y).where('cash_dividend > 0').exists?
+      end
+      stock.has_dividend_5y = all_years_have_dividend
     else
-      stock.dividend_yield = 0.0
+      stock.expected_dividend_yield = nil
+      stock.dividend_yield = nil
+      stock.has_dividend_5y = false
+      stock.dividend_yield_position = nil
+      stock.comprehensive_position = stock.price_position || 0.5
     end
-
-    # 2. 连续5年有分红
-    current_year = Date.today.year
-    years = (current_year - 5...current_year).to_a
-    all_years_have_dividend = years.all? do |y|
-      stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', y).where('cash_dividend > 0').exists?
-    end
-    stock.has_dividend_5y = all_years_have_dividend
 
     # 3. 价格位置
     if base_date
@@ -55,31 +60,31 @@ class ValuationCalculator
       update_rolling_price_metrics(stock, base_date, latest_price)
     end
 
-    # 4. 股息率位置
-    max_yield = stock.dividends.maximum(:dividend_yield)
-    min_yield = stock.dividends.minimum(:dividend_yield)
-    current_yield = stock.dividend_yield
-    if current_yield
-      if max_yield && min_yield
-        if max_yield > min_yield
-          pos = (current_yield - min_yield) / (max_yield - min_yield)
-          stock.dividend_yield_position = [[pos.to_f, 0.0].max, 1.0].min
+    if stock.asset_type == 'stock'
+      max_yield = stock.dividends.maximum(:dividend_yield)
+      min_yield = stock.dividends.minimum(:dividend_yield)
+      current_yield = stock.dividend_yield
+      if current_yield
+        if max_yield && min_yield
+          if max_yield > min_yield
+            pos = (current_yield - min_yield) / (max_yield - min_yield)
+            stock.dividend_yield_position = [[pos.to_f, 0.0].max, 1.0].min
+          else
+            stock.dividend_yield_position = 0.5
+          end
         else
           stock.dividend_yield_position = 0.5
         end
-      else
-        stock.dividend_yield_position = 0.5
       end
-    end
 
-    # 5. 综合评分 (基于价格位置和股息率位置)
-    if stock.price_position && stock.dividend_yield_position
-      stock.comprehensive_position = 0.5 * stock.price_position + 
-                                     0.5 * (1 - stock.dividend_yield_position)
-    elsif stock.price_position
-      stock.comprehensive_position = stock.price_position
-    else
-      stock.comprehensive_position = 0.5
+      if stock.price_position && stock.dividend_yield_position
+        stock.comprehensive_position = 0.5 * stock.price_position + 
+                                       0.5 * (1 - stock.dividend_yield_position)
+      elsif stock.price_position
+        stock.comprehensive_position = stock.price_position
+      else
+        stock.comprehensive_position = 0.5
+      end
     end
 
     if stock.comprehensive_position
@@ -96,6 +101,16 @@ class ValuationCalculator
       else
         "高位区域"
       end
+    end
+
+    if stock.pb.nil? || stock.pb.to_f <= 0
+      latest_pb = stock.price_histories.where.not(pb: nil).order(date: :desc).limit(1).pluck(:pb).first
+      stock.pb = latest_pb if latest_pb && latest_pb.to_f > 0
+    end
+
+    if stock.pe_ttm.nil? || stock.pe_ttm.to_f <= 0
+      latest_pe = stock.price_histories.where.not(pe_ttm: nil).order(date: :desc).limit(1).pluck(:pe_ttm).first
+      stock.pe_ttm = latest_pe if latest_pe && latest_pe.to_f > 0
     end
 
     stock.pb_level = pb_level_for(stock.pb)

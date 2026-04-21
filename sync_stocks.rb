@@ -17,6 +17,7 @@ require_relative 'services/roe_history_syncer'
 require_relative 'services/finance_snapshot_syncer'
 require_relative 'services/fcf_index_constituents_appender'
 require_relative 'services/boshi_hldw100_constituents_appender'
+require_relative 'services/macro_metric_syncer'
 
 class StockSyncService
   def initialize(incremental: false, force: false, force_pull: false, backfill_cn10y: false, add_csi500: false, add_a500: false, add_kc50: false, add_tech50: false, add_ai50: false, add_dividend_etf_constituents: false, add_boshi_hldw100: false, add_fcf: false, backfill_fcf: false, skip_second_pass: false, fill_categories: false, sync_valuation_history: true, valuation_years: 10, valuation_force: false, sync_roe_history: true, roe_years: 12)
@@ -75,23 +76,30 @@ class StockSyncService
 
     # 1. 加载股票列表
     StockLoader.new.load
+    stock_scope = Stock.where(asset_type: 'stock')
+    quote_scope = Stock.where(asset_type: %w[stock etf index])
     
     # 1.5 同步十年期国债收益率
     TreasuryYieldSyncer.new(country: 'CN', tenor: '10Y', source: 'CHINABOND', force: @backfill_cn10y).sync
 
     # 2. 同步实时快照（换手率、市值、量、均价、PE/PB、总股本等）
-    QuoteSnapshotSyncer.new.sync
+    QuoteSnapshotSyncer.new(scope: quote_scope).sync
     if !@skip_second_pass
       need_quote_scope =
-        Stock
+        quote_scope
           .where(current_price: nil)
           .or(Stock.where(market_cap: nil))
           .or(Stock.where(total_shares: nil))
       QuoteSnapshotSyncer.new(scope: need_quote_scope, auto_tune: false, batch_sleep: 0.15).sync if need_quote_scope.exists?
     end
+    
+    begin
+      MacroMetricSyncer.new.sync
+    rescue StandardError
+    end
 
     need_fin_scope =
-      Stock
+      stock_scope
         .where(finance_report_date: nil)
         .or(Stock.where('finance_report_date < ?', Date.today - 365))
         .or(Stock.where(peg_level: nil))
@@ -100,7 +108,7 @@ class StockSyncService
     FinanceSnapshotSyncer.new(scope: need_fin_scope, sleep_range: (0.04..0.10)).sync if need_fin_scope.exists?
     if !@skip_second_pass
       remaining_fin_scope =
-        Stock
+        stock_scope
           .where(finance_report_date: nil)
           .or(Stock.where('finance_report_date < ?', Date.today - 365))
           .or(Stock.where(peg_level: nil))
@@ -116,13 +124,13 @@ class StockSyncService
 
     if @sync_roe_history
       need_roe_scope =
-        Stock
+        stock_scope
           .where(roe_report_date: nil)
           .or(Stock.where('roe_report_date < ?', Date.today - 365))
       RoeHistorySyncer.new(scope: need_roe_scope, years: @roe_years, sleep_range: (0.04..0.10)).sync if need_roe_scope.exists?
       if !@skip_second_pass
         remaining_roe_scope =
-          Stock
+          stock_scope
             .where(roe_report_date: nil)
             .or(Stock.where('roe_report_date < ?', Date.today - 365))
         RoeHistorySyncer.new(scope: remaining_roe_scope, years: @roe_years, sleep_range: (0.12..0.24)).sync if remaining_roe_scope.exists?
@@ -130,12 +138,12 @@ class StockSyncService
     end
     
     # 3. 同步 K 线
-    PriceHistorySyncer.new(incremental: @incremental && !@force_pull, force: @force || @force_pull).sync
-    Stock.where(drop_30d: nil).find_each { |s| PriceMetricsCalculator.calculate(s) }
+    PriceHistorySyncer.new(incremental: @incremental && !@force_pull, force: @force || @force_pull, scope: stock_scope).sync
+    stock_scope.where(drop_30d: nil).find_each { |s| PriceMetricsCalculator.calculate(s) }
 
     if @sync_valuation_history
       need_val_scope =
-        Stock
+        stock_scope
           .left_joins(:price_histories)
           .where(
             '((price_histories.date >= :d AND (price_histories.pb IS NULL OR price_histories.pe_ttm IS NULL)) OR (stocks.pe_ttm > 0 AND stocks.pe_percentile IS NULL) OR (stocks.pb > 0 AND stocks.pb_percentile IS NULL))',
@@ -145,7 +153,7 @@ class StockSyncService
       ValuationHistorySyncer.new(scope: need_val_scope, years: @valuation_years, force: @valuation_force, sleep_range: (0.04..0.10)).sync if need_val_scope.exists?
       if !@skip_second_pass
         remaining_val_scope =
-          Stock
+          stock_scope
             .left_joins(:price_histories)
             .where(
               '((price_histories.date >= :d AND (price_histories.pb IS NULL OR price_histories.pe_ttm IS NULL)) OR (stocks.pe_ttm > 0 AND stocks.pe_percentile IS NULL) OR (stocks.pb > 0 AND stocks.pb_percentile IS NULL))',
@@ -157,7 +165,7 @@ class StockSyncService
     end
     
     # 4. 同步分红数据
-    DividendSyncer.new(force: @force_pull).sync
+    DividendSyncer.new(force: @force_pull, scope: stock_scope).sync
     
     # 5. 量化计算及打标
     ValuationCalculator.new.calculate_all

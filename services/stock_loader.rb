@@ -156,6 +156,8 @@ class StockLoader
       name = stock_data['name']
       code = stock_data['code']&.to_s
       secid = stock_data['secid']
+      asset_type = stock_data['asset_type']&.to_s&.strip
+      asset_type = 'stock' if asset_type.nil? || asset_type.empty?
       
       next unless (code || secid) && name
       
@@ -179,9 +181,9 @@ class StockLoader
       stock ||= Stock.where(name: name).order(:id).first
 
       if stock
-        stock.update!(secid: secid, name: name, market_id: market_id, code: code)
+        stock.update!(secid: secid, name: name, market_id: market_id, code: code, asset_type: asset_type)
       else
-        stock = Stock.create!(secid: secid, name: name, market_id: market_id, code: code)
+        stock = Stock.create!(secid: secid, name: name, market_id: market_id, code: code, asset_type: asset_type)
       end
 
       Stock.where(name: name).where.not(id: stock.id).find_each do |dup|
