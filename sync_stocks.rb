@@ -127,12 +127,16 @@ class StockSyncService
         stock_scope
           .where(roe_report_date: nil)
           .or(Stock.where('roe_report_date < ?', Date.today - 365))
+          .or(Stock.where(roe_5y_std: nil))
+          .or(Stock.where(roe_trend_score: nil))
       RoeHistorySyncer.new(scope: need_roe_scope, years: @roe_years, sleep_range: (0.04..0.10)).sync if need_roe_scope.exists?
       if !@skip_second_pass
         remaining_roe_scope =
           stock_scope
             .where(roe_report_date: nil)
             .or(Stock.where('roe_report_date < ?', Date.today - 365))
+            .or(Stock.where(roe_5y_std: nil))
+            .or(Stock.where(roe_trend_score: nil))
         RoeHistorySyncer.new(scope: remaining_roe_scope, years: @roe_years, sleep_range: (0.12..0.24)).sync if remaining_roe_scope.exists?
       end
     end

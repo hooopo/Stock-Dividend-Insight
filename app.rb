@@ -290,6 +290,7 @@ get '/' do
     turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
     peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev
     drop_30d pos_30d pos_1y pos_3y pos_5y price_position
+    roe_5y_std roe_trend_score
   ]
   
   adv_filters = parse_advanced_filters(params)
@@ -709,6 +710,8 @@ helpers do
       turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
       peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev
       drop_30d pos_30d pos_1y pos_3y pos_5y price_position
+      roe_5y_std
+      roe_trend_score
     ]
   end
 
@@ -1112,6 +1115,8 @@ helpers do
       'pb_percentile' => 'PB历史分位',
       'roe_jq' => 'ROE(加权)',
       'roe_level' => 'ROE等级',
+      'roe_5y_std' => 'ROE标准差(5y)',
+      'roe_trend_score' => 'ROE趋势分',
       'total_shares' => '总股本',
       'pos_30d' => '30d分位',
       'drop_30d' => '30日跌幅',

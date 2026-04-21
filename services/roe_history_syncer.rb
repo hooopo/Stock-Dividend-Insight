@@ -100,7 +100,9 @@ class RoeHistorySyncer
       roe_report_type: latest_row['REPORT_TYPE'].to_s,
       roe_level: roe_level_for(roe_jq),
       roe_5y_avg_ge_12: flags[:roe_5y_avg_ge_12],
-      roe_5y_min_ge_8: flags[:roe_5y_min_ge_8]
+      roe_5y_min_ge_8: flags[:roe_5y_min_ge_8],
+      roe_5y_std: flags[:roe_5y_std],
+      roe_trend_score: flags[:roe_trend_score]
     )
   rescue Faraday::Error, StandardError => e
     puts "roe_sync_error code=#{stock.code} error=#{e.class}: #{e.message}"
@@ -118,11 +120,26 @@ class RoeHistorySyncer
         .pluck(:roe_jq)
         .map(&:to_f)
 
-    return { roe_5y_avg_ge_12: false, roe_5y_min_ge_8: false } if rows.size < 5
+    return { roe_5y_avg_ge_12: false, roe_5y_min_ge_8: false, roe_5y_std: nil, roe_trend_score: nil } if rows.size < 5
 
     avg = rows.sum / rows.size.to_f
     min = rows.min
-    { roe_5y_avg_ge_12: avg >= 12.0, roe_5y_min_ge_8: min >= 8.0 }
+    var = rows.map { |x| (x - avg) ** 2 }.sum / rows.size.to_f
+    std = Math.sqrt(var)
+
+    slope = theil_sen_slope(rows)
+    spearman = spearman_corr(rows)
+    slope_score = (Math.tanh(slope / 3.0) + 1.0) / 2.0
+    spearman_score = (spearman + 1.0) / 2.0
+    std_score = 1.0 / (1.0 + (std / 5.0))
+    trend_score = 100.0 * (0.5 * slope_score + 0.3 * spearman_score + 0.2 * std_score)
+
+    {
+      roe_5y_avg_ge_12: avg >= 12.0,
+      roe_5y_min_ge_8: min >= 8.0,
+      roe_5y_std: std,
+      roe_trend_score: trend_score
+    }
   end
 
   def roe_level_for(roe_jq)
@@ -148,5 +165,83 @@ class RoeHistorySyncer
     Date.parse(s)
   rescue ArgumentError
     nil
+  end
+
+  def theil_sen_slope(values)
+    ys = Array(values).map(&:to_f)
+    n = ys.size
+    return 0.0 if n < 2
+
+    slopes = []
+    (0...n).each do |i|
+      (i + 1...n).each do |j|
+        dx = (j - i).to_f
+        next if dx.abs < 1e-9
+        slopes << ((ys[j] - ys[i]) / dx)
+      end
+    end
+    median(slopes)
+  end
+
+  def spearman_corr(values)
+    ys = Array(values).map(&:to_f)
+    n = ys.size
+    return 0.0 if n < 2
+
+    xr = (1..n).map(&:to_f)
+    yr = rank_with_ties(ys)
+    pearson_corr(xr, yr)
+  end
+
+  def rank_with_ties(values)
+    arr = values.map(&:to_f)
+    indexed = arr.each_with_index.map { |v, i| [v, i] }.sort_by { |v, _| v }
+    ranks = Array.new(arr.size)
+
+    i = 0
+    while i < indexed.size
+      j = i
+      j += 1 while j < indexed.size && (indexed[j][0] - indexed[i][0]).abs < 1e-12
+      avg_rank = ((i + 1) + j).to_f / 2.0
+      (i...j).each do |k|
+        ranks[indexed[k][1]] = avg_rank
+      end
+      i = j
+    end
+
+    ranks
+  end
+
+  def pearson_corr(x, y)
+    xs = Array(x).map(&:to_f)
+    ys = Array(y).map(&:to_f)
+    n = [xs.size, ys.size].min
+    return 0.0 if n < 2
+
+    mx = xs.sum / n.to_f
+    my = ys.sum / n.to_f
+    cov = 0.0
+    vx = 0.0
+    vy = 0.0
+    n.times do |i|
+      dx = xs[i] - mx
+      dy = ys[i] - my
+      cov += dx * dy
+      vx += dx * dx
+      vy += dy * dy
+    end
+    return 0.0 if vx <= 0.0 || vy <= 0.0
+    cov / Math.sqrt(vx * vy)
+  end
+
+  def median(values)
+    arr = Array(values).map(&:to_f).sort
+    return 0.0 if arr.empty?
+    mid = arr.size / 2
+    if arr.size.odd?
+      arr[mid]
+    else
+      (arr[mid - 1] + arr[mid]) / 2.0
+    end
   end
 end

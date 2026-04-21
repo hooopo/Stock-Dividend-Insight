@@ -611,6 +611,18 @@
                             <a href="/kb/roe" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：ROE">?</a>
                         </div>
                     </th>
+                    <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">
+                        <div class="inline-flex items-center gap-1 justify-end w-full">
+                            <%= sort_link('roe_5y_std', 'ROEσ(5y)') %>
+                            <a href="/kb/roe" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：ROE">?</a>
+                        </div>
+                    </th>
+                    <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">
+                        <div class="inline-flex items-center gap-1 justify-end w-full">
+                            <%= sort_link('roe_trend_score', 'ROE趋势分') %>
+                            <a href="/kb/roe" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：ROE">?</a>
+                        </div>
+                    </th>
                     <th class="p-3 border-b border-gray-200 text-center">
                         <div class="inline-flex items-center gap-1 justify-center w-full">
                             <%= sort_link('roe_level', 'ROE等级') %>
@@ -694,6 +706,8 @@
                             <% end %>
                         </td>
                         <td class="p-3 text-right"><%= stock.roe_jq.nil? ? '未同步' : format_percent(stock.roe_jq) %></td>
+                        <td class="p-3 text-right hidden md:table-cell"><%= stock.roe_5y_std.nil? ? '-' : format_decimal(stock.roe_5y_std, 2) %></td>
+                        <td class="p-3 text-right hidden md:table-cell"><%= stock.roe_trend_score.nil? ? '-' : format_decimal(stock.roe_trend_score, 1) %></td>
                         <td class="p-3 text-center">
                             <% if stock.roe_level.nil? %>
                                 <span class="inline-flex items-center px-2 py-0.5 rounded-full border bg-gray-50 text-gray-500 border-gray-200 font-semibold">未同步</span>
