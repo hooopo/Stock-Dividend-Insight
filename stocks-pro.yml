@@ -4450,3 +4450,483 @@ stocks:
   name: 南京高科
   categories:
   - 园区开发
+- code: "688692"
+  name: 达梦数据
+  categories:
+  - 互联网信息服务
+- code: "688615"
+  name: 合合信息
+  categories:
+  - IT服务
+- code: "688343"
+  name: 云天励飞-U
+  categories:
+  - IT服务
+- code: "300682"
+  name: 朗新科技
+  categories:
+  - 计算机
+  - 信息技术
+- code: "688088"
+  name: 虹软科技
+  categories:
+  - IT服务
+- code: "688318"
+  name: 财富趋势
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "603613"
+  name: 国联股份
+  categories:
+  - 互联网信息服务
+- code: "688685"
+  name: 迈信林
+  categories:
+  - 航空装备
+  - 工业
+- code: "688523"
+  name: 航天环宇
+  categories:
+  - 航空装备
+  - 工业
+- code: "300065"
+  name: 海兰信
+  categories:
+  - 船舶制造
+- code: "688709"
+  name: 成都华微
+  categories:
+  - 其他电子
+- code: "688182"
+  name: 灿勤科技
+  categories:
+  - 通信传输设备
+- code: "600345"
+  name: 长江通信
+  categories:
+  - 通信传输设备
+- code: "002046"
+  name: 国机精工
+  categories:
+  - 机械基础件
+- code: "300455"
+  name: 航天智装
+  categories:
+  - 计算机
+  - 信息技术
+- code: "002338"
+  name: 奥普光电
+  categories:
+  - 仪器仪表
+- code: "000733"
+  name: 振华科技
+  categories:
+  - 被动元件
+- code: "002179"
+  name: 中航光电
+  categories:
+  - 航空装备
+  - 工业
+- code: "300620"
+  name: 光库科技
+  categories:
+  - 通信传输设备
+- code: "300726"
+  name: 宏达电子
+  categories:
+  - 被动元件
+- code: "603678"
+  name: 火炬电子
+  categories:
+  - 航天装备
+  - 工业
+- code: "603267"
+  name: 鸿远电子
+  categories:
+  - 航天装备
+  - 工业
+- code: "300593"
+  name: 新雷能
+  categories:
+  - 电源设备
+- code: "688333"
+  name: 铂力特
+  categories:
+  - 机床工具
+- code: "600877"
+  name: 电科芯片
+  categories:
+  - 其他交运设备
+- code: "603712"
+  name: 七一二
+  categories:
+  - 终端设备
+- code: "605123"
+  name: 派克新材
+  categories:
+  - 航空装备
+  - 工业
+- code: "300672"
+  name: 国科微
+  categories:
+  - 集成电路
+- code: "300079"
+  name: 数码视讯
+  categories:
+  - IT服务
+- code: "603236"
+  name: 移远通信
+  categories:
+  - 终端设备
+- code: "688776"
+  name: 国光电气
+  categories:
+  - 光学光电子
+  - 信息技术
+- code: "300045"
+  name: 华力创通
+  categories:
+  - 计算机设备
+  - 信息技术
+- code: "300053"
+  name: 航宇微
+  categories:
+  - 集成电路
+- code: "300101"
+  name: 振芯科技
+  categories:
+  - 航天装备
+  - 工业
+- code: "601698"
+  name: 中国卫通
+  categories:
+  - 航天装备
+  - 工业
+- code: "000801"
+  name: 四川九洲
+  categories:
+  - 其它视听器材
+- code: "603063"
+  name: 禾望电气
+  categories:
+  - 电气设备
+- code: "301658"
+  name: 首航新能
+  categories:
+  - 光伏设备
+  - 工业
+- code: "301511"
+  name: 德福科技
+  categories:
+  - 电子制造
+- code: "300953"
+  name: 震裕科技
+  categories:
+  - 金属制品
+- code: "300409"
+  name: 道氏技术
+  categories:
+  - 其他化学原料
+- code: "688116"
+  name: 天奈科技
+  categories:
+  - 其他化学制品
+- code: "300827"
+  name: 上能电气
+  categories:
+  - 光伏设备
+  - 工业
+- code: "688032"
+  name: 禾迈股份
+  categories:
+  - 光伏设备
+  - 工业
+- code: "001301"
+  name: 尚太科技
+  categories:
+  - 锂
+- code: "688567"
+  name: 孚能科技
+  categories:
+  - 储能设备
+- code: "301238"
+  name: 瑞泰新材
+  categories:
+  - 其他化学制品
+- code: "002709"
+  name: 天赐材料
+  categories:
+  - 其他化学制品
+- code: "002518"
+  name: 科士达
+  categories:
+  - 储能设备
+- code: "002074"
+  name: 国轩高科
+  categories:
+  - 储能设备
+- code: "688006"
+  name: 杭可科技
+  categories:
+  - 其它专用机械
+- code: "300666"
+  name: 江丰电子
+  categories:
+  - 半导体材料
+- code: "000301"
+  name: 东方盛虹
+  categories:
+  - 涤纶
+- code: "600973"
+  name: 宝胜股份
+  categories:
+  - 线缆部件及其他
+- code: "600869"
+  name: 远东股份
+  categories:
+  - 线缆部件及其他
+- code: "600550"
+  name: 保变电气
+  categories:
+  - 高压设备
+- code: "600105"
+  name: 永鼎股份
+  categories:
+  - 通信传输设备
+- code: "688102"
+  name: 斯瑞新材
+  categories:
+  - 铜
+- code: "603308"
+  name: 应流股份
+  categories:
+  - 机械设备
+- code: "603169"
+  name: 兰石重装
+  categories:
+  - 冶金矿采化工设备
+- code: "603015"
+  name: 弘讯科技
+  categories:
+  - 工控自动化
+- code: "301522"
+  name: 上大股份
+  categories:
+  - 航空装备
+  - 工业
+- code: "301310"
+  name: 鑫宏业
+  categories:
+  - 线缆部件及其他
+- code: "002438"
+  name: 江苏神通
+  categories:
+  - 机械基础件
+- code: "002149"
+  name: 西部材料
+  categories:
+  - 其他稀有小金属
+- code: "002011"
+  name: 盾安环境
+  categories:
+  - 家电零部件
+  - 消费
+- code: "000969"
+  name: 安泰科技
+  categories:
+  - 金属新材料
+  - 原材料
+- code: "000922"
+  name: 佳电股份
+  categories:
+  - 电机
+  - 工业
+- code: "000811"
+  name: 冰轮环境
+  categories:
+  - 制冷空调设备
+- code: "002534"
+  name: 西子洁能
+  categories:
+  - 其它电源设备
+- code: "002735"
+  name: 王子新材
+  categories:
+  - 包装印刷
+- code: "003816"
+  name: 中国广核
+  categories:
+  - 新能源发电
+  - 公用事业
+- code: "301137"
+  name: 哈焊华通
+  categories:
+  - 金属新材料
+  - 原材料
+- code: "301018"
+  name: 申菱环境
+  categories:
+  - 其它专用机械
+- code: "300963"
+  name: 中洲特材
+  categories:
+  - 金属新材料
+  - 原材料
+- code: "300855"
+  name: 图南股份
+  categories:
+  - 金属新材料
+  - 原材料
+- code: "300820"
+  name: 英杰电气
+  categories:
+  - 光伏设备
+  - 工业
+- code: "300470"
+  name: 中密控股
+  categories:
+  - 其它通用机械
+- code: "300411"
+  name: 金盾股份
+  categories:
+  - 其它专用机械
+- code: "300185"
+  name: 通裕重工
+  categories:
+  - 风电设备
+  - 工业
+- code: "300034"
+  name: 钢研高纳
+  categories:
+  - 航天装备
+  - 工业
+- code: "000777"
+  name: 中核科技
+  categories:
+  - 机械基础件
+- code: "000983"
+  name: 山西焦煤
+  categories:
+  - 煤炭开采
+- code: "000723"
+  name: 美锦能源
+  categories:
+  - 焦炭加工
+- code: "300978"
+  name: 东箭科技
+  categories:
+  - 汽车零部件
+- code: "000625"
+  name: 长安汽车
+  categories:
+  - 乘用车
+- code: "300304"
+  name: 云意电气
+  categories:
+  - 汽车零部件
+- code: "300843"
+  name: 胜蓝股份
+  categories:
+  - 电子零部件制造
+- code: "301328"
+  name: 维峰电子
+  categories:
+  - 电子零部件制造
+- code: "688288"
+  name: 鸿泉技术
+  categories:
+  - 计算机设备
+  - 信息技术
+- code: "002703"
+  name: 浙江世宝
+  categories:
+  - 汽车零部件
+- code: "300790"
+  name: 宇瞳光学
+  categories:
+  - 光学元件
+- code: "600081"
+  name: 东风科技
+  categories:
+  - 汽车零部件
+- code: "605333"
+  name: 沪光股份
+  categories:
+  - 汽车零部件
+- code: "603390"
+  name: 通达电气
+  categories:
+  - 汽车零部件
+- code: "002970"
+  name: 锐明技术
+  categories:
+  - 计算机设备
+  - 信息技术
+- code: "688326"
+  name: 经纬恒润-W
+  categories:
+  - 汽车零部件
+- code: "688787"
+  name: 海天瑞声
+  categories:
+  - IT服务
+- code: "002870"
+  name: 香山股份
+  categories:
+  - 汽车零部件
+- code: "000901"
+  name: 航天科技
+  categories:
+  - 仪器仪表
+- code: "002881"
+  name: 美格智能
+  categories:
+  - 电子零部件制造
+- code: "002766"
+  name: 索菱股份
+  categories:
+  - IT服务
+- code: "002765"
+  name: 蓝黛科技
+  categories:
+  - 汽车零部件
+- code: "301221"
+  name: 光庭信息
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "603297"
+  name: 永新光学
+  categories:
+  - 光学元件
+- code: "002284"
+  name: 亚太股份
+  categories:
+  - 汽车零部件
+- code: "600718"
+  name: 东软集团
+  categories:
+  - IT服务
+- code: "300552"
+  name: 万集科技
+  categories:
+  - 软件开发
+  - 信息技术
+- code: "002906"
+  name: 华阳集团
+  categories:
+  - 汽车零部件
+- code: "300638"
+  name: 广和通
+  categories:
+  - 通信配套服务
+- code: "603197"
+  name: 保隆科技
+  categories:
+  - 汽车零部件
+- code: "002036"
+  name: 联创电子
+  categories:
+  - 显示器件
+  - 信息技术

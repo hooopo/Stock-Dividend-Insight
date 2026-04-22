@@ -1,6 +1,7 @@
 require 'active_record'
 require 'date'
 require 'dotenv/load'
+require 'yaml'
 require_relative 'models'
 require_relative 'services/stock_loader'
 require_relative 'services/price_history_syncer'
@@ -20,7 +21,7 @@ require_relative 'services/boshi_hldw100_constituents_appender'
 require_relative 'services/macro_metric_syncer'
 
 class StockSyncService
-  def initialize(incremental: false, force: false, force_pull: false, backfill_cn10y: false, add_csi500: false, add_a500: false, add_kc50: false, add_tech50: false, add_ai50: false, add_dividend_etf_constituents: false, add_boshi_hldw100: false, add_fcf: false, backfill_fcf: false, skip_second_pass: false, fill_categories: false, sync_valuation_history: true, valuation_years: 10, valuation_force: false, sync_roe_history: true, roe_years: 12)
+  def initialize(incremental: false, force: false, force_pull: false, backfill_cn10y: false, add_csi500: false, add_a500: false, add_kc50: false, add_tech50: false, add_ai50: false, add_dividend_etf_constituents: false, add_boshi_hldw100: false, add_fcf: false, add_theme_etf_constituents: false, backfill_fcf: false, skip_second_pass: false, fill_categories: false, sync_valuation_history: true, valuation_years: 10, valuation_force: false, sync_roe_history: true, roe_years: 12)
     @incremental = incremental
     @force = force
     @force_pull = force_pull
@@ -33,6 +34,7 @@ class StockSyncService
     @add_dividend_etf_constituents = add_dividend_etf_constituents
     @add_boshi_hldw100 = add_boshi_hldw100
     @add_fcf = add_fcf
+    @add_theme_etf_constituents = add_theme_etf_constituents
     @backfill_fcf = backfill_fcf
     @skip_second_pass = skip_second_pass
     @fill_categories = fill_categories
@@ -46,6 +48,11 @@ class StockSyncService
   end
 
   def run
+    if @add_theme_etf_constituents
+      apply_theme_etf_constituents_to_yml!
+      return
+    end
+
     if @add_csi500
       Csi500StockAppender.new(file_path: 'stocks-pro.yml', index_id: '000905', metric_prefix: 'csi500').run
     end
@@ -184,6 +191,52 @@ class StockSyncService
     }.inspect)
     puts "Stock synchronization and valuation calculation completed successfully."
   end
+
+  private
+
+  def apply_theme_etf_constituents_to_yml!
+    file_path = 'stocks-pro.yml'
+    index_ids = %w[
+      930601
+      931594
+      931719
+      h30597
+      980141
+      000928
+      930721
+    ]
+
+    index_ids.each do |index_id|
+      Csi500StockAppender.new(file_path: file_path, index_id: index_id.to_s, metric_prefix: "theme_#{index_id}").run
+    end
+
+    CategoryBackfiller.new(file_path: file_path).run
+    remove_etf_constituent_labels_from_yml!(file_path)
+    puts "theme_etf_constituents_done file=#{file_path}"
+  end
+
+  def remove_etf_constituent_labels_from_yml!(file_path)
+    data = YAML.load_file(file_path)
+    list = data.is_a?(Hash) ? (data['stocks'] || []) : (data || [])
+
+    list.each do |row|
+      cats = (row['categories'] || []).map(&:to_s)
+      cats = cats.reject { |c| c.end_with?('ETF成分股') }.uniq
+      row['categories'] = cats
+    end
+
+    out =
+      if data.is_a?(Hash)
+        data['stocks'] = list
+        data.to_yaml
+      else
+        list.to_yaml
+      end
+
+    out = out.gsub(/^(\s*-\s*code:\s*)'?(\d{6})'?\s*$/, '\\1"\\2"')
+    out = out.gsub(/^(\s*code:\s*)'?(\d{6})'?\s*$/, '\\1"\\2"')
+    File.write(file_path, out)
+  end
 end
 
 if __FILE__ == $0
@@ -199,6 +252,7 @@ if __FILE__ == $0
   add_dividend_etf_constituents = ARGV.include?('--add-dividend-etf-constituents')
   add_boshi_hldw100 = ARGV.include?('--add-boshi-hldw100')
   add_fcf = ARGV.include?('--add-fcf')
+  add_theme_etf_constituents = ARGV.include?('--add-theme-etf-constituents')
   backfill_fcf = ARGV.include?('--backfill-fcf')
   skip_second_pass = ARGV.include?('--skip-second-pass')
   fill_categories = ARGV.include?('--fill-categories')
@@ -209,5 +263,5 @@ if __FILE__ == $0
   sync_roe_history = !ARGV.include?('--skip-roe-history')
   roe_years = (ARGV.find { |x| x.start_with?('--roe-years=') } || '').split('=', 2)[1].to_i
   roe_years = 12 if roe_years <= 0
-  StockSyncService.new(incremental: incremental, force: force, force_pull: force_pull, backfill_cn10y: backfill_cn10y, add_csi500: add_csi500, add_a500: add_a500, add_kc50: add_kc50, add_tech50: add_tech50, add_ai50: add_ai50, add_dividend_etf_constituents: add_dividend_etf_constituents, add_boshi_hldw100: add_boshi_hldw100, add_fcf: add_fcf, backfill_fcf: backfill_fcf, skip_second_pass: skip_second_pass, fill_categories: fill_categories, sync_valuation_history: sync_valuation_history, valuation_years: valuation_years, valuation_force: valuation_force, sync_roe_history: sync_roe_history, roe_years: roe_years).run
+  StockSyncService.new(incremental: incremental, force: force, force_pull: force_pull, backfill_cn10y: backfill_cn10y, add_csi500: add_csi500, add_a500: add_a500, add_kc50: add_kc50, add_tech50: add_tech50, add_ai50: add_ai50, add_dividend_etf_constituents: add_dividend_etf_constituents, add_boshi_hldw100: add_boshi_hldw100, add_fcf: add_fcf, add_theme_etf_constituents: add_theme_etf_constituents, backfill_fcf: backfill_fcf, skip_second_pass: skip_second_pass, fill_categories: fill_categories, sync_valuation_history: sync_valuation_history, valuation_years: valuation_years, valuation_force: valuation_force, sync_roe_history: sync_roe_history, roe_years: roe_years).run
 end
