@@ -86,10 +86,11 @@
                                     <% end %>
                                 </select>
                                 <select name="adv_op[]" class="px-3 py-1 rounded bg-white text-gray-700 border border-gray-200 adv-op">
-                                    <% ops = ['>', '>=', '<', '<=', '=', '!=', 'is_null', 'not_null'] %>
+                                    <% ops = ['>', '>=', '<', '<=', '=', '!=', 'contains', 'not_contains', 'starts_with', 'ends_with', 'is_null', 'not_null'] %>
+                                    <% op_labels = { 'contains' => '包含', 'not_contains' => '不包含', 'starts_with' => '开头是', 'ends_with' => '结尾是', 'is_null' => '为空', 'not_null' => '不为空', '=' => '等于', '!=' => '不等于' } %>
                                     <option value="">条件</option>
                                     <% ops.each do |op| %>
-                                        <option value="<%= op %>" <%= (r[:op].to_s == op) ? 'selected' : '' %>><%= op %></option>
+                                        <option value="<%= op %>" <%= (r[:op].to_s == op) ? 'selected' : '' %>><%= op_labels[op] || op %></option>
                                     <% end %>
                                 </select>
                                 <input name="adv_value[]" value="<%= r[:raw_value].to_s %>" class="px-3 py-1 rounded bg-white text-gray-700 border border-gray-200 adv-value" placeholder="">
@@ -506,7 +507,7 @@
             <% @adv_filters.each_with_index do |f, idx| %>
                 <% spec = (@adv_fields || []).find { |x| x[:field].to_s == f[:field].to_s } %>
                 <% field_label = spec ? spec[:label].to_s : f[:field].to_s %>
-                <% op_label = { 'is_null' => '为空', 'not_null' => '不为空' }[f[:op].to_s] || f[:op].to_s %>
+                <% op_label = { 'is_null' => '为空', 'not_null' => '不为空', 'contains' => '包含', 'not_contains' => '不包含', 'starts_with' => '开头是', 'ends_with' => '结尾是', '=' => '等于', '!=' => '不等于' }[f[:op].to_s] || f[:op].to_s %>
                 <% value_label = %w[is_null not_null].include?(f[:op].to_s) ? '' : f[:raw_value].to_s %>
                 <% next_fields = adv_fields.dup %>
                 <% next_ops = adv_ops.dup %>
@@ -536,6 +537,12 @@
                     <th class="p-3 border-b border-gray-200 text-right">
                         <div class="inline-flex items-center gap-1 justify-end w-full">
                             <%= sort_link('dividend_yield', '历史股息率') %>
+                            <a href="/kb/dividend" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：股息率与分红">?</a>
+                        </div>
+                    </th>
+                    <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">
+                        <div class="inline-flex items-center gap-1 justify-end w-full">
+                            <%= sort_link('dividend_payout_ratio', '分红率') %>
                             <a href="/kb/dividend" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：股息率与分红">?</a>
                         </div>
                     </th>
@@ -651,6 +658,7 @@
                         </td>
                         <td class="p-3 text-right hidden md:table-cell"><%= format_decimal(stock.current_price, 2) %></td>
                         <td class="p-3 text-right font-bold text-blue-700"><%= stock.dividend_yield.nil? ? '未同步' : format_percent(stock.dividend_yield) %></td>
+                        <td class="p-3 text-right hidden md:table-cell"><%= stock.dividend_payout_ratio.nil? ? '-' : format_percent(stock.dividend_payout_ratio) %></td>
                         <td class="p-3 text-right"><%= format_decimal(stock.pe_ttm, 2) %></td>
                         <td class="p-3 text-right hidden md:table-cell"><%= stock.peg.nil? ? '-' : format_decimal(stock.peg, 2) %></td>
                         <td class="p-3 text-center hidden md:table-cell">
@@ -961,10 +969,22 @@
             const valueInput = row.querySelector('.adv-value');
             if (!fieldSel || !opSel || !valueInput) return;
 
-            const op = opSel.value;
             const opt = fieldSel.options[fieldSel.selectedIndex];
+            const fieldType = opt ? (opt.getAttribute('data-type') || '') : '';
             const placeholder = opt ? (opt.getAttribute('data-placeholder') || '') : '';
 
+            const prevOp = opSel.value;
+            const numericOps = ['>', '>=', '<', '<=', '=', '!=', 'is_null', 'not_null'];
+            const textOps = ['contains', 'not_contains', 'starts_with', 'ends_with', '=', '!=', 'is_null', 'not_null'];
+            const desiredOps = fieldType === 'text' ? textOps : numericOps;
+
+            const opLabels = { contains: '包含', not_contains: '不包含', starts_with: '开头是', ends_with: '结尾是', is_null: '为空', not_null: '不为空', '=': '等于', '!=': '不等于' };
+            opSel.innerHTML = '<option value=\"\">条件</option>' + desiredOps.map((x) => `<option value=\"${x}\">${opLabels[x] || x}</option>`).join('');
+            if (desiredOps.includes(prevOp)) {
+                opSel.value = prevOp;
+            }
+
+            const op = opSel.value;
             if (op === 'is_null' || op === 'not_null') {
                 valueInput.value = '';
                 valueInput.disabled = true;

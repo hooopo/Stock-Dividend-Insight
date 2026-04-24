@@ -67,6 +67,10 @@
                 <div class="text-base font-semibold text-gray-800">¥<%= format_decimal(@stock.avg_price, 2) %></div>
             </div>
             <div class="p-3 bg-gray-50 rounded-lg">
+                <div class="text-gray-500 text-xs mb-1">分红率</div>
+                <div class="text-base font-semibold text-gray-800"><%= @stock.dividend_payout_ratio.nil? ? '-' : format_percent(@stock.dividend_payout_ratio) %></div>
+            </div>
+            <div class="p-3 bg-gray-50 rounded-lg">
                 <div class="text-gray-500 text-xs mb-1">30日跌幅</div>
                 <% if @stock.drop_30d.nil? %>
                     <div class="text-base font-semibold text-gray-400">-</div>

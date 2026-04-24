@@ -113,6 +113,12 @@ class ValuationCalculator
       stock.pe_ttm = latest_pe if latest_pe && latest_pe.to_f > 0
     end
 
+    if stock.asset_type == 'stock' && stock.dividend_yield && stock.pe_ttm && stock.pe_ttm.to_f > 0 && stock.dividend_yield.to_f >= 0
+      stock.dividend_payout_ratio = stock.dividend_yield.to_f * stock.pe_ttm.to_f
+    else
+      stock.dividend_payout_ratio = nil
+    end
+
     stock.pb_level = pb_level_for(stock.pb)
     pb_percentile = pb_percentile_for(stock)
     stock.pb_percentile = pb_percentile

@@ -290,6 +290,7 @@ get '/' do
     current_price dividend_yield
     turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
     peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev
+    dividend_payout_ratio
     drop_30d pos_30d pos_1y pos_3y pos_5y price_position
     roe_5y_std roe_trend_score
   ]
@@ -744,6 +745,7 @@ helpers do
       current_price dividend_yield
       turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
       peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev
+      dividend_payout_ratio
       drop_30d pos_30d pos_1y pos_3y pos_5y price_position
       roe_5y_std
       roe_trend_score
@@ -894,7 +896,7 @@ helpers do
     snapshot = pool.pool_snapshots.create!(taken_at: taken_at, total_count: scope.count)
 
     cols = %i[
-      id code name current_price dividend_yield expected_dividend_yield pe_ttm pb peg roe_jq
+      id code name current_price dividend_yield expected_dividend_yield dividend_payout_ratio pe_ttm pb peg roe_jq
       asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev pe_percentile pb_percentile
       price_position pos_30d drop_30d market_cap turnover_rate volume
     ]
@@ -902,7 +904,7 @@ helpers do
     scope.in_batches(of: 500) do |rel|
       rows =
         rel.pluck(*cols).map do |r|
-          id, code, name, current_price, dividend_yield, expected_dividend_yield, pe_ttm, pb, peg, roe_jq,
+          id, code, name, current_price, dividend_yield, expected_dividend_yield, dividend_payout_ratio, pe_ttm, pb, peg, roe_jq,
             asset_liability_ratio, interest_debt_ratio, fcf_yield, fcf_ev, pe_percentile, pb_percentile,
             price_position, pos_30d, drop_30d, market_cap, turnover_rate, volume = r
 
@@ -914,6 +916,7 @@ helpers do
             current_price: current_price,
             dividend_yield: dividend_yield,
             expected_dividend_yield: expected_dividend_yield,
+            dividend_payout_ratio: dividend_payout_ratio,
             pe_ttm: pe_ttm,
             pb: pb,
             peg: peg,
@@ -1020,6 +1023,8 @@ helpers do
 
   def advanced_field_specs
     [
+      { field: 'name', label: '名称', type: 'text', placeholder: '贵州茅台 / 茅台' },
+      { field: 'code', label: '代码', type: 'text', placeholder: '600519 / 600' },
       { field: 'fcf_ev', label: 'FCF/EV', type: 'pct', placeholder: '3 或 3%' },
       { field: 'fcf_yield', label: 'FCF收益率', type: 'pct', placeholder: '3 或 3%' },
       { field: 'peg', label: 'PEG', type: 'number', placeholder: '0.8' },
@@ -1034,6 +1039,7 @@ helpers do
       { field: 'interest_debt_ratio', label: '有息负债率', type: 'pct', placeholder: '20 或 20%' },
       { field: 'dividend_yield', label: '历史股息率', type: 'pct', placeholder: '5 或 5%' },
       { field: 'expected_dividend_yield', label: '预期股息率', type: 'pct', placeholder: '5 或 5%' },
+      { field: 'dividend_payout_ratio', label: '分红率', type: 'pct', placeholder: '50 或 50%' },
       { field: 'drop_30d', label: '30日跌幅', type: 'pct', placeholder: '10 或 10%' },
       { field: 'pos_30d', label: '30d分位', type: 'ratio', placeholder: '20% 或 0.2' },
       { field: 'pos_1y', label: '1y分位', type: 'ratio', placeholder: '20% 或 0.2' },
@@ -1102,21 +1108,41 @@ helpers do
       next if v.nil?
 
       predicate =
-        case op
-        when '>'
-          col.gt(v)
-        when '>='
-          col.gteq(v)
-        when '<'
-          col.lt(v)
-        when '<='
-          col.lteq(v)
-        when '=', '=='
-          col.eq(v)
-        when '!=', '<>'
-          col.not_eq(v)
+        if spec[:type].to_s == 'text'
+          escaped = escape_like_pattern(v.to_s)
+          case op
+          when 'contains'
+            col.matches("%#{escaped}%", '\\')
+          when 'not_contains'
+            col.does_not_match("%#{escaped}%", '\\')
+          when 'starts_with'
+            col.matches("#{escaped}%", '\\')
+          when 'ends_with'
+            col.matches("%#{escaped}", '\\')
+          when '=', '=='
+            col.eq(v.to_s)
+          when '!=', '<>'
+            col.not_eq(v.to_s)
+          else
+            nil
+          end
         else
-          nil
+          case op
+          when '>'
+            col.gt(v)
+          when '>='
+            col.gteq(v)
+          when '<'
+            col.lt(v)
+          when '<='
+            col.lteq(v)
+          when '=', '=='
+            col.eq(v)
+          when '!=', '<>'
+            col.not_eq(v)
+          else
+            nil
+          end
         end
 
       scope = predicate ? scope.where(predicate) : scope
@@ -1128,6 +1154,10 @@ helpers do
   def parse_advanced_value(type, raw)
     s = raw.to_s.strip
     return nil if s.empty?
+
+    if type.to_s == 'text'
+      return s
+    end
 
     if type.to_s == 'ratio'
       if s.end_with?('%')
@@ -1150,12 +1180,17 @@ helpers do
     end
   end
 
+  def escape_like_pattern(value)
+    value.to_s.gsub('\\', '\\\\').gsub('%', '\%').gsub('_', '\_')
+  end
+
   def sort_label(field)
     {
       'name' => '股票名称',
       'code' => '代码',
       'current_price' => '最新价',
       'dividend_yield' => '历史股息率',
+      'dividend_payout_ratio' => '分红率',
       'turnover_rate' => '换手率',
       'volume' => '成交量',
       'pe_ttm' => 'PE(TTM)',

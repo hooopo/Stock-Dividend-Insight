@@ -172,7 +172,7 @@
             <% @adv_filters.each do |f| %>
                 <% spec = (@adv_fields || []).find { |x| x[:field].to_s == f[:field].to_s } %>
                 <% field_label = spec ? spec[:label].to_s : f[:field].to_s %>
-                <% op_label = { 'is_null' => '为空', 'not_null' => '不为空' }[f[:op].to_s] || f[:op].to_s %>
+                <% op_label = { 'is_null' => '为空', 'not_null' => '不为空', 'contains' => '包含', 'not_contains' => '不包含', 'starts_with' => '开头是', 'ends_with' => '结尾是', '=' => '等于', '!=' => '不等于' }[f[:op].to_s] || f[:op].to_s %>
                 <% value_label = %w[is_null not_null].include?(f[:op].to_s) ? '' : f[:raw_value].to_s %>
                 <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-purple-200">
                     <span class="font-semibold"><%= field_label %></span>
@@ -259,6 +259,12 @@
                         <th class="p-3 border-b border-gray-200 text-right">
                             <div class="inline-flex items-center gap-1 justify-end w-full">
                                 <span>历史股息率</span>
+                                <a href="/kb/dividend" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：股息率与分红">?</a>
+                            </div>
+                        </th>
+                        <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">
+                            <div class="inline-flex items-center gap-1 justify-end w-full">
+                                <span>分红率</span>
                                 <a href="/kb/dividend" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：股息率与分红">?</a>
                             </div>
                         </th>
@@ -383,6 +389,15 @@
                                 <div class="font-bold text-blue-700"><%= stock.dividend_yield.nil? ? '未同步' : format_percent(stock.dividend_yield) %></div>
                                 <% if base && base.dividend_yield && stock.dividend_yield %>
                                     <% dv = delta(base.dividend_yield, stock.dividend_yield) %>
+                                    <% if (lbl = format_signed_pp(dv, 2)) %>
+                                        <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td class="p-3 text-right hidden md:table-cell">
+                                <div><%= stock.dividend_payout_ratio.nil? ? '-' : format_percent(stock.dividend_payout_ratio) %></div>
+                                <% if base && base.dividend_payout_ratio && stock.dividend_payout_ratio %>
+                                    <% dv = delta(base.dividend_payout_ratio, stock.dividend_payout_ratio) %>
                                     <% if (lbl = format_signed_pp(dv, 2)) %>
                                         <div class="text-xs <%= delta_text_class(dv) %>"><%= lbl %></div>
                                     <% end %>
