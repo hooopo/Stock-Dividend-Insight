@@ -3,7 +3,7 @@
         <div class="flex flex-wrap justify-between items-center gap-3 mb-4">
             <h2 class="text-xl font-semibold text-gray-800 flex items-center">
                 <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                股票概览列表 (<%= @total_count %>)
+                <%= (@page_title || '股票概览列表') %> (<%= @total_count %>)
             </h2>
             <% if logged_in? %>
                 <form method="post" action="/pools" class="flex items-center gap-2">
@@ -37,6 +37,33 @@
             </span>
         </div>
 
+        <% if @layer_index_series && @layer_index_series.any? %>
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                    <div class="text-xs text-gray-500">收息底仓指数点数（等权，基准 1000）</div>
+                    <div class="mt-1 text-2xl font-semibold text-gray-900"><%= format_decimal(@layer_index_points, 2) %></div>
+                    <div class="mt-2 flex flex-wrap gap-3 text-xs">
+                        <% [[@layer_index_change_1m, '1个月'], [@layer_index_change_3m, '3个月'], [@layer_index_change_1y, '1年']].each do |v, label| %>
+                            <% if v.nil? %>
+                                <span class="text-gray-400"><%= label %>：-</span>
+                            <% else %>
+                                <% klass = v >= 0 ? 'text-red-600' : 'text-green-600' %>
+                                <span class="<%= klass %>"><%= label %>：<%= format_decimal(v * 100.0, 2) %>%</span>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-400">基准日：<%= @layer_index_base_date %></div>
+                </div>
+                <div class="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-4">
+                    <div class="text-xs text-gray-500 mb-2">指数走势图（近5年）</div>
+                    <div class="h-48">
+                        <canvas id="layerIndexChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+
+        <% base_path = (@base_path || request.path_info || '/') %>
         <% base_params = { sort: @sort_param } %>
         <% base_params[:only_div5y] = '1' if @only_div5y %>
         <% base_params[:roe_5y_avg_ge_12] = '1' if @roe_5y_avg_ge_12 %>
@@ -62,7 +89,7 @@
             <% base_params[:adv_value] = @adv_filters.map { |x| x[:raw_value] } %>
         <% end %>
 
-        <form id="filterForm" method="get" action="/" class="mt-4 text-xs">
+        <form id="filterForm" method="get" action="<%= base_path %>" class="mt-4 text-xs">
             <input type="hidden" id="sortInput" name="sort" value="<%= @sort_param %>">
 
             <details class="mt-4" <%= (@adv_filters && @adv_filters.any?) ? 'open' : '' %>>
@@ -73,7 +100,7 @@
                     <div class="flex flex-wrap items-center gap-2">
                         <button type="button" id="advAddRow" class="px-3 py-1 rounded bg-white text-gray-700 border border-gray-200 hover:bg-gray-50">添加条件</button>
                         <button type="button" id="advApply" class="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700">应用</button>
-                        <a href="/?<%= build_query(base_params.merge(adv_field: nil, adv_op: nil, adv_value: nil, page: nil)) %>" class="text-blue-600 hover:underline">清空高级搜索</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(adv_field: nil, adv_op: nil, adv_value: nil, page: nil)) %>" class="text-blue-600 hover:underline">清空高级搜索</a>
                     </div>
                     <div id="advRows" class="mt-3 space-y-2">
                         <% rows = (@adv_filters && @adv_filters.any?) ? @adv_filters : [{ field: '', op: '', raw_value: '' }] %>
@@ -323,8 +350,8 @@
             </div>
 
             <div class="mt-4 flex flex-wrap items-center gap-3 text-xs">
-                <a href="/?<%= build_query({ sort: @sort_param }) %>" class="text-blue-600 hover:underline">清空过滤</a>
-                <a href="/" class="text-blue-600 hover:underline">清空全部</a>
+                <a href="<%= base_path %>?<%= build_query({ sort: @sort_param }) %>" class="text-blue-600 hover:underline">清空过滤</a>
+                <a href="<%= base_path %>" class="text-blue-600 hover:underline">清空全部</a>
             </div>
         </form>
 
@@ -342,7 +369,7 @@
             <% end %>
         </div>
         <% if @sorts.any? %>
-            <a href="/?clear_sorts=1" class="ml-2 text-blue-600 hover:underline">清空排序</a>
+            <a href="<%= base_path %>?clear_sorts=1" class="ml-2 text-blue-600 hover:underline">清空排序</a>
         <% end %>
     </div>
 
@@ -350,19 +377,19 @@
         <% if @only_div5y %>
             <span class="inline-flex items-center px-2 py-1 bg-green-50 text-green-700 rounded-full border border-green-100">
                 <span class="font-semibold">连续5年分红</span>
-                <a href="/?<%= build_query(base_params.merge(only_div5y: nil)) %>" class="ml-2 text-green-600 hover:text-green-900">×</a>
+                <a href="<%= base_path %>?<%= build_query(base_params.merge(only_div5y: nil)) %>" class="ml-2 text-green-600 hover:text-green-900">×</a>
             </span>
         <% end %>
         <% if @roe_5y_avg_ge_12 %>
             <span class="inline-flex items-center px-2 py-1 bg-green-50 text-green-700 rounded-full border border-green-100">
                 <span class="font-semibold">ROE近5年均值≥12%</span>
-                <a href="/?<%= build_query(base_params.merge(roe_5y_avg_ge_12: nil)) %>" class="ml-2 text-green-600 hover:text-green-900">×</a>
+                <a href="<%= base_path %>?<%= build_query(base_params.merge(roe_5y_avg_ge_12: nil)) %>" class="ml-2 text-green-600 hover:text-green-900">×</a>
             </span>
         <% end %>
         <% if @roe_5y_min_ge_8 %>
             <span class="inline-flex items-center px-2 py-1 bg-green-50 text-green-700 rounded-full border border-green-100">
                 <span class="font-semibold">ROE近5年最低≥8%</span>
-                <a href="/?<%= build_query(base_params.merge(roe_5y_min_ge_8: nil)) %>" class="ml-2 text-green-600 hover:text-green-900">×</a>
+                <a href="<%= base_path %>?<%= build_query(base_params.merge(roe_5y_min_ge_8: nil)) %>" class="ml-2 text-green-600 hover:text-green-900">×</a>
             </span>
         <% end %>
     </div>
@@ -379,49 +406,49 @@
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
                         <span class="font-semibold">分类</span>
                         <span class="ml-1"><%= cat.name %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_include_category_id: cat.id)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_include_category_id: cat.id)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
                     </span>
                 <% end %>
                 <% @include_pb_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
                         <span class="font-semibold">PB等级</span>
                         <span class="ml-1"><%= pb_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_include_pb_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_include_pb_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
                     </span>
                 <% end %>
                 <% @include_pb_percentile_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
                         <span class="font-semibold">PB分位</span>
                         <span class="ml-1"><%= pb_percentile_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_include_pb_percentile_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_include_pb_percentile_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
                     </span>
                 <% end %>
                 <% @include_pe_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
                         <span class="font-semibold">PE等级</span>
                         <span class="ml-1"><%= pe_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_include_pe_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_include_pe_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
                     </span>
                 <% end %>
                 <% @include_pe_percentile_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
                         <span class="font-semibold">PE分位</span>
                         <span class="ml-1"><%= pe_percentile_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_include_pe_percentile_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_include_pe_percentile_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
                     </span>
                 <% end %>
                 <% @include_peg_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
                         <span class="font-semibold">PEG等级</span>
                         <span class="ml-1"><%= peg_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_include_peg_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_include_peg_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
                     </span>
                 <% end %>
                 <% @include_roe_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-blue-200">
                         <span class="font-semibold">ROE等级</span>
                         <span class="ml-1"><%= roe_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_include_roe_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_include_roe_level: lvl)) %>" class="ml-2 text-blue-600 hover:text-blue-900">×</a>
                     </span>
                 <% end %>
             </div>
@@ -436,56 +463,56 @@
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
                         <span class="font-semibold">分类</span>
                         <span class="ml-1"><%= cat.name %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_exclude_category_id: cat.id)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_exclude_category_id: cat.id)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
                     </span>
                 <% end %>
                 <% @exclude_pb_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
                         <span class="font-semibold">PB等级</span>
                         <span class="ml-1"><%= pb_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_exclude_pb_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_exclude_pb_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
                     </span>
                 <% end %>
                 <% @exclude_pb_percentile_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
                         <span class="font-semibold">PB分位</span>
                         <span class="ml-1"><%= pb_percentile_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_exclude_pb_percentile_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_exclude_pb_percentile_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
                     </span>
                 <% end %>
                 <% @exclude_pe_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
                         <span class="font-semibold">PE等级</span>
                         <span class="ml-1"><%= pe_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_exclude_pe_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_exclude_pe_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
                     </span>
                 <% end %>
                 <% @exclude_pe_percentile_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
                         <span class="font-semibold">PE分位</span>
                         <span class="ml-1"><%= pe_percentile_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_exclude_pe_percentile_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_exclude_pe_percentile_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
                     </span>
                 <% end %>
                 <% @exclude_peg_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
                         <span class="font-semibold">PEG等级</span>
                         <span class="ml-1"><%= peg_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_exclude_peg_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_exclude_peg_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
                     </span>
                 <% end %>
                 <% @exclude_roe_levels.each do |lvl| %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
                         <span class="font-semibold">ROE等级</span>
                         <span class="ml-1"><%= roe_level_label(lvl) %></span>
-                        <a href="/?<%= build_query(base_params.merge(remove_exclude_roe_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(remove_exclude_roe_level: lvl)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
                     </span>
                 <% end %>
                 <% if @exclude_high_debt %>
                     <span class="inline-flex items-center px-2 py-1 bg-white text-gray-700 rounded-full border border-red-200">
                         <span class="font-semibold">高负债</span>
                         <span class="ml-1">(资产负债率&gt;60%)</span>
-                        <a href="/?<%= build_query(base_params.merge(exclude_high_debt: nil)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
+                        <a href="<%= base_path %>?<%= build_query(base_params.merge(exclude_high_debt: nil)) %>" class="ml-2 text-red-600 hover:text-red-900">×</a>
                     </span>
                 <% end %>
             </div>
@@ -498,7 +525,7 @@
     <div class="mt-3 p-3 bg-purple-50 border border-purple-100 rounded-lg text-sm">
         <div class="flex items-center justify-between gap-3 mb-2">
             <div class="text-xs font-semibold text-purple-700">高级搜索</div>
-            <a href="/?<%= build_query(base_params.merge(adv_field: nil, adv_op: nil, adv_value: nil, page: nil)) %>" class="text-purple-700 hover:underline text-xs">清空</a>
+            <a href="<%= base_path %>?<%= build_query(base_params.merge(adv_field: nil, adv_op: nil, adv_value: nil, page: nil)) %>" class="text-purple-700 hover:underline text-xs">清空</a>
         </div>
         <div class="flex flex-wrap items-center gap-2">
             <% adv_fields = @adv_filters.map { |x| x[:field].to_s } %>
@@ -521,7 +548,7 @@
                     <% if value_label != '' %>
                         <span class="ml-1"><%= value_label %></span>
                     <% end %>
-                    <a href="/?<%= build_query(base_params.merge(adv_field: next_fields.any? ? next_fields : nil, adv_op: next_ops.any? ? next_ops : nil, adv_value: next_values.any? ? next_values : nil, page: nil)) %>" class="ml-2 text-purple-700 hover:text-purple-900">×</a>
+                    <a href="<%= base_path %>?<%= build_query(base_params.merge(adv_field: next_fields.any? ? next_fields : nil, adv_op: next_ops.any? ? next_ops : nil, adv_value: next_values.any? ? next_values : nil, page: nil)) %>" class="ml-2 text-purple-700 hover:text-purple-900">×</a>
                 </span>
             <% end %>
         </div>
@@ -766,19 +793,61 @@
         <% page_params.delete(:remove_exclude_pe_percentile_level) %>
 
         <% if prev_page %>
-            <a class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" href="/?<%= build_query(page_params.merge(page: prev_page)) %>">上一页</a>
+            <a class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" href="<%= base_path %>?<%= build_query(page_params.merge(page: prev_page)) %>">上一页</a>
         <% else %>
             <span class="px-3 py-1 rounded bg-gray-50 text-gray-400">上一页</span>
         <% end %>
         <% if next_page %>
-            <a class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" href="/?<%= build_query(page_params.merge(page: next_page)) %>">下一页</a>
+            <a class="px-3 py-1 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" href="<%= base_path %>?<%= build_query(page_params.merge(page: next_page)) %>">下一页</a>
         <% else %>
             <span class="px-3 py-1 rounded bg-gray-50 text-gray-400">下一页</span>
         <% end %>
     </div>
 </div>
 
+<% if @layer_index_series && @layer_index_series.any? %>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<% end %>
 <script>
+    <% if @layer_index_series && @layer_index_series.any? %>
+        (function() {
+            const el = document.getElementById('layerIndexChart');
+            if (!el || !window.Chart) return;
+            const labels = <%= @layer_index_series.map { |x| x[:date].strftime('%Y-%m-%d') }.to_json %>;
+            const values = <%= @layer_index_series.map { |x| x[:value].to_f.round(4) }.to_json %>;
+            const ctx = el.getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: '收息底仓指数',
+                        data: values,
+                        borderColor: 'rgba(37, 99, 235, 1)',
+                        backgroundColor: 'rgba(37, 99, 235, 0.12)',
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        tension: 0.18,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { mode: 'index', intersect: false }
+                    },
+                    interaction: { mode: 'index', intersect: false },
+                    scales: {
+                        x: { ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 8 } },
+                        y: { ticks: { callback: (v) => Number(v).toFixed(0) } }
+                    }
+                }
+            });
+        })();
+    <% end %>
+
     (function() {
         const activeSorts = document.getElementById('activeSorts');
         const palette = document.getElementById('sortPalette');

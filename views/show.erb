@@ -174,12 +174,50 @@
         
         <!-- 滚动指标概览 -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-gray-100">
-            <% [["30d", @stock.pos_30d], ["1y", @stock.pos_1y], ["3y", @stock.pos_3y], ["5y", @stock.pos_5y]].each do |label, pos| %>
+            <% [["30d", @stock.pos_30d], ["90d", @stock.pos_90d], ["1y", @stock.pos_1y], ["3y", @stock.pos_3y], ["5y", @stock.pos_5y]].each do |label, pos| %>
                 <div class="text-center">
                     <div class="text-gray-400 text-xs uppercase mb-1"><%= label %> 分位</div>
                     <div class="text-lg font-semibold <%= position_color(pos) %>">
                         <%= format_ratio_percent(pos) %>
                     </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+    <!-- 支撑价格 -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-6 flex items-center">
+            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            支撑价格概览 (历史最低价)
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <% 
+               support_metrics = [
+                 ["月度支撑", @stock.low_30d],
+                 ["季度支撑", @stock.low_90d],
+                 ["年度支撑", @stock.low_1y],
+                 ["3年支撑", @stock.low_3y],
+                 ["5年支撑", @stock.low_5y],
+                 ["全量支撑", @stock.low_all]
+               ]
+            %>
+            <% support_metrics.each do |label, price| %>
+                <div class="p-3 bg-green-50 rounded-lg border border-green-100">
+                    <div class="text-green-600 text-xs mb-1 font-medium"><%= label %></div>
+                    <div class="text-lg font-bold text-green-800">
+                        <% if price %>
+                            ¥<%= format_decimal(price, 2) %>
+                        <% else %>
+                            <span class="text-gray-400 text-sm">未同步</span>
+                        <% end %>
+                    </div>
+                    <% if price && @stock.current_price && @stock.current_price > 0 %>
+                        <% dist = (@stock.current_price - price) / price * 100 %>
+                        <div class="text-[10px] mt-1 <%= dist < 5 ? 'text-red-600 font-bold' : 'text-gray-500' %>">
+                            距今: +<%= format_decimal(dist, 1) %>%
+                        </div>
+                    <% end %>
                 </div>
             <% end %>
         </div>

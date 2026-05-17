@@ -102,14 +102,17 @@
 | 字段 | 类型 | 说明/单位 |
 |---|---|---|
 | `high_30d` / `low_30d` | decimal | 近 30 天最高/最低 |
+| `high_90d` / `low_90d` | decimal | 近 90 天最高/最低 |
 | `pos_30d` | decimal | 近 30 天价格分位（0-1） |
+| `pos_90d` | decimal | 近 90 天价格分位（0-1） |
 | `high_1y` / `low_1y` | decimal | 近 1 年最高/最低 |
 | `pos_1y` | decimal | 近 1 年价格分位（0-1） |
 | `high_3y` / `low_3y` | decimal | 近 3 年最高/最低 |
 | `pos_3y` | decimal | 近 3 年价格分位（0-1） |
 | `high_5y` / `low_5y` | decimal | 近 5 年最高/最低 |
 | `pos_5y` | decimal | 近 5 年价格分位（0-1） |
-| `price_position` | decimal | 全量价格分位（0-1） |
+| `high_all` / `low_all` | decimal | 全量（通常指10年内）最高/最低 |
+| `price_position` | decimal | 全量（10年内）价格分位（0-1） |
 | `drop_30d` | decimal | 30 日跌幅（%）：`(30 天窗口起点收盘 - 当前价) / 起点收盘 * 100`；下跌为正、上涨为负 |
 
 ### FCF（自由现金流）相关字段

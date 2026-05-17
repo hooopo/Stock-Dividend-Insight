@@ -93,8 +93,6 @@ class StockLoader
     unresolved.uniq.first(50).each { |u| puts u.join("\t") }
     puts "...truncated" if unresolved.uniq.size > 50
 
-    load
-
     changed_names = changed.map { |x| x[0] }.uniq
     changed_names.each do |name|
       stock = Stock.find_by(name: name)
@@ -108,6 +106,8 @@ class StockLoader
       DividendSyncer.new(scope: Stock.where(id: stock.id), sleep_range: nil).sync
       ValuationCalculator.new.calculate_for_stock(stock)
     end
+
+    load
   end
 
   def load

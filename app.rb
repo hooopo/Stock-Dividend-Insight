@@ -2,6 +2,7 @@ require 'date'
 require 'securerandom'
 require 'set'
 require 'kramdown'
+require 'yaml'
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require_relative 'models'
@@ -285,7 +286,9 @@ post '/pools/:id/delete' do
 end
 
 get '/' do
+  @base_path = request.path_info
   @layout_full_width = true
+  @page_title = nil
   allowed_sort_fields = %w[
     current_price dividend_yield
     turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
@@ -361,7 +364,7 @@ get '/' do
       end
     end
 
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (add_field = params[:add_sort_field].to_s.strip).size > 0
@@ -380,83 +383,83 @@ get '/' do
       sorts = default_sorts if sorts.empty?
     end
 
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_include = params[:remove_include_category_id].to_s.strip).size > 0
     include_category_ids = include_category_ids.reject { |x| x == remove_include.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_exclude = params[:remove_exclude_category_id].to_s.strip).size > 0
     exclude_category_ids = exclude_category_ids.reject { |x| x == remove_exclude.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_include = params[:remove_include_pb_level].to_s.strip).size > 0
     include_pb_levels = include_pb_levels.reject { |x| x == remove_include.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_exclude = params[:remove_exclude_pb_level].to_s.strip).size > 0
     exclude_pb_levels = exclude_pb_levels.reject { |x| x == remove_exclude.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_include = params[:remove_include_pb_percentile_level].to_s.strip).size > 0
     include_pb_percentile_levels = include_pb_percentile_levels.reject { |x| x == remove_include.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_exclude = params[:remove_exclude_pb_percentile_level].to_s.strip).size > 0
     exclude_pb_percentile_levels = exclude_pb_percentile_levels.reject { |x| x == remove_exclude.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_include = params[:remove_include_peg_level].to_s.strip).size > 0
     include_peg_levels = include_peg_levels.reject { |x| x == remove_include.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_exclude = params[:remove_exclude_peg_level].to_s.strip).size > 0
     exclude_peg_levels = exclude_peg_levels.reject { |x| x == remove_exclude.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_include = params[:remove_include_pe_level].to_s.strip).size > 0
     include_pe_levels = include_pe_levels.reject { |x| x == remove_include.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_exclude = params[:remove_exclude_pe_level].to_s.strip).size > 0
     exclude_pe_levels = exclude_pe_levels.reject { |x| x == remove_exclude.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_include = params[:remove_include_pe_percentile_level].to_s.strip).size > 0
     include_pe_percentile_levels = include_pe_percentile_levels.reject { |x| x == remove_include.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_exclude = params[:remove_exclude_pe_percentile_level].to_s.strip).size > 0
     exclude_pe_percentile_levels = exclude_pe_percentile_levels.reject { |x| x == remove_exclude.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
 
   if (remove_sort = params[:remove_sort].to_s.strip).size > 0
     sorts = sorts.reject { |s| s[:field] == remove_sort }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
   if (remove_include = params[:remove_include_roe_level].to_s.strip).size > 0
     include_roe_levels = include_roe_levels.reject { |x| x == remove_include.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
   if (remove_exclude = params[:remove_exclude_roe_level].to_s.strip).size > 0
     exclude_roe_levels = exclude_roe_levels.reject { |x| x == remove_exclude.to_i }
-    redirect "/?#{Rack::Utils.build_query(build_index_query_params.call)}"
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
   end
   if params[:clear_sorts].to_s == '1'
-    redirect '/'
+    redirect @base_path
   end
 
   base_scope = build_filtered_scope(params)
@@ -520,6 +523,339 @@ get '/' do
     end
   end
   
+  erb :index
+end
+
+get '/dividend_layers' do
+  @base_path = request.path_info
+  @layout_full_width = true
+  @page_title = '收息底仓列表'
+
+  file_path = File.join(settings.root, 'dividend-layers.yml')
+  data = File.exist?(file_path) ? YAML.load_file(file_path) : { 'stocks' => [] }
+  list = data.is_a?(Hash) ? (data['stocks'] || []) : (data || [])
+  codes =
+    list
+      .map { |x| x['code'].to_s.strip.rjust(6, '0') }
+      .select { |x| x.match?(/^\d{6}$/) }
+      .uniq
+
+  @layer_index_series = []
+  @layer_index_points = nil
+  @layer_index_change_1m = nil
+  @layer_index_change_3m = nil
+  @layer_index_change_1y = nil
+  @layer_index_base_date = nil
+
+  if codes.any?
+    start_date = Date.today - 365 * 5
+    rows =
+      PriceHistory
+        .joins(:stock)
+        .where(stocks: { code: codes }, date: start_date..Date.today)
+        .where.not(close: nil)
+        .pluck('stocks.code', 'price_histories.date', 'price_histories.close')
+
+    by_code = Hash.new { |h, k| h[k] = {} }
+    dates = []
+    rows.each do |code, dt, close|
+      next if dt.nil? || close.nil?
+      code = code.to_s.rjust(6, '0')
+      by_code[code][dt] = close.to_f
+      dates << dt
+    end
+    dates = dates.uniq.sort
+
+    if dates.any?
+      first_dates = codes.map { |c| by_code[c].keys.min }.compact
+      base_date = first_dates.max
+      if base_date
+        dates = dates.select { |d| d >= base_date }
+        base_closes = {}
+        codes.each do |code|
+          h = by_code[code]
+          init_dt = h.keys.select { |d| d <= base_date }.max
+          base_closes[code] = init_dt ? h[init_dt].to_f : nil
+        end
+        base_closes = base_closes.reject { |_, v| v.nil? || v <= 0.0 }
+
+        if base_closes.any? && dates.any?
+          last_close = Hash.new { |h, k| h[k] = nil }
+          base_closes.each_key do |code|
+            init_dt = by_code[code].keys.select { |d| d <= base_date }.max
+            last_close[code] = init_dt ? by_code[code][init_dt].to_f : nil
+          end
+
+          series = []
+          dates.each do |dt|
+            sum = 0.0
+            cnt = 0
+            base_closes.each do |code, base_close|
+              h = by_code[code]
+              if h.key?(dt)
+                last_close[code] = h[dt].to_f
+              end
+              cur = last_close[code]
+              next if cur.nil? || cur <= 0.0
+              sum += cur / base_close
+              cnt += 1
+            end
+            next if cnt == 0
+            series << { date: dt, value: 1000.0 * (sum / cnt.to_f) }
+          end
+
+          if series.any?
+            value_at = lambda do |target_date|
+              found = series.reverse.find { |x| x[:date] <= target_date }
+              found ? found[:value].to_f : nil
+            end
+
+            last = series.last[:value].to_f
+            v_1m = value_at.call(Date.today - 30)
+            v_3m = value_at.call(Date.today - 90)
+            v_1y = value_at.call(Date.today - 365)
+
+            @layer_index_series = series
+            @layer_index_points = last
+            @layer_index_change_1m = v_1m && v_1m > 0.0 ? (last / v_1m - 1.0) : nil
+            @layer_index_change_3m = v_3m && v_3m > 0.0 ? (last / v_3m - 1.0) : nil
+            @layer_index_change_1y = v_1y && v_1y > 0.0 ? (last / v_1y - 1.0) : nil
+            @layer_index_base_date = base_date
+          end
+        end
+      end
+    end
+  end
+
+  allowed_sort_fields = %w[
+    current_price dividend_yield
+    turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
+    peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev
+    dividend_payout_ratio
+    drop_30d pos_30d pos_1y pos_3y pos_5y price_position
+    roe_5y_std roe_trend_score
+  ]
+
+  adv_filters = parse_advanced_filters(params)
+
+  only_div5y = params[:only_div5y].to_s == '1'
+  include_category_ids = parse_id_list(params[:include_category_ids])
+  exclude_category_ids = parse_id_list(params[:exclude_category_ids])
+  include_pb_levels = parse_id_list(params[:include_pb_levels]).select { |x| x >= 1 && x <= 6 }
+  exclude_pb_levels = parse_id_list(params[:exclude_pb_levels]).select { |x| x >= 1 && x <= 6 }
+  include_pb_percentile_levels = parse_id_list(params[:include_pb_percentile_levels]).select { |x| x >= 1 && x <= 4 }
+  exclude_pb_percentile_levels = parse_id_list(params[:exclude_pb_percentile_levels]).select { |x| x >= 1 && x <= 4 }
+  include_pe_levels = parse_id_list(params[:include_pe_levels]).select { |x| x >= 1 && x <= 7 }
+  exclude_pe_levels = parse_id_list(params[:exclude_pe_levels]).select { |x| x >= 1 && x <= 7 }
+  include_pe_percentile_levels = parse_id_list(params[:include_pe_percentile_levels]).select { |x| x >= 1 && x <= 3 }
+  exclude_pe_percentile_levels = parse_id_list(params[:exclude_pe_percentile_levels]).select { |x| x >= 1 && x <= 3 }
+  include_peg_levels = parse_id_list(params[:include_peg_levels]).select { |x| x >= 1 && x <= 5 }
+  exclude_peg_levels = parse_id_list(params[:exclude_peg_levels]).select { |x| x >= 1 && x <= 5 }
+  exclude_high_debt = params[:exclude_high_debt].to_s == '1'
+  roe_5y_avg_ge_12 = params[:roe_5y_avg_ge_12].to_s == '1'
+  roe_5y_min_ge_8 = params[:roe_5y_min_ge_8].to_s == '1'
+  roe_min = nil
+  roe_max = nil
+  include_roe_levels = parse_id_list(params[:include_roe_levels]).select { |x| x >= 1 && x <= 3 }
+  exclude_roe_levels = parse_id_list(params[:exclude_roe_levels]).select { |x| x >= 1 && x <= 3 }
+
+  sorts = parse_sorts_param(params[:sort], allowed_sort_fields)
+
+  build_index_query_params = lambda do
+    query_params = { sort: serialize_sorts_param(sorts) }
+    if adv_filters.any?
+      query_params[:adv_field] = adv_filters.map { |x| x[:field] }
+      query_params[:adv_op] = adv_filters.map { |x| x[:op] }
+      query_params[:adv_value] = adv_filters.map { |x| x[:raw_value] }
+    end
+    query_params[:only_div5y] = '1' if only_div5y
+    query_params[:roe_5y_avg_ge_12] = '1' if roe_5y_avg_ge_12
+    query_params[:roe_5y_min_ge_8] = '1' if roe_5y_min_ge_8
+    query_params[:include_category_ids] = include_category_ids unless include_category_ids.empty?
+    query_params[:exclude_category_ids] = exclude_category_ids unless exclude_category_ids.empty?
+    query_params[:include_pb_levels] = include_pb_levels unless include_pb_levels.empty?
+    query_params[:exclude_pb_levels] = exclude_pb_levels unless exclude_pb_levels.empty?
+    query_params[:include_pb_percentile_levels] = include_pb_percentile_levels unless include_pb_percentile_levels.empty?
+    query_params[:exclude_pb_percentile_levels] = exclude_pb_percentile_levels unless exclude_pb_percentile_levels.empty?
+    query_params[:include_pe_levels] = include_pe_levels unless include_pe_levels.empty?
+    query_params[:exclude_pe_levels] = exclude_pe_levels unless exclude_pe_levels.empty?
+    query_params[:include_pe_percentile_levels] = include_pe_percentile_levels unless include_pe_percentile_levels.empty?
+    query_params[:exclude_pe_percentile_levels] = exclude_pe_percentile_levels unless exclude_pe_percentile_levels.empty?
+    query_params[:include_peg_levels] = include_peg_levels unless include_peg_levels.empty?
+    query_params[:exclude_peg_levels] = exclude_peg_levels unless exclude_peg_levels.empty?
+    query_params[:exclude_high_debt] = '1' if exclude_high_debt
+    query_params[:include_roe_levels] = include_roe_levels unless include_roe_levels.empty?
+    query_params[:exclude_roe_levels] = exclude_roe_levels unless exclude_roe_levels.empty?
+    query_params[:roe_min] = roe_min if roe_min
+    query_params[:roe_max] = roe_max if roe_max
+    query_params
+  end
+
+  if (move_field = params[:move_sort].to_s.strip).size > 0
+    dir = params[:move_dir].to_s
+    idx = sorts.index { |s| s[:field] == move_field }
+    if idx
+      if dir == 'up' && idx > 0
+        sorts[idx - 1], sorts[idx] = sorts[idx], sorts[idx - 1]
+      elsif dir == 'down' && idx < sorts.size - 1
+        sorts[idx + 1], sorts[idx] = sorts[idx], sorts[idx + 1]
+      end
+    end
+
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (add_field = params[:add_sort_field].to_s.strip).size > 0
+    if allowed_sort_fields.include?(add_field)
+      add_order = params[:add_sort_order].to_s.downcase
+      add_order = 'desc' unless %w[asc desc].include?(add_order)
+      add_pos = params[:add_sort_pos].to_s
+
+      sorts = sorts.reject { |s| s[:field] == add_field }
+      entry = { field: add_field, order: add_order }
+      if add_pos == 'primary'
+        sorts.unshift(entry)
+      else
+        sorts.push(entry)
+      end
+      sorts = default_sorts if sorts.empty?
+    end
+
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_include = params[:remove_include_category_id].to_s.strip).size > 0
+    include_category_ids = include_category_ids.reject { |x| x == remove_include.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_exclude = params[:remove_exclude_category_id].to_s.strip).size > 0
+    exclude_category_ids = exclude_category_ids.reject { |x| x == remove_exclude.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_include = params[:remove_include_pb_level].to_s.strip).size > 0
+    include_pb_levels = include_pb_levels.reject { |x| x == remove_include.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_exclude = params[:remove_exclude_pb_level].to_s.strip).size > 0
+    exclude_pb_levels = exclude_pb_levels.reject { |x| x == remove_exclude.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_include = params[:remove_include_pb_percentile_level].to_s.strip).size > 0
+    include_pb_percentile_levels = include_pb_percentile_levels.reject { |x| x == remove_include.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_exclude = params[:remove_exclude_pb_percentile_level].to_s.strip).size > 0
+    exclude_pb_percentile_levels = exclude_pb_percentile_levels.reject { |x| x == remove_exclude.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_include = params[:remove_include_peg_level].to_s.strip).size > 0
+    include_peg_levels = include_peg_levels.reject { |x| x == remove_include.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_exclude = params[:remove_exclude_peg_level].to_s.strip).size > 0
+    exclude_peg_levels = exclude_peg_levels.reject { |x| x == remove_exclude.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_include = params[:remove_include_pe_level].to_s.strip).size > 0
+    include_pe_levels = include_pe_levels.reject { |x| x == remove_include.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_exclude = params[:remove_exclude_pe_level].to_s.strip).size > 0
+    exclude_pe_levels = exclude_pe_levels.reject { |x| x == remove_exclude.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_include = params[:remove_include_pe_percentile_level].to_s.strip).size > 0
+    include_pe_percentile_levels = include_pe_percentile_levels.reject { |x| x == remove_include.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_exclude = params[:remove_exclude_pe_percentile_level].to_s.strip).size > 0
+    exclude_pe_percentile_levels = exclude_pe_percentile_levels.reject { |x| x == remove_exclude.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+
+  if (remove_sort = params[:remove_sort].to_s.strip).size > 0
+    sorts = sorts.reject { |s| s[:field] == remove_sort }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+  if (remove_include = params[:remove_include_roe_level].to_s.strip).size > 0
+    include_roe_levels = include_roe_levels.reject { |x| x == remove_include.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+  if (remove_exclude = params[:remove_exclude_roe_level].to_s.strip).size > 0
+    exclude_roe_levels = exclude_roe_levels.reject { |x| x == remove_exclude.to_i }
+    redirect "#{@base_path}?#{Rack::Utils.build_query(build_index_query_params.call)}"
+  end
+  if params[:clear_sorts].to_s == '1'
+    redirect @base_path
+  end
+
+  base_scope =
+    if codes.empty?
+      Stock.none
+    else
+      build_filtered_scope(params).where(code: codes)
+    end
+
+  order_sql = sorts.map { |s| "#{s[:field]} #{s[:order]} NULLS LAST" }.join(', ')
+  page = params[:page].to_i
+  page = 1 if page < 1
+  per_page = 20
+
+  @total_count = base_scope.count
+  @total_pages = (@total_count.to_f / per_page).ceil
+  @total_pages = 1 if @total_pages < 1
+  page = @total_pages if page > @total_pages
+  @page = page
+
+  ordered_scope = sorts.empty? ? base_scope.order(id: :desc) : base_scope.order(order_sql)
+  @stocks = ordered_scope.offset((page - 1) * per_page).limit(per_page)
+  stock_ids = @stocks.map(&:id)
+  @pe_hist_counts = PriceHistory.where(stock_id: stock_ids).where.not(pe_ttm: nil).group(:stock_id).count
+  @pb_hist_counts = PriceHistory.where(stock_id: stock_ids).where.not(pb: nil).group(:stock_id).count
+
+  @categories = Category.joins(:categorizations).group('categories.id').order('count(categorizations.id) desc')
+  @include_category_ids = include_category_ids
+  @exclude_category_ids = exclude_category_ids
+  @included_categories = include_category_ids.empty? ? [] : Category.where(id: include_category_ids)
+  @excluded_categories = exclude_category_ids.empty? ? [] : Category.where(id: exclude_category_ids)
+  @include_pb_levels = include_pb_levels
+  @exclude_pb_levels = exclude_pb_levels
+  @include_pb_percentile_levels = include_pb_percentile_levels
+  @exclude_pb_percentile_levels = exclude_pb_percentile_levels
+  @include_pe_levels = include_pe_levels
+  @exclude_pe_levels = exclude_pe_levels
+  @include_pe_percentile_levels = include_pe_percentile_levels
+  @exclude_pe_percentile_levels = exclude_pe_percentile_levels
+  @include_peg_levels = include_peg_levels
+  @exclude_peg_levels = exclude_peg_levels
+  @exclude_high_debt = exclude_high_debt
+  @include_roe_levels = include_roe_levels
+  @exclude_roe_levels = exclude_roe_levels
+  @allowed_sort_fields = allowed_sort_fields
+  @sorts = sorts
+  @sort_param = serialize_sorts_param(sorts)
+  @adv_filters = adv_filters
+  @adv_fields = advanced_field_specs
+  @only_div5y = only_div5y
+  @roe_5y_avg_ge_12 = roe_5y_avg_ge_12
+  @roe_5y_min_ge_8 = roe_5y_min_ge_8
+  @cn_10y = TreasuryYield.where(country: 'CN', tenor: '10Y').order(date: :desc).first
+  @hs300_eval = QiemanIndexEval.where(index_code: '000300.SH').order(eval_date: :desc).first
+  @a500_eval = QiemanIndexEval.where(index_code: '000510.SH').order(eval_date: :desc).first
+  @edit_pool_id = nil
+  @edit_pool_name = nil
+
   erb :index
 end
 
@@ -902,6 +1238,7 @@ helpers do
       id code name current_price dividend_yield expected_dividend_yield dividend_payout_ratio pe_ttm pb peg roe_jq
       asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev pe_percentile pb_percentile
       price_position pos_30d drop_30d market_cap turnover_rate volume
+      low_30d low_90d low_1y low_3y low_5y low_all
     ]
 
     scope.in_batches(of: 500) do |rel|
@@ -909,7 +1246,8 @@ helpers do
         rel.pluck(*cols).map do |r|
           id, code, name, current_price, dividend_yield, expected_dividend_yield, dividend_payout_ratio, pe_ttm, pb, peg, roe_jq,
             asset_liability_ratio, interest_debt_ratio, fcf_yield, fcf_ev, pe_percentile, pb_percentile,
-            price_position, pos_30d, drop_30d, market_cap, turnover_rate, volume = r
+            price_position, pos_30d, drop_30d, market_cap, turnover_rate, volume,
+            low_30d, low_90d, low_1y, low_3y, low_5y, low_all = r
 
           {
             pool_snapshot_id: snapshot.id,
@@ -936,6 +1274,12 @@ helpers do
             market_cap: market_cap,
             turnover_rate: turnover_rate,
             volume: volume,
+            low_30d: low_30d,
+            low_90d: low_90d,
+            low_1y: low_1y,
+            low_3y: low_3y,
+            low_5y: low_5y,
+            low_all: low_all,
             created_at: taken_at,
             updated_at: taken_at
           }.select { |k, _| snapshot_item_columns.include?(k.to_s) }

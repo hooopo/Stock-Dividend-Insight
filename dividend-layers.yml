@@ -1,0 +1,94 @@
+---
+stocks:
+- code: "601398"
+  name: 工商银行
+  categories:
+  - 核心收息层
+- code: "601328"
+  name: 交通银行
+  categories:
+  - 核心收息层
+- code: "600886"
+  name: 国投电力
+  categories:
+  - 核心收息层
+- code: "600900"
+  name: 长江电力
+  categories:
+  - 核心收息层
+- code: "601939"
+  name: 建设银行
+  categories:
+  - 核心收息层
+- code: "601288"
+  name: 农业银行
+  categories:
+  - 核心收息层
+- code: "601988"
+  name: 中国银行
+  categories:
+  - 核心收息层
+- code: "601169"
+  name: 北京银行
+  categories:
+  - 次核心收息层
+- code: "600011"
+  name: 华能国际
+  categories:
+  - 次核心收息层
+- code: "601088"
+  name: 中国神华
+  categories:
+  - 次核心收息层
+- code: "601225"
+  name: 陕西煤业
+  categories:
+  - 次核心收息层
+- code: "600674"
+  name: 川投能源
+  categories:
+  - 次核心收息层
+- code: "600027"
+  name: 华电国际
+  categories:
+  - 次核心收息层
+- code: "600023"
+  name: 浙能电力
+  categories:
+  - 次核心收息层
+- code: "000088"
+  name: 盐田港
+  categories:
+  - 补充收益层
+- code: "601006"
+  name: 大秦铁路
+  categories:
+  - 补充收益层
+- code: "600377"
+  name: 宁沪高速
+  categories:
+  - 补充收益层
+- code: "000429"
+  name: 粤高速A
+  categories:
+  - 补充收益层
+- code: "600012"
+  name: 皖通高速
+  categories:
+  - 补充收益层
+- code: "001965"
+  name: 招商公路
+  categories:
+  - 补充收益层
+- code: "600350"
+  name: 山东高速
+  categories:
+  - 补充收益层
+- code: "600033"
+  name: 福建高速
+  categories:
+  - 补充收益层
+- code: "001872"
+  name: 招商港口
+  categories:
+  - 补充收益层

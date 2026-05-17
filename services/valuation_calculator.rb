@@ -55,7 +55,10 @@ class ValuationCalculator
     # 3. 价格位置
     if base_date
       from_date = base_date << 120
-      closes = stock.price_histories.where('date >= ?', from_date).where.not(close: nil).pluck(:close)
+      history_scope = stock.price_histories.where('date >= ?', from_date)
+      stock.high_all = history_scope.maximum(:high)
+      stock.low_all = history_scope.minimum(:low)
+      closes = history_scope.where.not(close: nil).pluck(:close)
       stock.price_position = percentile_for(latest_price, closes)
       update_rolling_price_metrics(stock, base_date, latest_price)
     end
@@ -134,6 +137,7 @@ class ValuationCalculator
 
   def update_rolling_price_metrics(stock, base_date, base_price)
     update_window(stock, '30d', 30, base_date, base_price)
+    update_window(stock, '90d', 90, base_date, base_price)
     update_window(stock, '1y', 365, base_date, base_price)
     update_window(stock, '3y', 1095, base_date, base_price)
     update_window(stock, '5y', 1825, base_date, base_price)

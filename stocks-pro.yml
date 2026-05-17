@@ -5024,3 +5024,18 @@ stocks:
   name: 中船防务
   categories:
   - 船舶制造
+- code: "600023"
+  name: 浙能电力
+  categories:
+  - 电力
+  - 公用事业
+- code: "600012"
+  name: 皖通高速
+  categories:
+  - 高速公路
+  - 交通运输
+- code: "001872"
+  name: 招商港口
+  categories:
+  - 港口
+  - 交通运输
