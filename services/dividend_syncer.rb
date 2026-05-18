@@ -56,6 +56,12 @@ class DividendSyncer
     
     if results.nil? || results.empty?
       puts "No dividend data in response for #{stock.name}: #{response.body[0..200]}"
+      unless stock.dividends.exists?
+        stock.dividend_yield = nil
+        stock.dividend_cash_per_share_year = nil if stock.has_attribute?(:dividend_cash_per_share_year)
+        stock.dividend_cash_per_share_latest_year = nil if stock.has_attribute?(:dividend_cash_per_share_latest_year)
+        stock.save! if stock.changed?
+      end
       return
     end
 
@@ -100,17 +106,27 @@ class DividendSyncer
       end
     end
     latest_price = stock.current_price || stock.price_histories.order(date: :desc).limit(1).pluck(:close).first
-    if latest_price && latest_price.to_f > 0
-      latest_dividend = stock.dividends.order(report_date: :desc).first
-      if latest_dividend
-        latest_year = latest_dividend.report_date.year
-        year_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend)
-        stock.dividend_yield = year_sum.to_f > 0 ? (year_sum.to_f / latest_price.to_f) * 100.0 : 0.0
+    latest_dividend = stock.dividends.order(report_date: :desc).first
+    if latest_dividend
+      latest_year = latest_dividend.report_date.year
+      year_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend).to_f
+      dps_year = year_sum > 0 ? latest_year : nil
+      dps_val = year_sum > 0 ? year_sum : nil
+
+      stock.dividend_cash_per_share_year = dps_year if stock.has_attribute?(:dividend_cash_per_share_year)
+      stock.dividend_cash_per_share_latest_year = dps_val if stock.has_attribute?(:dividend_cash_per_share_latest_year)
+
+      if latest_price && latest_price.to_f > 0 && dps_val && dps_val.to_f > 0
+        stock.dividend_yield = (dps_val.to_f / latest_price.to_f) * 100.0
       else
-        stock.dividend_yield = 0.0
+        stock.dividend_yield = nil
       end
-      stock.save! if stock.changed?
+    else
+      stock.dividend_yield = nil
+      stock.dividend_cash_per_share_year = nil if stock.has_attribute?(:dividend_cash_per_share_year)
+      stock.dividend_cash_per_share_latest_year = nil if stock.has_attribute?(:dividend_cash_per_share_latest_year)
     end
+    stock.save! if stock.changed?
 
     puts "Saved #{records_created} dividend records for #{stock.name}."
   end

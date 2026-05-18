@@ -569,6 +569,12 @@
                     </th>
                     <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">
                         <div class="inline-flex items-center gap-1 justify-end w-full">
+                            <%= sort_link('drop_to_buy_pct', '到买入价需跌幅') %>
+                            <a href="/kb/dividend" class="text-gray-400 hover:text-blue-600 normal-case" title="按最近一年每股股息(DPS)反推 5% 股息率买入价，再计算当前价距买入价的跌幅">?</a>
+                        </div>
+                    </th>
+                    <th class="p-3 border-b border-gray-200 text-right hidden md:table-cell">
+                        <div class="inline-flex items-center gap-1 justify-end w-full">
                             <%= sort_link('dividend_payout_ratio', '分红率') %>
                             <a href="/kb/dividend" class="text-gray-400 hover:text-blue-600 normal-case" title="查看知识库：股息率与分红">?</a>
                         </div>
@@ -685,6 +691,20 @@
                         </td>
                         <td class="p-3 text-right hidden md:table-cell"><%= format_decimal(stock.current_price, 2) %></td>
                         <td class="p-3 text-right font-bold text-blue-700"><%= stock.dividend_yield.nil? ? '未同步' : format_percent(stock.dividend_yield) %></td>
+                        <td class="p-3 text-right hidden md:table-cell">
+                            <%
+                                pct =
+                                    if stock.respond_to?(:dividend_cash_per_share_latest_year) && stock.dividend_cash_per_share_latest_year && stock.current_price && stock.current_price.to_f > 0
+                                        100.0 * (1.0 - (stock.dividend_cash_per_share_latest_year.to_f / (0.05 * stock.current_price.to_f)))
+                                    elsif !stock.dividend_yield.nil?
+                                        100.0 * (1.0 - (stock.dividend_yield.to_f / 5.0))
+                                    else
+                                        nil
+                                    end
+                                pct_label = pct.nil? ? '-' : "#{pct.to_f >= 0 ? '+' : ''}#{format_decimal(pct, 1)}%"
+                            %>
+                            <span class="<%= pct.nil? ? 'text-gray-400' : (pct.to_f >= 0 ? 'text-red-600 font-semibold' : 'text-green-600 font-semibold') %>"><%= pct_label %></span>
+                        </td>
                         <td class="p-3 text-right hidden md:table-cell"><%= stock.dividend_payout_ratio.nil? ? '-' : format_percent(stock.dividend_payout_ratio) %></td>
                         <td class="p-3 text-right"><%= format_decimal(stock.pe_ttm, 2) %></td>
                         <td class="p-3 text-right hidden md:table-cell"><%= stock.peg.nil? ? '-' : format_decimal(stock.peg, 2) %></td>

@@ -291,6 +291,7 @@ get '/' do
   @page_title = nil
   allowed_sort_fields = %w[
     current_price dividend_yield
+    drop_to_buy_pct
     turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
     peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev
     dividend_payout_ratio
@@ -464,7 +465,7 @@ get '/' do
 
   base_scope = build_filtered_scope(params)
 
-  order_sql = sorts.map { |s| "#{s[:field]} #{s[:order]} NULLS LAST" }.join(', ')
+  order_sql = sorts.map { |s| "#{sort_sql_expr(s[:field])} #{s[:order]} NULLS LAST" }.join(', ')
   page = params[:page].to_i
   page = 1 if page < 1
   per_page = 20
@@ -475,7 +476,7 @@ get '/' do
   page = @total_pages if page > @total_pages
   @page = page
 
-  ordered_scope = sorts.empty? ? base_scope.order(id: :desc) : base_scope.order(order_sql)
+  ordered_scope = sorts.empty? ? base_scope.order(id: :desc) : base_scope.order(Arel.sql(order_sql))
   @stocks = ordered_scope.offset((page - 1) * per_page).limit(per_page)
   stock_ids = @stocks.map(&:id)
   @pe_hist_counts = PriceHistory.where(stock_id: stock_ids).where.not(pe_ttm: nil).group(:stock_id).count
@@ -629,6 +630,7 @@ get '/dividend_layers' do
 
   allowed_sort_fields = %w[
     current_price dividend_yield
+    drop_to_buy_pct
     turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
     peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev
     dividend_payout_ratio
@@ -807,7 +809,7 @@ get '/dividend_layers' do
       build_filtered_scope(params).where(code: codes)
     end
 
-  order_sql = sorts.map { |s| "#{s[:field]} #{s[:order]} NULLS LAST" }.join(', ')
+  order_sql = sorts.map { |s| "#{sort_sql_expr(s[:field])} #{s[:order]} NULLS LAST" }.join(', ')
   page = params[:page].to_i
   page = 1 if page < 1
   per_page = 20
@@ -818,7 +820,7 @@ get '/dividend_layers' do
   page = @total_pages if page > @total_pages
   @page = page
 
-  ordered_scope = sorts.empty? ? base_scope.order(id: :desc) : base_scope.order(order_sql)
+  ordered_scope = sorts.empty? ? base_scope.order(id: :desc) : base_scope.order(Arel.sql(order_sql))
   @stocks = ordered_scope.offset((page - 1) * per_page).limit(per_page)
   stock_ids = @stocks.map(&:id)
   @pe_hist_counts = PriceHistory.where(stock_id: stock_ids).where.not(pe_ttm: nil).group(:stock_id).count
@@ -1100,6 +1102,7 @@ helpers do
   def allowed_sort_fields_for_list
     %w[
       current_price dividend_yield
+      drop_to_buy_pct
       turnover_rate volume pe_ttm pe_level pe_percentile pb pb_level pb_percentile roe_jq roe_level total_shares
       peg peg_level net_profit_yoy asset_liability_ratio interest_debt_ratio fcf_yield fcf_ev
       dividend_payout_ratio
@@ -1144,7 +1147,8 @@ helpers do
     scope = scope.where(roe_level: include_roe_levels) if include_roe_levels.any?
     scope = scope.where.not(roe_level: exclude_roe_levels) if exclude_roe_levels.any?
     if include_category_ids.any?
-      scope = scope.joins(:categorizations).where(categorizations: { category_id: include_category_ids }).distinct
+      included = Stock.joins(:categorizations).where(categorizations: { category_id: include_category_ids }).select(:id)
+      scope = scope.where(id: included)
     end
     if exclude_category_ids.any?
       excluded = Stock.joins(:categorizations).where(categorizations: { category_id: exclude_category_ids }).select(:id)
@@ -1163,6 +1167,15 @@ helpers do
     scope = scope.where('asset_liability_ratio <= 60 OR asset_liability_ratio IS NULL') if exclude_high_debt
     sorts.each do |s|
       scope = scope.where('pe_ttm > 0') if s[:field] == 'pe_ttm' && s[:order] == 'asc'
+      if s[:field] == 'drop_to_buy_pct'
+        if Stock.column_names.include?('dividend_cash_per_share_latest_year')
+          scope = scope.where.not(dividend_cash_per_share_latest_year: nil)
+          scope = scope.where('dividend_cash_per_share_latest_year > 0')
+        else
+          scope = scope.where.not(dividend_yield: nil)
+          scope = scope.where('dividend_yield > 0')
+        end
+      end
     end
 
     apply_advanced_filters(scope, adv_filters)
@@ -1173,11 +1186,24 @@ helpers do
     parse_sorts_param(p['sort'], allowed_sort_fields_for_list)
   end
 
+  def sort_sql_expr(field)
+    case field.to_s
+    when 'drop_to_buy_pct'
+      if Stock.column_names.include?('dividend_cash_per_share_latest_year')
+        "(CASE WHEN current_price IS NULL OR current_price <= 0 OR dividend_cash_per_share_latest_year IS NULL OR dividend_cash_per_share_latest_year <= 0 THEN NULL ELSE (1.0 - (dividend_cash_per_share_latest_year / (0.05 * current_price))) END)"
+      else
+        "(CASE WHEN dividend_yield IS NULL OR dividend_yield <= 0 THEN NULL ELSE (1.0 - (dividend_yield / 5.0)) END)"
+      end
+    else
+      field.to_s
+    end
+  end
+
   def order_scope_by_sorts(scope, sorts)
     s = Array(sorts)
     return scope.order(id: :desc) if s.empty?
-    order_sql = s.map { |x| "#{x[:field]} #{x[:order]} NULLS LAST" }.join(', ')
-    scope.order(order_sql)
+    order_sql = s.map { |x| "#{sort_sql_expr(x[:field])} #{x[:order]} NULLS LAST" }.join(', ')
+    scope.order(Arel.sql(order_sql))
   end
 
   def format_signed(value, precision = 2, suffix = '')
@@ -1206,6 +1232,47 @@ helpers do
 
   def render_markdown(text)
     md = text.to_s
+    lines = md.lines
+    out = []
+    in_fence = false
+    i = 0
+    while i < lines.size
+      line = lines[i]
+      stripped = line.strip
+      if stripped.start_with?('```')
+        in_fence = !in_fence
+        out << line
+        i += 1
+        next
+      end
+
+      if !in_fence && (stripped == '\[' || stripped == '$$')
+        j = i + 1
+        inner = []
+        while j < lines.size
+          s2 = lines[j].strip
+          break if s2 == '\]' || s2 == '$$'
+          inner << lines[j].strip
+          j += 1
+        end
+        if j < lines.size && (lines[j].strip == '\]' || lines[j].strip == '$$')
+          out << "$$ #{inner.join(' ')} $$\n"
+          i = j + 1
+          next
+        end
+      end
+
+      if !in_fence && stripped.start_with?('[') && stripped.end_with?(']') && line.include?('\\')
+        inner = stripped[1..-2].to_s.strip
+        out << "$$ #{inner} $$\n"
+        i += 1
+        next
+      end
+
+      out << line.gsub('\\[', '$$').gsub('\\]', '$$').gsub('\\(', '$').gsub('\\)', '$')
+      i += 1
+    end
+    md = out.join
     html =
       Kramdown::Document.new(
         md,
@@ -1558,6 +1625,7 @@ helpers do
       'code' => '代码',
       'current_price' => '最新价',
       'dividend_yield' => '历史股息率',
+      'drop_to_buy_pct' => '到买入价需跌幅(5%)',
       'dividend_payout_ratio' => '分红率',
       'turnover_rate' => '换手率',
       'volume' => '成交量',
