@@ -70,7 +70,7 @@
   :pe_ttm: 13.06
   :pe_percentile: 0.5552
   :valuation_label: 底部区域
-  :peg: 6.1762
+  :peg: 6.1015
   :peg_level: 4
   :net_profit_yoy: 1.5076
   :finance_report_date: '2026-03-31'
@@ -209,8 +209,8 @@
   :pe_ttm: 104.51
   :pe_percentile: 0.9666
   :valuation_label: 底部区域
-  :peg: 1.0006
-  :peg_level: 3
+  :peg: 0.9438
+  :peg_level: 2
   :net_profit_yoy: 108.891
   :finance_report_date: '2026-03-31'
   :pb: 1.64
@@ -300,7 +300,7 @@
   :pe_ttm: 11.38
   :pe_percentile: 0.5865
   :valuation_label: 偏低区域
-  :peg: 0.9481
+  :peg: 0.9574
   :peg_level: 2
   :net_profit_yoy: -3.6329
   :finance_report_date: '2026-03-31'
@@ -393,7 +393,7 @@
   :pe_ttm: 13.44
   :pe_percentile: 0.9351
   :valuation_label: 偏低区域
-  :peg: 1.456
+  :peg: 1.4253
   :peg_level: 3
   :net_profit_yoy: 14.7265
   :finance_report_date: '2026-03-31'
@@ -439,7 +439,7 @@
   :pe_ttm: 26.29
   :pe_percentile: 0.4236
   :valuation_label: 底部区域
-  :peg: 0.3267
+  :peg: 0.3209
   :peg_level: 1
   :net_profit_yoy: 82.5678
   :finance_report_date: '2026-03-31'
@@ -684,9 +684,9 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 7.4
+  :roe_jq: 2.91
   :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: true
+  :roe_5y_min_ge_8: false
   :total_shares: 21142968750.0
   :is_core: true
   :core_categories:
@@ -697,8 +697,8 @@
   :drop_to_5: -8.594000000000012
   :drop_to_6: 9.504999999999997
   :drop_to_7: 22.43285714285713
-  :roe_5y_avg: 9.702
-  :roe_5y_min: 8.65
+  :roe_5y_avg: 8.84
+  :roe_5y_min: 6.11
 - :code: '002027'
   :name: 分众传媒
   :categories:
@@ -719,7 +719,7 @@
   :pe_ttm: 22.38
   :pe_percentile: 0.5458
   :valuation_label: 底部区域
-  :peg: 3.0144
+  :peg: 2.8417
   :peg_level: 4
   :net_profit_yoy: 57.6461
   :finance_report_date: '2026-03-31'
@@ -765,7 +765,7 @@
   :pe_ttm: 14.64
   :pe_percentile: 0.1212
   :valuation_label: 中位区域
-  :peg: 1.2992
+  :peg: 1.2605
   :peg_level: 3
   :net_profit_yoy: 13.2413
   :finance_report_date: '2026-03-31'
@@ -1089,7 +1089,7 @@
   :pe_ttm: 19.11
   :pe_percentile: 0.0433
   :valuation_label: 底部区域
-  :peg: 1.2405
+  :peg: 1.2731
   :peg_level: 3
   :net_profit_yoy: 8.5472
   :finance_report_date: '2026-03-31'
@@ -1134,7 +1134,7 @@
   :pe_ttm: 17.05
   :pe_percentile: 0.3281
   :valuation_label: 偏低区域
-  :peg: 0.8651
+  :peg: 0.8424
   :peg_level: 2
   :net_profit_yoy: 13.5898
   :finance_report_date: '2026-03-31'
@@ -1271,7 +1271,7 @@
   :pe_ttm: 17.11
   :pe_percentile: 0.8552
   :valuation_label: 中位区域
-  :peg: 0.5972
+  :peg: 0.5855
   :peg_level: 2
   :net_profit_yoy: 28.2117
   :finance_report_date: '2026-03-31'
@@ -1317,7 +1317,7 @@
   :pe_ttm: 19.02
   :pe_percentile: 0.2562
   :valuation_label: 偏低区域
-  :peg: 18.2936
+  :peg: 18.9203
   :peg_level: 4
   :net_profit_yoy: 1.6796
   :finance_report_date: '2026-03-31'
@@ -1422,7 +1422,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 8.38
+  :roe_jq: 2.27
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 88363855421.0
@@ -1506,17 +1506,17 @@
   :valuation_label: 偏低区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -23.0144
-  :finance_report_date: '2025-09-30'
+  :net_profit_yoy: -7.2638
+  :finance_report_date: '2026-03-31'
   :pb: 0.66
-  :pb_percentile: 0.0502
+  :pb_percentile: 0.0493
   :drop_30d: -2.6565
-  :asset_liability_ratio: 14.0178
-  :interest_debt_ratio: 5.6952
-  :fcf_yield: 1.4678
-  :fcf_ev: 1.4454
-  :fcff_back: 1599847907.2058
-  :roe_jq: 3.82
+  :asset_liability_ratio: 14.0612
+  :interest_debt_ratio: 6.4941
+  :fcf_yield: 0.0327
+  :fcf_ev: 0.0321
+  :fcff_back: 35631261.4159
+  :roe_jq: 1.44
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 20147134935.0
@@ -1530,8 +1530,8 @@
   :drop_to_5: 18.669999999999998
   :drop_to_6: 32.225
   :drop_to_7: 41.907142857142865
-  :roe_5y_avg: 8.622
-  :roe_5y_min: 6.1
+  :roe_5y_avg: 7.534000000000001
+  :roe_5y_min: 3.64
 - :code: '601216'
   :name: 君正集团
   :categories:
@@ -1691,17 +1691,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -20.337
-  :finance_report_date: '2025-09-30'
+  :net_profit_yoy: -12.379
+  :finance_report_date: '2026-03-31'
   :pb: 2.22
-  :pb_percentile: 0.7645
+  :pb_percentile: 0.769
   :drop_30d: 8.1569
-  :asset_liability_ratio: 42.1699
-  :interest_debt_ratio: 9.438
-  :fcf_yield: 0.9321
-  :fcf_ev: 0.8947
-  :fcff_back: 2116343974.7151
-  :roe_jq: 13.74
+  :asset_liability_ratio: 40.1002
+  :interest_debt_ratio: 10.6831
+  :fcf_yield: -2.4994
+  :fcf_ev: -2.3897
+  :fcff_back: -5675117700.9651
+  :roe_jq: 4.21
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 9695004269.0
@@ -1713,8 +1713,8 @@
   :drop_to_5: 19.043999999999993
   :drop_to_6: 32.53666666666667
   :drop_to_7: 42.174285714285716
-  :roe_5y_avg: 23.06
-  :roe_5y_min: 19.37
+  :roe_5y_avg: 22.762
+  :roe_5y_min: 17.88
 - :code: '600295'
   :name: 鄂尔多斯
   :categories:
@@ -1734,7 +1734,7 @@
   :pe_ttm: 14.93
   :pe_percentile: 0.7842
   :valuation_label: 中位区域
-  :peg: 0.4486
+  :peg: 0.4189
   :peg_level: 1
   :net_profit_yoy: 42.7989
   :finance_report_date: '2026-03-31'
@@ -2478,17 +2478,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: 11.0601
-  :finance_report_date: '2025-12-31'
+  :net_profit_yoy: -10.7289
+  :finance_report_date: '2026-03-31'
   :pb: 1.96
   :pb_percentile: 0.8837
   :drop_30d: 1.5659
-  :asset_liability_ratio: 23.3066
-  :interest_debt_ratio: 6.2145
-  :fcf_yield: 8.5196
-  :fcf_ev: 8.4414
-  :fcff_back: 83634002470.4413
-  :roe_jq: 12.76
+  :asset_liability_ratio: 29.0313
+  :interest_debt_ratio: 16.0279
+  :fcf_yield: 6.4421
+  :fcf_ev: 6.2115
+  :fcff_back: 63239596962.7576
+  :roe_jq: 2.4
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 21689438798.0
@@ -2613,7 +2613,7 @@
   :pe_ttm: 10.89
   :pe_percentile: 0.6693
   :valuation_label: 中位区域
-  :peg: 1.3657
+  :peg: 1.386
   :peg_level: 3
   :net_profit_yoy: 5.6513
   :finance_report_date: '2026-03-31'
@@ -2752,7 +2752,7 @@
   :pe_ttm: 14.01
   :pe_percentile: 0.0424
   :valuation_label: 底部区域
-  :peg: 0.9563
+  :peg: 0.9272
   :peg_level: 2
   :net_profit_yoy: 10.6799
   :finance_report_date: '2026-03-31'
@@ -2844,7 +2844,7 @@
   :pe_ttm: 18.07
   :pe_percentile: 0.2009
   :valuation_label: 偏低区域
-  :peg: 2.4747
+  :peg: 2.3511
   :peg_level: 4
   :net_profit_yoy: 7.1377
   :finance_report_date: '2026-03-31'
@@ -3076,7 +3076,7 @@
   :pe_ttm: 17.57
   :pe_percentile: 0.1015
   :valuation_label: 底部区域
-  :peg: 1.1941
+  :peg: 1.1708
   :peg_level: 3
   :net_profit_yoy: 16.6764
   :finance_report_date: '2026-03-31'
@@ -3170,7 +3170,7 @@
   :pe_ttm: 12.02
   :pe_percentile: 0.3719
   :valuation_label: 底部区域
-  :peg: 1.7369
+  :peg: 1.6878
   :peg_level: 4
   :net_profit_yoy: -24.4052
   :finance_report_date: '2026-03-31'
@@ -3447,19 +3447,19 @@
   :pe_ttm: 14.85
   :pe_percentile: 0.7719
   :valuation_label: 中位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -48.543
-  :finance_report_date: '2025-12-31'
+  :peg: 6.694
+  :peg_level: 4
+  :net_profit_yoy: 1.4961
+  :finance_report_date: '2026-03-31'
   :pb: 0.98
-  :pb_percentile: 0.3975
+  :pb_percentile: 0.398
   :drop_30d: -8.8172
-  :asset_liability_ratio: 43.5832
-  :interest_debt_ratio: 34.4921
-  :fcf_yield: 10.3089
-  :fcf_ev: 7.6077
-  :fcff_back: 7089029568.9651
-  :roe_jq: 6.71
+  :asset_liability_ratio: 43.1624
+  :interest_debt_ratio: 33.1737
+  :fcf_yield: 1.5485
+  :fcf_ev: 1.155
+  :fcff_back: 1064828870.6861
+  :roe_jq: 1.9
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 6795059288.0
@@ -3542,7 +3542,7 @@
   :pe_ttm: 13.14
   :pe_percentile: 0.7419
   :valuation_label: 偏高区域
-  :peg: 0.5503
+  :peg: 0.5563
   :peg_level: 2
   :net_profit_yoy: 23.4578
   :finance_report_date: '2026-03-31'
@@ -3648,7 +3648,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 9.45
+  :roe_jq: 2.21
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 356406293706.0
@@ -3730,7 +3730,7 @@
   :pe_ttm: 12.42
   :pe_percentile: 0.3941
   :valuation_label: 偏低区域
-  :peg: 1.4572
+  :peg: 1.4432
   :peg_level: 3
   :net_profit_yoy: 7.6713
   :finance_report_date: '2026-03-31'
@@ -3823,19 +3823,19 @@
   :pe_ttm: 17.35
   :pe_percentile: 0.8808
   :valuation_label: 偏高区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: 24.5207
-  :finance_report_date: '2025-12-31'
+  :peg: 1.3851
+  :peg_level: 3
+  :net_profit_yoy: -31.2703
+  :finance_report_date: '2026-03-31'
   :pb: 2.4
-  :pb_percentile: 0.8788
+  :pb_percentile: 0.8847
   :drop_30d: -4.4164
-  :asset_liability_ratio: 46.983
-  :interest_debt_ratio: 39.5259
-  :fcf_yield: -7.2148
-  :fcf_ev: -6.1157
-  :fcff_back: -1997211712.3462
-  :roe_jq: 16.83
+  :asset_liability_ratio: 48.0381
+  :interest_debt_ratio: 39.5357
+  :fcf_yield: -3.2098
+  :fcf_ev: -2.6884
+  :fcff_back: -888525321.2213
+  :roe_jq: 3.99
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 2090785498.0
@@ -3962,7 +3962,7 @@
   :pe_ttm: 11.71
   :pe_percentile: 0.3074
   :valuation_label: 偏低区域
-  :peg: 1.3666
+  :peg: 1.3053
   :peg_level: 3
   :net_profit_yoy: 9.2279
   :finance_report_date: '2026-03-31'
@@ -4008,7 +4008,7 @@
   :pe_ttm: 13.06
   :pe_percentile: 0.552
   :valuation_label: 中位区域
-  :peg: 2.6474
+  :peg: 2.5957
   :peg_level: 4
   :net_profit_yoy: 1.8588
   :finance_report_date: '2026-03-31'
@@ -4104,14 +4104,14 @@
   :net_profit_yoy: 4.17
   :finance_report_date: '2026-03-31'
   :pb: 0.68
-  :pb_percentile: 0.7463
+  :pb_percentile: 0.7488
   :drop_30d: 2.1922
   :asset_liability_ratio: 91.7975
   :interest_debt_ratio: 88.3869
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 8.94
+  :roe_jq: 2.12
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 322212413793.0
@@ -4202,7 +4202,7 @@
   :asset_liability_ratio: 55.131
   :interest_debt_ratio: 15.2116
   :fcf_yield: -9.4864
-  :fcf_ev: -6.47
+  :fcf_ev: -6.4701
   :fcff_back: -2639315292.9518
   :roe_jq: 0.36
   :roe_5y_avg_ge_12: false
@@ -4329,7 +4329,7 @@
   :pe_ttm: 27.14
   :pe_percentile: 0.8884
   :valuation_label: 中位区域
-  :peg: 1.1807
+  :peg: 1.0732
   :peg_level: 3
   :net_profit_yoy: 23.8499
   :finance_report_date: '2026-03-31'
@@ -4421,7 +4421,7 @@
   :pe_ttm: 10.88
   :pe_percentile: 0.4426
   :valuation_label: 中位区域
-  :peg: 1.1684
+  :peg: 1.1401
   :peg_level: 3
   :net_profit_yoy: 10.3918
   :finance_report_date: '2026-03-31'
@@ -4516,17 +4516,17 @@
   :valuation_label: 偏低区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -55.4858
-  :finance_report_date: '2025-12-31'
+  :net_profit_yoy: -9.83
+  :finance_report_date: '2026-03-31'
   :pb: 1.64
-  :pb_percentile: 0.4596
+  :pb_percentile: 0.469
   :drop_30d: -4.2735
-  :asset_liability_ratio: 65.2629
-  :interest_debt_ratio: 50.4893
-  :fcf_yield: -4.2379
-  :fcf_ev: -1.5386
-  :fcff_back: -4869763319.1421
-  :roe_jq: 19.04
+  :asset_liability_ratio: 66.3237
+  :interest_debt_ratio: 52.4705
+  :fcf_yield: 2.5267
+  :fcf_ev: 0.883
+  :fcff_back: 2903417554.0838
+  :roe_jq: 5.78
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 15698087431.0
@@ -4567,14 +4567,14 @@
   :net_profit_yoy: 3.5273
   :finance_report_date: '2026-03-31'
   :pb: 0.74
-  :pb_percentile: 0.6655
+  :pb_percentile: 0.667
   :drop_30d: -2.0305
   :asset_liability_ratio: 92.0007
   :interest_debt_ratio: 87.2252
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 10.04
+  :roe_jq: 2.46
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 261600398009.0
@@ -4609,19 +4609,19 @@
   :pe_ttm: 13.09
   :pe_percentile: 0.6005
   :valuation_label: 偏高区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -8.4913
-  :finance_report_date: '2025-12-31'
+  :peg: 0.9286
+  :peg_level: 2
+  :net_profit_yoy: 12.8073
+  :finance_report_date: '2026-03-31'
   :pb: 1.43
-  :pb_percentile: 0.169
+  :pb_percentile: 0.1744
   :drop_30d: -2.4917
-  :asset_liability_ratio: 42.9593
-  :interest_debt_ratio: 33.9582
-  :fcf_yield: -4.1945
-  :fcf_ev: -3.4207
-  :fcff_back: -2607538988.6007
-  :roe_jq: 11.48
+  :asset_liability_ratio: 42.7849
+  :interest_debt_ratio: 31.2073
+  :fcf_yield: -7.0119
+  :fcf_ev: -5.7724
+  :fcff_back: -4359032960.0322
+  :roe_jq: 3.22
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 5037763371.0
@@ -4703,7 +4703,7 @@
   :pe_ttm: 14.87
   :pe_percentile: 0.833
   :valuation_label: 偏高区域
-  :peg: 0.9008
+  :peg: 0.9193
   :peg_level: 2
   :net_profit_yoy: -2.6713
   :finance_report_date: '2026-03-31'
@@ -4753,17 +4753,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -185.0266
-  :finance_report_date: '2025-12-31'
+  :net_profit_yoy: -9.9305
+  :finance_report_date: '2026-03-31'
   :pb: 1.19
   :pb_percentile: 0.5631
   :drop_30d: -7.7731
-  :asset_liability_ratio: 61.364
-  :interest_debt_ratio: 50.301
-  :fcf_yield: 30.0834
-  :fcf_ev: 12.6978
-  :fcff_back: 17920078918.0673
-  :roe_jq: 11.81
+  :asset_liability_ratio: 59.7073
+  :interest_debt_ratio: 49.9772
+  :fcf_yield: -6.9592
+  :fcf_ev: -3.0234
+  :fcff_back: -4145446201.7728
+  :roe_jq: 3.39
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 11611695906.0
@@ -4894,19 +4894,19 @@
   :pe_ttm: 15.83
   :pe_percentile: 0.003
   :valuation_label: 底部区域
-  :peg: 1.4543
-  :peg_level: 3
-  :net_profit_yoy: 10.9713
-  :finance_report_date: '2025-09-30'
+  :peg: 1.795
+  :peg_level: 4
+  :net_profit_yoy: 8.8488
+  :finance_report_date: '2026-03-31'
   :pb: 1.27
   :pb_percentile: 0.2389
   :drop_30d: 1.5351
-  :asset_liability_ratio: 18.4166
-  :interest_debt_ratio: 11.8448
-  :fcf_yield: 5.1208
-  :fcf_ev: 5.0079
-  :fcff_back: 1195512409.8491
-  :roe_jq: 5.94
+  :asset_liability_ratio: 17.9132
+  :interest_debt_ratio: 10.291
+  :fcf_yield: -0.3641
+  :fcf_ev: -0.3572
+  :fcff_back: -85002402.5924
+  :roe_jq: 1.87
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 5199554565.0
@@ -4920,7 +4920,7 @@
   :drop_to_5: 42.094
   :drop_to_6: 51.745
   :drop_to_7: 58.63857142857143
-  :roe_5y_avg: 6.562
+  :roe_5y_avg: 7.140000000000001
   :roe_5y_min: 4.43
 - :code: '600863'
   :name: 内蒙华电
@@ -4990,7 +4990,7 @@
   :pe_ttm: 12.18
   :pe_percentile: 0.0158
   :valuation_label: 底部区域
-  :peg: 0.9995
+  :peg: 0.9593
   :peg_level: 2
   :net_profit_yoy: 10.6555
   :finance_report_date: '2026-03-31'
@@ -5041,14 +5041,14 @@
   :net_profit_yoy: 4.5238
   :finance_report_date: '2026-03-31'
   :pb: 0.82
-  :pb_percentile: 0.8025
+  :pb_percentile: 0.8034
   :drop_30d: 9.3315
   :asset_liability_ratio: 93.5269
   :interest_debt_ratio: 89.3308
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 10.16
+  :roe_jq: 2.65
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 349983102918.0
@@ -5083,7 +5083,7 @@
   :pe_ttm: 11.98
   :pe_percentile: 0.134
   :valuation_label: 底部区域
-  :peg: 7.1532
+  :peg: 6.9615
   :peg_level: 4
   :net_profit_yoy: -2.0621
   :finance_report_date: '2026-03-31'
@@ -5129,7 +5129,7 @@
   :pe_ttm: 8.67
   :pe_percentile: 0.2074
   :valuation_label: 底部区域
-  :peg: 2.5434
+  :peg: 2.5375
   :peg_level: 4
   :net_profit_yoy: 2.5715
   :finance_report_date: '2026-03-31'
@@ -5177,19 +5177,19 @@
   :pe_ttm: 14.3
   :pe_percentile: 0.3675
   :valuation_label: 中位区域
-  :peg: 4.6942
+  :peg: 6.7694
   :peg_level: 4
-  :net_profit_yoy: -3.9374
-  :finance_report_date: '2025-09-30'
+  :net_profit_yoy: 1.9141
+  :finance_report_date: '2026-03-31'
   :pb: 1.54
-  :pb_percentile: 0.169
+  :pb_percentile: 0.1729
   :drop_30d: 2.853
-  :asset_liability_ratio: 61.1598
-  :interest_debt_ratio: 50.9171
-  :fcf_yield: -14.0338
-  :fcf_ev: -7.3096
-  :fcff_back: -14917899694.1926
-  :roe_jq: 10.06
+  :asset_liability_ratio: 59.5845
+  :interest_debt_ratio: 50.1203
+  :fcf_yield: -5.334
+  :fcf_ev: -2.8234
+  :fcff_back: -5670045792.0382
+  :roe_jq: 3.06
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 8004518072.0
@@ -5203,7 +5203,7 @@
   :drop_to_5: 31.25
   :drop_to_6: 42.708333333333336
   :drop_to_7: 50.89285714285714
-  :roe_5y_avg: 10.4
+  :roe_5y_avg: 9.914
   :roe_5y_min: 5.39
 - :code: '600428'
   :name: 中远海特
@@ -5225,7 +5225,7 @@
   :pe_ttm: 11.73
   :pe_percentile: 0.17
   :valuation_label: 中位区域
-  :peg: 1.0749
+  :peg: 1.0569
   :peg_level: 3
   :net_profit_yoy: 17.5278
   :finance_report_date: '2026-03-31'
@@ -5365,7 +5365,7 @@
   :pe_ttm: 14.72
   :pe_percentile: 0.2552
   :valuation_label: 偏低区域
-  :peg: 0.8657
+  :peg: 0.8693
   :peg_level: 2
   :net_profit_yoy: 6.8078
   :finance_report_date: '2026-03-31'
@@ -5457,7 +5457,7 @@
   :pe_ttm: 17.85
   :pe_percentile: 0.0089
   :valuation_label: 偏低区域
-  :peg: 2.8057
+  :peg: 2.7807
   :peg_level: 4
   :net_profit_yoy: 5.2286
   :finance_report_date: '2026-03-31'
@@ -5503,7 +5503,7 @@
   :pe_ttm: 17.82
   :pe_percentile: 0.9946
   :valuation_label: 偏高区域
-  :peg: 4.3217
+  :peg: 4.6959
   :peg_level: 4
   :net_profit_yoy: 3.4879
   :finance_report_date: '2026-03-31'
@@ -5551,7 +5551,7 @@
   :pe_ttm: 13.06
   :pe_percentile: 0.2803
   :valuation_label: 中位区域
-  :peg: 24.0601
+  :peg: 23.5551
   :peg_level: 4
   :net_profit_yoy: 6.7138
   :finance_report_date: '2026-03-31'
@@ -5689,19 +5689,19 @@
   :pe_ttm: 18.08
   :pe_percentile: 0.3744
   :valuation_label: 中位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -9.1297
-  :finance_report_date: '2025-09-30'
+  :peg: 0.9417
+  :peg_level: 2
+  :net_profit_yoy: 30.5016
+  :finance_report_date: '2026-03-31'
   :pb: 2.86
-  :pb_percentile: 0.5419
+  :pb_percentile: 0.5463
   :drop_30d: 1.7324
-  :asset_liability_ratio: 59.0358
-  :interest_debt_ratio: 50.7604
-  :fcf_yield: -2.6493
-  :fcf_ev: -2.1005
-  :fcff_back: -17281915715.6798
-  :roe_jq: 13.01
+  :asset_liability_ratio: 57.3271
+  :interest_debt_ratio: 51.5376
+  :fcf_yield: 0.5445
+  :fcf_ev: 0.434
+  :fcff_back: 3551983543.2944
+  :roe_jq: 3.01
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 24468229557.0
@@ -5715,7 +5715,7 @@
   :drop_to_5: 38.483999999999995
   :drop_to_6: 48.736666666666665
   :drop_to_7: 56.06
-  :roe_5y_avg: 14.036000000000001
+  :roe_5y_avg: 13.874
   :roe_5y_min: 9.32
 - :code: '001286'
   :name: 陕西能源
@@ -5737,7 +5737,7 @@
   :pe_ttm: 13.38
   :pe_percentile: 0.6037
   :valuation_label: 中位区域
-  :peg: 0.4965
+  :peg: 0.4925
   :peg_level: 1
   :net_profit_yoy: 26.2977
   :finance_report_date: '2026-03-31'
@@ -5829,7 +5829,7 @@
   :pe_ttm: 19.85
   :pe_percentile: 0.0305
   :valuation_label: 底部区域
-  :peg: 13.8895
+  :peg: 13.6623
   :peg_level: 4
   :net_profit_yoy: 1.4714
   :finance_report_date: '2026-03-31'
@@ -5874,7 +5874,7 @@
   :pe_ttm: 22.52
   :pe_percentile: 0.3862
   :valuation_label: 中位区域
-  :peg: 2.8826
+  :peg: 2.7765
   :peg_level: 4
   :net_profit_yoy: 7.8438
   :finance_report_date: '2026-03-31'
@@ -5919,7 +5919,7 @@
   :pe_ttm: 12.95
   :pe_percentile: 0.0773
   :valuation_label: 偏低区域
-  :peg: 0.149
+  :peg: 0.1417
   :peg_level: 1
   :net_profit_yoy: 82.6785
   :finance_report_date: '2026-03-31'
@@ -6057,7 +6057,7 @@
   :pe_ttm: 13.81
   :pe_percentile: 0.9453
   :valuation_label: 中位区域
-  :peg: 2.563
+  :peg: 2.5427
   :peg_level: 4
   :net_profit_yoy: 7.059
   :finance_report_date: '2026-03-31'
@@ -6149,7 +6149,7 @@
   :pe_ttm: 11.13
   :pe_percentile: 0.8961
   :valuation_label: 中位区域
-  :peg: 0.388
+  :peg: 0.3726
   :peg_level: 1
   :net_profit_yoy: 28.3545
   :finance_report_date: '2026-03-31'
@@ -6195,7 +6195,7 @@
   :pe_ttm: 17.02
   :pe_percentile: 0.0005
   :valuation_label: 底部区域
-  :peg: 4.1939
+  :peg: 4.1308
   :peg_level: 4
   :net_profit_yoy: 5.3068
   :finance_report_date: '2026-03-31'
@@ -6240,7 +6240,7 @@
   :pe_ttm: 10.53
   :pe_percentile: 0.064
   :valuation_label: 中位区域
-  :peg: 0.7217
+  :peg: 0.7056
   :peg_level: 2
   :net_profit_yoy: 7.3095
   :finance_report_date: '2026-03-31'
@@ -6331,7 +6331,7 @@
   :pe_ttm: 13.43
   :pe_percentile: 0.4133
   :valuation_label: 中位区域
-  :peg: 0.2906
+  :peg: 0.2717
   :peg_level: 1
   :net_profit_yoy: 46.4972
   :finance_report_date: '2026-03-31'
@@ -6423,7 +6423,7 @@
   :pe_ttm: 12.1
   :pe_percentile: 0.4606
   :valuation_label: 偏高区域
-  :peg: 4.1897
+  :peg: 4.1622
   :peg_level: 4
   :net_profit_yoy: 3.7785
   :finance_report_date: '2026-03-31'
@@ -6654,7 +6654,7 @@
   :pe_ttm: 13.64
   :pe_percentile: 0.0493
   :valuation_label: 底部区域
-  :peg: 3.723
+  :peg: 3.6825
   :peg_level: 4
   :net_profit_yoy: -0.4427
   :finance_report_date: '2026-03-31'
@@ -6796,7 +6796,7 @@
   :pe_ttm: 19.41
   :pe_percentile: 0.0813
   :valuation_label: 偏低区域
-  :peg: 0.5428
+  :peg: 0.5185
   :peg_level: 2
   :net_profit_yoy: 36.42
   :finance_report_date: '2026-03-31'
@@ -6842,7 +6842,7 @@
   :pe_ttm: 14.94
   :pe_percentile: 0.0044
   :valuation_label: 底部区域
-  :peg: 1.2845
+  :peg: 1.1883
   :peg_level: 3
   :net_profit_yoy: 11.1362
   :finance_report_date: '2026-03-31'
@@ -6980,7 +6980,7 @@
   :pe_ttm: 23.04
   :pe_percentile: 0.0033
   :valuation_label: 底部区域
-  :peg: 0.8907
+  :peg: 0.9161
   :peg_level: 2
   :net_profit_yoy: 28.3072
   :finance_report_date: '2026-03-31'
@@ -7162,7 +7162,7 @@
   :pe_ttm: 16.91
   :pe_percentile: 0.1897
   :valuation_label: 中位区域
-  :peg: 0.9099
+  :peg: 0.8961
   :peg_level: 2
   :net_profit_yoy: 23.293
   :finance_report_date: '2026-03-31'
@@ -7299,7 +7299,7 @@
   :pe_ttm: 11.92
   :pe_percentile: 0.2596
   :valuation_label: 中位区域
-  :peg: 0.1062
+  :peg: 0.1066
   :peg_level: 1
   :net_profit_yoy: 109.6965
   :finance_report_date: '2026-03-31'
@@ -7345,7 +7345,7 @@
   :pe_ttm: 22.14
   :pe_percentile: 0.252
   :valuation_label: 中位区域
-  :peg: 4.2028
+  :peg: 4.1782
   :peg_level: 4
   :net_profit_yoy: 5.1071
   :finance_report_date: '2026-03-31'
@@ -7537,7 +7537,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 1.0
   :pb_percentile: 0.1296
-  :drop_30d: -3.3191
+  :drop_30d: -1.153
   :asset_liability_ratio: 83.576
   :interest_debt_ratio: 27.8923
   :fcf_yield:
@@ -7697,6 +7697,24 @@
   :roe_5y_avg: 1.386
   :roe_5y_min: -6.03
 :upcoming_dividends_6m:
+- :code: '000708'
+  :name: 中信特钢
+  :ex_dividend_date: '2026-05-21'
+  :equity_record_date: '2026-05-20'
+  :notice_date: '2026-05-15'
+  :cash_dividend_per_share: 0.4458
+  :dividend_yield_pct: 3.0492
+  :progress: 实施分配
+  :plan_description: 10派4.457954元(含税,扣税后4.012159元)
+- :code: '603444'
+  :name: 吉比特
+  :ex_dividend_date: '2026-05-21'
+  :equity_record_date: '2026-05-20'
+  :notice_date: '2026-05-14'
+  :cash_dividend_per_share: 7.0
+  :dividend_yield_pct: 1.8205
+  :progress: 实施分配
+  :plan_description: 10派70.00元(含税,扣税后63.00元)
 - :code: '300979'
   :name: 华利集团
   :ex_dividend_date: '2026-05-22'
