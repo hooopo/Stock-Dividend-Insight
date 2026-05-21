@@ -22,12 +22,14 @@ require_relative 'services/macro_metric_syncer'
 require_relative 'services/future_dividend_syncer'
 
 class StockSyncService
-  def initialize(incremental: false, force: false, force_pull: false, backfill_cn10y: false, add_csi500: false, add_a500: false, add_kc50: false, add_tech50: false, add_ai50: false, add_dividend_etf_constituents: false, add_boshi_hldw100: false, add_fcf: false, add_theme_etf_constituents: false, backfill_fcf: false, skip_second_pass: false, fill_categories: false, sync_valuation_history: true, valuation_years: 10, valuation_force: false, sync_roe_history: true, roe_years: 12, gt3: false)
+  def initialize(incremental: false, force: false, force_pull: false, backfill_cn10y: false, add_csi500: false, add_a500: false, add_kc50: false, add_tech50: false, add_ai50: false, add_dividend_etf_constituents: false, add_boshi_hldw100: false, add_fcf: false, add_theme_etf_constituents: false, backfill_fcf: false, skip_second_pass: false, fill_categories: false, sync_valuation_history: true, valuation_years: 10, valuation_force: false, sync_roe_history: true, roe_years: 12, gt3: false, optimize_gt3_yml: false, gt3_min_market_cap_yi: 200.0)
     @incremental = incremental
     @force = force
     @force_pull = force_pull
     @backfill_cn10y = backfill_cn10y
     @gt3 = gt3
+    @optimize_gt3_yml = optimize_gt3_yml
+    @gt3_min_market_cap_yi = gt3_min_market_cap_yi.to_f
     @add_csi500 = add_csi500
     @add_a500 = add_a500
     @add_kc50 = add_kc50
@@ -50,6 +52,11 @@ class StockSyncService
   end
 
   def run
+    if @optimize_gt3_yml
+      prune_gt3_yml_by_market_cap!(min_market_cap_yi: @gt3_min_market_cap_yi)
+      return
+    end
+
     if @add_theme_etf_constituents
       apply_theme_etf_constituents_to_yml!
       return
@@ -235,6 +242,70 @@ class StockSyncService
 
   private
 
+  def prune_gt3_yml_by_market_cap!(file_path: 'stocks-dividend-gt3.yml', min_market_cap_yi: 200.0)
+    raise "missing #{file_path}" unless File.exist?(file_path)
+
+    data = YAML.load_file(file_path)
+    list = data.is_a?(Hash) ? (data['stocks'] || []) : (data || [])
+
+    rows =
+      list.filter_map do |row|
+        code = row.is_a?(Hash) ? row['code'].to_s.strip.rjust(6, '0') : nil
+        next unless code&.match?(/^\d{6}$/)
+        row.merge('code' => code)
+      end
+
+    codes = rows.map { |r| r['code'] }.uniq
+    scope = Stock.where(asset_type: 'stock', code: codes)
+    cap_by_code = scope.pluck(:code, :market_cap).to_h
+    threshold_yuan = min_market_cap_yi.to_f * 100_000_000.0
+
+    below = 0
+    nil_cap = 0
+    not_found = 0
+    kept =
+      rows.select do |r|
+        code = r['code']
+        cap = cap_by_code[code]
+        if !cap_by_code.key?(code)
+          not_found += 1
+          true
+        elsif cap.nil? || cap.to_f <= 0
+          nil_cap += 1
+          true
+        elsif cap.to_f < threshold_yuan
+          below += 1
+          false
+        else
+          true
+        end
+      end
+
+    kept_codes = kept.map { |r| r['code'] }.to_h { |c| [c, true] }
+    new_list =
+      list.filter_map do |row|
+        next row unless row.is_a?(Hash)
+        code = row['code'].to_s.strip.rjust(6, '0')
+        next unless code.match?(/^\d{6}$/)
+        next unless kept_codes[code]
+        row.merge('code' => code)
+      end
+
+    out =
+      if data.is_a?(Hash)
+        data['stocks'] = new_list
+        data.to_yaml
+      else
+        new_list.to_yaml
+      end
+
+    out = out.gsub(/^(\s*-\s*code:\s*)'?(\d{6})'?\s*$/, '\\1"\\2"')
+    out = out.gsub(/^(\s*code:\s*)'?(\d{6})'?\s*$/, '\\1"\\2"')
+    File.write(file_path, out)
+
+    puts "gt3_yml_pruned file=#{file_path} min_market_cap_yi=#{min_market_cap_yi} before=#{rows.size} kept=#{kept.size} removed_below=#{below} kept_nil_market_cap=#{nil_cap} kept_not_found=#{not_found}"
+  end
+
   def apply_theme_etf_constituents_to_yml!
     file_path = 'stocks-pro.yml'
     index_ids = %w[
@@ -286,6 +357,9 @@ if __FILE__ == $0
   force_pull = ARGV.include?('--force-pull')
   backfill_cn10y = ARGV.include?('--backfill-cn10y')
   gt3 = ARGV.include?('--gt3')
+  optimize_gt3_yml = ARGV.include?('--optimize-gt3-yml')
+  gt3_min_market_cap_yi = (ARGV.find { |x| x.start_with?('--gt3-min-market-cap-yi=') } || '').split('=', 2)[1].to_f
+  gt3_min_market_cap_yi = 200.0 if gt3_min_market_cap_yi <= 0
   add_csi500 = ARGV.include?('--add-csi500')
   add_a500 = ARGV.include?('--add-a500')
   add_kc50 = ARGV.include?('--add-kc50')
@@ -305,5 +379,5 @@ if __FILE__ == $0
   sync_roe_history = !ARGV.include?('--skip-roe-history')
   roe_years = (ARGV.find { |x| x.start_with?('--roe-years=') } || '').split('=', 2)[1].to_i
   roe_years = 12 if roe_years <= 0
-  StockSyncService.new(incremental: incremental, force: force, force_pull: force_pull, backfill_cn10y: backfill_cn10y, gt3: gt3, add_csi500: add_csi500, add_a500: add_a500, add_kc50: add_kc50, add_tech50: add_tech50, add_ai50: add_ai50, add_dividend_etf_constituents: add_dividend_etf_constituents, add_boshi_hldw100: add_boshi_hldw100, add_fcf: add_fcf, add_theme_etf_constituents: add_theme_etf_constituents, backfill_fcf: backfill_fcf, skip_second_pass: skip_second_pass, fill_categories: fill_categories, sync_valuation_history: sync_valuation_history, valuation_years: valuation_years, valuation_force: valuation_force, sync_roe_history: sync_roe_history, roe_years: roe_years).run
+  StockSyncService.new(incremental: incremental, force: force, force_pull: force_pull, backfill_cn10y: backfill_cn10y, gt3: gt3, optimize_gt3_yml: optimize_gt3_yml, gt3_min_market_cap_yi: gt3_min_market_cap_yi, add_csi500: add_csi500, add_a500: add_a500, add_kc50: add_kc50, add_tech50: add_tech50, add_ai50: add_ai50, add_dividend_etf_constituents: add_dividend_etf_constituents, add_boshi_hldw100: add_boshi_hldw100, add_fcf: add_fcf, add_theme_etf_constituents: add_theme_etf_constituents, backfill_fcf: backfill_fcf, skip_second_pass: skip_second_pass, fill_categories: fill_categories, sync_valuation_history: sync_valuation_history, valuation_years: valuation_years, valuation_force: valuation_force, sync_roe_history: sync_roe_history, roe_years: roe_years).run
 end

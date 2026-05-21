@@ -2,6 +2,7 @@ require 'yaml'
 require 'date'
 require 'time'
 require 'fileutils'
+require 'digest'
 
 ROOT_DIR = File.expand_path('..', __dir__)
 IN_YML = File.join(ROOT_DIR, 'stocks-dividend-gt3.yml')
@@ -42,6 +43,33 @@ def format_score_half(v)
   ((r - r.round).abs < 1e-9) ? r.round.to_s : format('%.1f', r)
 end
 
+CORE_CATEGORY_TOKENS = %w[
+  银行 国有大行 城商行龙头 城商行
+  电力 水电 火电龙头 火电 地方能源
+  公用事业 燃气 水务
+  交通 高速 铁路 港口 高速铁路
+  通信 三大运营商 运营商
+].freeze
+
+def norm_category(s)
+  s.to_s.strip.gsub(/\s+/, '').gsub(/[\/｜|、，,]/, '')
+end
+
+def core_hits_for(categories)
+  cats = Array(categories).map(&:to_s)
+  norms = cats.map { |c| norm_category(c) }
+  hits = []
+  norms.each_with_index do |c, idx|
+    next if c.empty?
+    CORE_CATEGORY_TOKENS.each do |t|
+      next unless (c == t) || c.include?(t)
+      hits << cats[idx]
+      break
+    end
+  end
+  hits.uniq
+end
+
 raise "missing #{IN_YML}" unless File.exist?(IN_YML)
 data = YAML.load_file(IN_YML)
 list = data.is_a?(Hash) ? (data['stocks'] || []) : (data || [])
@@ -56,35 +84,62 @@ yml_rows =
 
 codes = yml_rows.map { |x| x[:code] }.uniq
 
+has_consecutive_dividend_years = Stock.column_names.include?('consecutive_dividend_years')
+stock_pluck_keys = [
+  :id, :code, :name,
+  :buy_score, :avg_dividend_yield_3y, :dividend_yield
+]
+stock_pluck_keys << :consecutive_dividend_years if has_consecutive_dividend_years
+stock_pluck_keys.concat(
+  [
+    :dividend_cash_per_share_latest_year, :current_price,
+    :pe_percentile, :pb_percentile, :price_position,
+    :roe_jq, :drop_30d, :asset_liability_ratio, :fcf_yield
+  ]
+)
+
 stocks =
   Stock
     .where(asset_type: 'stock', code: codes)
-    .pluck(
-      :id, :code, :name,
-      :buy_score, :avg_dividend_yield_3y, :dividend_yield,
-      :dividend_cash_per_share_latest_year, :current_price,
-      :pe_percentile, :pb_percentile, :price_position,
-      :roe_jq, :drop_30d, :asset_liability_ratio, :fcf_yield
-    )
-    .map do |id, code, name, buy_score, avg3y, dy, dps, price, pe_pct, pb_pct, pos, roe, drop30, debt, fcf_y|
+    .pluck(*stock_pluck_keys)
+    .map do |vals|
+      v = stock_pluck_keys.zip(vals).to_h
       {
-        id: id,
-        code: code.to_s.rjust(6, '0'),
-        name: name.to_s,
-        buy_score: buy_score&.to_f,
-        avg_dividend_yield_3y: avg3y&.to_f,
-        dividend_yield: dy&.to_f,
-        dividend_cash_per_share_latest_year: dps&.to_f,
-        current_price: price&.to_f,
-        pe_percentile: pe_pct&.to_f,
-        pb_percentile: pb_pct&.to_f,
-        price_position: pos&.to_f,
-        roe_jq: roe&.to_f,
-        drop_30d: drop30&.to_f,
-        asset_liability_ratio: debt&.to_f,
-        fcf_yield: fcf_y&.to_f
+        id: v[:id],
+        code: v[:code].to_s.rjust(6, '0'),
+        name: v[:name].to_s,
+        buy_score: v[:buy_score]&.to_f,
+        avg_dividend_yield_3y: v[:avg_dividend_yield_3y]&.to_f,
+        dividend_yield: v[:dividend_yield]&.to_f,
+        consecutive_dividend_years: has_consecutive_dividend_years ? v[:consecutive_dividend_years]&.to_i : nil,
+        dividend_cash_per_share_latest_year: v[:dividend_cash_per_share_latest_year]&.to_f,
+        current_price: v[:current_price]&.to_f,
+        pe_percentile: v[:pe_percentile]&.to_f,
+        pb_percentile: v[:pb_percentile]&.to_f,
+        price_position: v[:price_position]&.to_f,
+        roe_jq: v[:roe_jq]&.to_f,
+        drop_30d: v[:drop_30d]&.to_f,
+        asset_liability_ratio: v[:asset_liability_ratio]&.to_f,
+        fcf_yield: v[:fcf_yield]&.to_f
       }
     end
+
+categories_by_stock_id = {}
+begin
+  conn = ActiveRecord::Base.connection
+  if conn.data_source_exists?('categorizations') && conn.data_source_exists?('categories')
+    stock_ids_for_cats = stocks.map { |x| x[:id] }.compact.uniq
+    if stock_ids_for_cats.any?
+      pairs = Categorization.joins(:category).where(stock_id: stock_ids_for_cats).pluck(:stock_id, 'categories.name')
+      categories_by_stock_id =
+        pairs
+          .group_by { |sid, _| sid }
+          .transform_values { |xs| xs.map { |_, n| n.to_s.strip }.reject(&:empty?).uniq }
+    end
+  end
+rescue StandardError
+  categories_by_stock_id = {}
+end
 
 by_code = stocks.index_by { |x| x[:code] }
 
@@ -93,6 +148,10 @@ rows_out =
     .filter_map do |row|
       m = by_code[row[:code]]
       next unless m
+
+      cats = (Array(row[:categories]) + Array(categories_by_stock_id[m[:id]])).map(&:to_s).map(&:strip).reject(&:empty?).uniq
+      core_hits = core_hits_for(cats)
+
       dy = m[:dividend_yield]
       next unless dy && dy > 3.0
 
@@ -106,6 +165,9 @@ rows_out =
       drop7 = (buy7 && price && price > 0) ? ((1.0 - (buy7 / price)) * 100.0) : nil
 
       row.merge(m).merge(
+        categories: cats,
+        is_core: core_hits.any?,
+        core_categories: core_hits,
         buy_price_5: buy5,
         buy_price_6: buy6,
         buy_price_7: buy7,
@@ -143,7 +205,7 @@ upcoming =
       }
     end
 
-generated_at = Time.now.utc.iso8601
+generated_at_bj = Time.now.getlocal('+08:00').to_date.to_s
 
 html = <<~HTML
 <!doctype html>
@@ -157,6 +219,7 @@ html = <<~HTML
     h1{margin:0 0 8px 0;font-size:20px}
     .meta{color:#666;font-size:12px;margin-bottom:16px}
     .card{background:#fff;border:1px solid #eee;border-radius:10px;padding:16px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+    .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
     table{border-collapse:collapse;width:100%;font-size:12px}
     th,td{border-bottom:1px solid #eee;padding:8px 10px;vertical-align:middle}
     th{position:sticky;top:0;background:#fff;cursor:pointer;user-select:none;white-space:nowrap}
@@ -164,67 +227,114 @@ html = <<~HTML
     .right{text-align:right}
     .search{width:280px;max-width:100%;padding:8px 10px;border:1px solid #ddd;border-radius:8px;font-size:12px}
     .row-hidden{display:none}
+    .name-code{white-space:normal;line-height:1.25}
+    .code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;color:#888;font-size:11px;margin-top:2px}
+    .btn{appearance:none;border:1px solid #ddd;background:#fff;border-radius:8px;padding:8px 10px;font-size:12px;color:#111}
+    .btn:active{transform:scale(0.99)}
+    .check{display:inline-flex;align-items:center;gap:6px;border:1px solid #ddd;background:#fff;border-radius:999px;padding:8px 10px;font-size:12px;color:#111}
+    .check input{width:14px;height:14px}
+    .row-click{cursor:pointer}
+    .detail{white-space:normal}
+    .price-hit{font-weight:700;color:#c1121f}
+    .detail-card{background:#fafafe;border:1px solid #eee;border-radius:10px;padding:12px}
+    .kv{display:flex;flex-wrap:wrap;gap:10px 10px}
+    .kv-item{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #eee;border-radius:999px;padding:6px 10px;font-size:12px}
+    .kv-item b{color:#555;font-weight:600}
+    .kv-item span{color:#111}
+    .kv-full{flex:1 1 100%;border-radius:10px}
+    @media (max-width: 640px){
+      body{padding:12px}
+      .card{padding:12px}
+      th,td{padding:6px 8px}
+      table{font-size:11px}
+      h1{font-size:18px}
+      .detail-card{padding:10px}
+      .kv-item{font-size:11px;padding:6px 9px}
+    }
   </style>
 </head>
 <body>
   <div class="card">
     <h1>GT3 红利列表（股息率&gt;3%）</h1>
-    <div class="meta">生成时间(UTC)：#{generated_at} · 行数：#{rows_out.size}</div>
-    <input id="q" class="search" placeholder="搜索 名称/代码" />
+    <div class="meta">生成日期（北京时间）：#{generated_at_bj} · 行数：#{rows_out.size}</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <input id="q" class="search" placeholder="搜索 名称/代码" />
+      <label class="check"><input id="coreOnly" type="checkbox" />核心</label>
+      <button id="btnSaveMain" type="button" class="btn">保存为图片</button>
+    </div>
   </div>
 
-  <div class="card">
+  <div class="card" id="captureMain">
+    <div class="table-wrap" id="captureTable">
     <table id="t">
       <thead>
         <tr>
-          <th data-k="name" data-t="str">名称</th>
-          <th data-k="code" data-t="str">代码</th>
-          <th class="right" data-k="score" data-t="num">评分</th>
+          <th data-k="namecode" data-t="str">名称/代码</th>
+          <th class="right" data-k="price" data-t="num">最新价</th>
           <th class="right" data-k="avg3y" data-t="num">3年均息率</th>
-          <th class="right" data-k="dy" data-t="num">股息率</th>
-          <th class="right" data-k="drop5" data-t="num">5%需跌</th>
-          <th class="right" data-k="drop6" data-t="num">6%需跌</th>
-          <th class="right" data-k="drop7" data-t="num">7%需跌</th>
-          <th class="right" data-k="pepct" data-t="num">PE分位</th>
-          <th class="right" data-k="pbpct" data-t="num">PB分位</th>
-          <th class="right" data-k="pos" data-t="num">价格分位</th>
-          <th class="right" data-k="roe" data-t="num">ROE</th>
-          <th class="right" data-k="drop30" data-t="num">30天跌幅</th>
-          <th class="right" data-k="debt" data-t="num">资产负债率</th>
-          <th class="right" data-k="fcf" data-t="num">FCF收益率</th>
+          <th class="right" data-k="dy" data-t="num">最新股息率</th>
+          <th class="right" data-k="cdy" data-t="num">连续分红(年)</th>
+          <th class="right" data-k="p5" data-t="num">首仓价(5%)</th>
+          <th class="right" data-k="p6" data-t="num">加仓价(6%)</th>
+          <th class="right" data-k="p7" data-t="num">重仓价(7%)</th>
+          <th class="right" data-k="score" data-t="num">评分</th>
         </tr>
       </thead>
       <tbody>
 HTML
 
 rows_out.each do |r|
-  html << "<tr>"
-  html << "<td data-v=\"#{r[:name]}\">#{r[:name]}</td>"
-  html << "<td data-v=\"#{r[:code]}\">#{r[:code]}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:buy_score]}\">#{format_score_half(r[:buy_score])}</td>"
+  key = Digest::MD5.hexdigest("#{r[:code]}|#{r[:name]}")
+  namecode = "#{r[:name]} #{r[:code]}"
+  cur_price = r[:current_price].to_f
+  cur_price_ok = r[:current_price] && cur_price.finite?
+
+  html << "<tr class=\"row-click main\" data-id=\"#{key}\" data-core=\"#{r[:is_core] ? 1 : 0}\">"
+  html << "<td class=\"name-code\" data-v=\"#{namecode}\">#{r[:name]}<div class=\"code\">#{r[:code]}</div></td>"
+  html << "<td class=\"right\" data-v=\"#{r[:current_price]}\">#{format_num(r[:current_price], 2)}</td>"
   html << "<td class=\"right\" data-v=\"#{r[:avg_dividend_yield_3y]}\">#{format_pct(r[:avg_dividend_yield_3y], 2)}</td>"
   html << "<td class=\"right\" data-v=\"#{r[:dividend_yield]}\">#{format_pct(r[:dividend_yield], 2)}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:drop_to_5]}\">#{format_pct(r[:drop_to_5], 1)}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:drop_to_6]}\">#{format_pct(r[:drop_to_6], 1)}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:drop_to_7]}\">#{format_pct(r[:drop_to_7], 1)}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:pe_percentile]}\">#{format_ratio_pct(r[:pe_percentile], 0)}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:pb_percentile]}\">#{format_ratio_pct(r[:pb_percentile], 0)}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:price_position]}\">#{format_ratio_pct(r[:price_position], 0)}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:roe_jq]}\">#{format_pct(r[:roe_jq], 1)}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:drop_30d]}\">#{format_pct(r[:drop_30d], 1)}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:asset_liability_ratio]}\">#{format_pct(r[:asset_liability_ratio], 1)}</td>"
-  html << "<td class=\"right\" data-v=\"#{r[:fcf_yield]}\">#{format_pct(r[:fcf_yield], 2)}</td>"
+  html << "<td class=\"right\" data-v=\"#{r[:consecutive_dividend_years]}\">#{r[:consecutive_dividend_years].to_i if r[:consecutive_dividend_years]}</td>"
+  hit5 = cur_price_ok && r[:buy_price_5] && cur_price <= r[:buy_price_5].to_f
+  hit6 = cur_price_ok && r[:buy_price_6] && cur_price <= r[:buy_price_6].to_f
+  hit7 = cur_price_ok && r[:buy_price_7] && cur_price <= r[:buy_price_7].to_f
+  html << "<td class=\"right#{hit5 ? ' price-hit' : ''}\" data-v=\"#{r[:buy_price_5]}\">#{format_num(r[:buy_price_5], 2)}</td>"
+  html << "<td class=\"right#{hit6 ? ' price-hit' : ''}\" data-v=\"#{r[:buy_price_6]}\">#{format_num(r[:buy_price_6], 2)}</td>"
+  html << "<td class=\"right#{hit7 ? ' price-hit' : ''}\" data-v=\"#{r[:buy_price_7]}\">#{format_num(r[:buy_price_7], 2)}</td>"
+  html << "<td class=\"right\" data-v=\"#{r[:buy_score]}\">#{format_score_half(r[:buy_score])}</td>"
+  html << "</tr>\n"
+
+  html << "<tr class=\"detail-row row-hidden\" data-for=\"#{key}\">"
+  html << "<td class=\"detail\" colspan=\"9\">"
+  html << "<div class=\"detail-card\">"
+  html << "<div class=\"kv\">"
+  html << "<div class=\"kv-item\"><b>最新年度DPS</b><span>#{format_num(r[:dividend_cash_per_share_latest_year], 4)}</span></div>"
+  html << "<div class=\"kv-item\"><b>PE分位</b><span>#{format_ratio_pct(r[:pe_percentile], 0)}</span></div>"
+  html << "<div class=\"kv-item\"><b>PB分位</b><span>#{format_ratio_pct(r[:pb_percentile], 0)}</span></div>"
+  html << "<div class=\"kv-item\"><b>价格分位</b><span>#{format_ratio_pct(r[:price_position], 0)}</span></div>"
+  html << "<div class=\"kv-item\"><b>ROE</b><span>#{format_pct(r[:roe_jq], 1)}</span></div>"
+  html << "<div class=\"kv-item\"><b>资产负债率</b><span>#{format_pct(r[:asset_liability_ratio], 1)}</span></div>"
+  html << "<div class=\"kv-item\"><b>FCF收益率</b><span>#{format_pct(r[:fcf_yield], 2)}</span></div>"
+  html << "<div class=\"kv-item kv-full\"><b>分类</b><span>#{Array(r[:categories]).join(' / ')}</span></div>"
+  html << "</div>"
+  html << "</div>"
+  html << "</td>"
   html << "</tr>\n"
 end
 
 html << <<~HTML
       </tbody>
     </table>
+    </div>
   </div>
 
   <div class="card">
     <h1 style="font-size:16px;margin:0 0 8px 0;">半年内即将分红</h1>
     <div class="meta">按除权除息日正序 · 条数：#{upcoming.size}</div>
+    <div style="margin:10px 0 0 0;">
+      <button id="btnSaveDiv" type="button" class="btn">保存为图片</button>
+    </div>
+    <div class="table-wrap" id="captureDiv">
     <table id="t2">
       <thead>
         <tr>
@@ -255,8 +365,10 @@ end
 html << <<~HTML
       </tbody>
     </table>
+    </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script>
     (function(){
       function getVal(td, type){
@@ -270,19 +382,27 @@ html << <<~HTML
       }
       function sortTable(table, key, type, dir){
         const tbody = table.querySelector('tbody');
-        const rows = Array.from(tbody.querySelectorAll('tr'));
+        const mains = Array.from(tbody.querySelectorAll('tr.main'));
         const idx = Array.from(table.querySelectorAll('thead th')).findIndex(th => th.getAttribute('data-k')===key);
-        rows.sort((a,b)=>{
-          const av = getVal(a.children[idx], type);
-          const bv = getVal(b.children[idx], type);
+        const items = mains.map(m => {
+          const id = m.getAttribute('data-id');
+          const detail = tbody.querySelector(`tr.detail-row[data-for="${id}"]`);
+          return { m, d: detail };
+        });
+        items.sort((a,b)=>{
+          const av = getVal(a.m.children[idx], type);
+          const bv = getVal(b.m.children[idx], type);
           if(av===null && bv===null) return 0;
           if(av===null) return 1;
           if(bv===null) return -1;
           if(type==='num') return av-bv;
           return av.localeCompare(bv,'zh');
         });
-        if(dir==='desc') rows.reverse();
-        rows.forEach(r=>tbody.appendChild(r));
+        if(dir==='desc') items.reverse();
+        items.forEach(x=>{
+          tbody.appendChild(x.m);
+          if(x.d) tbody.appendChild(x.d);
+        });
       }
       function bind(table){
         const ths = table.querySelectorAll('thead th[data-k]');
@@ -305,16 +425,61 @@ html << <<~HTML
       sortTable(t, 'score', 'num', 'desc');
 
       const q = document.getElementById('q');
-      const rows = Array.from(document.querySelectorAll('#t tbody tr'));
-      q.addEventListener('input', ()=>{
-        const s = q.value.trim().toLowerCase();
-        rows.forEach(r=>{
-          if(!s){ r.classList.remove('row-hidden'); return; }
-          const name = r.children[0].textContent.trim().toLowerCase();
-          const code = r.children[1].textContent.trim().toLowerCase();
-          if(name.includes(s) || code.includes(s)) r.classList.remove('row-hidden'); else r.classList.add('row-hidden');
+      const coreOnly = document.getElementById('coreOnly');
+      const mains = Array.from(document.querySelectorAll('#t tbody tr.main'));
+      function applyFilters(){
+        const s = (q && q.value ? q.value : '').trim().toLowerCase();
+        const onlyCore = !!(coreOnly && coreOnly.checked);
+        mains.forEach(r=>{
+          const id = r.getAttribute('data-id');
+          const detail = document.querySelector(`#t tbody tr.detail-row[data-for="${id}"]`);
+
+          let ok = true;
+          if(onlyCore && r.getAttribute('data-core') !== '1') ok = false;
+          if(ok && s){
+            const text = r.children[0].textContent.trim().toLowerCase();
+            if(!text.includes(s)) ok = false;
+          }
+
+          if(ok){
+            r.classList.remove('row-hidden');
+          } else {
+            r.classList.add('row-hidden');
+            if(detail) detail.classList.add('row-hidden');
+          }
+        });
+      }
+      if(q) q.addEventListener('input', applyFilters);
+      if(coreOnly) coreOnly.addEventListener('change', applyFilters);
+
+      document.querySelectorAll('#t tbody tr.main').forEach(tr=>{
+        tr.addEventListener('click', ()=>{
+          const id = tr.getAttribute('data-id');
+          const detail = document.querySelector(`#t tbody tr.detail-row[data-for="${id}"]`);
+          if(!detail) return;
+          detail.classList.toggle('row-hidden');
         });
       });
+
+      function saveAsImage(targetId, fileName){
+        const el = document.getElementById(targetId);
+        if(!el || !window.html2canvas) return;
+        html2canvas(el, { backgroundColor: '#ffffff', scale: 2 }).then(canvas=>{
+          const a = document.createElement('a');
+          a.href = canvas.toDataURL('image/png');
+          a.download = fileName;
+          a.click();
+        });
+      }
+
+      const btnMain = document.getElementById('btnSaveMain');
+      if(btnMain){
+        btnMain.addEventListener('click', ()=> saveAsImage('captureTable', 'gt3_#{generated_at_bj}.png'));
+      }
+      const btnDiv = document.getElementById('btnSaveDiv');
+      if(btnDiv){
+        btnDiv.addEventListener('click', ()=> saveAsImage('captureDiv', 'gt3_dividend_#{generated_at_bj}.png'));
+      }
     })();
   </script>
 </body>
@@ -324,7 +489,7 @@ HTML
 File.write(OUT_HTML, html)
 
 payload = {
-  generated_at_utc: generated_at,
+  generated_date_beijing: generated_at_bj,
   source_yml: File.basename(IN_YML),
   filter: { dividend_yield_gt: 3.0 },
   stocks: rows_out.map { |x| x.reject { |k, _| k == :id } },

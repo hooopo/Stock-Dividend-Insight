@@ -108,6 +108,26 @@ class DividendSyncer
     latest_price = stock.current_price || stock.price_histories.order(date: :desc).limit(1).pluck(:close).first
     latest_dividend = stock.dividends.order(report_date: :desc).first
     if latest_dividend
+      if stock.has_attribute?(:consecutive_dividend_years)
+        per_year = Hash.new(0.0)
+        stock.dividends.pluck(:report_date, :cash_dividend).each do |d, cash|
+          y = d&.year
+          next unless y
+          per_year[y] += cash.to_f
+        end
+        positive_years = per_year.select { |_, v| v.to_f > 0.0 }.keys
+        if positive_years.empty?
+          stock.consecutive_dividend_years = nil
+        else
+          y = positive_years.max
+          n = 0
+          while per_year[y - n].to_f > 0.0
+            n += 1
+          end
+          stock.consecutive_dividend_years = n
+        end
+      end
+
       latest_year = latest_dividend.report_date.year
       year_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend).to_f
       dps_year = year_sum > 0 ? latest_year : nil
@@ -159,6 +179,7 @@ class DividendSyncer
       stock.dividend_cash_per_share_year = nil if stock.has_attribute?(:dividend_cash_per_share_year)
       stock.dividend_cash_per_share_latest_year = nil if stock.has_attribute?(:dividend_cash_per_share_latest_year)
       stock.avg_dividend_yield_3y = nil if stock.has_attribute?(:avg_dividend_yield_3y)
+      stock.consecutive_dividend_years = nil if stock.has_attribute?(:consecutive_dividend_years)
     end
     stock.save! if stock.changed?
 

@@ -5,29 +5,15 @@ stocks:
   categories:
   - 中药
   - 医药卫生
-- code: "000915"
-  name: 华特达因
-  categories:
-  - 化学制剂
 - code: "600066"
   name: 宇通客车
   categories:
   - 汽车整车
   - 可选消费
-- code: "002572"
-  name: 索菲亚
-  categories:
-  - 家居用品
-  - 可选消费
 - code: "000651"
   name: 格力电器
   categories:
   - 可选消费
-- code: "300770"
-  name: 新媒股份
-  categories:
-  - 新媒体
-  - 传媒
 - code: "600153"
   name: 建发股份
   categories:
@@ -42,10 +28,6 @@ stocks:
   categories:
   - 化学原料
   - 原材料
-- code: "601083"
-  name: 锦江航运
-  categories:
-  - 交通运输
 - code: "600398"
   name: 海澜之家
   categories:
@@ -86,11 +68,6 @@ stocks:
   categories:
   - 银行
   - 金融
-- code: "600750"
-  name: 华润江中
-  categories:
-  - 中药
-  - 医药卫生
 - code: "002027"
   name: 分众传媒
   categories:
@@ -121,20 +98,11 @@ stocks:
   categories:
   - 汽车零部件
   - 可选消费
-- code: "600694"
-  name: 大商股份
-  categories:
-  - 多业态零售
 - code: "600023"
   name: 浙能电力
   categories:
   - 电力
   - 公用事业
-- code: "002508"
-  name: 老板电器
-  categories:
-  - 厨卫电器
-  - 可选消费
 - code: "601229"
   name: 上海银行
   categories:
@@ -178,10 +146,6 @@ stocks:
   categories:
   - 银行
   - 金融
-- code: "603529"
-  name: 爱玛科技
-  categories:
-  - 其他交运设备
 - code: "600582"
   name: 天地科技
   categories:
@@ -191,11 +155,6 @@ stocks:
   name: 凤凰传媒
   categories:
   - 平面媒体
-- code: "600351"
-  name: 亚宝药业
-  categories:
-  - 中药
-  - 医药卫生
 - code: "600011"
   name: 华能国际
   categories:
@@ -216,10 +175,6 @@ stocks:
   categories:
   - 银行
   - 金融
-- code: "600496"
-  name: 精工钢构
-  categories:
-  - 钢结构
 - code: "603444"
   name: 吉比特
   categories:
@@ -228,14 +183,6 @@ stocks:
   name: 南钢股份
   categories:
   - 原材料
-- code: "600502"
-  name: 安徽建工
-  categories:
-  - 水利工程
-- code: "601801"
-  name: 皖新传媒
-  categories:
-  - 平面媒体
 - code: "600016"
   name: 民生银行
   categories:
@@ -245,19 +192,11 @@ stocks:
   name: 美的集团
   categories:
   - 可选消费
-- code: "603279"
-  name: 景津装备
-  categories:
-  - 环保设备
 - code: "002032"
   name: 苏泊尔
   categories:
   - 小家电
   - 可选消费
-- code: "300532"
-  name: 今天国际
-  categories:
-  - IT服务
 - code: "000921"
   name: 海信家电
   categories:
@@ -267,11 +206,6 @@ stocks:
   categories:
   - 乳制品
   - 消费
-- code: "002839"
-  name: 张家港行
-  categories:
-  - 银行
-  - 金融
 - code: "600295"
   name: 鄂尔多斯
   categories:
@@ -281,20 +215,6 @@ stocks:
   categories:
   - 房地产开发
   - 房地产
-- code: "600285"
-  name: 羚锐制药
-  categories:
-  - 中药
-  - 医药卫生
-- code: "601339"
-  name: 百隆东方
-  categories:
-  - 纺织服饰
-  - 可选消费
-- code: "600757"
-  name: 长江传媒
-  categories:
-  - 平面媒体
 - code: "600019"
   name: 宝钢股份
   categories:
@@ -334,19 +254,11 @@ stocks:
   categories:
   - 中药
   - 医药卫生
-- code: "601098"
-  name: 中南传媒
-  categories:
-  - 传媒
 - code: "002056"
   name: 横店东磁
   categories:
   - 光伏设备
   - 工业
-- code: "600729"
-  name: 重庆百货
-  categories:
-  - 多业态零售
 - code: "600795"
   name: 国电电力
   categories:
@@ -375,10 +287,6 @@ stocks:
   categories:
   - 通信服务
   - 电信业务
-- code: "002746"
-  name: 仙坛股份
-  categories:
-  - 畜禽养殖
 - code: "600642"
   name: 申能股份
   categories:
@@ -394,10 +302,6 @@ stocks:
   categories:
   - 银行
   - 金融
-- code: "000719"
-  name: 中原传媒
-  categories:
-  - 平面媒体
 - code: "300628"
   name: 亿联网络
   categories:
@@ -408,11 +312,6 @@ stocks:
   categories:
   - 啤酒
   - 消费
-- code: "603233"
-  name: 大参林
-  categories:
-  - 医药商业
-  - 医药卫生
 - code: "603816"
   name: 顾家家居
   categories:
@@ -422,11 +321,6 @@ stocks:
   categories:
   - 银行
   - 金融
-- code: "603899"
-  name: 晨光股份
-  categories:
-  - 文娱用品
-  - 可选消费
 - code: "601077"
   name: 渝农商行
   categories:
@@ -460,37 +354,15 @@ stocks:
   categories:
   - 钢铁
   - 原材料
-- code: "603111"
-  name: 康尼机电
-  categories:
-  - 铁路设备
-  - 交通运输
 - code: "000429"
   name: 粤高速A
   categories:
   - 高速公路
   - 交通运输
-- code: "600461"
-  name: 洪城环境
-  categories:
-  - 水务
-- code: "002372"
-  name: 伟星新材
-  categories:
-  - 管材
-- code: "603611"
-  name: 诺力股份
-  categories:
-  - 机械设备
 - code: "600704"
   name: 物产中大
   categories:
   - 物流
-- code: "300146"
-  name: 汤臣倍健
-  categories:
-  - 食品饮料
-  - 消费
 - code: "600873"
   name: 梅花生物
   categories:
@@ -535,20 +407,6 @@ stocks:
   categories:
   - 银行
   - 金融
-- code: "603323"
-  name: 苏农银行
-  categories:
-  - 银行
-  - 金融
-- code: "601921"
-  name: 浙版传媒
-  categories:
-  - 平面媒体
-- code: "600908"
-  name: 无锡银行
-  categories:
-  - 银行
-  - 金融
 - code: "000088"
   name: 盐田港
   categories:
@@ -564,10 +422,6 @@ stocks:
   categories:
   - 电工
   - 可选消费
-- code: "600064"
-  name: 南京高科
-  categories:
-  - 园区开发
 - code: "601000"
   name: 唐山港
   categories:
@@ -606,15 +460,6 @@ stocks:
   categories:
   - 中药
   - 医药卫生
-- code: "603368"
-  name: 柳药集团
-  categories:
-  - 医药商业
-  - 医药卫生
-- code: "002416"
-  name: 爱施德
-  categories:
-  - 专业连锁
 - code: "601857"
   name: 中国石油
   categories:
@@ -625,16 +470,6 @@ stocks:
   categories:
   - 医药商业
   - 医药卫生
-- code: "002958"
-  name: 青农商行
-  categories:
-  - 银行
-  - 金融
-- code: "603866"
-  name: 桃李面包
-  categories:
-  - 食品综合
-  - 消费
 - code: "600428"
   name: 中远海特
   categories:
@@ -669,10 +504,6 @@ stocks:
   name: 福能股份
   categories:
   - 火电
-- code: "601019"
-  name: 山东出版
-  categories:
-  - 平面媒体
 - code: "000683"
   name: 博源化工
   categories:
@@ -702,11 +533,6 @@ stocks:
   categories:
   - 白酒
   - 消费
-- code: "603658"
-  name: 安图生物
-  categories:
-  - 医疗器械
-  - 医药卫生
 - code: "600863"
   name: 内蒙华电
   categories:
@@ -728,16 +554,6 @@ stocks:
   - 医药卫生
 - code: "601988"
   name: 中国银行
-  categories:
-  - 银行
-  - 金融
-- code: "002758"
-  name: 浙农股份
-  categories:
-  - 医药商业
-  - 医药卫生
-- code: "601860"
-  name: 紫金银行
   categories:
   - 银行
   - 金融
@@ -791,25 +607,11 @@ stocks:
   categories:
   - 钢铁
   - 原材料
-- code: "001227"
-  name: 兰州银行
-  categories:
-  - 银行
-  - 金融
 - code: "600900"
   name: 长江电力
   categories:
   - 公用事业
   - 电力
-- code: "300978"
-  name: 东箭科技
-  categories:
-  - 汽车零部件
-- code: "603858"
-  name: 步长制药
-  categories:
-  - 化学制药
-  - 医药卫生
 - code: "002601"
   name: 龙佰集团
   categories:
@@ -825,30 +627,16 @@ stocks:
   categories:
   - 高速公路
   - 交通运输
-- code: "002454"
-  name: 松芝股份
-  categories:
-  - 汽车零部件
 - code: "002223"
   name: 鱼跃医疗
   categories:
   - 医疗器械
   - 医药卫生
-- code: "600755"
-  name: 厦门国贸
-  categories:
-  - 供应链服务
-  - 交通运输
 - code: "002415"
   name: 海康威视
   categories:
   - 计算机
   - 信息技术
-- code: "300144"
-  name: 宋城演艺
-  categories:
-  - 旅游
-  - 可选消费
 - code: "603605"
   name: 珀莱雅
   categories:
@@ -857,15 +645,6 @@ stocks:
   name: 海油发展
   categories:
   - 油气钻采服务
-- code: "002832"
-  name: 比音勒芬
-  categories:
-  - 其他服装
-- code: "600572"
-  name: 康恩贝
-  categories:
-  - 中药
-  - 医药卫生
 - code: "001286"
   name: 陕西能源
   categories:
@@ -880,33 +659,15 @@ stocks:
   name: 北大荒
   categories:
   - 农业
-- code: "000598"
-  name: 兴蓉环境
-  categories:
-  - 水务
 - code: "000783"
   name: 长江证券
   categories:
   - 证券
   - 金融
-- code: "600820"
-  name: 隧道股份
-  categories:
-  - 城轨建设
-- code: "600867"
-  name: 通化东宝
-  categories:
-  - 生物制品
-  - 医药卫生
 - code: "002532"
   name: 天山铝业
   categories:
   - 其它通用机械
-- code: "002507"
-  name: 涪陵榨菜
-  categories:
-  - 食品综合
-  - 消费
 - code: "601390"
   name: 中国中铁
   categories:
@@ -946,40 +707,16 @@ stocks:
   categories:
   - 保险
   - 金融
-- code: "000739"
-  name: 普洛药业
-  categories:
-  - 化学原料药
-  - 医药卫生
-- code: "600057"
-  name: 厦门象屿
-  categories:
-  - 物流
 - code: "600004"
   name: 白云机场
   categories:
   - 机场
   - 交通运输
-- code: "603882"
-  name: 金域医学
-  categories:
-  - 医疗服务
-  - 医药卫生
 - code: "002714"
   name: 牧原股份
   categories:
   - 养殖业
   - 消费
-- code: "600971"
-  name: 恒源煤电
-  categories:
-  - 煤炭
-  - 能源
-- code: "600033"
-  name: 福建高速
-  categories:
-  - 高速公路
-  - 交通运输
 - code: "605499"
   name: 东鹏饮料
   categories:
@@ -990,21 +727,6 @@ stocks:
   categories:
   - 电力
   - 公用事业
-- code: "002727"
-  name: 一心堂
-  categories:
-  - 医药商业
-  - 医药卫生
-- code: "000404"
-  name: 长虹华意
-  categories:
-  - 家电零部件
-  - 消费
-- code: "603883"
-  name: 老百姓
-  categories:
-  - 医药商业
-  - 医药卫生
 - code: "600958"
   name: 东方证券
   categories:
@@ -1020,20 +742,11 @@ stocks:
   categories:
   - 港口
   - 交通运输
-- code: "600258"
-  name: 首旅酒店
-  categories:
-  - 酒店
-  - 可选消费
 - code: "002304"
   name: 洋河股份
   categories:
   - 白酒
   - 消费
-- code: "600420"
-  name: 国药现代
-  categories:
-  - 化学制剂
 - code: "603939"
   name: 益丰药房
   categories:
@@ -1052,11 +765,6 @@ stocks:
   name: 新和成
   categories:
   - 化学制药
-  - 医药卫生
-- code: "002773"
-  name: 康弘药业
-  categories:
-  - 医药生物
   - 医药卫生
 - code: "600999"
   name: 招商证券
@@ -1091,11 +799,6 @@ stocks:
   categories:
   - 证券
   - 金融
-- code: "600300"
-  name: 维维股份
-  categories:
-  - 软饮料
-  - 消费
 - code: "601800"
   name: 中国交建
   categories:
@@ -1110,10 +813,6 @@ stocks:
   name: 中策橡胶
   categories:
   - 轮胎
-- code: "300470"
-  name: 中密控股
-  categories:
-  - 其它通用机械
 - code: "002249"
   name: 大洋电机
   categories:
