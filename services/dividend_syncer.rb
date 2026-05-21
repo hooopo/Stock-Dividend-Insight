@@ -146,33 +146,25 @@ class DividendSyncer
 
       if stock.has_attribute?(:avg_dividend_yield_3y)
         years = [latest_year - 2, latest_year - 1, latest_year]
-        yields = []
-        years.each do |y|
-          dps = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', y).sum(:cash_dividend).to_f
-          if dps <= 0
-            yields = []
-            break
+        if latest_price && latest_price.to_f > 0
+          dps_values = []
+          years.each do |y|
+            dps = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', y).sum(:cash_dividend).to_f
+            if dps <= 0
+              dps_values = []
+              break
+            end
+            dps_values << dps
           end
 
-          range = Date.new(y, 1, 1)..Date.new(y, 12, 31)
-          ps = stock.price_histories.where(date: range).where.not(close: nil)
-          avg_close = ps.average(:close)
-          avg_close = avg_close.to_f if avg_close
-          if avg_close.nil? || avg_close.to_f <= 0
-            last_close = ps.order(date: :desc).limit(1).pluck(:close).first
-            avg_close = last_close.to_f if last_close
+          if dps_values.size == 3
+            yields = dps_values.map { |dps| (dps / latest_price.to_f) * 100.0 }
+            stock.avg_dividend_yield_3y = yields.sum / 3.0
+            stock.min_dividend_yield_3y = yields.min if stock.has_attribute?(:min_dividend_yield_3y)
+          else
+            stock.avg_dividend_yield_3y = nil
+            stock.min_dividend_yield_3y = nil if stock.has_attribute?(:min_dividend_yield_3y)
           end
-          if avg_close.nil? || avg_close.to_f <= 0
-            yields = []
-            break
-          end
-
-          yields << (dps / avg_close.to_f) * 100.0
-        end
-
-        if yields.size == 3
-          stock.avg_dividend_yield_3y = yields.sum / 3.0
-          stock.min_dividend_yield_3y = yields.min if stock.has_attribute?(:min_dividend_yield_3y)
         else
           stock.avg_dividend_yield_3y = nil
           stock.min_dividend_yield_3y = nil if stock.has_attribute?(:min_dividend_yield_3y)
