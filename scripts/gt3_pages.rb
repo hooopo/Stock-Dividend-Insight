@@ -234,6 +234,7 @@ rows_out =
       drop5 = (buy5 && price && price > 0) ? ((1.0 - (buy5 / price)) * 100.0) : nil
       drop6 = (buy6 && price && price > 0) ? ((1.0 - (buy6 / price)) * 100.0) : nil
       drop7 = (buy7 && price && price > 0) ? ((1.0 - (buy7 / price)) * 100.0) : nil
+      need_drop5 = drop5 ? [drop5.to_f, 0.0].max : nil
 
       row.merge(m).merge(
         categories: cats,
@@ -242,6 +243,7 @@ rows_out =
         buy_price_5: buy5,
         buy_price_6: buy6,
         buy_price_7: buy7,
+        need_drop_to_5: need_drop5,
         drop_to_5: drop5,
         drop_to_6: drop6,
         drop_to_7: drop7
@@ -249,7 +251,7 @@ rows_out =
     end
 
 rows_out.sort_by! do |x|
-  [-(x[:avg_dividend_yield_3y] || 0).to_f, -(x[:dividend_yield] || 0).to_f, x[:code]]
+  [(x[:need_drop_to_5].nil? ? 1_000_000.0 : x[:need_drop_to_5].to_f), -(x[:avg_dividend_yield_3y] || 0).to_f, x[:code]]
 end
 
 consecutive_map = {}
@@ -434,6 +436,7 @@ html = <<~HTML
           <th class="right" data-k="yields" data-t="num"><span class="h-desktop">股息率(新/均/低)</span><span class="h-mobile">股息率</span></th>
           <th class="right" data-k="payout" data-t="num"><span class="h-desktop">分红率</span><span class="h-mobile">分红率</span></th>
           <th class="right" data-k="cdy" data-t="num"><span class="h-desktop">连续分红(年)</span><span class="h-mobile">连续分红</span></th>
+          <th class="right" data-k="needDrop" data-t="num"><span class="h-desktop">需跌幅(首)</span><span class="h-mobile">需跌幅</span></th>
           <th class="right only-desktop" data-k="p5" data-t="num">首仓价(5%)</th>
           <th class="right only-desktop" data-k="p6" data-t="num">加仓价(6%)</th>
           <th class="right only-desktop" data-k="p7" data-t="num">重仓价(7%)</th>
@@ -455,6 +458,7 @@ rows_out.each do |r|
   html << "<td class=\"right\" data-label=\"股息率\" data-v=\"#{r[:dividend_yield]}\"><div class=\"yield-lines\"><span><span style=\"color:#666\">新</span> #{format_pct(r[:dividend_yield], 2)}</span><span><span style=\"color:#666\">均</span> #{format_pct(r[:avg_dividend_yield_3y], 2)}</span><span><span style=\"color:#666\">低</span> #{format_pct(r[:min_dividend_yield_3y], 2)}</span></div></td>"
   html << "<td class=\"right\" data-label=\"分红率\" data-v=\"#{r[:dividend_payout_ratio]}\">#{format_pct(r[:dividend_payout_ratio], 0)}</td>"
   html << "<td class=\"right\" data-label=\"连续分红(年)\" data-v=\"#{r[:consecutive_dividend_years]}\">#{r[:consecutive_dividend_years].to_i if r[:consecutive_dividend_years]}</td>"
+  html << "<td class=\"right\" data-label=\"需跌幅\" data-v=\"#{r[:need_drop_to_5]}\">#{format_pct(r[:need_drop_to_5], 2)}</td>"
   hit5 = cur_price_ok && r[:buy_price_5] && cur_price <= r[:buy_price_5].to_f
   hit6 = cur_price_ok && r[:buy_price_6] && cur_price <= r[:buy_price_6].to_f
   hit7 = cur_price_ok && r[:buy_price_7] && cur_price <= r[:buy_price_7].to_f
@@ -465,7 +469,7 @@ rows_out.each do |r|
   html << "</tr>\n"
 
   html << "<tr class=\"detail-row row-hidden\" data-for=\"#{key}\">"
-  html << "<td class=\"detail\" colspan=\"9\">"
+  html << "<td class=\"detail\" colspan=\"10\">"
   html << "<div class=\"detail-card\">"
   html << "<div class=\"kv\">"
   html << "<div class=\"kv-item\"><b>换手率</b><span>#{format_pct(r[:turnover_rate], 2)}</span></div>"
@@ -613,7 +617,7 @@ html << <<~HTML
       const t2 = document.getElementById('t2');
       bind(t);
       bind(t2);
-      sortTable(t, 'avg3y', 'num', 'desc');
+      sortTable(t, 'needDrop', 'num', 'asc');
 
       const q = document.getElementById('q');
       const coreOnly = document.getElementById('coreOnly');
