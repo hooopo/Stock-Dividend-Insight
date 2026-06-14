@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-06-13'
+:generated_date_beijing: '2026-06-14'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt: 3.0
@@ -7737,7 +7737,7 @@
   :equity_record_date: '2026-06-15'
   :notice_date: '2026-06-10'
   :cash_dividend_per_share: 0.45
-  :dividend_yield_pct: 2.0747
+  :dividend_yield_pct:
   :progress: 实施分配
   :plan_description: 10派4.50元(含税)
 - :code: '601077'
