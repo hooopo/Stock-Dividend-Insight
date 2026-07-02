@@ -36,6 +36,11 @@ stocks:
   categories:
   - 白酒
   - 消费
+- code: "000568"
+  name: 泸州老窖
+  categories:
+  - 白酒
+  - 消费
 - code: "601939"
   name: 建设银行
   categories:
@@ -95,6 +100,12 @@ stocks:
   - 金融
 - code: "601899"
   name: 紫金矿业
+  categories:
+  - 有色金属
+  - 原材料
+  - 贵金属
+- code: "000975"
+  name: 山金国际
   categories:
   - 有色金属
   - 原材料

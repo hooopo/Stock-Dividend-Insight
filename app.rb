@@ -73,6 +73,18 @@ helpers do
     set_flash("数据库未就绪：#{e.class}")
     redirect '/'
   end
+
+  def ensure_holdings_table!
+    conn = ActiveRecord::Base.connection
+    needed = %w[portfolio_holdings]
+    missing = needed.reject { |t| conn.data_source_exists?(t) }
+    return if missing.empty?
+    set_flash("持仓功能需要先跑数据库迁移：rake migrate（缺少表：#{missing.join(', ')}）")
+    redirect '/'
+  rescue StandardError => e
+    set_flash("数据库未就绪：#{e.class}")
+    redirect '/'
+  end
 end
 
 get '/health' do
@@ -139,6 +151,167 @@ end
 post '/logout' do
   log_out
   redirect '/login'
+end
+
+get '/holdings' do
+  require_login!
+  ensure_holdings_table!
+  @layout_full_width = true
+  @editing_holding = nil
+  edit_id = params[:edit_id].to_s.strip
+  if edit_id.size > 0
+    @editing_holding = current_user.portfolio_holdings.includes(:stock).find_by(id: edit_id)
+    set_flash('未找到要编辑的持仓记录') if @editing_holding.nil?
+  end
+
+  @holding_form = {
+    holding_id: @editing_holding&.id,
+    code: @editing_holding&.stock&.code.to_s,
+    name: @editing_holding&.stock&.name.to_s,
+    shares: @editing_holding&.shares,
+    avg_cost: @editing_holding&.avg_cost,
+    bought_on: @editing_holding&.bought_on
+  }
+
+  raw_holdings =
+    current_user
+      .portfolio_holdings
+      .includes(stock: [:future_dividends, :dividends])
+      .order(updated_at: :desc, id: :desc)
+      .to_a
+
+  @holdings =
+    raw_holdings.map do |holding|
+      stock = holding.stock
+      shares = holding.shares.to_i
+      avg_cost = holding.avg_cost.to_f
+      current_price = stock&.current_price&.to_f
+      cost_basis = shares * avg_cost
+      market_value = current_price && current_price > 0 ? (shares * current_price) : nil
+      unrealized_pnl = market_value ? (market_value - cost_basis) : nil
+
+      dividend_rows = stock.dividends.to_a
+      latest_dividend_year = dividend_rows.filter_map { |div| div.report_date&.year }.max
+      latest_year_dps =
+        if latest_dividend_year
+          dividend_rows.sum do |div|
+            div.report_date&.year == latest_dividend_year ? div.cash_dividend.to_f : 0.0
+          end
+        else
+          0.0
+        end
+      recent_year_dividend_cash = latest_year_dps * shares
+
+      future_dividend_rows = stock.future_dividends.to_a
+      next_month_events =
+        future_dividend_rows.select do |fd|
+          fd.ex_dividend_date && fd.ex_dividend_date >= Date.today && fd.ex_dividend_date <= Date.today + 30
+        end
+      upcoming_events =
+        future_dividend_rows
+          .select do |fd|
+            fd.ex_dividend_date && fd.ex_dividend_date >= Date.today && fd.ex_dividend_date <= Date.today + 365
+          end
+          .sort_by { |fd| [fd.ex_dividend_date, fd.security_code.to_s] }
+      next_month_dividend_cash = next_month_events.sum { |fd| fd.cash_dividend_per_share.to_f } * shares
+
+      current_dividend_yield = stock&.dividend_yield&.to_f
+      expected_annual_dividend_cash =
+        if current_price && current_price > 0 && current_dividend_yield && current_dividend_yield > 0
+          shares * current_price * current_dividend_yield / 100.0
+        else
+          0.0
+        end
+
+      {
+        record: holding,
+        stock: stock,
+        shares: shares,
+        avg_cost: avg_cost,
+        cost_basis: cost_basis,
+        current_price: current_price,
+        market_value: market_value,
+        unrealized_pnl: unrealized_pnl,
+        latest_dividend_year: latest_dividend_year,
+        latest_year_dps: latest_year_dps,
+        recent_year_dividend_cash: recent_year_dividend_cash,
+        current_dividend_yield: current_dividend_yield,
+        next_month_dividend_cash: next_month_dividend_cash,
+        expected_annual_dividend_cash: expected_annual_dividend_cash,
+        upcoming_events: upcoming_events.first(5)
+      }
+    end
+
+  @totals = {
+    cost_basis: @holdings.sum { |x| x[:cost_basis].to_f },
+    market_value: @holdings.sum { |x| x[:market_value].to_f },
+    recent_year_dividend_cash: @holdings.sum { |x| x[:recent_year_dividend_cash].to_f },
+    next_month_dividend_cash: @holdings.sum { |x| x[:next_month_dividend_cash].to_f },
+    expected_annual_dividend_cash: @holdings.sum { |x| x[:expected_annual_dividend_cash].to_f }
+  }
+
+  erb :holdings
+end
+
+post '/holdings' do
+  require_login!
+  ensure_holdings_table!
+
+  holding_id = params[:holding_id].to_s.strip
+  code = params[:code].to_s.strip.rjust(6, '0')
+  name = params[:name].to_s.strip
+  shares = params[:shares].to_s.strip
+  avg_cost = params[:avg_cost].to_s.strip
+  bought_on = params[:bought_on].to_s.strip
+
+  stock =
+    if code.match?(/^\d{6}$/)
+      Stock.find_by(code: code, asset_type: 'stock')
+    elsif !name.empty?
+      Stock.find_by(name: name, asset_type: 'stock')
+    end
+
+  unless stock
+    set_flash('未找到对应股票，请填写正确名称或代码，并确保该股票已同步到数据库')
+    redirect(holding_id.empty? ? '/holdings' : "/holdings?edit_id=#{holding_id}")
+  end
+
+  holding =
+    if holding_id.empty?
+      current_user.portfolio_holdings.find_or_initialize_by(stock_id: stock.id)
+    else
+      current_user.portfolio_holdings.find(holding_id)
+    end
+
+  duplicate_holding =
+    current_user.portfolio_holdings.where(stock_id: stock.id).where.not(id: holding.id).first
+  if duplicate_holding
+    set_flash("该股票已存在持仓：#{stock.name}(#{stock.code})，请直接编辑现有记录")
+    redirect "/holdings?edit_id=#{holding.id}"
+  end
+
+  holding.stock = stock
+  holding.shares = shares.to_i
+  holding.avg_cost = avg_cost
+  holding.bought_on = (Date.parse(bought_on) rescue nil) if bought_on.size > 0
+  holding.bought_on = nil if bought_on.empty?
+
+  if holding.save
+    action_text = holding_id.empty? ? '已保存持仓' : '已更新持仓'
+    set_flash("#{action_text}：#{stock.name}(#{stock.code})")
+  else
+    set_flash(holding.errors.full_messages.join('；'))
+  end
+  redirect(holding.errors.any? && !holding_id.empty? ? "/holdings?edit_id=#{holding.id}" : '/holdings')
+end
+
+post '/holdings/:id/delete' do
+  require_login!
+  ensure_holdings_table!
+  holding = current_user.portfolio_holdings.find(params[:id])
+  holding.destroy
+  set_flash('已删除持仓')
+  redirect '/holdings'
 end
 
 get '/pools' do

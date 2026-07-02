@@ -1,0 +1,153 @@
+<div class="space-y-6">
+  <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+    <div class="flex items-start justify-between gap-4 flex-wrap">
+      <div>
+        <h2 class="text-xl font-semibold text-gray-900">持仓分红看板</h2>
+        <p class="mt-1 text-sm text-gray-500">先手动录入持仓；你后续把券商持仓截图发给我，我可以帮你识别出名称、代码、成本和数量，再代你录入。最近一年分红总额按最近一个分红年度的 DPS 合计乘当前持仓股数计算；最近一年预期分红总额按当前价格乘当前股息率再乘持仓股数估算；未来一个月分红按未来 30 天除息日统计。</p>
+      </div>
+    </div>
+
+    <div class="mt-4 grid grid-cols-2 lg:grid-cols-5 gap-3">
+      <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+        <div class="text-xs text-gray-500">持仓成本</div>
+        <div class="mt-1 text-lg font-semibold text-gray-900">¥<%= format_decimal(@totals[:cost_basis], 2) %></div>
+      </div>
+      <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+        <div class="text-xs text-gray-500">当前市值</div>
+        <div class="mt-1 text-lg font-semibold text-gray-900">¥<%= format_decimal(@totals[:market_value], 2) %></div>
+      </div>
+      <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+        <div class="text-xs text-gray-500">最近一年分红</div>
+        <div class="mt-1 text-lg font-semibold text-green-700">¥<%= format_decimal(@totals[:recent_year_dividend_cash], 2) %></div>
+      </div>
+      <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+        <div class="text-xs text-gray-500">未来一个月分红</div>
+        <div class="mt-1 text-lg font-semibold text-emerald-700">¥<%= format_decimal(@totals[:next_month_dividend_cash], 2) %></div>
+      </div>
+      <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+        <div class="text-xs text-gray-500">最近一年预期分红</div>
+        <div class="mt-1 text-lg font-semibold text-blue-700">¥<%= format_decimal(@totals[:expected_annual_dividend_cash], 2) %></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="holding-form" class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <h3 class="text-lg font-semibold text-gray-900"><%= @editing_holding ? '编辑持仓' : '录入持仓' %></h3>
+      <% if @editing_holding %>
+        <a href="/holdings#holding-form" class="text-sm text-gray-500 hover:text-gray-700">取消编辑</a>
+      <% end %>
+    </div>
+    <form action="/holdings" method="post" class="mt-4 max-w-xl space-y-4">
+      <% if @holding_form[:holding_id] %>
+        <input type="hidden" name="holding_id" value="<%= @holding_form[:holding_id] %>">
+      <% end %>
+      <div>
+        <label class="block text-sm text-gray-600 mb-1">代码</label>
+        <input type="text" name="code" value="<%= @holding_form[:code] %>" placeholder="600000" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm">
+      </div>
+      <div>
+        <label class="block text-sm text-gray-600 mb-1">名称</label>
+        <input type="text" name="name" value="<%= @holding_form[:name] %>" placeholder="可选，代码为空时用" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm">
+      </div>
+      <div>
+        <label class="block text-sm text-gray-600 mb-1">持仓数量</label>
+        <input type="number" min="1" step="1" name="shares" value="<%= @holding_form[:shares] %>" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm">
+      </div>
+      <div>
+        <label class="block text-sm text-gray-600 mb-1">持仓成本</label>
+        <input type="number" min="0.0001" step="0.0001" name="avg_cost" value="<%= @holding_form[:avg_cost] %>" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm">
+      </div>
+      <div>
+        <label class="block text-sm text-gray-600 mb-1">买入日期</label>
+        <input type="date" name="bought_on" value="<%= @holding_form[:bought_on] %>" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm">
+      </div>
+      <div>
+        <button type="submit" class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"><%= @editing_holding ? '更新持仓' : '保存持仓' %></button>
+      </div>
+    </form>
+  </section>
+
+  <section class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+    <div class="px-4 sm:px-6 py-4 border-b border-gray-200">
+      <h3 class="text-lg font-semibold text-gray-900">持仓明细</h3>
+    </div>
+    <% if @holdings.empty? %>
+      <div class="p-6 text-sm text-gray-500">还没有持仓记录。</div>
+    <% else %>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead class="bg-gray-50 text-gray-600">
+            <tr>
+              <th class="px-4 py-3 text-left">股票</th>
+              <th class="px-4 py-3 text-right">数量</th>
+              <th class="px-4 py-3 text-right">成本</th>
+              <th class="px-4 py-3 text-right">现价</th>
+              <th class="px-4 py-3 text-right">市值</th>
+              <th class="px-4 py-3 text-right">最近一年分红</th>
+              <th class="px-4 py-3 text-right">未来一个月分红</th>
+              <th class="px-4 py-3 text-right">最近一年预期分红</th>
+              <th class="px-4 py-3 text-left">说明</th>
+              <th class="px-4 py-3 text-right">操作</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <% @holdings.each do |h| %>
+              <% stock = h[:stock] %>
+              <tr class="align-top">
+                <td class="px-4 py-3">
+                  <div class="font-medium text-gray-900"><%= stock.name %></div>
+                  <div class="text-xs text-gray-500"><%= stock.code %></div>
+                </td>
+                <td class="px-4 py-3 text-right"><%= h[:shares] %></td>
+                <td class="px-4 py-3 text-right">
+                  <div>¥<%= format_decimal(h[:avg_cost], 4) %></div>
+                  <div class="text-xs text-gray-500">买入：<%= h[:record].bought_on || '-' %></div>
+                </td>
+                <td class="px-4 py-3 text-right">¥<%= h[:current_price] ? format_decimal(h[:current_price], 2) : '-' %></td>
+                <td class="px-4 py-3 text-right">
+                  <div>¥<%= h[:market_value] ? format_decimal(h[:market_value], 2) : '-' %></div>
+                  <div class="text-xs <%= h[:unrealized_pnl].to_f >= 0 ? 'text-green-600' : 'text-red-600' %>">
+                    浮盈亏：<%= h[:market_value] ? "¥#{format_decimal(h[:unrealized_pnl], 2)}" : '-' %>
+                  </div>
+                </td>
+                <td class="px-4 py-3 text-right text-green-700">¥<%= format_decimal(h[:recent_year_dividend_cash], 2) %></td>
+                <td class="px-4 py-3 text-right text-emerald-700">¥<%= format_decimal(h[:next_month_dividend_cash], 2) %></td>
+                <td class="px-4 py-3 text-right">
+                  <div class="text-blue-700">估算：¥<%= format_decimal(h[:expected_annual_dividend_cash], 2) %></div>
+                </td>
+                <td class="px-4 py-3 text-xs text-gray-500 max-w-md">
+                  <% if h[:latest_dividend_year] %>
+                    <div><%= h[:latest_dividend_year] %> 年 DPS：<%= format_decimal(h[:latest_year_dps], 4) %> 元/股</div>
+                  <% else %>
+                    <div>最近一年 DPS 暂无数据。</div>
+                  <% end %>
+                  <% if h[:current_price] && h[:current_dividend_yield].to_f > 0 %>
+                    <div>按现价 ¥<%= format_decimal(h[:current_price], 2) %> 和股息率 <%= format_decimal(h[:current_dividend_yield], 2) %>% 估算年分红。</div>
+                  <% else %>
+                    <div>当前股息率暂无，无法估算最近一年预期分红。</div>
+                  <% end %>
+                  <% if h[:upcoming_events].any? %>
+                    <% h[:upcoming_events].each do |fd| %>
+                      <div><%= fd.ex_dividend_date %>：每股 <%= format_decimal(fd.cash_dividend_per_share, 4) %> 元</div>
+                    <% end %>
+                  <% else %>
+                    <div>未来12个月暂无已公告分红。</div>
+                  <% end %>
+                </td>
+                <td class="px-4 py-3 text-right">
+                  <div class="flex items-center justify-end gap-3">
+                    <a href="/holdings?edit_id=<%= h[:record].id %>#holding-form" class="text-sm text-blue-600 hover:text-blue-700">编辑</a>
+                    <form action="/holdings/<%= h[:record].id %>/delete" method="post" onsubmit="return confirm('确认删除这条持仓？')">
+                      <button type="submit" class="text-sm text-red-600 hover:text-red-700">删除</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </section>
+</div>

@@ -144,6 +144,7 @@
                 <a href="/macro" class="hover:text-blue-200">宏观</a>
                 <a href="/kb" class="hover:text-blue-200">知识库</a>
                 <% if logged_in? %>
+                    <a href="/holdings" class="hover:text-blue-200">持仓</a>
                     <a href="/pools" class="hover:text-blue-200">股票池</a>
                     <span class="text-blue-200 text-sm"><%= current_user.email %></span>
                     <form action="/logout" method="post" class="inline">

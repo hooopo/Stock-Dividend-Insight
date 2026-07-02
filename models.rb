@@ -39,6 +39,7 @@ class Stock < ActiveRecord::Base
   has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
   has_many :stock_notes, dependent: :destroy
+  has_many :portfolio_holdings, dependent: :destroy
 end
 
 class User < ActiveRecord::Base
@@ -47,6 +48,7 @@ class User < ActiveRecord::Base
   validate :validate_password_confirmation, if: -> { @password }
   has_many :saved_pools, dependent: :destroy
   has_many :stock_notes, dependent: :destroy
+  has_many :portfolio_holdings, dependent: :destroy
 
   def email=(value)
     super(value.to_s.strip.downcase)
@@ -160,4 +162,13 @@ end
 class StockNote < ActiveRecord::Base
   belongs_to :stock
   belongs_to :user
+end
+
+class PortfolioHolding < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :stock
+
+  validates :shares, numericality: { only_integer: true, greater_than: 0 }
+  validates :avg_cost, numericality: { greater_than: 0 }
+  validates :stock_id, uniqueness: { scope: :user_id }
 end
