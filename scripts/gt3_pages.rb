@@ -207,6 +207,18 @@ def core_hits_for(categories)
   hits.uniq
 end
 
+def calc_consecutive_dividend_years(per_year)
+  positive_years = per_year.select { |_, v| v.to_f > 0.0 }.keys.map(&:to_i)
+  return nil if positive_years.empty?
+
+  y = positive_years.max
+  n = 0
+  while per_year[y - n].to_f > 0.0
+    n += 1
+  end
+  n > 0 ? n : nil
+end
+
 raise "missing #{IN_YML}" unless File.exist?(IN_YML)
 data = YAML.load_file(IN_YML)
 list = data.is_a?(Hash) ? (data['stocks'] || []) : (data || [])
@@ -426,14 +438,7 @@ begin
     end
 
     per_year_by_sid.each do |sid, per_year|
-      years = per_year.select { |_, v| v.to_f > 0.0 }.keys
-      next if years.empty?
-      y = years.max
-      n = 0
-      while per_year[y - n].to_f > 0.0
-        n += 1
-      end
-      consecutive_map[sid] = n
+        consecutive_map[sid] = calc_consecutive_dividend_years(per_year)
     end
   end
 rescue StandardError
@@ -441,9 +446,8 @@ rescue StandardError
 end
 
 rows_out.each do |r|
-  next if r[:consecutive_dividend_years] && r[:consecutive_dividend_years].to_i > 0
-  v = consecutive_map[r[:id]]
-  r[:consecutive_dividend_years] = v if v && v.to_i > 0
+  next unless r[:id]
+  r[:consecutive_dividend_years] = consecutive_map[r[:id]] if consecutive_map.key?(r[:id])
 end
 
 roe_5y = {}

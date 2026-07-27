@@ -98,7 +98,7 @@
   :avg_dividend_yield_3y: 6.0474
   :min_dividend_yield_3y: 5.4941
   :dividend_yield: 5.4941
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.278
   :current_price: 5.06
   :turnover_rate: 0.48
@@ -156,7 +156,7 @@
   :avg_dividend_yield_3y: 5.7696
   :min_dividend_yield_3y: 5.3645
   :dividend_yield: 5.3645
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 0.596
   :current_price: 11.11
   :turnover_rate: 0.49
@@ -214,7 +214,7 @@
   :avg_dividend_yield_3y: 5.7668
   :min_dividend_yield_3y: 5.6831
   :dividend_yield: 5.8251
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 1.066
   :current_price: 18.3
   :turnover_rate: 0.41
@@ -272,7 +272,7 @@
   :avg_dividend_yield_3y: 5.7489
   :min_dividend_yield_3y: 5.4779
   :dividend_yield: 5.9914
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 24
   :dividend_cash_per_share_latest_year: 0.42
   :current_price: 7.01
   :turnover_rate: 0.47
@@ -330,7 +330,7 @@
   :avg_dividend_yield_3y: 5.6467
   :min_dividend_yield_3y: 5.4574
   :dividend_yield: 5.5205
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 16
   :dividend_cash_per_share_latest_year: 0.175
   :current_price: 3.17
   :turnover_rate: 0.44
@@ -388,7 +388,7 @@
   :avg_dividend_yield_3y: 5.6374
   :min_dividend_yield_3y: 5.3541
   :dividend_yield: 5.3541
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.189
   :current_price: 3.53
   :turnover_rate: 0.91
@@ -562,7 +562,7 @@
   :avg_dividend_yield_3y: 5.1293
   :min_dividend_yield_3y: 4.632
   :dividend_yield: 4.632
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.3247
   :current_price: 7.01
   :turnover_rate: 0.75
@@ -620,7 +620,7 @@
   :avg_dividend_yield_3y: 5.1179
   :min_dividend_yield_3y: 5.0564
   :dividend_yield: 5.1692
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 24
   :dividend_cash_per_share_latest_year: 2.016
   :current_price: 39.0
   :turnover_rate: 0.35
@@ -678,7 +678,7 @@
   :avg_dividend_yield_3y: 5.0599
   :min_dividend_yield_3y: 4.635
   :dividend_yield: 5.3302
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 33
   :dividend_cash_per_share_latest_year: 0.46
   :current_price: 8.63
   :turnover_rate: 0.55
@@ -1085,7 +1085,7 @@
   :avg_dividend_yield_3y: 3.9488
   :min_dividend_yield_3y: 3.8399
   :dividend_yield: 4.0033
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 0.49
   :current_price: 12.24
   :turnover_rate: 0.24
@@ -1144,7 +1144,7 @@
   :avg_dividend_yield_3y: 3.6446
   :min_dividend_yield_3y: 3.3463
   :dividend_yield: 3.7938
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 24
   :dividend_cash_per_share_latest_year: 0.195
   :current_price: 5.14
   :turnover_rate: 0.19
@@ -1155,7 +1155,7 @@
   :pos_30d: 0.55
   :pe_ttm: 8.76
   :pe_percentile: 0.2428
-  :valuation_label: 底部区域
+  :valuation_label: 偏低区域
   :peg: 2.5639
   :peg_level: 4
   :net_profit_yoy: 2.5715
@@ -1320,7 +1320,7 @@
   :avg_dividend_yield_3y: 3.3048
   :min_dividend_yield_3y: 3.1012
   :dividend_yield: 3.4518
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 22
   :dividend_cash_per_share_latest_year: 0.5081
   :current_price: 14.72
   :turnover_rate: 0.61
@@ -1331,7 +1331,7 @@
   :pos_30d: 0.7
   :pe_ttm: 15.85
   :pe_percentile: 0.514
-  :valuation_label: 中位区域
+  :valuation_label: 偏高区域
   :peg: 7.5032
   :peg_level: 4
   :net_profit_yoy: 1.9141
@@ -1553,7 +1553,7 @@
   :avg_dividend_yield_3y: 6.0235
   :min_dividend_yield_3y: 4.5901
   :dividend_yield: 4.5901
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 0.2217
   :current_price: 4.83
   :turnover_rate: 0.45
@@ -1786,7 +1786,7 @@
   :avg_dividend_yield_3y: 3.6113
   :min_dividend_yield_3y: 3.6113
   :dividend_yield: 3.6113
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 24
   :dividend_cash_per_share_latest_year: 0.42
   :current_price: 11.63
   :turnover_rate: 0.22
@@ -1961,7 +1961,7 @@
   :avg_dividend_yield_3y: 3.9875
   :min_dividend_yield_3y: 3.9638
   :dividend_yield: 4.0142
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 0.3103
   :current_price: 7.73
   :turnover_rate: 0.12
@@ -2018,7 +2018,7 @@
   :avg_dividend_yield_3y: 4.5814
   :min_dividend_yield_3y: 3.9494
   :dividend_yield: 5.5292
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 0.35
   :current_price: 6.33
   :turnover_rate: 0.81
@@ -2134,7 +2134,7 @@
   :avg_dividend_yield_3y: 3.2487
   :min_dividend_yield_3y: 2.8924
   :dividend_yield: 3.5273
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 23
   :dividend_cash_per_share_latest_year: 1.0
   :current_price: 28.35
   :turnover_rate: 0.57
@@ -2252,7 +2252,7 @@
   :avg_dividend_yield_3y: 3.3476
   :min_dividend_yield_3y: 2.7488
   :dividend_yield: 3.7867
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 33
   :dividend_cash_per_share_latest_year: 0.799
   :current_price: 21.1
   :turnover_rate: 0.12
@@ -2311,7 +2311,7 @@
   :avg_dividend_yield_3y: 3.3676
   :min_dividend_yield_3y: 3.2557
   :dividend_yield: 3.5753
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 24
   :dividend_cash_per_share_latest_year: 0.66
   :current_price: 18.46
   :turnover_rate: 0.67
@@ -2489,7 +2489,7 @@
   :avg_dividend_yield_3y: 3.9172
   :min_dividend_yield_3y: 3.7717
   :dividend_yield: 3.7717
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 0.2263
   :current_price: 6.0
   :turnover_rate: 0.12
@@ -2547,7 +2547,7 @@
   :avg_dividend_yield_3y: 2.7134
   :min_dividend_yield_3y: 2.5047
   :dividend_yield: 3.1309
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.5
   :current_price: 15.97
   :turnover_rate: 0.79
@@ -2558,7 +2558,7 @@
   :pos_30d: 0.75
   :pe_ttm: 16.46
   :pe_percentile: 0.7018
-  :valuation_label: 中位区域
+  :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
   :net_profit_yoy: -1.761
@@ -2606,7 +2606,7 @@
   :avg_dividend_yield_3y: 3.8343
   :min_dividend_yield_3y: 3.7519
   :dividend_yield: 3.7519
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.3887
   :current_price: 10.36
   :turnover_rate: 1.1
@@ -2664,7 +2664,7 @@
   :avg_dividend_yield_3y: 3.7052
   :min_dividend_yield_3y: 3.4728
   :dividend_yield: 4.0106
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 29
   :dividend_cash_per_share_latest_year: 0.604
   :current_price: 15.06
   :turnover_rate: 1.1
@@ -2723,7 +2723,7 @@
   :avg_dividend_yield_3y: 3.1275
   :min_dividend_yield_3y: 2.6765
   :dividend_yield: 3.5294
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 16
   :dividend_cash_per_share_latest_year: 0.12
   :current_price: 3.4
   :turnover_rate: 0.22
@@ -2840,7 +2840,7 @@
   :avg_dividend_yield_3y: 4.2003
   :min_dividend_yield_3y: 3.7298
   :dividend_yield: 4.4355
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.22
   :current_price: 4.96
   :turnover_rate: 2.22
@@ -2898,7 +2898,7 @@
   :avg_dividend_yield_3y: 4.4983
   :min_dividend_yield_3y: 3.4602
   :dividend_yield: 4.1522
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 0.12
   :current_price: 2.89
   :turnover_rate: 1.05
@@ -2956,7 +2956,7 @@
   :avg_dividend_yield_3y: 3.5828
   :min_dividend_yield_3y: 3.436
   :dividend_yield: 3.7128
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 16
   :dividend_cash_per_share_latest_year: 0.2495
   :current_price: 6.72
   :turnover_rate: 0.13
@@ -3071,7 +3071,7 @@
   :avg_dividend_yield_3y: 3.2195
   :min_dividend_yield_3y: 2.8624
   :dividend_yield: 3.9335
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 0.426
   :current_price: 10.83
   :turnover_rate: 0.53
@@ -3188,7 +3188,7 @@
   :avg_dividend_yield_3y: 3.8851
   :min_dividend_yield_3y: 2.9885
   :dividend_yield: 4.4828
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 29
   :dividend_cash_per_share_latest_year: 0.195
   :current_price: 4.35
   :turnover_rate: 0.58
@@ -3305,7 +3305,7 @@
   :avg_dividend_yield_3y: 4.2394
   :min_dividend_yield_3y: 3.547
   :dividend_yield: 4.6409
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 25
   :dividend_cash_per_share_latest_year: 0.42
   :current_price: 9.05
   :turnover_rate: 0.17
@@ -3363,7 +3363,7 @@
   :avg_dividend_yield_3y: 4.2023
   :min_dividend_yield_3y: 3.2051
   :dividend_yield: 4.9145
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 0.23
   :current_price: 4.68
   :turnover_rate: 0.78
@@ -3617,7 +3617,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 2.21
   :pb_percentile: 0.0207
-  :drop_30d: 3.625
+  :drop_30d: 1.4066
   :asset_liability_ratio: 42.9486
   :interest_debt_ratio: 25.1674
   :fcf_yield: -0.7649
@@ -3658,7 +3658,7 @@
   :avg_dividend_yield_3y: 2.601
   :min_dividend_yield_3y: 1.6075
   :dividend_yield: 3.5164
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 1.05
   :current_price: 29.86
   :turnover_rate: 0.61
@@ -3716,7 +3716,7 @@
   :avg_dividend_yield_3y: 8.9732
   :min_dividend_yield_3y: 5.2957
   :dividend_yield: 8.1642
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.925
   :current_price: 11.33
   :turnover_rate: 1.74
@@ -3825,7 +3825,7 @@
   :avg_dividend_yield_3y: 7.9636
   :min_dividend_yield_3y: 7.9636
   :dividend_yield: 7.9636
-  :consecutive_dividend_years: 12
+  :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 0.7
   :current_price: 8.79
   :turnover_rate: 0.97
@@ -3880,7 +3880,7 @@
   :avg_dividend_yield_3y: 7.6795
   :min_dividend_yield_3y: 6.8447
   :dividend_yield: 6.8447
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.41
   :current_price: 5.99
   :turnover_rate: 0.68
@@ -3935,7 +3935,7 @@
   :avg_dividend_yield_3y: 7.0242
   :min_dividend_yield_3y: 6.3194
   :dividend_yield: 6.9793
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 5.1577
   :current_price: 73.9
   :turnover_rate: 0.52
@@ -3990,7 +3990,7 @@
   :avg_dividend_yield_3y: 6.9798
   :min_dividend_yield_3y: 5.4795
   :dividend_yield: 8.1539
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 1.25
   :current_price: 15.33
   :turnover_rate: 0.91
@@ -4154,7 +4154,7 @@
   :avg_dividend_yield_3y: 6.3585
   :min_dividend_yield_3y: 6.1406
   :dividend_yield: 6.1406
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 2.63
   :current_price: 42.83
   :turnover_rate: 0.37
@@ -4209,7 +4209,7 @@
   :avg_dividend_yield_3y: 6.1856
   :min_dividend_yield_3y: 5.6701
   :dividend_yield: 5.6701
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 28
   :dividend_cash_per_share_latest_year: 0.44
   :current_price: 7.76
   :turnover_rate: 0.62
@@ -4264,7 +4264,7 @@
   :avg_dividend_yield_3y: 6.1523
   :min_dividend_yield_3y: 5.7613
   :dividend_yield: 6.1728
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 4.86
   :turnover_rate: 0.49
@@ -4374,7 +4374,7 @@
   :avg_dividend_yield_3y: 5.8661
   :min_dividend_yield_3y: 5.8639
   :dividend_yield: 5.8704
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 0.2718
   :current_price: 4.63
   :turnover_rate: 0.79
@@ -4483,7 +4483,7 @@
   :avg_dividend_yield_3y: 5.7835
   :min_dividend_yield_3y: 5.0239
   :dividend_yield: 5.1256
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 0.4285
   :current_price: 8.36
   :turnover_rate: 0.6
@@ -4537,7 +4537,7 @@
   :avg_dividend_yield_3y: 5.7329
   :min_dividend_yield_3y: 5.6265
   :dividend_yield: 5.7861
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 1.45
   :current_price: 25.06
   :turnover_rate: 0.35
@@ -4591,7 +4591,7 @@
   :avg_dividend_yield_3y: 5.6765
   :min_dividend_yield_3y: 5.1216
   :dividend_yield: 6.146
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 22
   :dividend_cash_per_share_latest_year: 0.48
   :current_price: 7.81
   :turnover_rate: 0.63
@@ -4645,7 +4645,7 @@
   :avg_dividend_yield_3y: 5.291
   :min_dividend_yield_3y: 5.291
   :dividend_yield: 5.291
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.5
   :current_price: 9.45
   :turnover_rate: 0.39
@@ -4754,7 +4754,7 @@
   :avg_dividend_yield_3y: 5.6864
   :min_dividend_yield_3y: 4.8741
   :dividend_yield: 5.6864
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 0.7
   :current_price: 12.31
   :turnover_rate: 0.54
@@ -4976,7 +4976,7 @@
   :avg_dividend_yield_3y: 5.4396
   :min_dividend_yield_3y: 4.7477
   :dividend_yield: 5.6422
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.492
   :current_price: 8.72
   :turnover_rate: 0.2
@@ -5031,7 +5031,7 @@
   :avg_dividend_yield_3y: 5.7007
   :min_dividend_yield_3y: 4.6642
   :dividend_yield: 7.7736
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 23
   :dividend_cash_per_share_latest_year: 2.5
   :current_price: 32.16
   :turnover_rate: 0.55
@@ -5086,7 +5086,7 @@
   :avg_dividend_yield_3y: 4.8793
   :min_dividend_yield_3y: 4.6225
   :dividend_yield: 4.6225
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 6.49
   :turnover_rate: 0.61
@@ -5141,7 +5141,7 @@
   :avg_dividend_yield_3y: 4.8606
   :min_dividend_yield_3y: 4.6048
   :dividend_yield: 5.2955
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 1.38
   :current_price: 26.06
   :turnover_rate: 1.71
@@ -5196,7 +5196,7 @@
   :avg_dividend_yield_3y: 4.7931
   :min_dividend_yield_3y: 4.5497
   :dividend_yield: 5.0552
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 2.7
   :current_price: 53.41
   :turnover_rate: 0.61
@@ -5251,7 +5251,7 @@
   :avg_dividend_yield_3y: 4.8554
   :min_dividend_yield_3y: 4.4836
   :dividend_yield: 4.4836
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 2.01
   :current_price: 44.83
   :turnover_rate: 0.19
@@ -5306,7 +5306,7 @@
   :avg_dividend_yield_3y: 4.9679
   :min_dividend_yield_3y: 4.3834
   :dividend_yield: 5.8445
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 1.0
   :current_price: 17.11
   :turnover_rate: 0.6
@@ -5360,7 +5360,7 @@
   :avg_dividend_yield_3y: 4.3537
   :min_dividend_yield_3y: 4.2857
   :dividend_yield: 4.4898
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 21
   :dividend_cash_per_share_latest_year: 0.22
   :current_price: 4.9
   :turnover_rate: 0.71
@@ -5415,7 +5415,7 @@
   :avg_dividend_yield_3y: 5.2885
   :min_dividend_yield_3y: 4.2735
   :dividend_yield: 5.7158
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 28
   :dividend_cash_per_share_latest_year: 1.07
   :current_price: 18.72
   :turnover_rate: 0.18
@@ -5524,7 +5524,7 @@
   :avg_dividend_yield_3y: 5.1487
   :min_dividend_yield_3y: 4.1617
   :dividend_yield: 4.1617
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 1.04
   :current_price: 24.99
   :turnover_rate: 0.64
@@ -5633,7 +5633,7 @@
   :avg_dividend_yield_3y: 4.2202
   :min_dividend_yield_3y: 4.0367
   :dividend_yield: 4.3119
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.47
   :current_price: 10.9
   :turnover_rate: 0.14
@@ -5742,7 +5742,7 @@
   :avg_dividend_yield_3y: 4.7324
   :min_dividend_yield_3y: 4.0
   :dividend_yield: 4.7887
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.85
   :current_price: 17.75
   :turnover_rate: 0.63
@@ -5852,7 +5852,7 @@
   :avg_dividend_yield_3y: 5.3786
   :min_dividend_yield_3y: 3.8835
   :dividend_yield: 3.8835
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 25
   :dividend_cash_per_share_latest_year: 0.2
   :current_price: 5.15
   :turnover_rate: 0.23
@@ -6017,7 +6017,7 @@
   :avg_dividend_yield_3y: 4.1133
   :min_dividend_yield_3y: 3.7679
   :dividend_yield: 4.4273
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 2.35
   :current_price: 53.08
   :turnover_rate: 0.68
@@ -6126,7 +6126,7 @@
   :avg_dividend_yield_3y: 4.1003
   :min_dividend_yield_3y: 3.7168
   :dividend_yield: 3.7168
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 0.168
   :current_price: 4.52
   :turnover_rate: 0.56
@@ -6181,7 +6181,7 @@
   :avg_dividend_yield_3y: 9.0487
   :min_dividend_yield_3y: 3.7028
   :dividend_yield: 3.7028
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 1.47
   :current_price: 39.7
   :turnover_rate: 0.29
@@ -6199,7 +6199,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 1.27
   :pb_percentile: 0.013
-  :drop_30d: 0.7004
+  :drop_30d: 0.8987
   :asset_liability_ratio: 18.1694
   :interest_debt_ratio: 0.3553
   :fcf_yield: -0.6392
@@ -6292,7 +6292,7 @@
   :avg_dividend_yield_3y: 4.4539
   :min_dividend_yield_3y: 3.6639
   :dividend_yield: 5.2853
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 1.1559
   :current_price: 21.87
   :turnover_rate: 0.58
@@ -6357,7 +6357,7 @@
   :pos_30d: 0.95
   :pe_ttm: 17.7
   :pe_percentile: 0.0915
-  :valuation_label: 底部区域
+  :valuation_label: 中位区域
   :peg: 2.1823
   :peg_level: 4
   :net_profit_yoy: 7.8438
@@ -6401,7 +6401,7 @@
   :avg_dividend_yield_3y: 4.8426
   :min_dividend_yield_3y: 3.632
   :dividend_yield: 3.632
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.6
   :current_price: 16.52
   :turnover_rate: 0.73
@@ -6473,7 +6473,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 1.84
   :pb_percentile: 0.7638
-  :drop_30d: -8.011
+  :drop_30d: -15.3987
   :asset_liability_ratio: 27.0925
   :interest_debt_ratio: 6.0224
   :fcf_yield: -1.3349
@@ -6509,7 +6509,7 @@
   :avg_dividend_yield_3y: 4.2183
   :min_dividend_yield_3y: 3.5877
   :dividend_yield: 4.6641
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 1.43
   :current_price: 30.66
   :turnover_rate: 0.97
@@ -6520,7 +6520,7 @@
   :pos_30d: 0.6
   :pe_ttm: 13.87
   :pe_percentile: 0.1093
-  :valuation_label: 底部区域
+  :valuation_label: 偏低区域
   :peg:
   :peg_level: 5
   :net_profit_yoy: -9.3919
@@ -6728,7 +6728,7 @@
   :avg_dividend_yield_3y: 4.6016
   :min_dividend_yield_3y: 3.5354
   :dividend_yield: 5.0505
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 5.94
   :turnover_rate: 0.33
@@ -6838,7 +6838,7 @@
   :avg_dividend_yield_3y: 6.6252
   :min_dividend_yield_3y: 3.4613
   :dividend_yield: 12.9529
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 4.79
   :current_price: 36.98
   :turnover_rate: 0.57
@@ -6948,7 +6948,7 @@
   :avg_dividend_yield_3y: 4.4463
   :min_dividend_yield_3y: 3.4444
   :dividend_yield: 5.2232
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 2.7056
   :current_price: 51.8
   :turnover_rate: 0.9
@@ -7068,7 +7068,7 @@
   :pos_30d: 0.6
   :pe_ttm: 10.06
   :pe_percentile: 0.4103
-  :valuation_label: 中位区域
+  :valuation_label: 偏高区域
   :peg: 1.0542
   :peg_level: 3
   :net_profit_yoy: 10.3918
@@ -7112,7 +7112,7 @@
   :avg_dividend_yield_3y: 3.6036
   :min_dividend_yield_3y: 3.3784
   :dividend_yield: 3.8851
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.23
   :current_price: 5.92
   :turnover_rate: 0.5
@@ -7239,7 +7239,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 1.48
   :pb_percentile: 0.6527
-  :drop_30d: 12.5332
+  :drop_30d: 10.4891
   :asset_liability_ratio: 21.993
   :interest_debt_ratio: 2.327
   :fcf_yield: -4.5839
@@ -7276,7 +7276,7 @@
   :avg_dividend_yield_3y: 3.7639
   :min_dividend_yield_3y: 3.3174
   :dividend_yield: 3.3174
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.555
   :current_price: 16.73
   :turnover_rate: 2.21
@@ -7294,7 +7294,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 1.48
   :pb_percentile: 0.1402
-  :drop_30d: -2.3242
+  :drop_30d: -4.5625
   :asset_liability_ratio: 24.6759
   :interest_debt_ratio: 1.7674
   :fcf_yield: -1.7667
@@ -7331,7 +7331,7 @@
   :avg_dividend_yield_3y: 6.1195
   :min_dividend_yield_3y: 3.2397
   :dividend_yield: 8.2073
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.38
   :current_price: 4.63
   :turnover_rate: 0.59
@@ -7386,7 +7386,7 @@
   :avg_dividend_yield_3y: 3.4261
   :min_dividend_yield_3y: 3.2258
   :dividend_yield: 3.6369
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 1.15
   :current_price: 31.62
   :turnover_rate: 0.76
@@ -7441,7 +7441,7 @@
   :avg_dividend_yield_3y: 4.3028
   :min_dividend_yield_3y: 3.1977
   :dividend_yield: 3.1977
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.1957
   :current_price: 6.12
   :turnover_rate: 0.27
@@ -7459,7 +7459,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 0.34
   :pb_percentile: 0.0096
-  :drop_30d: -2.8571
+  :drop_30d: -4.9743
   :asset_liability_ratio: 77.8674
   :interest_debt_ratio: 36.3627
   :fcf_yield: -4.1076
@@ -7605,7 +7605,7 @@
   :avg_dividend_yield_3y: 3.1539
   :min_dividend_yield_3y: 2.902
   :dividend_yield: 3.3885
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 0.9403
   :current_price: 27.75
   :turnover_rate: 0.91
@@ -7678,7 +7678,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 1.78
   :pb_percentile: 0.7592
-  :drop_30d: 11.6308
+  :drop_30d: 5.2846
   :asset_liability_ratio: 46.4889
   :interest_debt_ratio: 3.585
   :fcf_yield: -1.0313
@@ -7824,7 +7824,7 @@
   :avg_dividend_yield_3y: 3.2791
   :min_dividend_yield_3y: 2.6582
   :dividend_yield: 3.5443
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.196
   :current_price: 5.53
   :turnover_rate: 1.25
@@ -7842,7 +7842,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 0.87
   :pb_percentile: 0.172
-  :drop_30d: -5.3333
+  :drop_30d: -9.073
   :asset_liability_ratio: 39.8188
   :interest_debt_ratio: 2.6193
   :fcf_yield: -0.5909
@@ -7879,7 +7879,7 @@
   :avg_dividend_yield_3y: 3.4366
   :min_dividend_yield_3y: 2.6549
   :dividend_yield: 3.8938
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.176
   :current_price: 4.52
   :turnover_rate: 2.31
@@ -7989,7 +7989,7 @@
   :avg_dividend_yield_3y: 3.4745
   :min_dividend_yield_3y: 2.3944
   :dividend_yield: 4.0311
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 25
   :dividend_cash_per_share_latest_year: 51.9812
   :current_price: 1289.5
   :turnover_rate: 0.26
@@ -8044,7 +8044,7 @@
   :avg_dividend_yield_3y: 3.6203
   :min_dividend_yield_3y: 2.3797
   :dividend_yield: 4.5316
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.358
   :current_price: 7.9
   :turnover_rate: 0.8
@@ -8099,7 +8099,7 @@
   :avg_dividend_yield_3y: 4.0033
   :min_dividend_yield_3y: 2.3529
   :dividend_yield: 4.902
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 1.0
   :current_price: 20.4
   :turnover_rate: 2.17
@@ -8154,7 +8154,7 @@
   :avg_dividend_yield_3y: 3.1356
   :min_dividend_yield_3y: 2.3517
   :dividend_yield: 3.7988
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 2.1
   :current_price: 55.28
   :turnover_rate: 0.64
@@ -8209,7 +8209,7 @@
   :avg_dividend_yield_3y: 3.1592
   :min_dividend_yield_3y: 2.3181
   :dividend_yield: 3.0966
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 1.583
   :current_price: 51.12
   :turnover_rate: 0.5
@@ -8227,7 +8227,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 2.32
   :pb_percentile: 0.1079
-  :drop_30d: -7.3273
+  :drop_30d: -5.3369
   :asset_liability_ratio: 25.3069
   :interest_debt_ratio: 0.5727
   :fcf_yield: 0.2329
@@ -8338,7 +8338,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 2.35
   :pb_percentile: 0.0424
-  :drop_30d: -15.0728
+  :drop_30d: -17.2669
   :asset_liability_ratio: 51.8562
   :interest_debt_ratio: 15.936
   :fcf_yield: -0.3994
@@ -8374,7 +8374,7 @@
   :avg_dividend_yield_3y: 2.9671
   :min_dividend_yield_3y: 2.0717
   :dividend_yield: 3.7085
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.827
   :current_price: 22.3
   :turnover_rate: 0.76
@@ -8429,7 +8429,7 @@
   :avg_dividend_yield_3y: 2.6325
   :min_dividend_yield_3y: 2.0513
   :dividend_yield: 3.7949
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.37
   :current_price: 9.75
   :turnover_rate: 1.06
@@ -8647,7 +8647,7 @@
   :avg_dividend_yield_3y: 2.8222
   :min_dividend_yield_3y: 1.8815
   :dividend_yield: 3.7629
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 1.2
   :current_price: 31.89
   :turnover_rate: 0.39
@@ -8703,7 +8703,7 @@
   :avg_dividend_yield_3y: 3.0931
   :min_dividend_yield_3y: 1.8018
   :dividend_yield: 4.5045
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.5
   :current_price: 11.1
   :turnover_rate: 1.13
@@ -8868,7 +8868,7 @@
   :avg_dividend_yield_3y: 3.864
   :min_dividend_yield_3y: 1.5456
   :dividend_yield: 7.728
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 1.0
   :current_price: 12.94
   :turnover_rate: 0.64
@@ -8923,7 +8923,7 @@
   :avg_dividend_yield_3y: 2.1768
   :min_dividend_yield_3y: 1.507
   :dividend_yield: 3.349
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 24
   :dividend_cash_per_share_latest_year: 1.0
   :current_price: 29.86
   :turnover_rate: 0.58
@@ -8941,7 +8941,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 2.81
   :pb_percentile: 0.5785
-  :drop_30d: 2.8627
+  :drop_30d: -1.3922
   :asset_liability_ratio: 25.6351
   :interest_debt_ratio: 15.845
   :fcf_yield: -0.3773
@@ -8978,7 +8978,7 @@
   :avg_dividend_yield_3y: 2.1915
   :min_dividend_yield_3y: 1.3841
   :dividend_yield: 3.4602
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 8.67
   :turnover_rate: 1.93
@@ -9051,7 +9051,7 @@
   :finance_report_date: '2026-03-31'
   :pb: 1.32
   :pb_percentile: 0.4253
-  :drop_30d: 10.1085
+  :drop_30d: 14.0094
   :asset_liability_ratio: 82.0687
   :interest_debt_ratio: 36.8464
   :fcf_yield:
@@ -9361,7 +9361,7 @@
   :avg_dividend_yield_3y: 2.8674
   :min_dividend_yield_3y: 0.7168
   :dividend_yield: 5.0179
-  :consecutive_dividend_years: 13
+  :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 0.7
   :current_price: 13.95
   :turnover_rate: 0.65

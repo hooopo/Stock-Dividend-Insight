@@ -37,27 +37,58 @@ class DividendSyncer
 
   private
 
-  def fetch_and_save_dividends(stock)
-    params = {
-      type: "RPT_LICO_FN_CPD",
-      sty: "ALL",
-      filter: "(SECURITY_CODE=\"#{stock.code}\")",
-      p: 1,
-      ps: 50
-    }
+  def calc_consecutive_dividend_years(per_year)
+    positive_years = per_year.select { |_, v| v.to_f > 0.0 }.keys.map(&:to_i)
+    return nil if positive_years.empty?
 
+    y = positive_years.max
+    n = 0
+    while per_year[y - n].to_f > 0.0
+      n += 1
+    end
+    n > 0 ? n : nil
+  end
+
+  def fetch_dividend_rows(stock, headers)
+    page = 1
+    pages = 1
+    rows = []
+
+    while page <= pages
+      params = {
+        type: "RPT_LICO_FN_CPD",
+        sty: "ALL",
+        filter: "(SECURITY_CODE=\"#{stock.code}\")",
+        p: page,
+        ps: 200
+      }
+
+      response = @conn.get('/api/data/get', params, headers)
+      break unless response.success?
+
+      data = JSON.parse(response.body) rescue nil
+      result = data && data['result'].is_a?(Hash) ? data['result'] : {}
+      page_rows = result['data'].is_a?(Array) ? result['data'] : []
+      pages = result['pages'].to_i
+      pages = 1 if pages <= 0
+      rows.concat(page_rows)
+      break if page_rows.empty?
+
+      page += 1
+    end
+
+    rows
+  end
+
+  def fetch_and_save_dividends(stock)
     headers = {
       'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
       'Accept' => 'application/json'
     }
-    response = @conn.get('/api/data/get', params, headers)
-    return unless response.success?
-
-    data = JSON.parse(response.body) rescue nil
-    results = data.dig('result', 'data') if data
+    results = fetch_dividend_rows(stock, headers)
     
     if results.nil? || results.empty?
-      puts "No dividend data in response for #{stock.name}: #{response.body[0..200]}"
+      puts "No dividend data in response for #{stock.name}"
       unless stock.dividends.exists?
         stock.dividend_yield = nil
         stock.dividend_cash_per_share_year = nil if stock.has_attribute?(:dividend_cash_per_share_year)
@@ -117,17 +148,7 @@ class DividendSyncer
           next unless y
           per_year[y] += cash.to_f
         end
-        positive_years = per_year.select { |_, v| v.to_f > 0.0 }.keys
-        if positive_years.empty?
-          stock.consecutive_dividend_years = nil
-        else
-          y = positive_years.max
-          n = 0
-          while per_year[y - n].to_f > 0.0
-            n += 1
-          end
-          stock.consecutive_dividend_years = n
-        end
+        stock.consecutive_dividend_years = calc_consecutive_dividend_years(per_year)
       end
 
       latest_year = latest_dividend.report_date.year
