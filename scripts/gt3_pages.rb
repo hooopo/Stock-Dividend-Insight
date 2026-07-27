@@ -3,6 +3,7 @@ require 'date'
 require 'time'
 require 'fileutils'
 require 'digest'
+require 'json'
 
 ROOT_DIR = File.expand_path('..', __dir__)
 IN_YML = File.join(ROOT_DIR, 'stocks-dividend-gt3.yml')
@@ -488,6 +489,47 @@ rows_out.each do |r|
 end
 
 stock_ids = rows_out.map { |x| x[:id] }.uniq
+
+annual_dividends_by_stock_id = {}
+begin
+  conn = ActiveRecord::Base.connection
+  if stock_ids.any? && conn.data_source_exists?('dividends')
+    yearly_raw =
+      Dividend
+        .where(stock_id: stock_ids)
+        .pluck(:stock_id, :report_date, :cash_dividend, :dividend_yield)
+
+    grouped = Hash.new { |h, k| h[k] = Hash.new { |h2, y| h2[y] = { cash: 0.0, yield: 0.0 } } }
+    yearly_raw.each do |sid, report_date, cash_dividend, dividend_yield|
+      next unless sid && report_date
+      year = report_date.year
+      next unless year && year > 0
+      grouped[sid][year][:cash] += cash_dividend.to_f if cash_dividend
+      grouped[sid][year][:yield] += dividend_yield.to_f if dividend_yield
+    end
+
+    grouped.each do |sid, per_year|
+      years = per_year.keys.compact.sort
+      next if years.empty?
+      annual_dividends_by_stock_id[sid] =
+        (years.min..years.max).map do |year|
+          v = per_year[year] || { cash: 0.0, yield: 0.0 }
+          {
+            year: year,
+            cash_dividend: v[:cash].round(4),
+            dividend_yield: v[:yield].round(4)
+          }
+        end
+    end
+  end
+rescue StandardError
+  annual_dividends_by_stock_id = {}
+end
+
+rows_out.each do |r|
+  r[:annual_dividends] = annual_dividends_by_stock_id[r[:id]] || []
+end
+
 start_date = Date.today
 end_date = Date.today + 183
 upcoming =
@@ -558,6 +600,27 @@ html = <<~HTML
     .detail{white-space:normal}
     .price-hit{font-weight:700;color:#c1121f}
     .detail-card{background:#fafafe;border:1px solid #eee;border-radius:10px;padding:12px}
+    .detail-top{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:12px;margin-bottom:12px}
+    .chart-card,.metrics-card{background:#fff;border:1px solid #eee;border-radius:10px;padding:12px}
+    .detail-title{font-size:13px;font-weight:700;color:#111;margin-bottom:4px}
+    .detail-sub{font-size:11px;color:#666}
+    .chart-legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:8px 0 4px}
+    .chart-legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:#475569}
+    .chart-legend-bar{width:12px;height:12px;border-radius:4px;background:linear-gradient(180deg,#60a5fa 0%,#2563eb 100%)}
+    .chart-legend-line{position:relative;width:16px;height:10px}
+    .chart-legend-line::before{content:"";position:absolute;left:0;right:0;top:4px;border-top:2px solid #ef4444}
+    .chart-legend-line::after{content:"";position:absolute;left:6px;top:1px;width:6px;height:6px;border-radius:999px;background:#ef4444}
+    .div-chart-scroll{overflow:hidden;padding-bottom:4px}
+    .div-chart{--plot-height:110px;display:grid;grid-template-columns:repeat(var(--chart-count, 1), minmax(0, 1fr));align-items:end;gap:var(--chart-gap, 4px);min-height:188px;min-width:0;padding-top:8px;width:100%;position:relative}
+    .div-col{min-width:0;text-align:center;position:relative;z-index:1}
+    .div-yield{font-size:10px;color:#475569;line-height:1.1;min-height:22px;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .div-bar-wrap{height:var(--plot-height);display:flex;align-items:flex-end;justify-content:center}
+    .div-bar{width:min(100%, var(--bar-width, 18px));min-height:2px;border-radius:8px 8px 0 0;background:linear-gradient(180deg,#60a5fa 0%,#2563eb 100%)}
+    .div-year{font-size:10px;color:#111;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .div-line-svg{position:absolute;left:0;top:36px;width:100%;height:var(--plot-height);pointer-events:none;overflow:visible;z-index:2}
+    .div-line-path{fill:none;stroke:#ef4444;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+    .div-line-dot{fill:#ef4444;stroke:#fff;stroke-width:1.2}
+    .chart-empty{font-size:12px;color:#666;padding:20px 0}
     .kv{display:flex;flex-wrap:wrap;gap:10px 10px}
     .kv-item{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #eee;border-radius:999px;padding:6px 10px;font-size:12px}
     .kv-item b{color:#555;font-weight:600}
@@ -586,6 +649,10 @@ html = <<~HTML
       .h-mobile{display:inline}
       th,td{letter-spacing:-0.1px}
       .code{font-size:10px}
+      .detail-top{grid-template-columns:1fr}
+      .chart-card,.metrics-card{padding:10px}
+      .div-chart{gap:var(--chart-gap, 3px)}
+      .div-bar{width:min(100%, var(--bar-width, 14px))}
     }
     @media (max-width: 430px){
       body{padding:10px;background:#f5f7fb}
@@ -601,6 +668,12 @@ html = <<~HTML
       .detail-card{padding:8px}
       .kv{gap:8px}
       .kv-item{font-size:10px;padding:5px 8px}
+      .detail-top{gap:8px;margin-bottom:8px}
+      .detail-title{font-size:12px}
+      .detail-sub,.chart-empty,.div-yield,.div-year,.chart-legend-item{font-size:9px}
+      .div-chart{gap:var(--chart-gap, 2px);min-height:168px}
+      .div-chart{--plot-height:96px}
+      .div-bar{width:min(100%, var(--bar-width, 12px))}
     }
   </style>
 </head>
@@ -667,44 +740,29 @@ rows_out.each do |r|
   html << "<tr class=\"detail-row row-hidden\" data-for=\"#{key}\">"
   html << "<td class=\"detail\" colspan=\"10\">"
   html << "<div class=\"detail-card\">"
+  html << "<div class=\"detail-top\">"
+  html << "<div class=\"chart-card\">"
+  html << "<div class=\"detail-title\">年度股息率 / DPS</div>"
+  html << "<div class=\"detail-sub\">按报告期年度汇总，蓝柱是股息率，红线是每股派现(DPS)</div>"
+  html << "<div class=\"chart-legend\"><span class=\"chart-legend-item\"><span class=\"chart-legend-bar\"></span>股息率</span><span class=\"chart-legend-item\"><span class=\"chart-legend-line\"></span>DPS</span></div>"
+  html << "<div class=\"div-chart-scroll\">"
+  html << "<div class=\"div-chart\" data-chart-code=\"#{r[:code]}\"></div>"
+  html << "</div>"
+  html << "</div>"
+  html << "<div class=\"metrics-card\">"
+  html << "<div class=\"detail-title\">关键指标</div>"
+  html << "<div class=\"detail-sub\">展开后快速看你关心的估值、分红和财务数据</div>"
   html << "<div class=\"kv\">"
-  html << "<div class=\"kv-item\"><b>来源</b><span>#{r[:is_whitelist] ? '白名单' : '其他 GT3'}</span></div>"
-  if r[:is_whitelist]
-    html << "<div class=\"kv-item\"><b>白名单分类</b><span>#{r[:whitelist_categories].join(' / ')}</span></div>"
-  end
-  html << "<div class=\"kv-item\"><b>首仓目标息率</b><span>#{r[:first_yield] ? format_pct(r[:first_yield], 1) : '5%（默认）'}</span></div>"
-  html << "<div class=\"kv-item\"><b>加仓目标息率</b><span>#{r[:add_yield] ? format_pct(r[:add_yield], 1) : '6%（默认）'}</span></div>"
-  html << "<div class=\"kv-item\"><b>重仓目标息率</b><span>#{r[:heavy_yield] ? format_pct(r[:heavy_yield], 1) : '7%（默认）'}</span></div>"
-  html << "<div class=\"kv-item\"><b>阶梯价方式</b><span>#{r[:buy_method] == 'whitelist_min3y' ? '按3年最低股息率对比白名单目标息率' : '按3年最低息率/5-6-7'}</span></div>"
+  html << "<div class=\"kv-item\"><b>分红率</b><span>#{format_pct(r[:dividend_payout_ratio], 2)}</span></div>"
   html << "<div class=\"kv-item\"><b>换手率</b><span>#{format_pct(r[:turnover_rate], 2)}</span></div>"
   html << "<div class=\"kv-item\"><b>总市值</b><span>#{format_yi(r[:market_cap], 1)}</span></div>"
-  html << "<div class=\"kv-item\"><b>成交量</b><span>#{format_wanshou(r[:volume], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>均价</b><span>#{r[:avg_price] ? "¥#{format_num(r[:avg_price], 2)}" : ''}</span></div>"
-  html << "<div class=\"kv-item\"><b>最新年度DPS</b><span>#{format_num(r[:dividend_cash_per_share_latest_year], 4)}</span></div>"
   html << "<div class=\"kv-item\"><b>30日跌幅</b><span>#{format_pct(r[:drop_30d], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>30d分位</b><span>#{format_ratio_pct(r[:pos_30d], 0)}</span></div>"
-  html << "<div class=\"kv-item\"><b>市盈率(TTM)</b><span>#{format_num(r[:pe_ttm], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>估值区域</b><span>#{r[:valuation_label].to_s}</span></div>"
-  html << "<div class=\"kv-item\"><b>PE分位</b><span>#{format_ratio_pct(r[:pe_percentile], 0)}</span></div>"
-  html << "<div class=\"kv-item\"><b>PEG</b><span>#{format_num(r[:peg], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>PEG等级</b><span>#{peg_level_label(r[:peg_level])}</span></div>"
-  html << "<div class=\"kv-item\"><b>净利同比</b><span>#{format_pct(r[:net_profit_yoy], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>财报期</b><span>#{r[:finance_report_date].to_s}</span></div>"
-  html << "<div class=\"kv-item\"><b>市净率</b><span>#{format_num(r[:pb], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>PB分位</b><span>#{format_ratio_pct(r[:pb_percentile], 0)}</span></div>"
-  html << "<div class=\"kv-item\"><b>资产负债率</b><span>#{format_pct(r[:asset_liability_ratio], 2)}</span></div>"
   html << "<div class=\"kv-item\"><b>有息负债率</b><span>#{format_pct(r[:interest_debt_ratio], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>自由现金流</b><span>#{format_pct(r[:fcf_yield], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>FCF/EV</b><span>#{format_pct(r[:fcf_ev], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>FCF</b><span>#{format_yi(r[:fcff_back], 1)}</span></div>"
-  html << "<div class=\"kv-item\"><b>ROE(加权)</b><span>#{format_pct(r[:roe_jq], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>近5年均值≥12%</b><span>#{r[:roe_5y_avg_ge_12] ? '是' : '否'}</span></div>"
-  html << "<div class=\"kv-item\"><b>近5年最低≥8%</b><span>#{r[:roe_5y_min_ge_8] ? '是' : '否'}</span></div>"
-  html << "<div class=\"kv-item\"><b>近5年均值</b><span>#{format_pct(r[:roe_5y_avg], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>近5年最低</b><span>#{format_pct(r[:roe_5y_min], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>总股本</b><span>#{format_yigu(r[:total_shares], 2)}</span></div>"
-  html << "<div class=\"kv-item\"><b>连续分红</b><span>#{r[:consecutive_dividend_years] ? "#{r[:consecutive_dividend_years]}年" : ''}</span></div>"
-  html << "<div class=\"kv-item kv-full\"><b>分类</b><span>#{Array(r[:categories]).join(' / ')}</span></div>"
+  html << "<div class=\"kv-item\"><b>PE</b><span>#{format_num(r[:pe_ttm], 2)}</span></div>"
+  html << "<div class=\"kv-item\"><b>PB</b><span>#{format_num(r[:pb], 2)}</span></div>"
+  html << "<div class=\"kv-item\"><b>ROE</b><span>#{format_pct(r[:roe_jq], 2)}</span></div>"
+  html << "</div>"
+  html << "</div>"
   html << "</div>"
   html << "</div>"
   html << "</td>"
@@ -756,6 +814,7 @@ html << <<~HTML
 
   <script>
     (function(){
+      const dividendYearlyData = #{JSON.generate(rows_out.each_with_object({}) { |row, acc| acc[row[:code]] = row[:annual_dividends] })};
       function getVal(td, type){
         const v = td.getAttribute('data-v');
         if(v===null||v==='') return null;
@@ -811,6 +870,82 @@ html << <<~HTML
             sortTable(table, key, type, dir);
           });
         });
+      }
+      function escapeHtml(s){
+        return String(s)
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('\"', '&quot;')
+          .replaceAll(\"'\", '&#39;');
+      }
+      function formatPct(v){
+        const n = Number(v);
+        return Number.isFinite(n) ? `${n.toFixed(2)}%` : '';
+      }
+      function formatNum(v, precision){
+        const n = Number(v);
+        return Number.isFinite(n) ? n.toFixed(precision) : '';
+      }
+      function compactYearLabel(year, count){
+        const y = String(year || '');
+        if(count >= 14 && y.length >= 4) return y.slice(2);
+        return y;
+      }
+      function buildDpsLine(items, count, plotHeight){
+        const maxCash = items.reduce((m, x) => {
+          const v = Number(x.cash_dividend);
+          return Number.isFinite(v) ? Math.max(m, v) : m;
+        }, 0);
+        if(maxCash <= 0) return '';
+        const viewWidth = Math.max(count * 100, 100);
+        const step = viewWidth / count;
+        const points = items.map((item, idx) => {
+          const cashVal = Number(item.cash_dividend);
+          const x = (idx * step) + (step / 2);
+          const y = Number.isFinite(cashVal) ? (plotHeight * (1 - (cashVal / maxCash))) : plotHeight;
+          return { x, y, cashVal };
+        });
+        const path = points.map((p, idx) => `${idx === 0 ? 'M' : 'L'} ${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(' ');
+        const circles = points.map(p => `<circle class="div-line-dot" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="${count >= 16 ? 2.4 : 3.2}"></circle>`).join('');
+        return `<svg class="div-line-svg" viewBox="0 0 ${viewWidth} ${plotHeight}" preserveAspectRatio="none" aria-hidden="true"><path class="div-line-path" d="${path}"></path>${circles}</svg>`;
+      }
+      function renderDividendChart(container){
+        if(!container || container.getAttribute('data-rendered') === '1') return;
+        const code = container.getAttribute('data-chart-code');
+        const items = Array.isArray(dividendYearlyData[code]) ? dividendYearlyData[code] : [];
+        if(!items.length){
+          container.innerHTML = '<div class="chart-empty">暂无年度股息率数据</div>';
+          container.setAttribute('data-rendered', '1');
+          return;
+        }
+        const maxYield = items.reduce((m, x) => {
+          const v = Number(x.dividend_yield);
+          return Number.isFinite(v) ? Math.max(m, v) : m;
+        }, 0);
+        const safeMax = maxYield > 0 ? maxYield : 1;
+        const count = items.length;
+        const gapPx = count >= 18 ? 1 : (count >= 14 ? 2 : 4);
+        const barWidthPx = count >= 18 ? 8 : (count >= 14 ? 10 : 14);
+        const plotHeight = count >= 18 ? 96 : 110;
+        container.style.setProperty('--chart-count', String(count));
+        container.style.setProperty('--chart-gap', `${gapPx}px`);
+        container.style.setProperty('--bar-width', `${barWidthPx}px`);
+        const colsHtml = items.map(item => {
+          const yieldVal = Number(item.dividend_yield);
+          const cashVal = Number(item.cash_dividend);
+          const height = Number.isFinite(yieldVal) ? Math.max((yieldVal / safeMax) * 100, yieldVal > 0 ? 3 : 0) : 0;
+          const yearLabel = compactYearLabel(item.year, count);
+          return `
+            <div class="div-col" title="${escapeHtml(item.year)} 年 | 股息率 ${escapeHtml(formatPct(yieldVal))} | 每股派现 ${escapeHtml(formatNum(cashVal, 4))}">
+              <div class="div-yield">${escapeHtml(formatPct(yieldVal))}</div>
+              <div class="div-bar-wrap"><div class="div-bar" style="height:${height}%"></div></div>
+              <div class="div-year">${escapeHtml(yearLabel)}</div>
+            </div>
+          `;
+        }).join('');
+        container.innerHTML = colsHtml + buildDpsLine(items, count, plotHeight);
+        container.setAttribute('data-rendered', '1');
       }
       const t = document.getElementById('t');
       const t2 = document.getElementById('t2');
@@ -872,7 +1007,11 @@ html << <<~HTML
           const id = tr.getAttribute('data-id');
           const detail = document.querySelector(`#t tbody tr.detail-row[data-for="${id}"]`);
           if(!detail) return;
+          const willOpen = detail.classList.contains('row-hidden');
           detail.classList.toggle('row-hidden');
+          if(willOpen){
+            renderDividendChart(detail.querySelector('[data-chart-code]'));
+          }
         });
       });
 
