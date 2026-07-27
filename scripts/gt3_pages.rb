@@ -354,13 +354,13 @@ rows_out =
         first_y = wl[:first_yield].to_f
         add_y = wl[:add_yield].to_f
         heavy_y = wl[:heavy_yield].to_f
-        buy5 = (price && price > 0 && first_y > 0) ? (price * (dy.to_f / first_y)) : nil
-        buy6 = (price && price > 0 && add_y > 0) ? (price * (dy.to_f / add_y)) : nil
-        buy7 = (price && price > 0 && heavy_y > 0) ? (price * (dy.to_f / heavy_y)) : nil
+        buy5 = (price && price > 0 && min3y && min3y > 0 && first_y > 0) ? (price * (min3y / first_y)) : nil
+        buy6 = (price && price > 0 && min3y && min3y > 0 && add_y > 0) ? (price * (min3y / add_y)) : nil
+        buy7 = (price && price > 0 && min3y && min3y > 0 && heavy_y > 0) ? (price * (min3y / heavy_y)) : nil
         first_yield_use = first_y
         add_yield_use = add_y
         heavy_yield_use = heavy_y
-        buy_method = 'whitelist'
+        buy_method = 'whitelist_min3y'
       else
         first_yield_use = nil
         add_yield_use = nil
@@ -671,7 +671,7 @@ rows_out.each do |r|
   html << "<div class=\"kv-item\"><b>首仓目标息率</b><span>#{r[:first_yield] ? format_pct(r[:first_yield], 1) : '5%（默认）'}</span></div>"
   html << "<div class=\"kv-item\"><b>加仓目标息率</b><span>#{r[:add_yield] ? format_pct(r[:add_yield], 1) : '6%（默认）'}</span></div>"
   html << "<div class=\"kv-item\"><b>重仓目标息率</b><span>#{r[:heavy_yield] ? format_pct(r[:heavy_yield], 1) : '7%（默认）'}</span></div>"
-  html << "<div class=\"kv-item\"><b>阶梯价方式</b><span>#{r[:buy_method] == 'whitelist' ? '按白名单股息率' : '按3年最低息率/5-6-7'}</span></div>"
+  html << "<div class=\"kv-item\"><b>阶梯价方式</b><span>#{r[:buy_method] == 'whitelist_min3y' ? '按3年最低股息率对比白名单目标息率' : '按3年最低息率/5-6-7'}</span></div>"
   html << "<div class=\"kv-item\"><b>换手率</b><span>#{format_pct(r[:turnover_rate], 2)}</span></div>"
   html << "<div class=\"kv-item\"><b>总市值</b><span>#{format_yi(r[:market_cap], 1)}</span></div>"
   html << "<div class=\"kv-item\"><b>成交量</b><span>#{format_wanshou(r[:volume], 2)}</span></div>"

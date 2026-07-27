@@ -80,7 +80,7 @@
   :first_yield: 4.8
   :add_yield: 5.6
   :heavy_yield: 6.5
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 8.333338750000001
   :buy_price_6: 7.142861785714286
   :buy_price_7: 6.153850153846154
@@ -138,7 +138,7 @@
   :first_yield: 5.0
   :add_yield: 6.0
   :heavy_yield: 7.0
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 5.560029200000001
   :buy_price_6: 4.633357666666667
   :buy_price_7: 3.971449428571429
@@ -196,7 +196,7 @@
   :first_yield: 5.0
   :add_yield: 6.0
   :heavy_yield: 7.0
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 11.919918999999998
   :buy_price_6: 9.933265833333332
   :buy_price_7: 8.514227857142856
@@ -254,14 +254,14 @@
   :first_yield: 5.0
   :add_yield: 6.0
   :heavy_yield: 7.0
-  :buy_method: whitelist
-  :buy_price_5: 21.319866
-  :buy_price_6: 17.766555
-  :buy_price_7: 15.228475714285715
+  :buy_method: whitelist_min3y
+  :buy_price_5: 20.800146
+  :buy_price_6: 17.333455
+  :buy_price_7: 14.857247142857142
   :need_drop_to_5: 0.0
-  :drop_to_5: -16.501999999999995
-  :drop_to_6: 2.915000000000001
-  :drop_to_7: 16.78428571428572
+  :drop_to_5: -13.661999999999995
+  :drop_to_6: 5.281666666666663
+  :drop_to_7: 18.812857142857155
   :roe_5y_avg: 11.494
   :roe_5y_min: 9.15
 - :code: '600015'
@@ -312,14 +312,14 @@
   :first_yield: 5.0
   :add_yield: 6.0
   :heavy_yield: 7.0
-  :buy_method: whitelist
-  :buy_price_5: 8.3999428
-  :buy_price_6: 6.999952333333333
-  :buy_price_7: 5.999959142857142
+  :buy_method: whitelist_min3y
+  :buy_price_5: 7.6800158
+  :buy_price_6: 6.400013166666667
+  :buy_price_7: 5.4857255714285715
   :need_drop_to_5: 0.0
-  :drop_to_5: -19.828000000000003
-  :drop_to_6: 0.14333333333333975
-  :drop_to_7: 14.408571428571438
+  :drop_to_5: -9.558
+  :drop_to_6: 8.701666666666663
+  :drop_to_7: 21.744285714285706
   :roe_5y_avg: 8.782
   :roe_5y_min: 8.32
 - :code: '601818'
@@ -370,14 +370,14 @@
   :first_yield: 5.0
   :add_yield: 6.0
   :heavy_yield: 7.0
-  :buy_method: whitelist
-  :buy_price_5: 3.499997
-  :buy_price_6: 2.9166641666666666
-  :buy_price_7: 2.499997857142857
+  :buy_method: whitelist_min3y
+  :buy_price_5: 3.4599916
+  :buy_price_6: 2.883326333333333
+  :buy_price_7: 2.4714225714285716
   :need_drop_to_5: 0.0
-  :drop_to_5: -10.410000000000007
-  :drop_to_6: 7.991666666666664
-  :drop_to_7: 21.13571428571428
+  :drop_to_5: -9.148
+  :drop_to_6: 9.043333333333337
+  :drop_to_7: 22.037142857142854
   :roe_5y_avg: 8.844
   :roe_5y_min: 7.0
 - :code: '600016'
@@ -428,7 +428,7 @@
   :first_yield: 5.0
   :add_yield: 6.0
   :heavy_yield: 7.0
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 3.7799945999999993
   :buy_price_6: 3.1499954999999997
   :buy_price_7: 2.6999961428571426
@@ -438,65 +438,6 @@
   :drop_to_7: 23.512857142857147
   :roe_5y_avg: 5.822
   :roe_5y_min: 4.93
-- :code: '600023'
-  :name: 浙能电力
-  :categories:
-  - 电力
-  - 公用事业
-  :avg_dividend_yield_3y: 5.4104
-  :min_dividend_yield_3y: 4.6642
-  :dividend_yield: 6.1567
-  :consecutive_dividend_years: 3
-  :dividend_cash_per_share_latest_year: 0.33
-  :current_price: 5.36
-  :turnover_rate: 0.32
-  :market_cap: 71871000000.0
-  :volume: 425666.0
-  :avg_price: 5.3293
-  :dividend_payout_ratio: 59.7816
-  :pos_30d: 0.45
-  :pe_ttm: 9.71
-  :pe_percentile: 0.204
-  :valuation_label: 偏低区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -11.8403
-  :finance_report_date: '2026-03-31'
-  :pb: 0.93
-  :pb_percentile: 0.5183
-  :drop_30d: -1.5152
-  :asset_liability_ratio: 41.397
-  :interest_debt_ratio: 30.5583
-  :fcf_yield: -3.4713
-  :fcf_ev: -2.7306
-  :fcff_back: -2494852240.5455
-  :roe_jq: 1.23
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 13408768656.0
-  :is_core: true
-  :core_categories:
-  - 电力
-  - 公用事业
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 综合能源
-  :whitelist_categories:
-  - 电力
-  - 综合能源
-  :first_yield: 5.0
-  :add_yield: 5.8
-  :heavy_yield: 6.8
-  :buy_method: whitelist
-  :buy_price_5: 6.5999824
-  :buy_price_6: 5.689640000000001
-  :buy_price_7: 4.852928235294118
-  :need_drop_to_5: 0.0
-  :drop_to_5: -23.133999999999986
-  :drop_to_6: -6.150000000000011
-  :drop_to_7: 9.460294117647061
-  :roe_5y_avg: 5.422
-  :roe_5y_min: -2.92
 - :code: '601229'
   :name: 上海银行
   :categories:
@@ -545,14 +486,14 @@
   :first_yield: 5.0
   :add_yield: 6.0
   :heavy_yield: 7.0
-  :buy_method: whitelist
-  :buy_price_5: 10.400080800000001
-  :buy_price_6: 8.666734
-  :buy_price_7: 7.428629142857143
+  :buy_method: whitelist_min3y
+  :buy_price_5: 9.1999376
+  :buy_price_6: 7.666614666666667
+  :buy_price_7: 6.571383999999999
   :need_drop_to_5: 0.0
-  :drop_to_5: -13.538000000000006
-  :drop_to_6: 5.385000000000007
-  :drop_to_7: 18.901428571428568
+  :drop_to_5: -0.43599999999999195
+  :drop_to_6: 16.303333333333335
+  :drop_to_7: 28.26000000000001
   :roe_5y_avg: 10.572
   :roe_5y_min: 9.69
 - :code: '601997'
@@ -603,14 +544,14 @@
   :first_yield: 5.0
   :add_yield: 6.0
   :heavy_yield: 7.0
-  :buy_method: whitelist
-  :buy_price_5: 5.9999519999999995
-  :buy_price_6: 4.99996
-  :buy_price_7: 4.285679999999999
+  :buy_method: whitelist_min3y
+  :buy_price_5: 5.800032
+  :buy_price_6: 4.83336
+  :buy_price_7: 4.14288
   :need_drop_to_5: 0.0
-  :drop_to_5: -7.142000000000004
-  :drop_to_6: 10.714999999999996
-  :drop_to_7: 23.470000000000013
+  :drop_to_5: -3.5719999999999974
+  :drop_to_6: 13.690000000000001
+  :drop_to_7: 26.02
   :roe_5y_avg: 10.258
   :roe_5y_min: 7.97
 - :code: '601328'
@@ -661,7 +602,7 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 7.215626666666665
   :buy_price_6: 6.244292307692307
   :buy_price_7: 5.411719999999999
@@ -719,14 +660,14 @@
   :first_yield: 4.8
   :add_yield: 5.5
   :heavy_yield: 6.2
-  :buy_method: whitelist
-  :buy_price_5: 41.999750000000006
-  :buy_price_6: 36.65432727272727
-  :buy_price_7: 32.51593548387097
+  :buy_method: whitelist_min3y
+  :buy_price_5: 41.08325
+  :buy_price_6: 35.85447272727273
+  :buy_price_7: 31.80638709677419
   :need_drop_to_5: 0.0
-  :drop_to_5: -7.691666666666674
-  :drop_to_6: 6.014545454545461
-  :drop_to_7: 16.625806451612902
+  :drop_to_5: -5.341666666666667
+  :drop_to_6: 8.065454545454543
+  :drop_to_7: 18.445161290322588
   :roe_5y_avg: 15.634
   :roe_5y_min: 13.44
 - :code: '600642'
@@ -778,77 +719,16 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 10.22213911111111
-  :buy_price_6: 8.846081923076921
-  :buy_price_7: 7.666604333333334
+  :buy_method: whitelist_min3y
+  :buy_price_5: 8.888900000000001
+  :buy_price_6: 7.692317307692308
+  :buy_price_7: 6.666675000000001
   :need_drop_to_5: 0.0
-  :drop_to_5: -18.44888888888887
-  :drop_to_6: -2.5038461538461343
-  :drop_to_7: 11.163333333333336
+  :drop_to_5: -3.0000000000000027
+  :drop_to_6: 10.86538461538462
+  :drop_to_7: 22.750000000000004
   :roe_5y_avg: 8.282
   :roe_5y_min: 3.53
-- :code: '600803'
-  :name: 新奥股份
-  :categories:
-  - 燃气
-  - 公用事业
-  :avg_dividend_yield_3y: 5.0523
-  :min_dividend_yield_3y: 3.8328
-  :dividend_yield: 6.6202
-  :consecutive_dividend_years: 12
-  :dividend_cash_per_share_latest_year: 1.14
-  :current_price: 17.22
-  :turnover_rate: 0.33
-  :market_cap: 53309000000.0
-  :volume: 100055.0
-  :avg_price: 17.1796
-  :dividend_payout_ratio: 80.965
-  :pos_30d: 0.95
-  :pe_ttm: 12.23
-  :pe_percentile: 0.4668
-  :valuation_label: 偏低区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -32.9209
-  :finance_report_date: '2026-03-31'
-  :pb: 2.51
-  :pb_percentile: 0.4292
-  :drop_30d: -7.4906
-  :asset_liability_ratio: 54.0504
-  :interest_debt_ratio: 27.6848
-  :fcf_yield: 3.2503
-  :fcf_ev: 2.3375
-  :fcff_back: 1732689801.9339
-  :roe_jq: 2.68
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 3095760743.0
-  :is_core: true
-  :core_categories:
-  - 燃气
-  - 公用事业
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 综合能源
-  :whitelist_categories:
-  - 电力
-  - 公用事业
-  - 综合能源
-  - 燃气
-  :first_yield: 4.5
-  :add_yield: 5.5
-  :heavy_yield: 6.5
-  :buy_method: whitelist
-  :buy_price_5: 25.333298666666664
-  :buy_price_6: 20.727244363636363
-  :buy_price_7: 17.538437538461537
-  :need_drop_to_5: 0.0
-  :drop_to_5: -47.11555555555555
-  :drop_to_6: -20.367272727272724
-  :drop_to_7: -1.8492307692307586
-  :roe_5y_avg: 27.464
-  :roe_5y_min: 19.06
 - :code: '600461'
   :name: 洪城环境
   :categories:
@@ -897,14 +777,14 @@
   :first_yield: 4.2
   :add_yield: 5.0
   :heavy_yield: 5.8
-  :buy_method: whitelist
-  :buy_price_5: 11.119017142857139
-  :buy_price_6: 9.3399744
-  :buy_price_7: 8.051702068965517
+  :buy_method: whitelist_min3y
+  :buy_price_5: 10.492777142857141
+  :buy_price_6: 8.8139328
+  :buy_price_7: 7.598217931034483
   :need_drop_to_5: 0.0
-  :drop_to_5: -21.919047619047593
-  :drop_to_6: -2.411999999999992
-  :drop_to_7: 11.713793103448278
+  :drop_to_5: -15.05238095238095
+  :drop_to_6: 3.3559999999999923
+  :drop_to_7: 16.686206896551713
   :roe_5y_avg: 13.934000000000001
   :roe_5y_min: 12.44
 - :code: '601825'
@@ -955,14 +835,14 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 9.666616
-  :buy_price_6: 8.36534076923077
-  :buy_price_7: 7.249961999999999
+  :buy_method: whitelist_min3y
+  :buy_price_5: 8.422288
+  :buy_price_6: 7.288518461538462
+  :buy_price_7: 6.316716
   :need_drop_to_5: 0.0
-  :drop_to_5: -15.90666666666667
-  :drop_to_6: -0.30384615384615454
-  :drop_to_7: 13.070000000000004
+  :drop_to_5: -0.986666666666669
+  :drop_to_6: 12.607692307692297
+  :drop_to_7: 24.25999999999999
   :roe_5y_avg: 10.808
   :roe_5y_min: 9.74
 - :code: '601838'
@@ -1013,14 +893,14 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 20.466825999999998
-  :buy_price_6: 17.711676346153844
-  :buy_price_7: 15.3501195
+  :buy_method: whitelist_min3y
+  :buy_price_5: 19.799935333333334
+  :buy_price_6: 17.134559423076922
+  :buy_price_7: 14.849951500000001
   :need_drop_to_5: 0.0
-  :drop_to_5: -12.393333333333324
-  :drop_to_6: 2.7365384615384736
-  :drop_to_7: 15.705000000000002
+  :drop_to_5: -8.731111111111112
+  :drop_to_6: 5.905769230769242
+  :drop_to_7: 18.451666666666668
   :roe_5y_avg: 17.812
   :roe_5y_min: 15.39
 - :code: '600941'
@@ -1071,14 +951,14 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 104.527486
-  :buy_price_6: 90.45647826923076
-  :buy_price_7: 78.39561450000001
+  :buy_method: whitelist_min3y
+  :buy_price_5: 97.9915028888889
+  :buy_price_6: 84.80033903846154
+  :buy_price_7: 73.49362716666667
   :need_drop_to_5: 0.0
-  :drop_to_5: -10.739999999999995
-  :drop_to_6: 4.167307692307709
-  :drop_to_7: 16.944999999999986
+  :drop_to_5: -3.815555555555572
+  :drop_to_6: 10.159615384615384
+  :drop_to_7: 22.13833333333333
   :roe_5y_avg: 10.14
   :roe_5y_min: 9.9
 - :code: '601009'
@@ -1129,7 +1009,7 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 11.759943999999999
   :buy_price_6: 10.176874615384614
   :buy_price_7: 8.819958
@@ -1139,157 +1019,42 @@
   :drop_to_7: 21.67
   :roe_5y_avg: 13.622
   :roe_5y_min: 12.05
-- :code: '600098'
-  :name: 广州发展
+- :code: '002966'
+  :name: 苏州银行
   :categories:
-  - 火电
-  :avg_dividend_yield_3y: 4.5814
-  :min_dividend_yield_3y: 3.9494
-  :dividend_yield: 5.5292
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.35
-  :current_price: 6.33
-  :turnover_rate: 0.81
-  :market_cap: 22192000000.0
-  :volume: 285023.0
-  :avg_price: 6.2939
-  :dividend_payout_ratio: 51.0898
-  :pos_30d: 0.9
-  :pe_ttm: 9.24
-  :pe_percentile: 0.0096
+  - 银行
+  - 金融
+  :avg_dividend_yield_3y: 4.7501
+  :min_dividend_yield_3y: 4.461
+  :dividend_yield: 4.461
+  :consecutive_dividend_years: 7
+  :dividend_cash_per_share_latest_year: 0.36
+  :current_price: 8.07
+  :turnover_rate: 0.87
+  :market_cap: 36078000000.0
+  :volume: 384584.0
+  :avg_price: 8.0235
+  :dividend_payout_ratio: 29.398
+  :pos_30d: 0.95
+  :pe_ttm: 6.59
+  :pe_percentile: 0.3046
   :valuation_label: 偏低区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: 18.3741
+  :peg: 0.6456
+  :peg_level: 2
+  :net_profit_yoy: 8.2271
   :finance_report_date: '2026-03-31'
-  :pb: 0.82
-  :pb_percentile: 0.1204
-  :drop_30d: -5.1495
-  :asset_liability_ratio: 63.2771
-  :interest_debt_ratio: 45.5243
-  :fcf_yield: -7.3099
-  :fcf_ev: -3.4934
-  :fcff_back: -1622218766.9926
-  :roe_jq: 1.95
+  :pb: 0.71
+  :pb_percentile: 0.3199
+  :drop_30d: -13.1837
+  :asset_liability_ratio: 92.4148
+  :interest_debt_ratio: 89.0588
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq: 3.08
   :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 3505845181.0
-  :is_core: true
-  :core_categories:
-  - 火电
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 综合能源
-  :whitelist_categories:
-  - 电力
-  - 综合能源
-  :first_yield: 4.5
-  :add_yield: 5.3
-  :heavy_yield: 6.2
-  :buy_method: whitelist
-  :buy_price_5: 7.777741333333333
-  :buy_price_6: 6.603742641509435
-  :buy_price_7: 5.645134838709678
-  :need_drop_to_5: 0.0
-  :drop_to_5: -22.87111111111111
-  :drop_to_6: -4.32452830188681
-  :drop_to_7: 10.81935483870966
-  :roe_5y_avg: 5.672
-  :roe_5y_min: 0.91
-- :code: '600919'
-  :name: 江苏银行
-  :categories:
-  - 银行
-  - 金融
-  :avg_dividend_yield_3y: 4.5142
-  :min_dividend_yield_3y: 4.0941
-  :dividend_yield: 4.9138
-  :consecutive_dividend_years: 10
-  :dividend_cash_per_share_latest_year: 0.5641
-  :current_price: 11.48
-  :turnover_rate: 0.43
-  :market_cap: 210673000000.0
-  :volume: 790777.0
-  :avg_price: 11.4891
-  :dividend_payout_ratio: 29.3354
-  :pos_30d: 0.85
-  :pe_ttm: 5.97
-  :pe_percentile: 0.7909
-  :valuation_label: 偏高区域
-  :peg: 0.7
-  :peg_level: 2
-  :net_profit_yoy: 8.201
-  :finance_report_date: '2026-03-31'
-  :pb: 0.81
-  :pb_percentile: 0.8892
-  :drop_30d: -3.1447
-  :asset_liability_ratio: 93.6197
-  :interest_debt_ratio: 88.8406
-  :fcf_yield:
-  :fcf_ev:
-  :fcff_back:
-  :roe_jq: 4.09
-  :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
-  :total_shares: 18351306620.0
-  :is_core: true
-  :core_categories:
-  - 银行
-  :is_whitelist: true
-  :whitelist_big_category: 银行
-  :whitelist_sub_category: 城商行
-  :whitelist_categories:
-  - 银行
-  - 城商行
-  :first_yield: 4.5
-  :add_yield: 5.2
-  :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 12.535649777777778
-  :buy_price_6: 10.84815846153846
-  :buy_price_7: 9.401737333333335
-  :need_drop_to_5: 0.0
-  :drop_to_5: -9.195555555555558
-  :drop_to_6: 5.503846153846171
-  :drop_to_7: 18.103333333333328
-  :roe_5y_avg: 13.728
-  :roe_5y_min: 12.6
-- :code: '601577'
-  :name: 长沙银行
-  :categories:
-  - 银行
-  - 金融
-  :avg_dividend_yield_3y: 4.4324
-  :min_dividend_yield_3y: 4.1081
-  :dividend_yield: 4.6486
-  :consecutive_dividend_years: 8
-  :dividend_cash_per_share_latest_year: 0.43
-  :current_price: 9.25
-  :turnover_rate: 0.48
-  :market_cap: 37199000000.0
-  :volume: 194644.0
-  :avg_price: 9.281
-  :dividend_payout_ratio: 21.0117
-  :pos_30d: 0.65
-  :pe_ttm: 4.52
-  :pe_percentile: 0.2637
-  :valuation_label: 偏低区域
-  :peg: 0.7465
-  :peg_level: 2
-  :net_profit_yoy: 5.7749
-  :finance_report_date: '2026-03-31'
-  :pb: 0.51
-  :pb_percentile: 0.1271
-  :drop_30d: -3.9326
-  :asset_liability_ratio: 93.5268
-  :interest_debt_ratio: 91.2503
-  :fcf_yield:
-  :fcf_ev:
-  :fcff_back:
-  :roe_jq: 3.17
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 4021513513.0
+  :total_shares: 4470631970.0
   :is_core: true
   :core_categories:
   - 银行
@@ -1302,133 +1067,16 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 9.555455555555556
-  :buy_price_6: 8.26914423076923
-  :buy_price_7: 7.166591666666667
-  :need_drop_to_5: 0.0
-  :drop_to_5: -3.3022222222222286
-  :drop_to_6: 10.603846153846163
-  :drop_to_7: 22.52333333333333
-  :roe_5y_avg: 12.276
-  :roe_5y_min: 11.24
-- :code: '601728'
-  :name: 中国电信
-  :categories:
-  - 通信服务
-  - 电信业务
-  :avg_dividend_yield_3y: 4.1667
-  :min_dividend_yield_3y: 3.8105
-  :dividend_yield: 4.4444
-  :consecutive_dividend_years: 5
-  :dividend_cash_per_share_latest_year: 0.272
-  :current_price: 6.12
-  :turnover_rate: 0.14
-  :market_cap: 560024000000.0
-  :volume: 1075031.0
-  :avg_price: 6.1522
-  :dividend_payout_ratio: 78.577
-  :pos_30d: 0.9
-  :pe_ttm: 17.68
-  :pe_percentile: 0.5294
-  :valuation_label: 偏低区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -17.0812
-  :finance_report_date: '2026-03-31'
-  :pb: 1.22
-  :pb_percentile: 0.5973
-  :drop_30d: -15.69
-  :asset_liability_ratio: 45.8666
-  :interest_debt_ratio: 5.1983
-  :fcf_yield: -3.4255
-  :fcf_ev: -3.3019
-  :fcff_back: -19183344781.8677
-  :roe_jq: 1.58
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 91507189542.0
-  :is_core: true
-  :core_categories:
-  - 通信服务
-  :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 通信
-  :whitelist_categories:
-  - 公用事业
-  - 通信
-  :first_yield: 4.3
-  :add_yield: 5.0
-  :heavy_yield: 5.8
-  :buy_method: whitelist
-  :buy_price_5: 6.325518139534885
-  :buy_price_6: 5.4399456
-  :buy_price_7: 4.689608275862069
-  :need_drop_to_5: 0.0
-  :drop_to_5: -3.3581395348837306
-  :drop_to_6: 11.11200000000001
-  :drop_to_7: 23.37241379310345
-  :roe_5y_avg: 6.9
-  :roe_5y_min: 6.4
-- :code: '600011'
-  :name: 华能国际
-  :categories:
-  - 电力
-  - 公用事业
-  :avg_dividend_yield_3y: 4.0616
-  :min_dividend_yield_3y: 2.8011
-  :dividend_yield: 5.6022
-  :consecutive_dividend_years: 3
-  :dividend_cash_per_share_latest_year: 0.4
-  :current_price: 7.14
-  :turnover_rate: 0.94
-  :market_cap: 112084000000.0
-  :volume: 1033992.0
-  :avg_price: 7.0973
-  :dividend_payout_ratio: 45.0977
-  :pos_30d: 0.6
-  :pe_ttm: 8.05
-  :pe_percentile: 0.0442
-  :valuation_label: 偏低区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -9.83
-  :finance_report_date: '2026-03-31'
-  :pb: 1.76
-  :pb_percentile: 0.5145
-  :drop_30d: 4.5455
-  :asset_liability_ratio: 66.3237
-  :interest_debt_ratio: 52.4705
-  :fcf_yield: 2.5904
-  :fcf_ev: 0.8906
-  :fcff_back: 2903417554.0838
-  :roe_jq: 5.78
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 15698039215.0
-  :is_core: true
-  :core_categories:
-  - 电力
-  - 公用事业
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 火电
-  :whitelist_categories:
-  - 电力
-  - 火电
-  :first_yield: 5.5
-  :add_yield: 6.5
-  :heavy_yield: 7.5
-  :buy_method: whitelist
-  :buy_price_5: 7.272674181818182
-  :buy_price_6: 6.153801230769231
-  :buy_price_7: 5.3332944
-  :need_drop_to_5: 0.0
-  :drop_to_5: -1.8581818181818255
-  :drop_to_6: 13.81230769230769
-  :drop_to_7: 25.304000000000006
-  :roe_5y_avg: 1.2439999999999998
-  :roe_5y_min: -18.71
+  :buy_method: whitelist_min3y
+  :buy_price_5: 8.000060000000001
+  :buy_price_6: 6.923128846153847
+  :buy_price_7: 6.000045000000001
+  :need_drop_to_5: 0.8666666666666489
+  :drop_to_5: 0.8666666666666489
+  :drop_to_6: 14.211538461538453
+  :drop_to_7: 25.649999999999995
+  :roe_5y_avg: 11.164
+  :roe_5y_min: 9.96
 - :code: '600377'
   :name: 宁沪高速
   :categories:
@@ -1478,134 +1126,16 @@
   :first_yield: 4.0
   :add_yield: 4.7
   :heavy_yield: 5.5
-  :buy_method: whitelist
-  :buy_price_5: 12.250098000000001
-  :buy_price_6: 10.425615319148935
-  :buy_price_7: 8.909162181818182
-  :need_drop_to_5: 0.0
-  :drop_to_5: -0.08250000000000757
-  :drop_to_6: 14.823404255319161
-  :drop_to_7: 27.212727272727268
+  :buy_method: whitelist_min3y
+  :buy_price_5: 11.750094
+  :buy_price_6: 10.000079999999999
+  :buy_price_7: 8.54552290909091
+  :need_drop_to_5: 4.002499999999998
+  :drop_to_5: 4.002499999999998
+  :drop_to_6: 18.300000000000015
+  :drop_to_7: 30.183636363636367
   :roe_5y_avg: 12.726
   :roe_5y_min: 11.23
-- :code: '000088'
-  :name: 盐田港
-  :categories:
-  - 高速公路
-  - 交通运输
-  :avg_dividend_yield_3y: 3.8851
-  :min_dividend_yield_3y: 2.9885
-  :dividend_yield: 4.4828
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.195
-  :current_price: 4.35
-  :turnover_rate: 0.58
-  :market_cap: 22618000000.0
-  :volume: 182593.0
-  :avg_price: 4.349
-  :dividend_payout_ratio: 68.7213
-  :pos_30d: 0.9
-  :pe_ttm: 15.33
-  :pe_percentile: 0.0145
-  :valuation_label: 底部区域
-  :peg: 1.7383
-  :peg_level: 4
-  :net_profit_yoy: 8.8488
-  :finance_report_date: '2026-03-31'
-  :pb: 1.27
-  :pb_percentile: 0.2548
-  :drop_30d: -6.6176
-  :asset_liability_ratio: 17.9132
-  :interest_debt_ratio: 10.291
-  :fcf_yield: -0.3758
-  :fcf_ev: -0.3685
-  :fcff_back: -85002402.5924
-  :roe_jq: 1.87
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 5199540229.0
-  :is_core: true
-  :core_categories:
-  - 高速公路
-  - 交通运输
-  :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 港口
-  :whitelist_categories:
-  - 公用事业
-  - 港口
-  :first_yield: 4.0
-  :add_yield: 4.7
-  :heavy_yield: 5.5
-  :buy_method: whitelist
-  :buy_price_5: 4.875045
-  :buy_price_6: 4.148974468085106
-  :buy_price_7: 3.5454872727272724
-  :need_drop_to_5: 0.0
-  :drop_to_5: -12.070000000000004
-  :drop_to_6: 4.621276595744684
-  :drop_to_7: 18.494545454545452
-  :roe_5y_avg: 7.140000000000001
-  :roe_5y_min: 4.43
-- :code: '600795'
-  :name: 国电电力
-  :categories:
-  - 电力
-  - 公用事业
-  :avg_dividend_yield_3y: 3.8241
-  :min_dividend_yield_3y: 2.454
-  :dividend_yield: 4.9284
-  :consecutive_dividend_years: 4
-  :dividend_cash_per_share_latest_year: 0.241
-  :current_price: 4.89
-  :turnover_rate: 0.76
-  :market_cap: 87216000000.0
-  :volume: 1350279.0
-  :avg_price: 4.8865
-  :dividend_payout_ratio: 63.6749
-  :pos_30d: 0.85
-  :pe_ttm: 12.92
-  :pe_percentile: 0.2535
-  :valuation_label: 中位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -22.7886
-  :finance_report_date: '2026-03-31'
-  :pb: 1.49
-  :pb_percentile: 0.7346
-  :drop_30d: -2.5157
-  :asset_liability_ratio: 73.0098
-  :interest_debt_ratio: 54.7541
-  :fcf_yield: -6.2115
-  :fcf_ev: -1.83
-  :fcff_back: -5417408667.774
-  :roe_jq: 2.32
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 17835582822.0
-  :is_core: true
-  :core_categories:
-  - 电力
-  - 公用事业
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 火电
-  :whitelist_categories:
-  - 电力
-  - 火电
-  :first_yield: 4.8
-  :add_yield: 5.7
-  :heavy_yield: 6.7
-  :buy_method: whitelist
-  :buy_price_5: 5.0208075
-  :buy_price_6: 4.228048421052631
-  :buy_price_7: 3.5969964179104474
-  :need_drop_to_5: 0.0
-  :drop_to_5: -2.675000000000005
-  :drop_to_6: 13.536842105263158
-  :drop_to_7: 26.44179104477612
-  :roe_5y_avg: 9.010000000000002
-  :roe_5y_min: -3.73
 - :code: '600018'
   :name: 上港集团
   :categories:
@@ -1655,834 +1185,16 @@
   :first_yield: 3.5
   :add_yield: 4.1
   :heavy_yield: 4.8
-  :buy_method: whitelist
-  :buy_price_5: 5.571466285714285
-  :buy_price_6: 4.756129756097561
-  :buy_price_7: 4.0625275
-  :need_drop_to_5: 0.0
-  :drop_to_5: -8.39428571428571
-  :drop_to_6: 7.468292682926824
-  :drop_to_7: 20.962499999999995
+  :buy_method: whitelist_min3y
+  :buy_price_5: 4.914280571428571
+  :buy_price_6: 4.19511756097561
+  :buy_price_7: 3.583329583333333
+  :need_drop_to_5: 4.3914285714285795
+  :drop_to_5: 4.3914285714285795
+  :drop_to_6: 18.382926829268285
+  :drop_to_7: 30.285416666666663
   :roe_5y_avg: 12.972
   :roe_5y_min: 9.88
-- :code: '001872'
-  :name: 招商港口
-  :categories:
-  - 港口
-  - 交通运输
-  :avg_dividend_yield_3y: 3.3476
-  :min_dividend_yield_3y: 2.7488
-  :dividend_yield: 3.7867
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.799
-  :current_price: 21.1
-  :turnover_rate: 0.12
-  :market_cap: 52373000000.0
-  :volume: 27216.0
-  :avg_price: 21.0281
-  :dividend_payout_ratio: 42.6382
-  :pos_30d: 0.55
-  :pe_ttm: 11.26
-  :pe_percentile: 0.2953
-  :valuation_label: 中位区域
-  :peg: 3.8732
-  :peg_level: 4
-  :net_profit_yoy: 3.7785
-  :finance_report_date: '2026-03-31'
-  :pb: 0.82
-  :pb_percentile: 0.5303
-  :drop_30d: -5.342
-  :asset_liability_ratio: 34.9403
-  :interest_debt_ratio: 26.3014
-  :fcf_yield: 4.3678
-  :fcf_ev: 3.2119
-  :fcff_back: 2287567329.6238
-  :roe_jq: 1.74
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 2482132701.0
-  :is_core: true
-  :core_categories:
-  - 港口
-  - 交通运输
-  :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 港口
-  :whitelist_categories:
-  - 公用事业
-  - 港口
-  :first_yield: 3.2
-  :add_yield: 3.8
-  :heavy_yield: 4.5
-  :buy_method: whitelist
-  :buy_price_5: 24.968553125
-  :buy_price_6: 21.02615
-  :buy_price_7: 17.755415555555558
-  :need_drop_to_5: 0.0
-  :drop_to_5: -18.33437499999999
-  :drop_to_6: 0.35000000000000586
-  :drop_to_7: 15.851111111111106
-  :roe_5y_avg: 7.148000000000001
-  :roe_5y_min: 6.35
-- :code: '600886'
-  :name: 国投电力
-  :categories:
-  - 电力
-  - 公用事业
-  :avg_dividend_yield_3y: 3.3048
-  :min_dividend_yield_3y: 3.1012
-  :dividend_yield: 3.4518
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.5081
-  :current_price: 14.72
-  :turnover_rate: 0.61
-  :market_cap: 117826000000.0
-  :volume: 454387.0
-  :avg_price: 14.7515
-  :dividend_payout_ratio: 54.711
-  :pos_30d: 0.7
-  :pe_ttm: 15.85
-  :pe_percentile: 0.514
-  :valuation_label: 中位区域
-  :peg: 7.5032
-  :peg_level: 4
-  :net_profit_yoy: 1.9141
-  :finance_report_date: '2026-03-31'
-  :pb: 1.71
-  :pb_percentile: 0.6416
-  :drop_30d: -10.2622
-  :asset_liability_ratio: 59.5845
-  :interest_debt_ratio: 50.1203
-  :fcf_yield: -4.8122
-  :fcf_ev: -2.6702
-  :fcff_back: -5670045792.0382
-  :roe_jq: 3.06
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 8004483695.0
-  :is_core: true
-  :core_categories:
-  - 电力
-  - 公用事业
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 水电
-  :whitelist_categories:
-  - 电力
-  - 水电
-  :first_yield: 3.3
-  :add_yield: 3.9
-  :heavy_yield: 4.5
-  :buy_method: whitelist
-  :buy_price_5: 15.397120000000001
-  :buy_price_6: 13.028332307692308
-  :buy_price_7: 11.291221333333334
-  :need_drop_to_5: 0.0
-  :drop_to_5: -4.600000000000004
-  :drop_to_6: 11.49230769230769
-  :drop_to_7: 23.293333333333333
-  :roe_5y_avg: 9.914
-  :roe_5y_min: 5.39
-- :code: '600900'
-  :name: 长江电力
-  :categories:
-  - 公用事业
-  - 电力
-  :avg_dividend_yield_3y: 3.2487
-  :min_dividend_yield_3y: 2.8924
-  :dividend_yield: 3.5273
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 1.0
-  :current_price: 28.35
-  :turnover_rate: 0.57
-  :market_cap: 693674000000.0
-  :volume: 1387193.0
-  :avg_price: 28.4877
-  :dividend_payout_ratio: 67.7947
-  :pos_30d: 0.6
-  :pe_ttm: 19.22
-  :pe_percentile: 0.5197
-  :valuation_label: 中位区域
-  :peg: 1.0011
-  :peg_level: 3
-  :net_profit_yoy: 30.5016
-  :finance_report_date: '2026-03-31'
-  :pb: 3.33
-  :pb_percentile: 0.9118
-  :drop_30d: -5.6259
-  :asset_liability_ratio: 57.3271
-  :interest_debt_ratio: 51.5376
-  :fcf_yield: 0.5121
-  :fcf_ev: 0.4132
-  :fcff_back: 3551983543.2944
-  :roe_jq: 3.01
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 24468218694.0
-  :is_core: true
-  :core_categories:
-  - 公用事业
-  - 电力
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 水电
-  :whitelist_categories:
-  - 电力
-  - 水电
-  :first_yield: 3.3
-  :add_yield: 3.8
-  :heavy_yield: 4.5
-  :buy_method: whitelist
-  :buy_price_5: 30.30271363636364
-  :buy_price_6: 26.31551447368421
-  :buy_price_7: 22.22199
-  :need_drop_to_5: 0.0
-  :drop_to_5: -6.887878787878798
-  :drop_to_6: 7.176315789473686
-  :drop_to_7: 21.615555555555556
-  :roe_5y_avg: 13.874
-  :roe_5y_min: 9.32
-- :code: '600483'
-  :name: 福能股份
-  :categories:
-  - 火电
-  :avg_dividend_yield_3y: 3.2195
-  :min_dividend_yield_3y: 2.8624
-  :dividend_yield: 3.9335
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.426
-  :current_price: 10.83
-  :turnover_rate: 0.53
-  :market_cap: 30109000000.0
-  :volume: 147545.0
-  :avg_price: 10.7418
-  :dividend_payout_ratio: 41.4984
-  :pos_30d: 0.75
-  :pe_ttm: 10.55
-  :pe_percentile: 0.4205
-  :valuation_label: 偏低区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -13.5708
-  :finance_report_date: '2026-03-31'
-  :pb: 1.12
-  :pb_percentile: 0.4798
-  :drop_30d: -3.8351
-  :asset_liability_ratio: 40.4428
-  :interest_debt_ratio: 35.7957
-  :fcf_yield: 0.1777
-  :fcf_ev: 0.1383
-  :fcff_back: 53501767.8019
-  :roe_jq: 2.34
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: true
-  :total_shares: 2780147737.0
-  :is_core: true
-  :core_categories:
-  - 火电
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 综合能源
-  :whitelist_categories:
-  - 电力
-  - 综合能源
-  :first_yield: 3.8
-  :add_yield: 4.5
-  :heavy_yield: 5.3
-  :buy_method: whitelist
-  :buy_price_5: 11.210475
-  :buy_price_6: 9.466623333333333
-  :buy_price_7: 8.037699056603774
-  :need_drop_to_5: 0.0
-  :drop_to_5: -3.5131578947368514
-  :drop_to_6: 12.588888888888894
-  :drop_to_7: 25.783018867924522
-  :roe_5y_avg: 11.036
-  :roe_5y_min: 8.17
-- :code: '601018'
-  :name: 宁波港
-  :categories:
-  - 港口
-  - 交通运输
-  :avg_dividend_yield_3y: 3.1275
-  :min_dividend_yield_3y: 2.6765
-  :dividend_yield: 3.5294
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.12
-  :current_price: 3.4
-  :turnover_rate: 0.22
-  :market_cap: 66145000000.0
-  :volume: 427475.0
-  :avg_price: 3.3993
-  :dividend_payout_ratio: 45.2116
-  :pos_30d: 0.7
-  :pe_ttm: 12.81
-  :pe_percentile: 0.0222
-  :valuation_label: 底部区域
-  :peg: 3.4585
-  :peg_level: 4
-  :net_profit_yoy: -0.4427
-  :finance_report_date: '2026-03-31'
-  :pb: 0.82
-  :pb_percentile: 0.0193
-  :drop_30d: -6.25
-  :asset_liability_ratio: 24.462
-  :interest_debt_ratio: 15.9975
-  :fcf_yield: 1.9888
-  :fcf_ev: 1.8558
-  :fcff_back: 1315496714.9105
-  :roe_jq: 1.44
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 19454411764.0
-  :is_core: true
-  :core_categories:
-  - 港口
-  - 交通运输
-  :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 港口
-  :whitelist_categories:
-  - 公用事业
-  - 港口
-  :first_yield: 3.3
-  :add_yield: 3.9
-  :heavy_yield: 4.6
-  :buy_method: whitelist
-  :buy_price_5: 3.636351515151515
-  :buy_price_6: 3.0769128205128204
-  :buy_price_7: 2.608686956521739
-  :need_drop_to_5: 0.0
-  :drop_to_5: -6.951515151515153
-  :drop_to_6: 9.502564102564104
-  :drop_to_7: 23.273913043478256
-  :roe_5y_avg: 6.864
-  :roe_5y_min: 6.36
-- :code: '603568'
-  :name: 伟明环保
-  :categories:
-  - 电力
-  - 公用事业
-  :avg_dividend_yield_3y: 2.8751
-  :min_dividend_yield_3y: 1.6213
-  :dividend_yield: 3.8911
-  :consecutive_dividend_years: 11
-  :dividend_cash_per_share_latest_year: 0.6
-  :current_price: 15.42
-  :turnover_rate: 0.45
-  :market_cap: 31587000000.0
-  :volume: 91314.0
-  :avg_price: 15.2551
-  :dividend_payout_ratio: 63.4638
-  :pos_30d: 0.35
-  :pe_ttm: 16.31
-  :pe_percentile: 0.2601
-  :valuation_label: 底部区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -38.6266
-  :finance_report_date: '2026-03-31'
-  :pb: 2.21
-  :pb_percentile: 0.0207
-  :drop_30d: 3.625
-  :asset_liability_ratio: 42.9486
-  :interest_debt_ratio: 25.1674
-  :fcf_yield: -0.7649
-  :fcf_ev: -0.6927
-  :fcff_back: -241593862.5019
-  :roe_jq: 2.89
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 2048443579.0
-  :is_core: true
-  :core_categories:
-  - 电力
-  - 公用事业
-  :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 环保
-  :whitelist_categories:
-  - 公用事业
-  - 环保
-  :first_yield: 3.5
-  :add_yield: 4.2
-  :heavy_yield: 5.0
-  :buy_method: whitelist
-  :buy_price_5: 17.143074857142857
-  :buy_price_6: 14.285895714285713
-  :buy_price_7: 12.0001524
-  :need_drop_to_5: 0.0
-  :drop_to_5: -11.174285714285714
-  :drop_to_6: 7.354761904761908
-  :drop_to_7: 22.178000000000008
-  :roe_5y_avg: 20.724
-  :roe_5y_min: 15.72
-- :code: '600674'
-  :name: 川投能源
-  :categories:
-  - 电力
-  - 公用事业
-  :avg_dividend_yield_3y: 2.7134
-  :min_dividend_yield_3y: 2.5047
-  :dividend_yield: 3.1309
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.5
-  :current_price: 15.97
-  :turnover_rate: 0.79
-  :market_cap: 77847000000.0
-  :volume: 383203.0
-  :avg_price: 16.0168
-  :dividend_payout_ratio: 51.5346
-  :pos_30d: 0.75
-  :pe_ttm: 16.46
-  :pe_percentile: 0.7018
-  :valuation_label: 中位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -1.761
-  :finance_report_date: '2026-03-31'
-  :pb: 1.68
-  :pb_percentile: 0.4427
-  :drop_30d: -12.8622
-  :asset_liability_ratio: 32.6311
-  :interest_debt_ratio: 27.1445
-  :fcf_yield: -2.9051
-  :fcf_ev: -2.6862
-  :fcff_back: -2261503626.6521
-  :roe_jq: 3.18
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: true
-  :total_shares: 4874577332.0
-  :is_core: true
-  :core_categories:
-  - 电力
-  - 公用事业
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 水电
-  :whitelist_categories:
-  - 电力
-  - 水电
-  :first_yield: 3.0
-  :add_yield: 3.5
-  :heavy_yield: 4.2
-  :buy_method: whitelist
-  :buy_price_5: 16.666824333333334
-  :buy_price_6: 14.28584942857143
-  :buy_price_7: 11.904874523809525
-  :need_drop_to_5: 0.0
-  :drop_to_5: -4.363333333333341
-  :drop_to_6: 10.545714285714281
-  :drop_to_7: 25.454761904761902
-  :roe_5y_avg: 11.166
-  :roe_5y_min: 10.33
-- :code: '002966'
-  :name: 苏州银行
-  :categories:
-  - 银行
-  - 金融
-  :avg_dividend_yield_3y: 4.7501
-  :min_dividend_yield_3y: 4.461
-  :dividend_yield: 4.461
-  :consecutive_dividend_years: 7
-  :dividend_cash_per_share_latest_year: 0.36
-  :current_price: 8.07
-  :turnover_rate: 0.87
-  :market_cap: 36078000000.0
-  :volume: 384584.0
-  :avg_price: 8.0235
-  :dividend_payout_ratio: 29.398
-  :pos_30d: 0.95
-  :pe_ttm: 6.59
-  :pe_percentile: 0.3046
-  :valuation_label: 偏低区域
-  :peg: 0.6456
-  :peg_level: 2
-  :net_profit_yoy: 8.2271
-  :finance_report_date: '2026-03-31'
-  :pb: 0.71
-  :pb_percentile: 0.3199
-  :drop_30d: -13.1837
-  :asset_liability_ratio: 92.4148
-  :interest_debt_ratio: 89.0588
-  :fcf_yield:
-  :fcf_ev:
-  :fcff_back:
-  :roe_jq: 3.08
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: true
-  :total_shares: 4470631970.0
-  :is_core: true
-  :core_categories:
-  - 银行
-  :is_whitelist: true
-  :whitelist_big_category: 银行
-  :whitelist_sub_category: 农商行
-  :whitelist_categories:
-  - 银行
-  - 农商行
-  :first_yield: 4.5
-  :add_yield: 5.2
-  :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 8.000060000000001
-  :buy_price_6: 6.923128846153847
-  :buy_price_7: 6.000045000000001
-  :need_drop_to_5: 0.8666666666666489
-  :drop_to_5: 0.8666666666666489
-  :drop_to_6: 14.211538461538453
-  :drop_to_7: 25.649999999999995
-  :roe_5y_avg: 11.164
-  :roe_5y_min: 9.96
-- :code: '601998'
-  :name: 中信银行
-  :categories:
-  - 银行
-  - 金融
-  :avg_dividend_yield_3y: 4.5906
-  :min_dividend_yield_3y: 4.2296
-  :dividend_yield: 4.9416
-  :consecutive_dividend_years: 11
-  :dividend_cash_per_share_latest_year: 0.381
-  :current_price: 7.71
-  :turnover_rate: 0.16
-  :market_cap: 429024000000.0
-  :volume: 666891.0
-  :avg_price: 7.6752
-  :dividend_payout_ratio: 29.7978
-  :pos_30d: 1.0
-  :pe_ttm: 6.03
-  :pe_percentile: 0.6999
-  :valuation_label: 中位区域
-  :peg: 1.7121
-  :peg_level: 4
-  :net_profit_yoy: 3.0191
-  :finance_report_date: '2026-03-31'
-  :pb: 0.59
-  :pb_percentile: 0.6387
-  :drop_30d: -8.1346
-  :asset_liability_ratio: 91.5368
-  :interest_debt_ratio: 86.6802
-  :fcf_yield:
-  :fcf_ev:
-  :fcff_back:
-  :roe_jq: 2.78
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: true
-  :total_shares: 55645136186.0
-  :is_core: true
-  :core_categories:
-  - 银行
-  :is_whitelist: true
-  :whitelist_big_category: 银行
-  :whitelist_sub_category: 股份行
-  :whitelist_categories:
-  - 银行
-  - 股份行
-  :first_yield: 5.0
-  :add_yield: 6.0
-  :heavy_yield: 7.0
-  :buy_method: whitelist
-  :buy_price_5: 7.6199472
-  :buy_price_6: 6.349956
-  :buy_price_7: 5.442819428571429
-  :need_drop_to_5: 1.1679999999999913
-  :drop_to_5: 1.1679999999999913
-  :drop_to_6: 17.64
-  :drop_to_7: 29.40571428571428
-  :roe_5y_avg: 10.302000000000001
-  :roe_5y_min: 9.39
-- :code: '600027'
-  :name: 华电国际
-  :categories:
-  - 电力
-  - 公用事业
-  :avg_dividend_yield_3y: 4.2023
-  :min_dividend_yield_3y: 3.2051
-  :dividend_yield: 4.9145
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.23
-  :current_price: 4.68
-  :turnover_rate: 0.78
-  :market_cap: 54343000000.0
-  :volume: 716058.0
-  :avg_price: 4.6836
-  :dividend_payout_ratio: 45.4591
-  :pos_30d: 0.75
-  :pe_ttm: 9.25
-  :pe_percentile: 0.2213
-  :valuation_label: 中位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -9.9305
-  :finance_report_date: '2026-03-31'
-  :pb: 1.12
-  :pb_percentile: 0.5366
-  :drop_30d: -3.3113
-  :asset_liability_ratio: 59.7073
-  :interest_debt_ratio: 49.9772
-  :fcf_yield: -7.6283
-  :fcf_ev: -3.1432
-  :fcff_back: -4145446201.7728
-  :roe_jq: 3.39
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 11611752136.0
-  :is_core: true
-  :core_categories:
-  - 电力
-  - 公用事业
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 火电
-  :whitelist_categories:
-  - 电力
-  - 火电
-  :first_yield: 5.0
-  :add_yield: 6.0
-  :heavy_yield: 7.0
-  :buy_method: whitelist
-  :buy_price_5: 4.599972
-  :buy_price_6: 3.83331
-  :buy_price_7: 3.2856942857142855
-  :need_drop_to_5: 1.7099999999999893
-  :drop_to_5: 1.7099999999999893
-  :drop_to_6: 18.09166666666666
-  :drop_to_7: 29.792857142857144
-  :roe_5y_avg: 3.3880000000000003
-  :roe_5y_min: -13.7
-- :code: '601077'
-  :name: 渝农商行
-  :categories:
-  - 银行
-  - 金融
-  :avg_dividend_yield_3y: 4.6307
-  :min_dividend_yield_3y: 4.3845
-  :dividend_yield: 4.8784
-  :consecutive_dividend_years: 7
-  :dividend_cash_per_share_latest_year: 0.321
-  :current_price: 6.58
-  :turnover_rate: 0.63
-  :market_cap: 74729000000.0
-  :volume: 553067.0
-  :avg_price: 6.5974
-  :dividend_payout_ratio: 28.9289
-  :pos_30d: 0.5
-  :pe_ttm: 5.93
-  :pe_percentile: 0.6679
-  :valuation_label: 中位区域
-  :peg: 1.1691
-  :peg_level: 3
-  :net_profit_yoy: 5.0719
-  :finance_report_date: '2026-03-31'
-  :pb: 0.53
-  :pb_percentile: 0.5963
-  :drop_30d: -3.2967
-  :asset_liability_ratio: 91.8349
-  :interest_debt_ratio: 83.969
-  :fcf_yield:
-  :fcf_ev:
-  :fcff_back:
-  :roe_jq: 2.99
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: true
-  :total_shares: 11356990881.0
-  :is_core: true
-  :core_categories:
-  - 银行
-  :is_whitelist: true
-  :whitelist_big_category: 银行
-  :whitelist_sub_category: 农商行
-  :whitelist_categories:
-  - 银行
-  - 农商行
-  :first_yield: 5.0
-  :add_yield: 6.0
-  :heavy_yield: 7.0
-  :buy_method: whitelist
-  :buy_price_5: 6.4199744
-  :buy_price_6: 5.349978666666667
-  :buy_price_7: 4.585696
-  :need_drop_to_5: 2.432000000000001
-  :drop_to_5: 2.432000000000001
-  :drop_to_6: 18.693333333333328
-  :drop_to_7: 30.30857142857142
-  :roe_5y_avg: 9.534
-  :roe_5y_min: 9.18
-- :code: '601598'
-  :name: 中国外运
-  :categories:
-  - 交通运输
-  :avg_dividend_yield_3y: 4.716
-  :min_dividend_yield_3y: 4.6624
-  :dividend_yield: 4.8232
-  :consecutive_dividend_years: 8
-  :dividend_cash_per_share_latest_year: 0.3
-  :current_price: 6.22
-  :turnover_rate: 0.44
-  :market_cap: 44621000000.0
-  :volume: 225639.0
-  :avg_price: 6.1634
-  :dividend_payout_ratio: 53.0552
-  :pos_30d: 1.0
-  :pe_ttm: 11.0
-  :pe_percentile: 0.7024
-  :valuation_label: 中位区域
-  :peg: 1.4
-  :peg_level: 3
-  :net_profit_yoy: 5.6513
-  :finance_report_date: '2026-03-31'
-  :pb: 1.1
-  :pb_percentile: 0.704
-  :drop_30d: -22.6824
-  :asset_liability_ratio: 44.2898
-  :interest_debt_ratio: 13.7864
-  :fcf_yield: -0.5444
-  :fcf_ev: -0.4907
-  :fcff_back: -242934238.3218
-  :roe_jq: 1.64
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: true
-  :total_shares: 7173794212.0
-  :is_core: true
-  :core_categories:
-  - 交通运输
-  :is_whitelist: true
-  :whitelist_big_category: 周期
-  :whitelist_sub_category: 综合物流
-  :whitelist_categories:
-  - 周期
-  - 综合物流
-  :first_yield: 5.0
-  :add_yield: 5.8
-  :heavy_yield: 6.8
-  :buy_method: whitelist
-  :buy_price_5: 6.000060799999999
-  :buy_price_6: 5.1724662068965515
-  :buy_price_7: 4.411809411764706
-  :need_drop_to_5: 3.536000000000006
-  :drop_to_5: 3.536000000000006
-  :drop_to_6: 16.841379310344827
-  :drop_to_7: 29.070588235294114
-  :roe_5y_avg: 11.044
-  :roe_5y_min: 9.92
-- :code: '601128'
-  :name: 常熟银行
-  :categories:
-  - 银行
-  - 金融
-  :avg_dividend_yield_3y: 4.1199
-  :min_dividend_yield_3y: 4.0128
-  :dividend_yield: 4.3339
-  :consecutive_dividend_years: 10
-  :dividend_cash_per_share_latest_year: 0.27
-  :current_price: 6.23
-  :turnover_rate: 1.03
-  :market_cap: 22728000000.0
-  :volume: 374956.0
-  :avg_price: 6.229
-  :dividend_payout_ratio: 22.7096
-  :pos_30d: 0.65
-  :pe_ttm: 5.24
-  :pe_percentile: 0.013
-  :valuation_label: 底部区域
-  :peg: 0.3813
-  :peg_level: 1
-  :net_profit_yoy: 11.1024
-  :finance_report_date: '2026-03-31'
-  :pb: 0.72
-  :pb_percentile: 0.0183
-  :drop_30d: -5.2365
-  :asset_liability_ratio: 91.7086
-  :interest_debt_ratio: 88.883
-  :fcf_yield:
-  :fcf_ev:
-  :fcff_back:
-  :roe_jq: 3.75
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 3648154093.0
-  :is_core: true
-  :core_categories:
-  - 银行
-  :is_whitelist: true
-  :whitelist_big_category: 银行
-  :whitelist_sub_category: 农商行
-  :whitelist_categories:
-  - 银行
-  - 农商行
-  :first_yield: 4.5
-  :add_yield: 5.2
-  :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 6.000043777777778
-  :buy_price_6: 5.192345576923077
-  :buy_price_7: 4.500032833333333
-  :need_drop_to_5: 3.6911111111111117
-  :drop_to_5: 3.6911111111111117
-  :drop_to_6: 16.655769230769234
-  :drop_to_7: 27.768333333333338
-  :roe_5y_avg: 13.313999999999998
-  :roe_5y_min: 11.62
-- :code: '000429'
-  :name: 粤高速A
-  :categories:
-  - 高速公路
-  - 交通运输
-  :avg_dividend_yield_3y: 3.7052
-  :min_dividend_yield_3y: 3.4728
-  :dividend_yield: 4.0106
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.604
-  :current_price: 15.06
-  :turnover_rate: 1.1
-  :market_cap: 31488000000.0
-  :volume: 143528.0
-  :avg_price: 14.894
-  :dividend_payout_ratio: 79.1291
-  :pos_30d: 1.0
-  :pe_ttm: 19.73
-  :pe_percentile: 0.947
-  :valuation_label: 偏高区域
-  :peg: 1.5751
-  :peg_level: 4
-  :net_profit_yoy: -31.2703
-  :finance_report_date: '2026-03-31'
-  :pb: 2.73
-  :pb_percentile: 0.9841
-  :drop_30d: -8.9725
-  :asset_liability_ratio: 48.0381
-  :interest_debt_ratio: 39.5357
-  :fcf_yield: -2.8218
-  :fcf_ev: -2.4108
-  :fcff_back: -888525321.2213
-  :roe_jq: 3.99
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 2090836653.0
-  :is_core: true
-  :core_categories:
-  - 高速公路
-  - 交通运输
-  :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 高速
-  :whitelist_categories:
-  - 公用事业
-  - 高速
-  :first_yield: 4.2
-  :add_yield: 5.0
-  :heavy_yield: 5.8
-  :buy_method: whitelist
-  :buy_price_5: 14.380865714285715
-  :buy_price_6: 12.079927200000002
-  :buy_price_7: 10.413730344827588
-  :need_drop_to_5: 4.509523809523808
-  :drop_to_5: 4.509523809523808
-  :drop_to_6: 19.787999999999993
-  :drop_to_7: 30.851724137931026
-  :roe_5y_avg: 16.814
-  :roe_5y_min: 14.3
 - :code: '601658'
   :name: 邮储银行
   :categories:
@@ -2531,7 +1243,7 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 4.8511093333333335
   :buy_price_6: 4.198075384615385
   :buy_price_7: 3.6383319999999997
@@ -2590,7 +1302,7 @@
   :first_yield: 4.5
   :add_yield: 5.3
   :heavy_yield: 6.2
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 4.44444
   :buy_price_6: 3.7735811320754715
   :buy_price_7: 3.2258032258064517
@@ -2600,123 +1312,181 @@
   :drop_to_7: 31.072580645161285
   :roe_5y_avg: 9.856
   :roe_5y_min: 9.01
-- :code: '600012'
-  :name: 皖通高速
+- :code: '600886'
+  :name: 国投电力
   :categories:
-  - 高速公路
-  - 交通运输
-  :avg_dividend_yield_3y: 3.3676
-  :min_dividend_yield_3y: 3.2557
-  :dividend_yield: 3.5753
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.66
-  :current_price: 18.46
-  :turnover_rate: 0.67
-  :market_cap: 31541000000.0
-  :volume: 77535.0
-  :avg_price: 18.3943
-  :dividend_payout_ratio: 60.5298
-  :pos_30d: 0.95
-  :pe_ttm: 16.93
-  :pe_percentile: 0.9229
-  :valuation_label: 偏高区域
-  :peg: 1.0467
-  :peg_level: 3
-  :net_profit_yoy: -2.6713
-  :finance_report_date: '2026-03-31'
-  :pb: 2.36
-  :pb_percentile: 0.9619
-  :drop_30d: -15.375
-  :asset_liability_ratio: 53.1144
-  :interest_debt_ratio: 45.9021
-  :fcf_yield: 5.5506
-  :fcf_ev: 4.4621
-  :fcff_back: 1750712254.1617
-  :roe_jq: 4.1
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 1708613217.0
-  :is_core: true
-  :core_categories:
-  - 高速公路
-  - 交通运输
-  :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 高速
-  :whitelist_categories:
+  - 电力
   - 公用事业
-  - 高速
-  :first_yield: 3.8
-  :add_yield: 4.5
-  :heavy_yield: 5.3
-  :buy_method: whitelist
-  :buy_price_5: 17.36843105263158
-  :buy_price_6: 14.666675111111111
-  :buy_price_7: 12.452837358490566
-  :need_drop_to_5: 5.9131578947368535
-  :drop_to_5: 5.9131578947368535
-  :drop_to_6: 20.548888888888893
-  :drop_to_7: 32.54150943396227
-  :roe_5y_avg: 12.77
-  :roe_5y_min: 11.96
-- :code: '600050'
-  :name: 中国联通
-  :categories:
-  - 通信服务
-  - 电信业务
-  :avg_dividend_yield_3y: 3.4513
-  :min_dividend_yield_3y: 3.0137
-  :dividend_yield: 3.7329
-  :consecutive_dividend_years: 9
-  :dividend_cash_per_share_latest_year: 0.1635
-  :current_price: 4.38
-  :turnover_rate: 0.43
-  :market_cap: 136938000000.0
-  :volume: 1347730.0
-  :avg_price: 4.4027
-  :dividend_payout_ratio: 59.0545
-  :pos_30d: 0.75
-  :pe_ttm: 15.82
-  :pe_percentile: 0.0631
-  :valuation_label: 底部区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -17.989
+  :avg_dividend_yield_3y: 3.3048
+  :min_dividend_yield_3y: 3.1012
+  :dividend_yield: 3.4518
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.5081
+  :current_price: 14.72
+  :turnover_rate: 0.61
+  :market_cap: 117826000000.0
+  :volume: 454387.0
+  :avg_price: 14.7515
+  :dividend_payout_ratio: 54.711
+  :pos_30d: 0.7
+  :pe_ttm: 15.85
+  :pe_percentile: 0.514
+  :valuation_label: 中位区域
+  :peg: 7.5032
+  :peg_level: 4
+  :net_profit_yoy: 1.9141
   :finance_report_date: '2026-03-31'
-  :pb: 0.81
-  :pb_percentile: 0.1209
-  :drop_30d: -8.9552
-  :asset_liability_ratio: 43.1089
-  :interest_debt_ratio: 4.9294
-  :fcf_yield: -12.1458
-  :fcf_ev: -11.0016
-  :fcff_back: -16632258559.2517
-  :roe_jq: 1.24
+  :pb: 1.71
+  :pb_percentile: 0.6416
+  :drop_30d: -10.2622
+  :asset_liability_ratio: 59.5845
+  :interest_debt_ratio: 50.1203
+  :fcf_yield: -4.8122
+  :fcf_ev: -2.6702
+  :fcff_back: -5670045792.0382
+  :roe_jq: 3.06
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
-  :total_shares: 31264383561.0
+  :total_shares: 8004483695.0
   :is_core: true
   :core_categories:
-  - 通信服务
-  :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 通信
-  :whitelist_categories:
+  - 电力
   - 公用事业
-  - 通信
-  :first_yield: 4.0
-  :add_yield: 4.7
-  :heavy_yield: 5.5
-  :buy_method: whitelist
-  :buy_price_5: 4.0875255
-  :buy_price_6: 3.4787451063829784
-  :buy_price_7: 2.972745818181818
-  :need_drop_to_5: 6.677500000000003
-  :drop_to_5: 6.677500000000003
-  :drop_to_6: 20.57659574468086
-  :drop_to_7: 32.129090909090905
-  :roe_5y_avg: 4.96
-  :roe_5y_min: 4.17
+  :is_whitelist: true
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 水电
+  :whitelist_categories:
+  - 电力
+  - 水电
+  :first_yield: 3.3
+  :add_yield: 3.9
+  :heavy_yield: 4.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 13.833231515151516
+  :buy_price_6: 11.705042051282051
+  :buy_price_7: 10.144369777777777
+  :need_drop_to_5: 6.024242424242421
+  :drop_to_5: 6.024242424242421
+  :drop_to_6: 20.482051282051284
+  :drop_to_7: 31.084444444444447
+  :roe_5y_avg: 9.914
+  :roe_5y_min: 5.39
+- :code: '600023'
+  :name: 浙能电力
+  :categories:
+  - 电力
+  - 公用事业
+  :avg_dividend_yield_3y: 5.4104
+  :min_dividend_yield_3y: 4.6642
+  :dividend_yield: 6.1567
+  :consecutive_dividend_years: 3
+  :dividend_cash_per_share_latest_year: 0.33
+  :current_price: 5.36
+  :turnover_rate: 0.32
+  :market_cap: 71871000000.0
+  :volume: 425666.0
+  :avg_price: 5.3293
+  :dividend_payout_ratio: 59.7816
+  :pos_30d: 0.45
+  :pe_ttm: 9.71
+  :pe_percentile: 0.204
+  :valuation_label: 偏低区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -11.8403
+  :finance_report_date: '2026-03-31'
+  :pb: 0.93
+  :pb_percentile: 0.5183
+  :drop_30d: -1.5152
+  :asset_liability_ratio: 41.397
+  :interest_debt_ratio: 30.5583
+  :fcf_yield: -3.4713
+  :fcf_ev: -2.7306
+  :fcff_back: -2494852240.5455
+  :roe_jq: 1.23
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 13408768656.0
+  :is_core: true
+  :core_categories:
+  - 电力
+  - 公用事业
+  :is_whitelist: true
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 综合能源
+  :whitelist_categories:
+  - 电力
+  - 综合能源
+  :first_yield: 5.0
+  :add_yield: 5.8
+  :heavy_yield: 6.8
+  :buy_method: whitelist_min3y
+  :buy_price_5: 5.000022400000001
+  :buy_price_6: 4.3103641379310345
+  :buy_price_7: 3.6764870588235303
+  :need_drop_to_5: 6.715999999999989
+  :drop_to_5: 6.715999999999989
+  :drop_to_6: 19.582758620689656
+  :drop_to_7: 31.408823529411755
+  :roe_5y_avg: 5.422
+  :roe_5y_min: -2.92
+- :code: '601598'
+  :name: 中国外运
+  :categories:
+  - 交通运输
+  :avg_dividend_yield_3y: 4.716
+  :min_dividend_yield_3y: 4.6624
+  :dividend_yield: 4.8232
+  :consecutive_dividend_years: 8
+  :dividend_cash_per_share_latest_year: 0.3
+  :current_price: 6.22
+  :turnover_rate: 0.44
+  :market_cap: 44621000000.0
+  :volume: 225639.0
+  :avg_price: 6.1634
+  :dividend_payout_ratio: 53.0552
+  :pos_30d: 1.0
+  :pe_ttm: 11.0
+  :pe_percentile: 0.7024
+  :valuation_label: 中位区域
+  :peg: 1.4
+  :peg_level: 3
+  :net_profit_yoy: 5.6513
+  :finance_report_date: '2026-03-31'
+  :pb: 1.1
+  :pb_percentile: 0.704
+  :drop_30d: -22.6824
+  :asset_liability_ratio: 44.2898
+  :interest_debt_ratio: 13.7864
+  :fcf_yield: -0.5444
+  :fcf_ev: -0.4907
+  :fcff_back: -242934238.3218
+  :roe_jq: 1.64
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: true
+  :total_shares: 7173794212.0
+  :is_core: true
+  :core_categories:
+  - 交通运输
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 综合物流
+  :whitelist_categories:
+  - 周期
+  - 综合物流
+  :first_yield: 5.0
+  :add_yield: 5.8
+  :heavy_yield: 6.8
+  :buy_method: whitelist_min3y
+  :buy_price_5: 5.8000256
+  :buy_price_6: 5.000022068965517
+  :buy_price_7: 4.264724705882353
+  :need_drop_to_5: 6.7520000000000024
+  :drop_to_5: 6.7520000000000024
+  :drop_to_6: 19.613793103448273
+  :drop_to_7: 31.43529411764706
+  :roe_5y_avg: 11.044
+  :roe_5y_min: 9.92
 - :code: '603565'
   :name: 中谷物流
   :categories:
@@ -2765,7 +1535,7 @@
   :first_yield: 7.0
   :add_yield: 8.0
   :heavy_yield: 9.5
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 9.571495714285716
   :buy_price_6: 8.37505875
   :buy_price_7: 7.05268105263158
@@ -2775,238 +1545,6 @@
   :drop_to_7: 31.527368421052625
   :roe_5y_avg: 23.476
   :roe_5y_min: 17.2
-- :code: '600000'
-  :name: 浦发银行
-  :categories:
-  - 银行
-  - 金融
-  :avg_dividend_yield_3y: 4.2394
-  :min_dividend_yield_3y: 3.547
-  :dividend_yield: 4.6409
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.42
-  :current_price: 9.05
-  :turnover_rate: 0.17
-  :market_cap: 301418000000.0
-  :volume: 557231.0
-  :avg_price: 9.0558
-  :dividend_payout_ratio: 27.799
-  :pos_30d: 0.7
-  :pe_ttm: 5.99
-  :pe_percentile: 0.6811
-  :valuation_label: 偏低区域
-  :peg: 3.2705
-  :peg_level: 4
-  :net_profit_yoy: 1.4945
-  :finance_report_date: '2026-03-31'
-  :pb: 0.41
-  :pb_percentile: 0.2987
-  :drop_30d: -3.6655
-  :asset_liability_ratio: 91.8356
-  :interest_debt_ratio: 87.9888
-  :fcf_yield:
-  :fcf_ev:
-  :fcff_back:
-  :roe_jq: 2.32
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 33305856353.0
-  :is_core: true
-  :core_categories:
-  - 银行
-  :is_whitelist: true
-  :whitelist_big_category: 银行
-  :whitelist_sub_category: 股份行
-  :whitelist_categories:
-  - 银行
-  - 股份行
-  :first_yield: 5.0
-  :add_yield: 6.0
-  :heavy_yield: 7.0
-  :buy_method: whitelist
-  :buy_price_5: 8.400029
-  :buy_price_6: 7.000024166666668
-  :buy_price_7: 6.000020714285715
-  :need_drop_to_5: 7.182000000000011
-  :drop_to_5: 7.182000000000011
-  :drop_to_6: 22.65166666666666
-  :drop_to_7: 33.70142857142857
-  :roe_5y_avg: 6.996
-  :roe_5y_min: 5.21
-- :code: '600926'
-  :name: 杭州银行
-  :categories:
-  - 银行
-  - 金融
-  :avg_dividend_yield_3y: 3.8486
-  :min_dividend_yield_3y: 3.2808
-  :dividend_yield: 4.164
-  :consecutive_dividend_years: 10
-  :dividend_cash_per_share_latest_year: 0.66
-  :current_price: 15.85
-  :turnover_rate: 0.58
-  :market_cap: 114897000000.0
-  :volume: 422034.0
-  :avg_price: 15.7419
-  :dividend_payout_ratio: 24.3594
-  :pos_30d: 1.0
-  :pe_ttm: 5.85
-  :pe_percentile: 0.2587
-  :valuation_label: 中位区域
-  :peg: 0.5393
-  :peg_level: 2
-  :net_profit_yoy: 10.094
-  :finance_report_date: '2026-03-31'
-  :pb: 0.83
-  :pb_percentile: 0.2635
-  :drop_30d: -6.091
-  :asset_liability_ratio: 93.0193
-  :interest_debt_ratio: 91.5228
-  :fcf_yield:
-  :fcf_ev:
-  :fcff_back:
-  :roe_jq: 4.69
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 7249022082.0
-  :is_core: true
-  :core_categories:
-  - 银行
-  :is_whitelist: true
-  :whitelist_big_category: 银行
-  :whitelist_sub_category: 城商行
-  :whitelist_categories:
-  - 银行
-  - 城商行
-  :first_yield: 4.5
-  :add_yield: 5.2
-  :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 14.666533333333332
-  :buy_price_6: 12.692192307692306
-  :buy_price_7: 10.999899999999998
-  :need_drop_to_5: 7.466666666666677
-  :drop_to_5: 7.466666666666677
-  :drop_to_6: 19.923076923076934
-  :drop_to_7: 30.600000000000005
-  :roe_5y_avg: 14.528
-  :roe_5y_min: 12.33
-- :code: '600863'
-  :name: 内蒙华电
-  :categories:
-  - 电力
-  - 公用事业
-  :avg_dividend_yield_3y: 4.2003
-  :min_dividend_yield_3y: 3.7298
-  :dividend_yield: 4.4355
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.22
-  :current_price: 4.96
-  :turnover_rate: 2.22
-  :market_cap: 38863000000.0
-  :volume: 1450010.0
-  :avg_price: 4.8989
-  :dividend_payout_ratio: 76.0688
-  :pos_30d: 0.8
-  :pe_ttm: 17.15
-  :pe_percentile: 0.6389
-  :valuation_label: 偏高区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -24.6319
-  :finance_report_date: '2026-03-31'
-  :pb: 1.86
-  :pb_percentile: 0.8772
-  :drop_30d: -2.6915
-  :asset_liability_ratio: 39.6507
-  :interest_debt_ratio: 29.6107
-  :fcf_yield: -15.6336
-  :fcf_ev: -13.6326
-  :fcff_back: -6075694855.8831
-  :roe_jq: 3.67
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 7835282258.0
-  :is_core: true
-  :core_categories:
-  - 电力
-  - 公用事业
-  :is_whitelist: true
-  :whitelist_big_category: 电力
-  :whitelist_sub_category: 火电
-  :whitelist_categories:
-  - 电力
-  - 火电
-  :first_yield: 4.8
-  :add_yield: 5.7
-  :heavy_yield: 6.7
-  :buy_method: whitelist
-  :buy_price_5: 4.58335
-  :buy_price_6: 3.859663157894737
-  :buy_price_7: 3.283594029850746
-  :need_drop_to_5: 7.593749999999999
-  :drop_to_5: 7.593749999999999
-  :drop_to_6: 22.184210526315784
-  :drop_to_7: 33.798507462686565
-  :roe_5y_avg: 11.558
-  :roe_5y_min: 3.03
-- :code: '600008'
-  :name: 首创环保
-  :categories:
-  - 水务
-  :avg_dividend_yield_3y: 4.4983
-  :min_dividend_yield_3y: 3.4602
-  :dividend_yield: 4.1522
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 0.12
-  :current_price: 2.89
-  :turnover_rate: 1.05
-  :market_cap: 21214000000.0
-  :volume: 771119.0
-  :avg_price: 2.8885
-  :dividend_payout_ratio: 48.8714
-  :pos_30d: 0.8
-  :pe_ttm: 11.77
-  :pe_percentile: 0.368
-  :valuation_label: 底部区域
-  :peg: 1.3677
-  :peg_level: 3
-  :net_profit_yoy: 7.6713
-  :finance_report_date: '2026-03-31'
-  :pb: 1.03
-  :pb_percentile: 0.0255
-  :drop_30d: -4.7101
-  :asset_liability_ratio: 63.2275
-  :interest_debt_ratio: 45.2492
-  :fcf_yield: -9.1285
-  :fcf_ev: -3.6921
-  :fcff_back: -1936525775.2825
-  :roe_jq: 1.39
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 7340484429.0
-  :is_core: true
-  :core_categories:
-  - 水务
-  :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 环保
-  :whitelist_categories:
-  - 公用事业
-  - 环保
-  :first_yield: 4.5
-  :add_yield: 5.2
-  :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 2.666635111111111
-  :buy_price_6: 2.3076649999999996
-  :buy_price_7: 1.9999763333333334
-  :need_drop_to_5: 7.728888888888907
-  :drop_to_5: 7.728888888888907
-  :drop_to_6: 20.150000000000013
-  :drop_to_7: 30.796666666666674
-  :roe_5y_avg: 8.708
-  :roe_5y_min: 5.62
 - :code: '601006'
   :name: 大秦铁路
   :categories:
@@ -3056,7 +1594,7 @@
   :first_yield: 5.0
   :add_yield: 5.8
   :heavy_yield: 6.8
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 4.4340366
   :buy_price_6: 3.822445344827586
   :buy_price_7: 3.2603210294117644
@@ -3066,6 +1604,122 @@
   :drop_to_7: 32.49852941176471
   :roe_5y_avg: 7.534000000000001
   :roe_5y_min: 3.64
+- :code: '601577'
+  :name: 长沙银行
+  :categories:
+  - 银行
+  - 金融
+  :avg_dividend_yield_3y: 4.4324
+  :min_dividend_yield_3y: 4.1081
+  :dividend_yield: 4.6486
+  :consecutive_dividend_years: 8
+  :dividend_cash_per_share_latest_year: 0.43
+  :current_price: 9.25
+  :turnover_rate: 0.48
+  :market_cap: 37199000000.0
+  :volume: 194644.0
+  :avg_price: 9.281
+  :dividend_payout_ratio: 21.0117
+  :pos_30d: 0.65
+  :pe_ttm: 4.52
+  :pe_percentile: 0.2637
+  :valuation_label: 偏低区域
+  :peg: 0.7465
+  :peg_level: 2
+  :net_profit_yoy: 5.7749
+  :finance_report_date: '2026-03-31'
+  :pb: 0.51
+  :pb_percentile: 0.1271
+  :drop_30d: -3.9326
+  :asset_liability_ratio: 93.5268
+  :interest_debt_ratio: 91.2503
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq: 3.17
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 4021513513.0
+  :is_core: true
+  :core_categories:
+  - 银行
+  :is_whitelist: true
+  :whitelist_big_category: 银行
+  :whitelist_sub_category: 农商行
+  :whitelist_categories:
+  - 银行
+  - 农商行
+  :first_yield: 4.5
+  :add_yield: 5.2
+  :heavy_yield: 6.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 8.44442777777778
+  :buy_price_6: 7.3076778846153845
+  :buy_price_7: 6.333320833333334
+  :need_drop_to_5: 8.708888888888877
+  :drop_to_5: 8.708888888888877
+  :drop_to_6: 20.998076923076926
+  :drop_to_7: 31.53166666666666
+  :roe_5y_avg: 12.276
+  :roe_5y_min: 11.24
+- :code: '600919'
+  :name: 江苏银行
+  :categories:
+  - 银行
+  - 金融
+  :avg_dividend_yield_3y: 4.5142
+  :min_dividend_yield_3y: 4.0941
+  :dividend_yield: 4.9138
+  :consecutive_dividend_years: 10
+  :dividend_cash_per_share_latest_year: 0.5641
+  :current_price: 11.48
+  :turnover_rate: 0.43
+  :market_cap: 210673000000.0
+  :volume: 790777.0
+  :avg_price: 11.4891
+  :dividend_payout_ratio: 29.3354
+  :pos_30d: 0.85
+  :pe_ttm: 5.97
+  :pe_percentile: 0.7909
+  :valuation_label: 偏高区域
+  :peg: 0.7
+  :peg_level: 2
+  :net_profit_yoy: 8.201
+  :finance_report_date: '2026-03-31'
+  :pb: 0.81
+  :pb_percentile: 0.8892
+  :drop_30d: -3.1447
+  :asset_liability_ratio: 93.6197
+  :interest_debt_ratio: 88.8406
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq: 4.09
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 18351306620.0
+  :is_core: true
+  :core_categories:
+  - 银行
+  :is_whitelist: true
+  :whitelist_big_category: 银行
+  :whitelist_sub_category: 城商行
+  :whitelist_categories:
+  - 银行
+  - 城商行
+  :first_yield: 4.5
+  :add_yield: 5.2
+  :heavy_yield: 6.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 10.444504
+  :buy_price_6: 9.038513076923078
+  :buy_price_7: 7.833378000000001
+  :need_drop_to_5: 9.020000000000007
+  :drop_to_5: 9.020000000000007
+  :drop_to_6: 21.26730769230769
+  :drop_to_7: 31.765
+  :roe_5y_avg: 13.728
+  :roe_5y_min: 12.6
 - :code: '601916'
   :name: 浙商银行
   :categories:
@@ -3114,7 +1768,7 @@
   :first_yield: 5.0
   :add_yield: 6.0
   :heavy_yield: 7.0
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 2.6200162
   :buy_price_6: 2.1833468333333332
   :buy_price_7: 1.8714401428571428
@@ -3173,7 +1827,7 @@
   :first_yield: 4.0
   :add_yield: 4.8
   :heavy_yield: 5.6
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 10.49985475
   :buy_price_6: 8.749878958333333
   :buy_price_7: 7.499896250000002
@@ -3183,42 +1837,42 @@
   :drop_to_7: 35.51249999999999
   :roe_5y_avg: 8.968
   :roe_5y_min: 8.2
-- :code: '601665'
-  :name: 齐鲁银行
+- :code: '601128'
+  :name: 常熟银行
   :categories:
   - 银行
   - 金融
-  :avg_dividend_yield_3y: 3.9719
-  :min_dividend_yield_3y: 3.5656
-  :dividend_yield: 4.0389
-  :consecutive_dividend_years: 6
-  :dividend_cash_per_share_latest_year: 0.2492
-  :current_price: 6.17
-  :turnover_rate: 0.69
-  :market_cap: 37969000000.0
-  :volume: 424932.0
-  :avg_price: 6.1657
-  :dividend_payout_ratio: 25.9701
-  :pos_30d: 0.85
-  :pe_ttm: 6.43
-  :pe_percentile: 0.7001
-  :valuation_label: 中位区域
-  :peg: 0.3745
+  :avg_dividend_yield_3y: 4.1199
+  :min_dividend_yield_3y: 4.0128
+  :dividend_yield: 4.3339
+  :consecutive_dividend_years: 10
+  :dividend_cash_per_share_latest_year: 0.27
+  :current_price: 6.23
+  :turnover_rate: 1.03
+  :market_cap: 22728000000.0
+  :volume: 374956.0
+  :avg_price: 6.229
+  :dividend_payout_ratio: 22.7096
+  :pos_30d: 0.65
+  :pe_ttm: 5.24
+  :pe_percentile: 0.013
+  :valuation_label: 底部区域
+  :peg: 0.3813
   :peg_level: 1
-  :net_profit_yoy: 14.0052
+  :net_profit_yoy: 11.1024
   :finance_report_date: '2026-03-31'
-  :pb: 0.76
-  :pb_percentile: 0.6742
-  :drop_30d: -4.0472
-  :asset_liability_ratio: 93.7257
-  :interest_debt_ratio: 89.4653
+  :pb: 0.72
+  :pb_percentile: 0.0183
+  :drop_30d: -5.2365
+  :asset_liability_ratio: 91.7086
+  :interest_debt_ratio: 88.883
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.9
+  :roe_jq: 3.75
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
-  :total_shares: 6153808752.0
+  :total_shares: 3648154093.0
   :is_core: true
   :core_categories:
   - 银行
@@ -3231,16 +1885,74 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 5.5377806666666665
-  :buy_price_6: 4.792310192307692
-  :buy_price_7: 4.1533355
-  :need_drop_to_5: 10.24666666666667
-  :drop_to_5: 10.24666666666667
-  :drop_to_6: 22.32884615384616
-  :drop_to_7: 32.684999999999995
-  :roe_5y_avg: 12.181999999999999
-  :roe_5y_min: 11.4
+  :buy_method: whitelist_min3y
+  :buy_price_5: 5.555498666666668
+  :buy_price_6: 4.807643076923078
+  :buy_price_7: 4.1666240000000005
+  :need_drop_to_5: 10.82666666666665
+  :drop_to_5: 10.82666666666665
+  :drop_to_6: 22.83076923076921
+  :drop_to_7: 33.11999999999999
+  :roe_5y_avg: 13.313999999999998
+  :roe_5y_min: 11.62
+- :code: '601728'
+  :name: 中国电信
+  :categories:
+  - 通信服务
+  - 电信业务
+  :avg_dividend_yield_3y: 4.1667
+  :min_dividend_yield_3y: 3.8105
+  :dividend_yield: 4.4444
+  :consecutive_dividend_years: 5
+  :dividend_cash_per_share_latest_year: 0.272
+  :current_price: 6.12
+  :turnover_rate: 0.14
+  :market_cap: 560024000000.0
+  :volume: 1075031.0
+  :avg_price: 6.1522
+  :dividend_payout_ratio: 78.577
+  :pos_30d: 0.9
+  :pe_ttm: 17.68
+  :pe_percentile: 0.5294
+  :valuation_label: 偏低区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -17.0812
+  :finance_report_date: '2026-03-31'
+  :pb: 1.22
+  :pb_percentile: 0.5973
+  :drop_30d: -15.69
+  :asset_liability_ratio: 45.8666
+  :interest_debt_ratio: 5.1983
+  :fcf_yield: -3.4255
+  :fcf_ev: -3.3019
+  :fcff_back: -19183344781.8677
+  :roe_jq: 1.58
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 91507189542.0
+  :is_core: true
+  :core_categories:
+  - 通信服务
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 通信
+  :whitelist_categories:
+  - 公用事业
+  - 通信
+  :first_yield: 4.3
+  :add_yield: 5.0
+  :heavy_yield: 5.8
+  :buy_method: whitelist_min3y
+  :buy_price_5: 5.423316279069768
+  :buy_price_6: 4.664052
+  :buy_price_7: 4.020734482758621
+  :need_drop_to_5: 11.383720930232554
+  :drop_to_5: 11.383720930232554
+  :drop_to_6: 23.79
+  :drop_to_7: 34.30172413793103
+  :roe_5y_avg: 6.9
+  :roe_5y_min: 6.4
 - :code: '601398'
   :name: 工商银行
   :categories:
@@ -3289,133 +2001,190 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 6.895503555555556
-  :buy_price_6: 5.967262692307692
-  :buy_price_7: 5.171627666666667
-  :need_drop_to_5: 10.79555555555556
-  :drop_to_5: 10.79555555555556
-  :drop_to_6: 22.803846153846163
-  :drop_to_7: 33.09666666666667
+  :buy_method: whitelist_min3y
+  :buy_price_5: 6.808927555555556
+  :buy_price_6: 5.892341153846154
+  :buy_price_7: 5.106695666666667
+  :need_drop_to_5: 11.915555555555557
+  :drop_to_5: 11.915555555555557
+  :drop_to_6: 23.77307692307693
+  :drop_to_7: 33.93666666666667
   :roe_5y_avg: 10.718
   :roe_5y_min: 9.45
-- :code: '601298'
-  :name: 青岛港
+- :code: '600098'
+  :name: 广州发展
   :categories:
-  - 港口
-  - 公用事业
-  :avg_dividend_yield_3y: 3.6483
-  :min_dividend_yield_3y: 3.3644
-  :dividend_yield: 3.9701
-  :consecutive_dividend_years: 8
-  :dividend_cash_per_share_latest_year: 0.3454
-  :current_price: 8.7
-  :turnover_rate: 0.24
-  :market_cap: 56473000000.0
-  :volume: 129079.0
-  :avg_price: 8.7055
-  :dividend_payout_ratio: 42.758
-  :pos_30d: 0.95
-  :pe_ttm: 10.77
-  :pe_percentile: 0.6082
-  :valuation_label: 中位区域
-  :peg: 87.9345
-  :peg_level: 4
-  :net_profit_yoy: -1.9984
+  - 火电
+  :avg_dividend_yield_3y: 4.5814
+  :min_dividend_yield_3y: 3.9494
+  :dividend_yield: 5.5292
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.35
+  :current_price: 6.33
+  :turnover_rate: 0.81
+  :market_cap: 22192000000.0
+  :volume: 285023.0
+  :avg_price: 6.2939
+  :dividend_payout_ratio: 51.0898
+  :pos_30d: 0.9
+  :pe_ttm: 9.24
+  :pe_percentile: 0.0096
+  :valuation_label: 偏低区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: 18.3741
   :finance_report_date: '2026-03-31'
-  :pb: 1.2
-  :pb_percentile: 0.4286
-  :drop_30d: -4.9457
-  :asset_liability_ratio: 24.5097
-  :interest_debt_ratio: 6.2245
-  :fcf_yield: -0.8573
-  :fcf_ev: -0.8417
-  :fcff_back: -484136586.5737
-  :roe_jq: 2.96
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 6491149425.0
+  :pb: 0.82
+  :pb_percentile: 0.1204
+  :drop_30d: -5.1495
+  :asset_liability_ratio: 63.2771
+  :interest_debt_ratio: 45.5243
+  :fcf_yield: -7.3099
+  :fcf_ev: -3.4934
+  :fcff_back: -1622218766.9926
+  :roe_jq: 1.95
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 3505845181.0
   :is_core: true
   :core_categories:
-  - 港口
-  - 公用事业
+  - 火电
   :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 港口
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 综合能源
   :whitelist_categories:
-  - 公用事业
-  - 港口
+  - 电力
+  - 综合能源
   :first_yield: 4.5
   :add_yield: 5.3
   :heavy_yield: 6.2
-  :buy_method: whitelist
-  :buy_price_5: 7.6755266666666655
-  :buy_price_6: 6.516956603773584
-  :buy_price_7: 5.570946774193548
-  :need_drop_to_5: 11.775555555555561
-  :drop_to_5: 11.775555555555561
-  :drop_to_6: 25.092452830188684
-  :drop_to_7: 35.96612903225807
-  :roe_5y_avg: 12.248
-  :roe_5y_min: 11.51
-- :code: '600323'
-  :name: 瀚蓝环境
+  :buy_method: whitelist_min3y
+  :buy_price_5: 5.555489333333333
+  :buy_price_6: 4.7169249056603775
+  :buy_price_7: 4.032209999999999
+  :need_drop_to_5: 12.235555555555566
+  :drop_to_5: 12.235555555555566
+  :drop_to_6: 25.48301886792452
+  :drop_to_7: 36.30000000000001
+  :roe_5y_avg: 5.672
+  :roe_5y_min: 0.91
+- :code: '601077'
+  :name: 渝农商行
   :categories:
-  - 环保
-  - 公用事业
-  :avg_dividend_yield_3y: 2.601
-  :min_dividend_yield_3y: 1.6075
-  :dividend_yield: 3.5164
-  :consecutive_dividend_years: 13
-  :dividend_cash_per_share_latest_year: 1.05
-  :current_price: 29.86
-  :turnover_rate: 0.61
-  :market_cap: 24346000000.0
-  :volume: 49986.0
-  :avg_price: 30.1084
-  :dividend_payout_ratio: 38.7156
-  :pos_30d: 0.6
-  :pe_ttm: 11.01
-  :pe_percentile: 0.1238
+  - 银行
+  - 金融
+  :avg_dividend_yield_3y: 4.6307
+  :min_dividend_yield_3y: 4.3845
+  :dividend_yield: 4.8784
+  :consecutive_dividend_years: 7
+  :dividend_cash_per_share_latest_year: 0.321
+  :current_price: 6.58
+  :turnover_rate: 0.63
+  :market_cap: 74729000000.0
+  :volume: 553067.0
+  :avg_price: 6.5974
+  :dividend_payout_ratio: 28.9289
+  :pos_30d: 0.5
+  :pe_ttm: 5.93
+  :pe_percentile: 0.6679
   :valuation_label: 中位区域
-  :peg: 0.2945
-  :peg_level: 1
-  :net_profit_yoy: 37.8281
+  :peg: 1.1691
+  :peg_level: 3
+  :net_profit_yoy: 5.0719
   :finance_report_date: '2026-03-31'
-  :pb: 1.6
-  :pb_percentile: 0.4104
-  :drop_30d: -5.849
-  :asset_liability_ratio: 68.9699
-  :interest_debt_ratio: 16.7993
-  :fcf_yield: -5.2983
-  :fcf_ev: -4.0875
-  :fcff_back: -1289915627.0015
-  :roe_jq: 3.88
+  :pb: 0.53
+  :pb_percentile: 0.5963
+  :drop_30d: -3.2967
+  :asset_liability_ratio: 91.8349
+  :interest_debt_ratio: 83.969
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq: 2.99
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: true
+  :total_shares: 11356990881.0
+  :is_core: true
+  :core_categories:
+  - 银行
+  :is_whitelist: true
+  :whitelist_big_category: 银行
+  :whitelist_sub_category: 农商行
+  :whitelist_categories:
+  - 银行
+  - 农商行
+  :first_yield: 5.0
+  :add_yield: 6.0
+  :heavy_yield: 7.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 5.770002
+  :buy_price_6: 4.8083350000000005
+  :buy_price_7: 4.12143
+  :need_drop_to_5: 12.309999999999999
+  :drop_to_5: 12.309999999999999
+  :drop_to_6: 26.924999999999997
+  :drop_to_7: 37.364285714285714
+  :roe_5y_avg: 9.534
+  :roe_5y_min: 9.18
+- :code: '600900'
+  :name: 长江电力
+  :categories:
+  - 公用事业
+  - 电力
+  :avg_dividend_yield_3y: 3.2487
+  :min_dividend_yield_3y: 2.8924
+  :dividend_yield: 3.5273
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 1.0
+  :current_price: 28.35
+  :turnover_rate: 0.57
+  :market_cap: 693674000000.0
+  :volume: 1387193.0
+  :avg_price: 28.4877
+  :dividend_payout_ratio: 67.7947
+  :pos_30d: 0.6
+  :pe_ttm: 19.22
+  :pe_percentile: 0.5197
+  :valuation_label: 中位区域
+  :peg: 1.0011
+  :peg_level: 3
+  :net_profit_yoy: 30.5016
+  :finance_report_date: '2026-03-31'
+  :pb: 3.33
+  :pb_percentile: 0.9118
+  :drop_30d: -5.6259
+  :asset_liability_ratio: 57.3271
+  :interest_debt_ratio: 51.5376
+  :fcf_yield: 0.5121
+  :fcf_ev: 0.4132
+  :fcff_back: 3551983543.2944
+  :roe_jq: 3.01
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
-  :total_shares: 815338245.0
+  :total_shares: 24468218694.0
   :is_core: true
   :core_categories:
   - 公用事业
+  - 电力
   :is_whitelist: true
-  :whitelist_big_category: 公用事业
-  :whitelist_sub_category: 环保
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 水电
   :whitelist_categories:
-  - 公用事业
-  - 环保
-  :first_yield: 4.0
-  :add_yield: 4.8
-  :heavy_yield: 5.6
-  :buy_method: whitelist
-  :buy_price_5: 26.249926
-  :buy_price_6: 21.874938333333333
-  :buy_price_7: 18.749947142857145
-  :need_drop_to_5: 12.09
-  :drop_to_5: 12.09
-  :drop_to_6: 26.741666666666664
-  :drop_to_7: 37.20714285714285
-  :roe_5y_avg: 12.664
-  :roe_5y_min: 10.99
+  - 电力
+  - 水电
+  :first_yield: 3.3
+  :add_yield: 3.8
+  :heavy_yield: 4.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 24.848345454545456
+  :buy_price_6: 21.578826315789478
+  :buy_price_7: 18.22212
+  :need_drop_to_5: 12.351515151515146
+  :drop_to_5: 12.351515151515146
+  :drop_to_6: 23.884210526315776
+  :drop_to_7: 35.724444444444444
+  :roe_5y_avg: 13.874
+  :roe_5y_min: 9.32
 - :code: '001965'
   :name: 招商公路
   :categories:
@@ -3465,7 +2234,7 @@
   :first_yield: 4.2
   :add_yield: 5.0
   :heavy_yield: 5.8
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 8.881004999999998
   :buy_price_6: 7.460044199999999
   :buy_price_7: 6.431072586206896
@@ -3475,6 +2244,243 @@
   :drop_to_7: 37.501724137931035
   :roe_5y_avg: 8.756
   :roe_5y_min: 6.71
+- :code: '001872'
+  :name: 招商港口
+  :categories:
+  - 港口
+  - 交通运输
+  :avg_dividend_yield_3y: 3.3476
+  :min_dividend_yield_3y: 2.7488
+  :dividend_yield: 3.7867
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.799
+  :current_price: 21.1
+  :turnover_rate: 0.12
+  :market_cap: 52373000000.0
+  :volume: 27216.0
+  :avg_price: 21.0281
+  :dividend_payout_ratio: 42.6382
+  :pos_30d: 0.55
+  :pe_ttm: 11.26
+  :pe_percentile: 0.2953
+  :valuation_label: 中位区域
+  :peg: 3.8732
+  :peg_level: 4
+  :net_profit_yoy: 3.7785
+  :finance_report_date: '2026-03-31'
+  :pb: 0.82
+  :pb_percentile: 0.5303
+  :drop_30d: -5.342
+  :asset_liability_ratio: 34.9403
+  :interest_debt_ratio: 26.3014
+  :fcf_yield: 4.3678
+  :fcf_ev: 3.2119
+  :fcff_back: 2287567329.6238
+  :roe_jq: 1.74
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 2482132701.0
+  :is_core: true
+  :core_categories:
+  - 港口
+  - 交通运输
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 港口
+  :whitelist_categories:
+  - 公用事业
+  - 港口
+  :first_yield: 3.2
+  :add_yield: 3.8
+  :heavy_yield: 4.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 18.1249
+  :buy_price_6: 15.263073684210529
+  :buy_price_7: 12.88881777777778
+  :need_drop_to_5: 14.100000000000001
+  :drop_to_5: 14.100000000000001
+  :drop_to_6: 27.663157894736834
+  :drop_to_7: 38.91555555555555
+  :roe_5y_avg: 7.148000000000001
+  :roe_5y_min: 6.35
+- :code: '600012'
+  :name: 皖通高速
+  :categories:
+  - 高速公路
+  - 交通运输
+  :avg_dividend_yield_3y: 3.3676
+  :min_dividend_yield_3y: 3.2557
+  :dividend_yield: 3.5753
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.66
+  :current_price: 18.46
+  :turnover_rate: 0.67
+  :market_cap: 31541000000.0
+  :volume: 77535.0
+  :avg_price: 18.3943
+  :dividend_payout_ratio: 60.5298
+  :pos_30d: 0.95
+  :pe_ttm: 16.93
+  :pe_percentile: 0.9229
+  :valuation_label: 偏高区域
+  :peg: 1.0467
+  :peg_level: 3
+  :net_profit_yoy: -2.6713
+  :finance_report_date: '2026-03-31'
+  :pb: 2.36
+  :pb_percentile: 0.9619
+  :drop_30d: -15.375
+  :asset_liability_ratio: 53.1144
+  :interest_debt_ratio: 45.9021
+  :fcf_yield: 5.5506
+  :fcf_ev: 4.4621
+  :fcff_back: 1750712254.1617
+  :roe_jq: 4.1
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 1708613217.0
+  :is_core: true
+  :core_categories:
+  - 高速公路
+  - 交通运输
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 高速
+  :whitelist_categories:
+  - 公用事业
+  - 高速
+  :first_yield: 3.8
+  :add_yield: 4.5
+  :heavy_yield: 5.3
+  :buy_method: whitelist_min3y
+  :buy_price_5: 15.815847894736844
+  :buy_price_6: 13.35560488888889
+  :buy_price_7: 11.339664528301888
+  :need_drop_to_5: 14.323684210526311
+  :drop_to_5: 14.323684210526311
+  :drop_to_6: 27.651111111111113
+  :drop_to_7: 38.57169811320754
+  :roe_5y_avg: 12.77
+  :roe_5y_min: 11.96
+- :code: '600803'
+  :name: 新奥股份
+  :categories:
+  - 燃气
+  - 公用事业
+  :avg_dividend_yield_3y: 5.0523
+  :min_dividend_yield_3y: 3.8328
+  :dividend_yield: 6.6202
+  :consecutive_dividend_years: 12
+  :dividend_cash_per_share_latest_year: 1.14
+  :current_price: 17.22
+  :turnover_rate: 0.33
+  :market_cap: 53309000000.0
+  :volume: 100055.0
+  :avg_price: 17.1796
+  :dividend_payout_ratio: 80.965
+  :pos_30d: 0.95
+  :pe_ttm: 12.23
+  :pe_percentile: 0.4668
+  :valuation_label: 偏低区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -32.9209
+  :finance_report_date: '2026-03-31'
+  :pb: 2.51
+  :pb_percentile: 0.4292
+  :drop_30d: -7.4906
+  :asset_liability_ratio: 54.0504
+  :interest_debt_ratio: 27.6848
+  :fcf_yield: 3.2503
+  :fcf_ev: 2.3375
+  :fcff_back: 1732689801.9339
+  :roe_jq: 2.68
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 3095760743.0
+  :is_core: true
+  :core_categories:
+  - 燃气
+  - 公用事业
+  :is_whitelist: true
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 综合能源
+  :whitelist_categories:
+  - 电力
+  - 公用事业
+  - 综合能源
+  - 燃气
+  :first_yield: 4.5
+  :add_yield: 5.5
+  :heavy_yield: 6.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 14.666848
+  :buy_price_6: 12.000148363636363
+  :buy_price_7: 10.153971692307692
+  :need_drop_to_5: 14.826666666666666
+  :drop_to_5: 14.826666666666666
+  :drop_to_6: 30.31272727272727
+  :drop_to_7: 41.033846153846156
+  :roe_5y_avg: 27.464
+  :roe_5y_min: 19.06
+- :code: '601998'
+  :name: 中信银行
+  :categories:
+  - 银行
+  - 金融
+  :avg_dividend_yield_3y: 4.5906
+  :min_dividend_yield_3y: 4.2296
+  :dividend_yield: 4.9416
+  :consecutive_dividend_years: 11
+  :dividend_cash_per_share_latest_year: 0.381
+  :current_price: 7.71
+  :turnover_rate: 0.16
+  :market_cap: 429024000000.0
+  :volume: 666891.0
+  :avg_price: 7.6752
+  :dividend_payout_ratio: 29.7978
+  :pos_30d: 1.0
+  :pe_ttm: 6.03
+  :pe_percentile: 0.6999
+  :valuation_label: 中位区域
+  :peg: 1.7121
+  :peg_level: 4
+  :net_profit_yoy: 3.0191
+  :finance_report_date: '2026-03-31'
+  :pb: 0.59
+  :pb_percentile: 0.6387
+  :drop_30d: -8.1346
+  :asset_liability_ratio: 91.5368
+  :interest_debt_ratio: 86.6802
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq: 2.78
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: true
+  :total_shares: 55645136186.0
+  :is_core: true
+  :core_categories:
+  - 银行
+  :is_whitelist: true
+  :whitelist_big_category: 银行
+  :whitelist_sub_category: 股份行
+  :whitelist_categories:
+  - 银行
+  - 股份行
+  :first_yield: 5.0
+  :add_yield: 6.0
+  :heavy_yield: 7.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 6.522043199999999
+  :buy_price_6: 5.435035999999999
+  :buy_price_7: 4.658602285714285
+  :need_drop_to_5: 15.40800000000001
+  :drop_to_5: 15.40800000000001
+  :drop_to_6: 29.50666666666667
+  :drop_to_7: 39.57714285714287
+  :roe_5y_avg: 10.302000000000001
+  :roe_5y_min: 9.39
 - :code: '601988'
   :name: 中国银行
   :categories:
@@ -3523,7 +2529,7 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 5.028933333333333
   :buy_price_6: 4.351961538461538
   :buy_price_7: 3.7717
@@ -3533,6 +2539,65 @@
   :drop_to_7: 37.13833333333333
   :roe_5y_avg: 10.122
   :roe_5y_min: 8.94
+- :code: '600674'
+  :name: 川投能源
+  :categories:
+  - 电力
+  - 公用事业
+  :avg_dividend_yield_3y: 2.7134
+  :min_dividend_yield_3y: 2.5047
+  :dividend_yield: 3.1309
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.5
+  :current_price: 15.97
+  :turnover_rate: 0.79
+  :market_cap: 77847000000.0
+  :volume: 383203.0
+  :avg_price: 16.0168
+  :dividend_payout_ratio: 51.5346
+  :pos_30d: 0.75
+  :pe_ttm: 16.46
+  :pe_percentile: 0.7018
+  :valuation_label: 中位区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -1.761
+  :finance_report_date: '2026-03-31'
+  :pb: 1.68
+  :pb_percentile: 0.4427
+  :drop_30d: -12.8622
+  :asset_liability_ratio: 32.6311
+  :interest_debt_ratio: 27.1445
+  :fcf_yield: -2.9051
+  :fcf_ev: -2.6862
+  :fcff_back: -2261503626.6521
+  :roe_jq: 3.18
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: true
+  :total_shares: 4874577332.0
+  :is_core: true
+  :core_categories:
+  - 电力
+  - 公用事业
+  :is_whitelist: true
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 水电
+  :whitelist_categories:
+  - 电力
+  - 水电
+  :first_yield: 3.0
+  :add_yield: 3.5
+  :heavy_yield: 4.2
+  :buy_method: whitelist_min3y
+  :buy_price_5: 13.333353000000002
+  :buy_price_6: 11.428588285714287
+  :buy_price_7: 9.523823571428572
+  :need_drop_to_5: 16.50999999999999
+  :drop_to_5: 16.50999999999999
+  :drop_to_6: 28.43714285714285
+  :drop_to_7: 40.36428571428571
+  :roe_5y_avg: 11.166
+  :roe_5y_min: 10.33
 - :code: '601939'
   :name: 建设银行
   :categories:
@@ -3581,7 +2646,7 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
+  :buy_method: whitelist_min3y
   :buy_price_5: 8.637707555555556
   :buy_price_6: 7.47493923076923
   :buy_price_7: 6.478280666666666
@@ -3591,6 +2656,298 @@
   :drop_to_7: 37.468333333333334
   :roe_5y_avg: 11.428
   :roe_5y_min: 10.04
+- :code: '000429'
+  :name: 粤高速A
+  :categories:
+  - 高速公路
+  - 交通运输
+  :avg_dividend_yield_3y: 3.7052
+  :min_dividend_yield_3y: 3.4728
+  :dividend_yield: 4.0106
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.604
+  :current_price: 15.06
+  :turnover_rate: 1.1
+  :market_cap: 31488000000.0
+  :volume: 143528.0
+  :avg_price: 14.894
+  :dividend_payout_ratio: 79.1291
+  :pos_30d: 1.0
+  :pe_ttm: 19.73
+  :pe_percentile: 0.947
+  :valuation_label: 偏高区域
+  :peg: 1.5751
+  :peg_level: 4
+  :net_profit_yoy: -31.2703
+  :finance_report_date: '2026-03-31'
+  :pb: 2.73
+  :pb_percentile: 0.9841
+  :drop_30d: -8.9725
+  :asset_liability_ratio: 48.0381
+  :interest_debt_ratio: 39.5357
+  :fcf_yield: -2.8218
+  :fcf_ev: -2.4108
+  :fcff_back: -888525321.2213
+  :roe_jq: 3.99
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 2090836653.0
+  :is_core: true
+  :core_categories:
+  - 高速公路
+  - 交通运输
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 高速
+  :whitelist_categories:
+  - 公用事业
+  - 高速
+  :first_yield: 4.2
+  :add_yield: 5.0
+  :heavy_yield: 5.8
+  :buy_method: whitelist_min3y
+  :buy_price_5: 12.452468571428572
+  :buy_price_6: 10.4600736
+  :buy_price_7: 9.017304827586207
+  :need_drop_to_5: 17.314285714285717
+  :drop_to_5: 17.314285714285717
+  :drop_to_6: 30.544000000000004
+  :drop_to_7: 40.12413793103449
+  :roe_5y_avg: 16.814
+  :roe_5y_min: 14.3
+- :code: '601018'
+  :name: 宁波港
+  :categories:
+  - 港口
+  - 交通运输
+  :avg_dividend_yield_3y: 3.1275
+  :min_dividend_yield_3y: 2.6765
+  :dividend_yield: 3.5294
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.12
+  :current_price: 3.4
+  :turnover_rate: 0.22
+  :market_cap: 66145000000.0
+  :volume: 427475.0
+  :avg_price: 3.3993
+  :dividend_payout_ratio: 45.2116
+  :pos_30d: 0.7
+  :pe_ttm: 12.81
+  :pe_percentile: 0.0222
+  :valuation_label: 底部区域
+  :peg: 3.4585
+  :peg_level: 4
+  :net_profit_yoy: -0.4427
+  :finance_report_date: '2026-03-31'
+  :pb: 0.82
+  :pb_percentile: 0.0193
+  :drop_30d: -6.25
+  :asset_liability_ratio: 24.462
+  :interest_debt_ratio: 15.9975
+  :fcf_yield: 1.9888
+  :fcf_ev: 1.8558
+  :fcff_back: 1315496714.9105
+  :roe_jq: 1.44
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 19454411764.0
+  :is_core: true
+  :core_categories:
+  - 港口
+  - 交通运输
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 港口
+  :whitelist_categories:
+  - 公用事业
+  - 港口
+  :first_yield: 3.3
+  :add_yield: 3.9
+  :heavy_yield: 4.6
+  :buy_method: whitelist_min3y
+  :buy_price_5: 2.7576060606060606
+  :buy_price_6: 2.333358974358974
+  :buy_price_7: 1.978282608695652
+  :need_drop_to_5: 18.893939393939398
+  :drop_to_5: 18.893939393939398
+  :drop_to_6: 31.37179487179488
+  :drop_to_7: 41.81521739130435
+  :roe_5y_avg: 6.864
+  :roe_5y_min: 6.36
+- :code: '601665'
+  :name: 齐鲁银行
+  :categories:
+  - 银行
+  - 金融
+  :avg_dividend_yield_3y: 3.9719
+  :min_dividend_yield_3y: 3.5656
+  :dividend_yield: 4.0389
+  :consecutive_dividend_years: 6
+  :dividend_cash_per_share_latest_year: 0.2492
+  :current_price: 6.17
+  :turnover_rate: 0.69
+  :market_cap: 37969000000.0
+  :volume: 424932.0
+  :avg_price: 6.1657
+  :dividend_payout_ratio: 25.9701
+  :pos_30d: 0.85
+  :pe_ttm: 6.43
+  :pe_percentile: 0.7001
+  :valuation_label: 中位区域
+  :peg: 0.3745
+  :peg_level: 1
+  :net_profit_yoy: 14.0052
+  :finance_report_date: '2026-03-31'
+  :pb: 0.76
+  :pb_percentile: 0.6742
+  :drop_30d: -4.0472
+  :asset_liability_ratio: 93.7257
+  :interest_debt_ratio: 89.4653
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq: 2.9
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 6153808752.0
+  :is_core: true
+  :core_categories:
+  - 银行
+  :is_whitelist: true
+  :whitelist_big_category: 银行
+  :whitelist_sub_category: 农商行
+  :whitelist_categories:
+  - 银行
+  - 农商行
+  :first_yield: 4.5
+  :add_yield: 5.2
+  :heavy_yield: 6.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 4.888833777777777
+  :buy_price_6: 4.2307215384615375
+  :buy_price_7: 3.6666253333333327
+  :need_drop_to_5: 20.76444444444445
+  :drop_to_5: 20.76444444444445
+  :drop_to_6: 31.43076923076924
+  :drop_to_7: 40.57333333333334
+  :roe_5y_avg: 12.181999999999999
+  :roe_5y_min: 11.4
+- :code: '600863'
+  :name: 内蒙华电
+  :categories:
+  - 电力
+  - 公用事业
+  :avg_dividend_yield_3y: 4.2003
+  :min_dividend_yield_3y: 3.7298
+  :dividend_yield: 4.4355
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.22
+  :current_price: 4.96
+  :turnover_rate: 2.22
+  :market_cap: 38863000000.0
+  :volume: 1450010.0
+  :avg_price: 4.8989
+  :dividend_payout_ratio: 76.0688
+  :pos_30d: 0.8
+  :pe_ttm: 17.15
+  :pe_percentile: 0.6389
+  :valuation_label: 偏高区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -24.6319
+  :finance_report_date: '2026-03-31'
+  :pb: 1.86
+  :pb_percentile: 0.8772
+  :drop_30d: -2.6915
+  :asset_liability_ratio: 39.6507
+  :interest_debt_ratio: 29.6107
+  :fcf_yield: -15.6336
+  :fcf_ev: -13.6326
+  :fcff_back: -6075694855.8831
+  :roe_jq: 3.67
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 7835282258.0
+  :is_core: true
+  :core_categories:
+  - 电力
+  - 公用事业
+  :is_whitelist: true
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 火电
+  :whitelist_categories:
+  - 电力
+  - 火电
+  :first_yield: 4.8
+  :add_yield: 5.7
+  :heavy_yield: 6.7
+  :buy_method: whitelist_min3y
+  :buy_price_5: 3.854126666666667
+  :buy_price_6: 3.245580350877193
+  :buy_price_7: 2.7611653731343284
+  :need_drop_to_5: 22.295833333333327
+  :drop_to_5: 22.295833333333327
+  :drop_to_6: 34.564912280701755
+  :drop_to_7: 44.33134328358209
+  :roe_5y_avg: 11.558
+  :roe_5y_min: 3.03
+- :code: '600008'
+  :name: 首创环保
+  :categories:
+  - 水务
+  :avg_dividend_yield_3y: 4.4983
+  :min_dividend_yield_3y: 3.4602
+  :dividend_yield: 4.1522
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.12
+  :current_price: 2.89
+  :turnover_rate: 1.05
+  :market_cap: 21214000000.0
+  :volume: 771119.0
+  :avg_price: 2.8885
+  :dividend_payout_ratio: 48.8714
+  :pos_30d: 0.8
+  :pe_ttm: 11.77
+  :pe_percentile: 0.368
+  :valuation_label: 底部区域
+  :peg: 1.3677
+  :peg_level: 3
+  :net_profit_yoy: 7.6713
+  :finance_report_date: '2026-03-31'
+  :pb: 1.03
+  :pb_percentile: 0.0255
+  :drop_30d: -4.7101
+  :asset_liability_ratio: 63.2275
+  :interest_debt_ratio: 45.2492
+  :fcf_yield: -9.1285
+  :fcf_ev: -3.6921
+  :fcff_back: -1936525775.2825
+  :roe_jq: 1.39
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 7340484429.0
+  :is_core: true
+  :core_categories:
+  - 水务
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 环保
+  :whitelist_categories:
+  - 公用事业
+  - 环保
+  :first_yield: 4.5
+  :add_yield: 5.2
+  :heavy_yield: 6.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 2.2222173333333335
+  :buy_price_6: 1.9230726923076924
+  :buy_price_7: 1.666663
+  :need_drop_to_5: 23.106666666666666
+  :drop_to_5: 23.106666666666666
+  :drop_to_6: 33.45769230769231
+  :drop_to_7: 42.33
+  :roe_5y_avg: 8.708
+  :roe_5y_min: 5.62
 - :code: '601288'
   :name: 农业银行
   :categories:
@@ -3639,16 +2996,424 @@
   :first_yield: 4.5
   :add_yield: 5.2
   :heavy_yield: 6.0
-  :buy_method: whitelist
-  :buy_price_5: 5.544448
-  :buy_price_6: 4.79808
-  :buy_price_7: 4.158336
-  :need_drop_to_5: 17.49333333333333
-  :drop_to_5: 17.49333333333333
-  :drop_to_6: 28.6
-  :drop_to_7: 38.12
+  :buy_method: whitelist_min3y
+  :buy_price_5: 5.131093333333333
+  :buy_price_6: 4.440369230769231
+  :buy_price_7: 3.8483199999999997
+  :need_drop_to_5: 23.644444444444446
+  :drop_to_5: 23.644444444444446
+  :drop_to_6: 33.92307692307692
+  :drop_to_7: 42.733333333333334
   :roe_5y_avg: 10.878
   :roe_5y_min: 10.16
+- :code: '600050'
+  :name: 中国联通
+  :categories:
+  - 通信服务
+  - 电信业务
+  :avg_dividend_yield_3y: 3.4513
+  :min_dividend_yield_3y: 3.0137
+  :dividend_yield: 3.7329
+  :consecutive_dividend_years: 9
+  :dividend_cash_per_share_latest_year: 0.1635
+  :current_price: 4.38
+  :turnover_rate: 0.43
+  :market_cap: 136938000000.0
+  :volume: 1347730.0
+  :avg_price: 4.4027
+  :dividend_payout_ratio: 59.0545
+  :pos_30d: 0.75
+  :pe_ttm: 15.82
+  :pe_percentile: 0.0631
+  :valuation_label: 底部区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -17.989
+  :finance_report_date: '2026-03-31'
+  :pb: 0.81
+  :pb_percentile: 0.1209
+  :drop_30d: -8.9552
+  :asset_liability_ratio: 43.1089
+  :interest_debt_ratio: 4.9294
+  :fcf_yield: -12.1458
+  :fcf_ev: -11.0016
+  :fcff_back: -16632258559.2517
+  :roe_jq: 1.24
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 31264383561.0
+  :is_core: true
+  :core_categories:
+  - 通信服务
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 通信
+  :whitelist_categories:
+  - 公用事业
+  - 通信
+  :first_yield: 4.0
+  :add_yield: 4.7
+  :heavy_yield: 5.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 3.3000015
+  :buy_price_6: 2.808511914893617
+  :buy_price_7: 2.4000010909090905
+  :need_drop_to_5: 24.6575
+  :drop_to_5: 24.6575
+  :drop_to_6: 35.87872340425532
+  :drop_to_7: 45.20545454545455
+  :roe_5y_avg: 4.96
+  :roe_5y_min: 4.17
+- :code: '600483'
+  :name: 福能股份
+  :categories:
+  - 火电
+  :avg_dividend_yield_3y: 3.2195
+  :min_dividend_yield_3y: 2.8624
+  :dividend_yield: 3.9335
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.426
+  :current_price: 10.83
+  :turnover_rate: 0.53
+  :market_cap: 30109000000.0
+  :volume: 147545.0
+  :avg_price: 10.7418
+  :dividend_payout_ratio: 41.4984
+  :pos_30d: 0.75
+  :pe_ttm: 10.55
+  :pe_percentile: 0.4205
+  :valuation_label: 偏低区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -13.5708
+  :finance_report_date: '2026-03-31'
+  :pb: 1.12
+  :pb_percentile: 0.4798
+  :drop_30d: -3.8351
+  :asset_liability_ratio: 40.4428
+  :interest_debt_ratio: 35.7957
+  :fcf_yield: 0.1777
+  :fcf_ev: 0.1383
+  :fcff_back: 53501767.8019
+  :roe_jq: 2.34
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: true
+  :total_shares: 2780147737.0
+  :is_core: true
+  :core_categories:
+  - 火电
+  :is_whitelist: true
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 综合能源
+  :whitelist_categories:
+  - 电力
+  - 综合能源
+  :first_yield: 3.8
+  :add_yield: 4.5
+  :heavy_yield: 5.3
+  :buy_method: whitelist_min3y
+  :buy_price_5: 8.15784
+  :buy_price_6: 6.888842666666667
+  :buy_price_7: 5.849017358490566
+  :need_drop_to_5: 24.673684210526314
+  :drop_to_5: 24.673684210526314
+  :drop_to_6: 36.39111111111111
+  :drop_to_7: 45.99245283018868
+  :roe_5y_avg: 11.036
+  :roe_5y_min: 8.17
+- :code: '601298'
+  :name: 青岛港
+  :categories:
+  - 港口
+  - 公用事业
+  :avg_dividend_yield_3y: 3.6483
+  :min_dividend_yield_3y: 3.3644
+  :dividend_yield: 3.9701
+  :consecutive_dividend_years: 8
+  :dividend_cash_per_share_latest_year: 0.3454
+  :current_price: 8.7
+  :turnover_rate: 0.24
+  :market_cap: 56473000000.0
+  :volume: 129079.0
+  :avg_price: 8.7055
+  :dividend_payout_ratio: 42.758
+  :pos_30d: 0.95
+  :pe_ttm: 10.77
+  :pe_percentile: 0.6082
+  :valuation_label: 中位区域
+  :peg: 87.9345
+  :peg_level: 4
+  :net_profit_yoy: -1.9984
+  :finance_report_date: '2026-03-31'
+  :pb: 1.2
+  :pb_percentile: 0.4286
+  :drop_30d: -4.9457
+  :asset_liability_ratio: 24.5097
+  :interest_debt_ratio: 6.2245
+  :fcf_yield: -0.8573
+  :fcf_ev: -0.8417
+  :fcff_back: -484136586.5737
+  :roe_jq: 2.96
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 6491149425.0
+  :is_core: true
+  :core_categories:
+  - 港口
+  - 公用事业
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 港口
+  :whitelist_categories:
+  - 公用事业
+  - 港口
+  :first_yield: 4.5
+  :add_yield: 5.3
+  :heavy_yield: 6.2
+  :buy_method: whitelist_min3y
+  :buy_price_5: 6.504506666666666
+  :buy_price_6: 5.522694339622642
+  :buy_price_7: 4.721012903225806
+  :need_drop_to_5: 25.235555555555557
+  :drop_to_5: 25.235555555555557
+  :drop_to_6: 36.52075471698113
+  :drop_to_7: 45.73548387096774
+  :roe_5y_avg: 12.248
+  :roe_5y_min: 11.51
+- :code: '000088'
+  :name: 盐田港
+  :categories:
+  - 高速公路
+  - 交通运输
+  :avg_dividend_yield_3y: 3.8851
+  :min_dividend_yield_3y: 2.9885
+  :dividend_yield: 4.4828
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.195
+  :current_price: 4.35
+  :turnover_rate: 0.58
+  :market_cap: 22618000000.0
+  :volume: 182593.0
+  :avg_price: 4.349
+  :dividend_payout_ratio: 68.7213
+  :pos_30d: 0.9
+  :pe_ttm: 15.33
+  :pe_percentile: 0.0145
+  :valuation_label: 底部区域
+  :peg: 1.7383
+  :peg_level: 4
+  :net_profit_yoy: 8.8488
+  :finance_report_date: '2026-03-31'
+  :pb: 1.27
+  :pb_percentile: 0.2548
+  :drop_30d: -6.6176
+  :asset_liability_ratio: 17.9132
+  :interest_debt_ratio: 10.291
+  :fcf_yield: -0.3758
+  :fcf_ev: -0.3685
+  :fcff_back: -85002402.5924
+  :roe_jq: 1.87
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 5199540229.0
+  :is_core: true
+  :core_categories:
+  - 高速公路
+  - 交通运输
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 港口
+  :whitelist_categories:
+  - 公用事业
+  - 港口
+  :first_yield: 4.0
+  :add_yield: 4.7
+  :heavy_yield: 5.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 3.24999375
+  :buy_price_6: 2.7659521276595744
+  :buy_price_7: 2.363631818181818
+  :need_drop_to_5: 25.287499999999994
+  :drop_to_5: 25.287499999999994
+  :drop_to_6: 36.41489361702127
+  :drop_to_7: 45.663636363636364
+  :roe_5y_avg: 7.140000000000001
+  :roe_5y_min: 4.43
+- :code: '600926'
+  :name: 杭州银行
+  :categories:
+  - 银行
+  - 金融
+  :avg_dividend_yield_3y: 3.8486
+  :min_dividend_yield_3y: 3.2808
+  :dividend_yield: 4.164
+  :consecutive_dividend_years: 10
+  :dividend_cash_per_share_latest_year: 0.66
+  :current_price: 15.85
+  :turnover_rate: 0.58
+  :market_cap: 114897000000.0
+  :volume: 422034.0
+  :avg_price: 15.7419
+  :dividend_payout_ratio: 24.3594
+  :pos_30d: 1.0
+  :pe_ttm: 5.85
+  :pe_percentile: 0.2587
+  :valuation_label: 中位区域
+  :peg: 0.5393
+  :peg_level: 2
+  :net_profit_yoy: 10.094
+  :finance_report_date: '2026-03-31'
+  :pb: 0.83
+  :pb_percentile: 0.2635
+  :drop_30d: -6.091
+  :asset_liability_ratio: 93.0193
+  :interest_debt_ratio: 91.5228
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq: 4.69
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 7249022082.0
+  :is_core: true
+  :core_categories:
+  - 银行
+  :is_whitelist: true
+  :whitelist_big_category: 银行
+  :whitelist_sub_category: 城商行
+  :whitelist_categories:
+  - 银行
+  - 城商行
+  :first_yield: 4.5
+  :add_yield: 5.2
+  :heavy_yield: 6.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 11.555706666666667
+  :buy_price_6: 10.000130769230768
+  :buy_price_7: 8.666780000000001
+  :need_drop_to_5: 27.093333333333327
+  :drop_to_5: 27.093333333333327
+  :drop_to_6: 36.90769230769231
+  :drop_to_7: 45.31999999999999
+  :roe_5y_avg: 14.528
+  :roe_5y_min: 12.33
+- :code: '600000'
+  :name: 浦发银行
+  :categories:
+  - 银行
+  - 金融
+  :avg_dividend_yield_3y: 4.2394
+  :min_dividend_yield_3y: 3.547
+  :dividend_yield: 4.6409
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.42
+  :current_price: 9.05
+  :turnover_rate: 0.17
+  :market_cap: 301418000000.0
+  :volume: 557231.0
+  :avg_price: 9.0558
+  :dividend_payout_ratio: 27.799
+  :pos_30d: 0.7
+  :pe_ttm: 5.99
+  :pe_percentile: 0.6811
+  :valuation_label: 偏低区域
+  :peg: 3.2705
+  :peg_level: 4
+  :net_profit_yoy: 1.4945
+  :finance_report_date: '2026-03-31'
+  :pb: 0.41
+  :pb_percentile: 0.2987
+  :drop_30d: -3.6655
+  :asset_liability_ratio: 91.8356
+  :interest_debt_ratio: 87.9888
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq: 2.32
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 33305856353.0
+  :is_core: true
+  :core_categories:
+  - 银行
+  :is_whitelist: true
+  :whitelist_big_category: 银行
+  :whitelist_sub_category: 股份行
+  :whitelist_categories:
+  - 银行
+  - 股份行
+  :first_yield: 5.0
+  :add_yield: 6.0
+  :heavy_yield: 7.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 6.420070000000001
+  :buy_price_6: 5.350058333333334
+  :buy_price_7: 4.585764285714287
+  :need_drop_to_5: 29.059999999999995
+  :drop_to_5: 29.059999999999995
+  :drop_to_6: 40.883333333333326
+  :drop_to_7: 49.32857142857142
+  :roe_5y_avg: 6.996
+  :roe_5y_min: 5.21
+- :code: '600027'
+  :name: 华电国际
+  :categories:
+  - 电力
+  - 公用事业
+  :avg_dividend_yield_3y: 4.2023
+  :min_dividend_yield_3y: 3.2051
+  :dividend_yield: 4.9145
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 0.23
+  :current_price: 4.68
+  :turnover_rate: 0.78
+  :market_cap: 54343000000.0
+  :volume: 716058.0
+  :avg_price: 4.6836
+  :dividend_payout_ratio: 45.4591
+  :pos_30d: 0.75
+  :pe_ttm: 9.25
+  :pe_percentile: 0.2213
+  :valuation_label: 中位区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -9.9305
+  :finance_report_date: '2026-03-31'
+  :pb: 1.12
+  :pb_percentile: 0.5366
+  :drop_30d: -3.3113
+  :asset_liability_ratio: 59.7073
+  :interest_debt_ratio: 49.9772
+  :fcf_yield: -7.6283
+  :fcf_ev: -3.1432
+  :fcff_back: -4145446201.7728
+  :roe_jq: 3.39
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 11611752136.0
+  :is_core: true
+  :core_categories:
+  - 电力
+  - 公用事业
+  :is_whitelist: true
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 火电
+  :whitelist_categories:
+  - 电力
+  - 火电
+  :first_yield: 5.0
+  :add_yield: 6.0
+  :heavy_yield: 7.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 2.9999735999999992
+  :buy_price_6: 2.499978
+  :buy_price_7: 2.1428382857142854
+  :need_drop_to_5: 35.89800000000001
+  :drop_to_5: 35.89800000000001
+  :drop_to_6: 46.58166666666666
+  :drop_to_7: 54.21285714285715
+  :roe_5y_avg: 3.3880000000000003
+  :roe_5y_min: -13.7
 - :code: '601326'
   :name: 秦港股份
   :categories:
@@ -3698,16 +3463,251 @@
   :first_yield: 4.5
   :add_yield: 5.3
   :heavy_yield: 6.2
-  :buy_method: whitelist
-  :buy_price_5: 2.5555760000000003
-  :buy_price_6: 2.169828679245283
-  :buy_price_7: 1.8548535483870965
-  :need_drop_to_5: 25.275555555555542
-  :drop_to_5: 25.275555555555542
-  :drop_to_6: 36.554716981132074
-  :drop_to_7: 45.76451612903226
+  :buy_method: whitelist_min3y
+  :buy_price_5: 1.8444439999999998
+  :buy_price_6: 1.566037358490566
+  :buy_price_7: 1.3387093548387095
+  :need_drop_to_5: 46.06888888888889
+  :drop_to_5: 46.06888888888889
+  :drop_to_6: 54.20943396226415
+  :drop_to_7: 60.85645161290323
   :roe_5y_avg: 7.884
   :roe_5y_min: 6.64
+- :code: '600795'
+  :name: 国电电力
+  :categories:
+  - 电力
+  - 公用事业
+  :avg_dividend_yield_3y: 3.8241
+  :min_dividend_yield_3y: 2.454
+  :dividend_yield: 4.9284
+  :consecutive_dividend_years: 4
+  :dividend_cash_per_share_latest_year: 0.241
+  :current_price: 4.89
+  :turnover_rate: 0.76
+  :market_cap: 87216000000.0
+  :volume: 1350279.0
+  :avg_price: 4.8865
+  :dividend_payout_ratio: 63.6749
+  :pos_30d: 0.85
+  :pe_ttm: 12.92
+  :pe_percentile: 0.2535
+  :valuation_label: 中位区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -22.7886
+  :finance_report_date: '2026-03-31'
+  :pb: 1.49
+  :pb_percentile: 0.7346
+  :drop_30d: -2.5157
+  :asset_liability_ratio: 73.0098
+  :interest_debt_ratio: 54.7541
+  :fcf_yield: -6.2115
+  :fcf_ev: -1.83
+  :fcff_back: -5417408667.774
+  :roe_jq: 2.32
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 17835582822.0
+  :is_core: true
+  :core_categories:
+  - 电力
+  - 公用事业
+  :is_whitelist: true
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 火电
+  :whitelist_categories:
+  - 电力
+  - 火电
+  :first_yield: 4.8
+  :add_yield: 5.7
+  :heavy_yield: 6.7
+  :buy_method: whitelist_min3y
+  :buy_price_5: 2.5000125000000004
+  :buy_price_6: 2.1052736842105264
+  :buy_price_7: 1.7910537313432837
+  :need_drop_to_5: 48.87499999999999
+  :drop_to_5: 48.87499999999999
+  :drop_to_6: 56.94736842105262
+  :drop_to_7: 63.373134328358205
+  :roe_5y_avg: 9.010000000000002
+  :roe_5y_min: -3.73
+- :code: '600011'
+  :name: 华能国际
+  :categories:
+  - 电力
+  - 公用事业
+  :avg_dividend_yield_3y: 4.0616
+  :min_dividend_yield_3y: 2.8011
+  :dividend_yield: 5.6022
+  :consecutive_dividend_years: 3
+  :dividend_cash_per_share_latest_year: 0.4
+  :current_price: 7.14
+  :turnover_rate: 0.94
+  :market_cap: 112084000000.0
+  :volume: 1033992.0
+  :avg_price: 7.0973
+  :dividend_payout_ratio: 45.0977
+  :pos_30d: 0.6
+  :pe_ttm: 8.05
+  :pe_percentile: 0.0442
+  :valuation_label: 偏低区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -9.83
+  :finance_report_date: '2026-03-31'
+  :pb: 1.76
+  :pb_percentile: 0.5145
+  :drop_30d: 4.5455
+  :asset_liability_ratio: 66.3237
+  :interest_debt_ratio: 52.4705
+  :fcf_yield: 2.5904
+  :fcf_ev: 0.8906
+  :fcff_back: 2903417554.0838
+  :roe_jq: 5.78
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 15698039215.0
+  :is_core: true
+  :core_categories:
+  - 电力
+  - 公用事业
+  :is_whitelist: true
+  :whitelist_big_category: 电力
+  :whitelist_sub_category: 火电
+  :whitelist_categories:
+  - 电力
+  - 火电
+  :first_yield: 5.5
+  :add_yield: 6.5
+  :heavy_yield: 7.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 3.636337090909091
+  :buy_price_6: 3.0769006153846155
+  :buy_price_7: 2.6666472
+  :need_drop_to_5: 49.07090909090909
+  :drop_to_5: 49.07090909090909
+  :drop_to_6: 56.90615384615385
+  :drop_to_7: 62.651999999999994
+  :roe_5y_avg: 1.2439999999999998
+  :roe_5y_min: -18.71
+- :code: '603568'
+  :name: 伟明环保
+  :categories:
+  - 电力
+  - 公用事业
+  :avg_dividend_yield_3y: 2.8751
+  :min_dividend_yield_3y: 1.6213
+  :dividend_yield: 3.8911
+  :consecutive_dividend_years: 11
+  :dividend_cash_per_share_latest_year: 0.6
+  :current_price: 15.42
+  :turnover_rate: 0.45
+  :market_cap: 31587000000.0
+  :volume: 91314.0
+  :avg_price: 15.2551
+  :dividend_payout_ratio: 63.4638
+  :pos_30d: 0.35
+  :pe_ttm: 16.31
+  :pe_percentile: 0.2601
+  :valuation_label: 底部区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -38.6266
+  :finance_report_date: '2026-03-31'
+  :pb: 2.21
+  :pb_percentile: 0.0207
+  :drop_30d: 3.625
+  :asset_liability_ratio: 42.9486
+  :interest_debt_ratio: 25.1674
+  :fcf_yield: -0.7649
+  :fcf_ev: -0.6927
+  :fcff_back: -241593862.5019
+  :roe_jq: 2.89
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 2048443579.0
+  :is_core: true
+  :core_categories:
+  - 电力
+  - 公用事业
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 环保
+  :whitelist_categories:
+  - 公用事业
+  - 环保
+  :first_yield: 3.5
+  :add_yield: 4.2
+  :heavy_yield: 5.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 7.142984571428571
+  :buy_price_6: 5.952487142857143
+  :buy_price_7: 5.0000892
+  :need_drop_to_5: 53.677142857142854
+  :drop_to_5: 53.677142857142854
+  :drop_to_6: 61.397619047619045
+  :drop_to_7: 67.574
+  :roe_5y_avg: 20.724
+  :roe_5y_min: 15.72
+- :code: '600323'
+  :name: 瀚蓝环境
+  :categories:
+  - 环保
+  - 公用事业
+  :avg_dividend_yield_3y: 2.601
+  :min_dividend_yield_3y: 1.6075
+  :dividend_yield: 3.5164
+  :consecutive_dividend_years: 13
+  :dividend_cash_per_share_latest_year: 1.05
+  :current_price: 29.86
+  :turnover_rate: 0.61
+  :market_cap: 24346000000.0
+  :volume: 49986.0
+  :avg_price: 30.1084
+  :dividend_payout_ratio: 38.7156
+  :pos_30d: 0.6
+  :pe_ttm: 11.01
+  :pe_percentile: 0.1238
+  :valuation_label: 中位区域
+  :peg: 0.2945
+  :peg_level: 1
+  :net_profit_yoy: 37.8281
+  :finance_report_date: '2026-03-31'
+  :pb: 1.6
+  :pb_percentile: 0.4104
+  :drop_30d: -5.849
+  :asset_liability_ratio: 68.9699
+  :interest_debt_ratio: 16.7993
+  :fcf_yield: -5.2983
+  :fcf_ev: -4.0875
+  :fcff_back: -1289915627.0015
+  :roe_jq: 3.88
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 815338245.0
+  :is_core: true
+  :core_categories:
+  - 公用事业
+  :is_whitelist: true
+  :whitelist_big_category: 公用事业
+  :whitelist_sub_category: 环保
+  :whitelist_categories:
+  - 公用事业
+  - 环保
+  :first_yield: 4.0
+  :add_yield: 4.8
+  :heavy_yield: 5.6
+  :buy_method: whitelist_min3y
+  :buy_price_5: 11.9999875
+  :buy_price_6: 9.999989583333333
+  :buy_price_7: 8.571419642857142
+  :need_drop_to_5: 59.8125
+  :drop_to_5: 59.8125
+  :drop_to_6: 66.51041666666666
+  :drop_to_7: 71.29464285714286
+  :roe_5y_avg: 12.664
+  :roe_5y_min: 10.99
 - :code: '002271'
   :name: 东方雨虹
   :categories:
