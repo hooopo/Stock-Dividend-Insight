@@ -800,3 +800,53 @@ stocks:
   categories:
   - 电机
   - 工业
+- code: "600025"
+  name: 华能水电
+  categories:
+  - 水电
+  - 电力
+- code: "600236"
+  name: 桂冠电力
+  categories:
+  - 水电
+  - 电力
+- code: "601985"
+  name: 中国核电
+  categories:
+  - 核电
+  - 电力
+- code: "003816"
+  name: 中国广核
+  categories:
+  - 核电
+  - 电力
+- code: "601298"
+  name: 青岛港
+  categories:
+  - 港口
+  - 公用事业
+- code: "601326"
+  name: 秦港股份
+  categories:
+  - 港口
+  - 公用事业
+- code: "600323"
+  name: 瀚蓝环境
+  categories:
+  - 环保
+  - 公用事业
+- code: "600461"
+  name: 洪城环境
+  categories:
+  - 环保
+  - 公用事业
+- code: "605368"
+  name: 蓝天燃气
+  categories:
+  - 燃气
+  - 公用事业
+- code: "601139"
+  name: 深圳燃气
+  categories:
+  - 燃气
+  - 公用事业

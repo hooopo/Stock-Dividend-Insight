@@ -76,6 +76,118 @@ CORE_CATEGORY_TOKENS = %w[
   通信 三大运营商 运营商
 ].freeze
 
+WHITELIST_RAW = <<~EOF
+银行|六大行|工商银行|601398|4.5|5.2|6.0
+银行|六大行|建设银行|601939|4.5|5.2|6.0
+银行|六大行|农业银行|601288|4.5|5.2|6.0
+银行|六大行|中国银行|601988|4.5|5.2|6.0
+银行|六大行|交通银行|601328|4.5|5.2|6.0
+银行|六大行|邮储银行|601658|4.5|5.2|6.0
+银行|股份行|招商银行|600036|4.8|5.5|6.2
+银行|股份行|兴业银行|601166|5.0|6.0|7.0
+银行|股份行|中信银行|601998|5.0|6.0|7.0
+银行|股份行|光大银行|601818|5.0|6.0|7.0
+银行|股份行|华夏银行|600015|5.0|6.0|7.0
+银行|股份行|浦发银行|600000|5.0|6.0|7.0
+银行|股份行|平安银行|000001|5.0|6.0|7.0
+银行|城商行|北京银行|601169|5.0|6.0|7.0
+银行|城商行|上海银行|601229|5.0|6.0|7.0
+银行|城商行|江苏银行|600919|4.5|5.2|6.0
+银行|城商行|南京银行|601009|4.5|5.2|6.0
+银行|城商行|成都银行|601838|4.5|5.2|6.0
+银行|城商行|杭州银行|600926|4.5|5.2|6.0
+银行|农商行|沪农商行|601825|4.5|5.2|6.0
+银行|农商行|苏州银行|002966|4.5|5.2|6.0
+银行|农商行|常熟银行|601128|4.5|5.2|6.0
+银行|农商行|齐鲁银行|601665|4.5|5.2|6.0
+银行|农商行|渝农商行|601077|5.0|6.0|7.0
+银行|农商行|长沙银行|601577|4.5|5.2|6.0
+银行|城商行|贵阳银行|601997|5.0|6.0|7.0
+银行|股份行|民生银行|600016|5.0|6.0|7.0
+银行|股份行|浙商银行|601916|5.0|6.0|7.0
+电力|水电|长江电力|600900|3.3|3.8|4.5
+电力|水电|华能水电|600025|3.3|3.8|4.5
+电力|水电|川投能源|600674|3.0|3.5|4.2
+电力|水电|国投电力|600886|3.3|3.9|4.5
+电力|水电|桂冠电力|600236|3.8|4.5|5.3
+电力|核电|中国核电|601985|3.5|4.2|5.0
+电力|核电|中国广核|003816|3.5|4.2|5.0
+电力|综合能源|浙能电力|600023|5.0|5.8|6.8
+电力|综合能源|申能股份|600642|4.5|5.2|6.0
+电力|综合能源|福能股份|600483|3.8|4.5|5.3
+电力|综合能源|广州发展|600098|4.5|5.3|6.2
+电力|综合能源|新奥股份|600803|4.5|5.5|6.5
+电力|火电|华能国际|600011|5.5|6.5|7.5
+电力|火电|华电国际|600027|5.0|6.0|7.0
+电力|火电|国电电力|600795|4.8|5.7|6.7
+电力|火电|内蒙华电|600863|4.8|5.7|6.7
+公用事业|高速|宁沪高速|600377|4.0|4.7|5.5
+公用事业|高速|山东高速|600350|4.0|4.8|5.6
+公用事业|高速|粤高速A|000429|4.2|5.0|5.8
+公用事业|高速|招商公路|001965|4.2|5.0|5.8
+公用事业|高速|皖通高速|600012|3.8|4.5|5.3
+公用事业|港口|唐山港|601000|4.5|5.3|6.2
+公用事业|港口|青岛港|601298|4.5|5.3|6.2
+公用事业|港口|秦港股份|601326|4.5|5.3|6.2
+公用事业|港口|上港集团|600018|3.5|4.1|4.8
+公用事业|港口|宁波港|601018|3.3|3.9|4.6
+公用事业|港口|盐田港|000088|4.0|4.7|5.5
+公用事业|港口|招商港口|001872|3.2|3.8|4.5
+公用事业|铁路|大秦铁路|601006|5.0|5.8|6.8
+公用事业|通信|中国移动|600941|4.5|5.2|6.0
+公用事业|通信|中国电信|601728|4.3|5.0|5.8
+公用事业|通信|中国联通|600050|4.0|4.7|5.5
+公用事业|环保|首创环保|600008|4.5|5.2|6.0
+公用事业|环保|伟明环保|603568|3.5|4.2|5.0
+公用事业|环保|瀚蓝环境|600323|4.0|4.8|5.6
+公用事业|环保|洪城环境|600461|4.2|5.0|5.8
+公用事业|燃气|新奥股份|600803|4.5|5.5|6.5
+公用事业|燃气|蓝天燃气|605368|4.8|5.6|6.5
+公用事业|燃气|深圳燃气|601139|4.3|5.0|5.8
+周期|综合物流|中国外运|601598|5.0|5.8|6.8
+周期|内贸航运|中谷物流|603565|7.0|8.0|9.5
+EOF
+
+def build_whitelist_map
+  map = {}
+  big_order = []
+  sub_by_big = Hash.new { |h, k| h[k] = [] }
+  seen = {}
+  WHITELIST_RAW.split(/\n/).map(&:strip).reject(&:empty?).each do |line|
+    big, sub, name, code, first, add, heavy = line.split('|').map(&:strip)
+    code = code.rjust(6, '0')
+    next unless code.match?(/^\d{6}$/)
+    big_order << big unless seen.key?("big:#{big}")
+    seen["big:#{big}"] = true
+    unless seen.key?("sub:#{big}:#{sub}")
+      sub_by_big[big] << sub
+      seen["sub:#{big}:#{sub}"] = true
+    end
+    map[code] ||= {
+      code: code,
+      name: name,
+      big_categories: [],
+      sub_categories: [],
+      first_yield: first.to_f,
+      add_yield: add.to_f,
+      heavy_yield: heavy.to_f
+    }
+    map[code][:big_categories] = (map[code][:big_categories] + [big]).uniq
+    map[code][:sub_categories] = (map[code][:sub_categories] + [sub]).uniq
+  end
+  { map: map, big_order: big_order, sub_by_big: sub_by_big }
+end
+
+WHITELIST_BUILD = build_whitelist_map
+WHITELIST_BY_CODE = WHITELIST_BUILD[:map]
+WHITELIST_BIG_ORDER = WHITELIST_BUILD[:big_order]
+WHITELIST_SUB_BY_BIG = WHITELIST_BUILD[:sub_by_big]
+
+def whitelist_entry_for(code)
+  return nil unless code
+  WHITELIST_BY_CODE[code.to_s.strip.rjust(6, '0')]
+end
+
 def norm_category(s)
   s.to_s.strip.gsub(/\s+/, '').gsub(/[\/｜|、，,]/, '')
 end
@@ -222,15 +334,43 @@ rows_out =
       cats = (Array(row[:categories]) + Array(categories_by_stock_id[m[:id]])).map(&:to_s).map(&:strip).reject(&:empty?).uniq
       core_hits = core_hits_for(cats)
 
+      wl = whitelist_entry_for(row[:code])
+      wl_cats_set = {}
+      if wl
+        Array(wl[:big_categories]).each { |c| wl_cats_set[c.to_s] = true }
+        Array(wl[:sub_categories]).each { |c| wl_cats_set[c.to_s] = true }
+      end
+      wl_big = wl ? Array(wl[:big_categories]).first : nil
+      wl_sub = wl ? Array(wl[:sub_categories]).first : nil
+      wl_categories = wl ? (Array(wl[:big_categories]) + Array(wl[:sub_categories])).map(&:to_s).uniq : []
+
       dy = m[:dividend_yield]
       next unless dy && dy > 3.0
 
-      dps = m[:dividend_cash_per_share_latest_year]
       price = m[:current_price]
       min3y = m[:min_dividend_yield_3y]
-      buy5 = (price && price > 0 && min3y && min3y > 0) ? (price * (min3y / 5.0)) : nil
-      buy6 = (price && price > 0 && min3y && min3y > 0) ? (price * (min3y / 6.0)) : nil
-      buy7 = (price && price > 0 && min3y && min3y > 0) ? (price * (min3y / 7.0)) : nil
+
+      if wl
+        first_y = wl[:first_yield].to_f
+        add_y = wl[:add_yield].to_f
+        heavy_y = wl[:heavy_yield].to_f
+        buy5 = (price && price > 0 && first_y > 0) ? (price * (dy.to_f / first_y)) : nil
+        buy6 = (price && price > 0 && add_y > 0) ? (price * (dy.to_f / add_y)) : nil
+        buy7 = (price && price > 0 && heavy_y > 0) ? (price * (dy.to_f / heavy_y)) : nil
+        first_yield_use = first_y
+        add_yield_use = add_y
+        heavy_yield_use = heavy_y
+        buy_method = 'whitelist'
+      else
+        first_yield_use = nil
+        add_yield_use = nil
+        heavy_yield_use = nil
+        buy5 = (price && price > 0 && min3y && min3y > 0) ? (price * (min3y / 5.0)) : nil
+        buy6 = (price && price > 0 && min3y && min3y > 0) ? (price * (min3y / 6.0)) : nil
+        buy7 = (price && price > 0 && min3y && min3y > 0) ? (price * (min3y / 7.0)) : nil
+        buy_method = 'min3y'
+      end
+
       drop5 = (buy5 && price && price > 0) ? ((1.0 - (buy5 / price)) * 100.0) : nil
       drop6 = (buy6 && price && price > 0) ? ((1.0 - (buy6 / price)) * 100.0) : nil
       drop7 = (buy7 && price && price > 0) ? ((1.0 - (buy7 / price)) * 100.0) : nil
@@ -240,6 +380,14 @@ rows_out =
         categories: cats,
         is_core: core_hits.any?,
         core_categories: core_hits,
+        is_whitelist: !!wl,
+        whitelist_big_category: wl_big,
+        whitelist_sub_category: wl_sub,
+        whitelist_categories: wl_categories,
+        first_yield: first_yield_use,
+        add_yield: add_yield_use,
+        heavy_yield: heavy_yield_use,
+        buy_method: buy_method,
         buy_price_5: buy5,
         buy_price_6: buy6,
         buy_price_7: buy7,
@@ -251,7 +399,12 @@ rows_out =
     end
 
 rows_out.sort_by! do |x|
-  [(x[:need_drop_to_5].nil? ? 1_000_000.0 : x[:need_drop_to_5].to_f), -(x[:avg_dividend_yield_3y] || 0).to_f, x[:code]]
+  [
+    x[:is_whitelist] ? 0 : 1,
+    (x[:need_drop_to_5].nil? ? 1_000_000.0 : x[:need_drop_to_5].to_f),
+    -(x[:avg_dividend_yield_3y] || 0).to_f,
+    x[:code]
+  ]
 end
 
 consecutive_map = {}
@@ -356,6 +509,23 @@ upcoming =
 
 generated_at_bj = Time.now.getlocal('+08:00').to_date.to_s
 
+wl_big_count = WHITELIST_BIG_ORDER.size
+wl_count = rows_out.count { |r| r[:is_whitelist] }
+
+category_options_html_parts = []
+category_options_html_parts << ['', '全部分类']
+WHITELIST_BIG_ORDER.each do |big|
+  category_options_html_parts << ["big:#{big}", "大分类：#{big}"]
+  subs = WHITELIST_SUB_BY_BIG[big] || []
+  subs.each do |sub|
+    category_options_html_parts << ["sub:#{big}:#{sub}", "  #{big} / #{sub}"]
+  end
+end
+category_options_html =
+  category_options_html_parts
+    .map { |v, label| "<option value=\"#{v}\">#{label}</option>" }
+    .join("\n")
+
 html = <<~HTML
 <!doctype html>
 <html lang="zh-CN">
@@ -378,8 +548,6 @@ html = <<~HTML
     .row-hidden{display:none}
     .name-code{white-space:normal;line-height:1.25}
     .code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;color:#888;font-size:11px;margin-top:2px}
-    .btn{appearance:none;border:1px solid #ddd;background:#fff;border-radius:8px;padding:8px 10px;font-size:12px;color:#111}
-    .btn:active{transform:scale(0.99)}
     .check{display:inline-flex;align-items:center;gap:6px;border:1px solid #ddd;background:#fff;border-radius:999px;padding:8px 10px;font-size:12px;color:#111}
     .check input{width:14px;height:14px}
     .row-click{cursor:pointer}
@@ -397,6 +565,8 @@ html = <<~HTML
     .ladder-lines span{white-space:nowrap}
     .yield-lines{display:flex;flex-direction:column;gap:2px;align-items:flex-end}
     .yield-lines span{white-space:nowrap}
+    .payout-warn{display:inline-block;padding:1px 6px;border-radius:999px;background:#fff1f2;color:#be123c;font-size:10px;margin-left:6px}
+    .sel{appearance:none;border:1px solid #ddd;background:#fff;border-radius:8px;padding:8px 10px;font-size:12px;color:#111;max-width:100%}
     @media (max-width: 640px){
       body{padding:12px}
       .card{padding:12px}
@@ -413,16 +583,31 @@ html = <<~HTML
       th,td{letter-spacing:-0.1px}
       .code{font-size:10px}
     }
+    @media (max-width: 430px){
+      body{padding:10px;background:#f5f7fb}
+      .card{padding:10px;border-radius:12px}
+      h1{font-size:16px}
+      .meta{font-size:11px;line-height:1.45}
+      table{font-size:10px}
+      th,td{padding:4px 5px}
+      .search,.sel{width:100%;font-size:12px;padding:8px 9px}
+      .check{padding:7px 9px;font-size:11px}
+      .code,.payout-warn{font-size:9px}
+      .ladder-lines,.yield-lines{gap:1px}
+      .detail-card{padding:8px}
+      .kv{gap:8px}
+      .kv-item{font-size:10px;padding:5px 8px}
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>GT3 红利列表（股息率&gt;3%）</h1>
-    <div class="meta">生成日期（北京时间）：#{generated_at_bj} · 行数：#{rows_out.size}</div>
+    <h1>GT3 红利列表（默认白名单，勾选“显示全部”可查看全部 GT3 股票）</h1>
+    <div class="meta">生成日期（北京时间）：#{generated_at_bj} · 总行数：#{rows_out.size} · 白名单：#{wl_count} · 大分类数：#{wl_big_count}</div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
       <input id="q" class="search" placeholder="搜索 名称/代码" />
-      <label class="check"><input id="coreOnly" type="checkbox" />核心</label>
-      <button id="btnSaveMain" type="button" class="btn">保存为图片</button>
+      <select id="catSel" class="sel"><option value="">白名单分类</option>#{category_options_html}</select>
+      <label class="check"><input id="wlOnly" type="checkbox" checked />仅白名单</label>
     </div>
   </div>
 
@@ -434,13 +619,12 @@ html = <<~HTML
           <th data-k="namecode" data-t="str"><span class="h-desktop">名称/代码</span><span class="h-mobile">名称</span></th>
           <th class="right" data-k="price" data-t="num"><span class="h-desktop">最新价</span><span class="h-mobile">价格</span></th>
           <th class="right" data-k="yields" data-t="num"><span class="h-desktop">股息率(新/均/低)</span><span class="h-mobile">股息率</span></th>
-          <th class="right" data-k="payout" data-t="num"><span class="h-desktop">分红率</span><span class="h-mobile">分红率</span></th>
           <th class="right" data-k="cdy" data-t="num"><span class="h-desktop">连续分红(年)</span><span class="h-mobile">连续分红</span></th>
           <th class="right" data-k="needDrop" data-t="num"><span class="h-desktop">需跌幅(首)</span><span class="h-mobile">需跌幅</span></th>
-          <th class="right only-desktop" data-k="p5" data-t="num">首仓价(5%)</th>
-          <th class="right only-desktop" data-k="p6" data-t="num">加仓价(6%)</th>
-          <th class="right only-desktop" data-k="p7" data-t="num">重仓价(7%)</th>
-          <th class="right only-mobile" data-k="p5" data-t="num"><span class="h-desktop">目标价</span><span class="h-mobile">5/6/7</span></th>
+          <th class="right only-desktop" data-k="p5" data-t="num">首仓价(目标息率)</th>
+          <th class="right only-desktop" data-k="p6" data-t="num">加仓价(目标息率)</th>
+          <th class="right only-desktop" data-k="p7" data-t="num">重仓价(目标息率)</th>
+          <th class="right only-mobile" data-k="p5" data-t="num"><span class="h-desktop">目标价</span><span class="h-mobile">首/加/重</span></th>
         </tr>
       </thead>
       <tbody>
@@ -451,33 +635,48 @@ rows_out.each do |r|
   namecode = "#{r[:name]} #{r[:code]}"
   cur_price = r[:current_price].to_f
   cur_price_ok = r[:current_price] && cur_price.finite?
+  first_yield_tag = r[:first_yield] ? format_pct(r[:first_yield], 1) : '5%'
+  add_yield_tag = r[:add_yield] ? format_pct(r[:add_yield], 1) : '6%'
+  heavy_yield_tag = r[:heavy_yield] ? format_pct(r[:heavy_yield], 1) : '7%'
+  p5_header = "首仓价(#{first_yield_tag})"
+  p6_header = "加仓价(#{add_yield_tag})"
+  p7_header = "重仓价(#{heavy_yield_tag})"
+  payout_warn = (r[:dividend_payout_ratio].to_f > 80.0) ? '<span class="payout-warn">分红率过高</span>' : ''
+  wl_big = r[:whitelist_big_category].to_s
+  wl_sub = r[:whitelist_sub_category].to_s
 
-  html << "<tr class=\"row-click main\" data-id=\"#{key}\" data-core=\"#{r[:is_core] ? 1 : 0}\" data-avg3y=\"#{r[:avg_dividend_yield_3y]}\" data-min3y=\"#{r[:min_dividend_yield_3y]}\">"
-  html << "<td class=\"name-code\" data-label=\"名称/代码\" data-v=\"#{namecode}\">#{r[:name]}<div class=\"code\">#{r[:code]}</div></td>"
+  html << "<tr class=\"row-click main\" data-id=\"#{key}\" data-core=\"#{r[:is_core] ? 1 : 0}\" data-wl=\"#{r[:is_whitelist] ? 1 : 0}\" data-wlbig=\"#{wl_big}\" data-wlsub=\"#{wl_sub}\" data-avg3y=\"#{r[:avg_dividend_yield_3y]}\" data-min3y=\"#{r[:min_dividend_yield_3y]}\" data-firstyield=\"#{r[:first_yield]}\" data-addyield=\"#{r[:add_yield]}\" data-heavyyield=\"#{r[:heavy_yield]}\">"
+  html << "<td class=\"name-code\" data-label=\"名称/代码\" data-v=\"#{namecode}\">#{r[:name]}#{payout_warn}<div class=\"code\">#{r[:code]}#{wl_big != '' ? ' · ' + [wl_big, wl_sub].reject(&:empty?).join(' / ') : ''}</div></td>"
   html << "<td class=\"right\" data-label=\"最新价\" data-v=\"#{r[:current_price]}\">#{format_num(r[:current_price], 2)}</td>"
   html << "<td class=\"right\" data-label=\"股息率\" data-v=\"#{r[:dividend_yield]}\"><div class=\"yield-lines\"><span><span style=\"color:#666\">新</span> #{format_pct(r[:dividend_yield], 2)}</span><span><span style=\"color:#666\">均</span> #{format_pct(r[:avg_dividend_yield_3y], 2)}</span><span><span style=\"color:#666\">低</span> #{format_pct(r[:min_dividend_yield_3y], 2)}</span></div></td>"
-  html << "<td class=\"right\" data-label=\"分红率\" data-v=\"#{r[:dividend_payout_ratio]}\">#{format_pct(r[:dividend_payout_ratio], 0)}</td>"
   html << "<td class=\"right\" data-label=\"连续分红(年)\" data-v=\"#{r[:consecutive_dividend_years]}\">#{r[:consecutive_dividend_years].to_i if r[:consecutive_dividend_years]}</td>"
   html << "<td class=\"right\" data-label=\"需跌幅\" data-v=\"#{r[:need_drop_to_5]}\">#{format_pct(r[:need_drop_to_5], 2)}</td>"
   hit5 = cur_price_ok && r[:buy_price_5] && cur_price <= r[:buy_price_5].to_f
   hit6 = cur_price_ok && r[:buy_price_6] && cur_price <= r[:buy_price_6].to_f
   hit7 = cur_price_ok && r[:buy_price_7] && cur_price <= r[:buy_price_7].to_f
-  html << "<td class=\"right only-desktop#{hit5 ? ' price-hit' : ''}\" data-label=\"首仓价(5%)\" data-v=\"#{r[:buy_price_5]}\">#{format_num(r[:buy_price_5], 2)}</td>"
-  html << "<td class=\"right only-desktop#{hit6 ? ' price-hit' : ''}\" data-label=\"加仓价(6%)\" data-v=\"#{r[:buy_price_6]}\">#{format_num(r[:buy_price_6], 2)}</td>"
-  html << "<td class=\"right only-desktop#{hit7 ? ' price-hit' : ''}\" data-label=\"重仓价(7%)\" data-v=\"#{r[:buy_price_7]}\">#{format_num(r[:buy_price_7], 2)}</td>"
-  html << "<td class=\"right only-mobile\" data-label=\"目标价\" data-v=\"#{r[:buy_price_5]}\"><div class=\"ladder-lines\"><span class=\"#{hit5 ? 'price-hit' : ''}\">首 #{format_num(r[:buy_price_5], 2)}</span><span class=\"#{hit6 ? 'price-hit' : ''}\">加 #{format_num(r[:buy_price_6], 2)}</span><span class=\"#{hit7 ? 'price-hit' : ''}\">重 #{format_num(r[:buy_price_7], 2)}</span></div></td>"
+  html << "<td class=\"right only-desktop#{hit5 ? ' price-hit' : ''}\" data-label=\"#{p5_header}\" data-v=\"#{r[:buy_price_5]}\" title=\"目标息率 #{first_yield_tag}（#{r[:buy_method]}）\">#{format_num(r[:buy_price_5], 2)}<div class=\"code\">#{first_yield_tag}</div></td>"
+  html << "<td class=\"right only-desktop#{hit6 ? ' price-hit' : ''}\" data-label=\"#{p6_header}\" data-v=\"#{r[:buy_price_6]}\" title=\"目标息率 #{add_yield_tag}（#{r[:buy_method]}）\">#{format_num(r[:buy_price_6], 2)}<div class=\"code\">#{add_yield_tag}</div></td>"
+  html << "<td class=\"right only-desktop#{hit7 ? ' price-hit' : ''}\" data-label=\"#{p7_header}\" data-v=\"#{r[:buy_price_7]}\" title=\"目标息率 #{heavy_yield_tag}（#{r[:buy_method]}）\">#{format_num(r[:buy_price_7], 2)}<div class=\"code\">#{heavy_yield_tag}</div></td>"
+  html << "<td class=\"right only-mobile\" data-label=\"目标价\" data-v=\"#{r[:buy_price_5]}\"><div class=\"ladder-lines\"><span class=\"#{hit5 ? 'price-hit' : ''}\">首 #{format_num(r[:buy_price_5], 2)}<span style=\"color:#888\"> #{first_yield_tag}</span></span><span class=\"#{hit6 ? 'price-hit' : ''}\">加 #{format_num(r[:buy_price_6], 2)}<span style=\"color:#888\"> #{add_yield_tag}</span></span><span class=\"#{hit7 ? 'price-hit' : ''}\">重 #{format_num(r[:buy_price_7], 2)}<span style=\"color:#888\"> #{heavy_yield_tag}</span></span></div></td>"
   html << "</tr>\n"
 
   html << "<tr class=\"detail-row row-hidden\" data-for=\"#{key}\">"
   html << "<td class=\"detail\" colspan=\"10\">"
   html << "<div class=\"detail-card\">"
   html << "<div class=\"kv\">"
+  html << "<div class=\"kv-item\"><b>来源</b><span>#{r[:is_whitelist] ? '白名单' : '其他 GT3'}</span></div>"
+  if r[:is_whitelist]
+    html << "<div class=\"kv-item\"><b>白名单分类</b><span>#{r[:whitelist_categories].join(' / ')}</span></div>"
+  end
+  html << "<div class=\"kv-item\"><b>首仓目标息率</b><span>#{r[:first_yield] ? format_pct(r[:first_yield], 1) : '5%（默认）'}</span></div>"
+  html << "<div class=\"kv-item\"><b>加仓目标息率</b><span>#{r[:add_yield] ? format_pct(r[:add_yield], 1) : '6%（默认）'}</span></div>"
+  html << "<div class=\"kv-item\"><b>重仓目标息率</b><span>#{r[:heavy_yield] ? format_pct(r[:heavy_yield], 1) : '7%（默认）'}</span></div>"
+  html << "<div class=\"kv-item\"><b>阶梯价方式</b><span>#{r[:buy_method] == 'whitelist' ? '按白名单股息率' : '按3年最低息率/5-6-7'}</span></div>"
   html << "<div class=\"kv-item\"><b>换手率</b><span>#{format_pct(r[:turnover_rate], 2)}</span></div>"
   html << "<div class=\"kv-item\"><b>总市值</b><span>#{format_yi(r[:market_cap], 1)}</span></div>"
   html << "<div class=\"kv-item\"><b>成交量</b><span>#{format_wanshou(r[:volume], 2)}</span></div>"
   html << "<div class=\"kv-item\"><b>均价</b><span>#{r[:avg_price] ? "¥#{format_num(r[:avg_price], 2)}" : ''}</span></div>"
   html << "<div class=\"kv-item\"><b>最新年度DPS</b><span>#{format_num(r[:dividend_cash_per_share_latest_year], 4)}</span></div>"
-  html << "<div class=\"kv-item\"><b>分红率</b><span>#{format_pct(r[:dividend_payout_ratio], 2)}</span></div>"
   html << "<div class=\"kv-item\"><b>30日跌幅</b><span>#{format_pct(r[:drop_30d], 2)}</span></div>"
   html << "<div class=\"kv-item\"><b>30d分位</b><span>#{format_ratio_pct(r[:pos_30d], 0)}</span></div>"
   html << "<div class=\"kv-item\"><b>市盈率(TTM)</b><span>#{format_num(r[:pe_ttm], 2)}</span></div>"
@@ -517,9 +716,6 @@ html << <<~HTML
   <div class="card">
     <h1 style="font-size:16px;margin:0 0 8px 0;">半年内即将分红</h1>
     <div class="meta">按除权除息日正序 · 条数：#{upcoming.size}</div>
-    <div style="margin:10px 0 0 0;">
-      <button id="btnSaveDiv" type="button" class="btn">保存为图片</button>
-    </div>
     <div class="table-wrap" id="captureDiv">
     <table id="t2">
       <thead>
@@ -554,7 +750,6 @@ html << <<~HTML
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script>
     (function(){
       function getVal(td, type){
@@ -620,17 +815,36 @@ html << <<~HTML
       sortTable(t, 'needDrop', 'num', 'asc');
 
       const q = document.getElementById('q');
-      const coreOnly = document.getElementById('coreOnly');
+      const catSel = document.getElementById('catSel');
+      const wlOnly = document.getElementById('wlOnly');
       const mains = Array.from(document.querySelectorAll('#t tbody tr.main'));
       function applyFilters(){
         const s = (q && q.value ? q.value : '').trim().toLowerCase();
-        const onlyCore = !!(coreOnly && coreOnly.checked);
+        const catV = (catSel && catSel.value ? catSel.value : '').trim();
+        const onlyWl = !!(wlOnly && wlOnly.checked);
+        let catType = '';
+        let catBig = '';
+        let catSub = '';
+        if(catV){
+          const parts = catV.split(':');
+          catType = parts[0] || '';
+          catBig = parts[1] || '';
+          catSub = parts[2] || '';
+        }
         mains.forEach(r=>{
           const id = r.getAttribute('data-id');
           const detail = document.querySelector(`#t tbody tr.detail-row[data-for="${id}"]`);
 
           let ok = true;
-          if(onlyCore && r.getAttribute('data-core') !== '1') ok = false;
+          if(onlyWl && r.getAttribute('data-wl') !== '1') ok = false;
+          if(ok && catV){
+            if(catType === 'big'){
+              if(r.getAttribute('data-wlbig') !== catBig) ok = false;
+            } else if(catType === 'sub'){
+              if(r.getAttribute('data-wlbig') !== catBig) ok = false;
+              if(r.getAttribute('data-wlsub') !== catSub) ok = false;
+            }
+          }
           if(ok && s){
             const text = r.children[0].textContent.trim().toLowerCase();
             if(!text.includes(s)) ok = false;
@@ -645,7 +859,9 @@ html << <<~HTML
         });
       }
       if(q) q.addEventListener('input', applyFilters);
-      if(coreOnly) coreOnly.addEventListener('change', applyFilters);
+      if(catSel) catSel.addEventListener('change', applyFilters);
+      if(wlOnly) wlOnly.addEventListener('change', applyFilters);
+      applyFilters();
 
       document.querySelectorAll('#t tbody tr.main').forEach(tr=>{
         tr.addEventListener('click', ()=>{
@@ -656,25 +872,6 @@ html << <<~HTML
         });
       });
 
-      function saveAsImage(targetId, fileName){
-        const el = document.getElementById(targetId);
-        if(!el || !window.html2canvas) return;
-        html2canvas(el, { backgroundColor: '#ffffff', scale: 2 }).then(canvas=>{
-          const a = document.createElement('a');
-          a.href = canvas.toDataURL('image/png');
-          a.download = fileName;
-          a.click();
-        });
-      }
-
-      const btnMain = document.getElementById('btnSaveMain');
-      if(btnMain){
-        btnMain.addEventListener('click', ()=> saveAsImage('captureTable', 'gt3_#{generated_at_bj}.png'));
-      }
-      const btnDiv = document.getElementById('btnSaveDiv');
-      if(btnDiv){
-        btnDiv.addEventListener('click', ()=> saveAsImage('captureDiv', 'gt3_dividend_#{generated_at_bj}.png'));
-      }
     })();
   </script>
 </body>
@@ -686,7 +883,9 @@ File.write(OUT_HTML, html)
 payload = {
   generated_date_beijing: generated_at_bj,
   source_yml: File.basename(IN_YML),
-  filter: { dividend_yield_gt: 3.0 },
+  filter: { dividend_yield_gt: 3.0, default_whitelist_only: true },
+  whitelist_big_order: WHITELIST_BIG_ORDER,
+  whitelist_sub_by_big: WHITELIST_SUB_BY_BIG,
   stocks: rows_out.map { |x| x.reject { |k, _| k == :id } },
   upcoming_dividends_6m: upcoming
 }
