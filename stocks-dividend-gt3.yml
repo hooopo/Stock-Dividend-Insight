@@ -48,11 +48,6 @@ stocks:
   categories:
   - 建筑材料
   - 原材料
-- code: "603833"
-  name: 欧派家居
-  categories:
-  - 家居用品
-  - 可选消费
 - code: "600015"
   name: 华夏银行
   categories:
@@ -210,11 +205,6 @@ stocks:
   name: 鄂尔多斯
   categories:
   - 其他采掘
-- code: "600007"
-  name: 中国国贸
-  categories:
-  - 房地产开发
-  - 房地产
 - code: "600019"
   name: 宝钢股份
   categories:
@@ -307,10 +297,6 @@ stocks:
   categories:
   - 啤酒
   - 消费
-- code: "603816"
-  name: 顾家家居
-  categories:
-  - 家具
 - code: "600000"
   name: 浦发银行
   categories:
@@ -593,11 +579,6 @@ stocks:
   categories:
   - 银行
   - 金融
-- code: "002318"
-  name: 久立特材
-  categories:
-  - 钢铁
-  - 原材料
 - code: "600900"
   name: 长江电力
   categories:
@@ -698,11 +679,6 @@ stocks:
   categories:
   - 保险
   - 金融
-- code: "600004"
-  name: 白云机场
-  categories:
-  - 机场
-  - 交通运输
 - code: "605499"
   name: 东鹏饮料
   categories:
@@ -795,11 +771,6 @@ stocks:
   categories:
   - 电力
   - 公用事业
-- code: "002249"
-  name: 大洋电机
-  categories:
-  - 电机
-  - 工业
 - code: "600025"
   name: 华能水电
   categories:
@@ -825,28 +796,8 @@ stocks:
   categories:
   - 港口
   - 公用事业
-- code: "601326"
-  name: 秦港股份
-  categories:
-  - 港口
-  - 公用事业
 - code: "600323"
   name: 瀚蓝环境
   categories:
   - 环保
-  - 公用事业
-- code: "600461"
-  name: 洪城环境
-  categories:
-  - 环保
-  - 公用事业
-- code: "605368"
-  name: 蓝天燃气
-  categories:
-  - 燃气
-  - 公用事业
-- code: "601139"
-  name: 深圳燃气
-  categories:
-  - 燃气
   - 公用事业
