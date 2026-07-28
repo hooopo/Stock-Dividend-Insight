@@ -12,7 +12,6 @@ OUT_HTML = File.join(OUT_DIR, 'index.html')
 OUT_YML = File.join(OUT_DIR, 'data.yml')
 
 require_relative '../models'
-require_relative '../services/dividend_metrics'
 
 FileUtils.mkdir_p(OUT_DIR)
 
@@ -508,9 +507,6 @@ rows_out.each do |r|
 end
 
 stock_ids = rows_out.map { |x| x[:id] }.uniq
-current_price_by_stock_id = rows_out.each_with_object({}) do |row, memo|
-  memo[row[:id]] = row[:current_price].to_f if row[:id] && row[:current_price]
-end
 
 annual_dividends_by_stock_id = {}
 begin
@@ -519,51 +515,26 @@ begin
     yearly_raw =
       Dividend
         .where(stock_id: stock_ids)
-        .pluck(:stock_id, :fiscal_year, :ex_dividend_date, :report_date, :cash_dividend, :dividend_yield, :plan_description)
-    future_raw =
-      if conn.data_source_exists?('future_dividends')
-        FutureDividend
-          .where(stock_id: stock_ids)
-          .where('ex_dividend_date <= ?', Date.today)
-          .pluck(:stock_id, :ex_dividend_date, :cash_dividend_per_share, :plan_description)
-      else
-        []
-      end
+        .pluck(:stock_id, :report_date, :cash_dividend, :dividend_yield)
 
     grouped = Hash.new { |h, k| h[k] = Hash.new { |h2, y| h2[y] = { cash: 0.0, yield: 0.0 } } }
-    seen = {}
-    yearly_raw.each do |sid, fiscal_year, ex_dividend_date, report_date, cash_dividend, dividend_yield, plan|
-      next unless sid
-      year = fiscal_year.to_i
-      year = ex_dividend_date&.year if year <= 0
-      year = report_date&.year if year <= 0
-      next unless year && year > 0
-      seen[[sid, ex_dividend_date&.to_s, format('%.6f', cash_dividend.to_f), plan.to_s]] = true
+    yearly_raw.each do |sid, report_date, cash_dividend, dividend_yield|
+      next unless sid && report_date
+      year = report_date.year
       grouped[sid][year][:cash] += cash_dividend.to_f if cash_dividend
       grouped[sid][year][:yield] += dividend_yield.to_f if dividend_yield
-    end
-    future_raw.each do |sid, ex_dividend_date, cash_dividend, _plan|
-      year = ex_dividend_date&.year
-      next unless sid && year && year > 0
-      next if seen[[sid, ex_dividend_date&.to_s, format('%.6f', cash_dividend.to_f), _plan.to_s]]
-      grouped[sid][year][:cash] += cash_dividend.to_f if cash_dividend
     end
 
     grouped.each do |sid, per_year|
       years = per_year.keys.compact.sort
       next if years.empty?
-      current_price = current_price_by_stock_id[sid].to_f
       annual_dividends_by_stock_id[sid] =
         (years.min..years.max).map do |year|
           v = per_year[year] || { cash: 0.0, yield: 0.0 }
-          annual_yield = v[:yield].to_f
-          if annual_yield <= 0 && current_price > 0 && v[:cash].to_f > 0
-            annual_yield = (v[:cash].to_f / current_price) * 100.0
-          end
           {
             year: year,
             cash_dividend: v[:cash].round(4),
-            dividend_yield: annual_yield.round(4)
+            dividend_yield: v[:yield].round(4)
           }
         end
     end
@@ -789,7 +760,7 @@ rows_out.each do |r|
   html << "<div class=\"detail-top\">"
   html << "<div class=\"chart-card\">"
   html << "<div class=\"detail-title\">年度股息率 / DPS</div>"
-  html << "<div class=\"detail-sub\">按除权年度汇总，蓝柱是股息率，红线是每股派现(DPS)</div>"
+  html << "<div class=\"detail-sub\">按报告期年度汇总，蓝柱是股息率，红线是每股派现(DPS)</div>"
   html << "<div class=\"chart-legend\"><span class=\"chart-legend-item\"><span class=\"chart-legend-bar\"></span>股息率</span><span class=\"chart-legend-item\"><span class=\"chart-legend-line\"></span>DPS</span></div>"
   html << "<div class=\"div-chart-scroll\">"
   html << "<div class=\"div-chart\" data-chart-code=\"#{r[:code]}\"></div>"

@@ -6,7 +6,6 @@ require 'yaml'
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require_relative 'models'
-require_relative 'services/dividend_metrics'
 
 unless defined?(RoeHistory)
   class RoeHistory < ActiveRecord::Base
@@ -1272,15 +1271,10 @@ get '/stocks/:id' do
   end
 
   annual_div_cash = Hash.new(0.0)
-  dividend_rows =
-    DividendMetrics.normalized_rows(
-      @dividends,
-      future_dividends: @stock.future_dividends.where('ex_dividend_date <= ?', Date.today).to_a
-    )
-  dividend_rows.each do |div|
-    y = DividendMetrics.fiscal_year(div)
+    @dividends.each do |div|
+      y = div.report_date&.year
     next unless y
-    annual_div_cash[y] += DividendMetrics.cash_value(div)
+      annual_div_cash[y] += div.cash_dividend.to_f
   end
   @annual_dividends =
     annual_div_cash

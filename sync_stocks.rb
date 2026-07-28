@@ -133,8 +133,7 @@ class StockSyncService
         Stock.where(asset_type: %w[stock etf index])
       end
     
-    # 1.5 同步十年期国债收益率
-    TreasuryYieldSyncer.new(country: 'CN', tenor: '10Y', source: 'CHINABOND', force: @backfill_cn10y).sync
+      TreasuryYieldSyncer.new(country: 'CN', tenor: '10Y', source: 'CHINABOND', force: @backfill_cn10y).sync unless @gt3
 
     # 2. 同步实时快照（换手率、市值、量、均价、PE/PB、总股本等）
     QuoteSnapshotSyncer.new(scope: quote_scope).sync

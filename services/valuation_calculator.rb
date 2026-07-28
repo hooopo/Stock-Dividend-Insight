@@ -1,5 +1,3 @@
-require_relative 'dividend_metrics'
-
 class ValuationCalculator
   def calculate_all
     puts "Calculating yields and valuation positions for all stocks..."
@@ -15,37 +13,29 @@ class ValuationCalculator
     base_date = latest_history&.date
 
     if stock.asset_type == 'stock'
-      dividends =
-        DividendMetrics.normalized_rows(
-          stock.dividends.order(report_date: :desc).to_a,
-          future_dividends: stock.future_dividends.where('ex_dividend_date <= ?', Date.today).to_a,
-          base_date: Date.today
-        )
-      recent_dividends_sum = DividendMetrics.ttm_cash(dividends, base_date: Date.today)
+      latest_dividend = stock.dividends.order(report_date: :desc).first
+      latest_year = latest_dividend&.report_date&.year
+      year_sum =
+        if latest_year
+          stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend).to_f
+        else
+          0.0
+        end
 
-      if recent_dividends_sum.to_f <= 0
-        _, latest_year_sum = DividendMetrics.latest_cash_for_year(dividends)
-        recent_dividends_sum = latest_year_sum.to_f
-      end
-
-      if recent_dividends_sum > 0
-        stock.expected_dividend_yield = (recent_dividends_sum / latest_price) * 100
+      if year_sum > 0
+        stock.expected_dividend_yield = (year_sum / latest_price) * 100
+        stock.dividend_yield = stock.expected_dividend_yield
       else
         stock.expected_dividend_yield = 0.0
-      end
-
-      if recent_dividends_sum.to_f > 0
-        stock.dividend_yield = (recent_dividends_sum / latest_price) * 100
-      else
         stock.dividend_yield = 0.0
       end
 
       current_year = Date.today.year
       years = (current_year - 5...current_year).to_a
-      annual_cash = DividendMetrics.annual_cash(dividends)
-      all_years_have_dividend = years.all? do |y|
-        annual_cash[y].to_f > 0
-      end
+      all_years_have_dividend =
+        years.all? do |y|
+          stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', y).where('cash_dividend > 0').exists?
+        end
       stock.has_dividend_5y = all_years_have_dividend
     else
       stock.expected_dividend_yield = nil
