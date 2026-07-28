@@ -78,8 +78,8 @@
 
 | 字段 | 类型 | 说明/单位 |
 |---|---|---|
-| `dividend_yield` | decimal | 历史股息率（%）：最近一个年度累计派现 / 最新价 |
-| `expected_dividend_yield` | decimal | 预期股息率（%）：近 12 个月派现累计 / 最新价（若 12 个月为 0，会退化到最近一年报年度累计派现） |
+| `dividend_yield` | decimal | 最新股息率（%）：近 12 个月现金分红累计 / 最新价；现金分红优先按 `ex_dividend_date` 所属年度归集 |
+| `expected_dividend_yield` | decimal | 预期股息率（%）：与 `dividend_yield` 同口径；若近 12 个月为 0，会退化到最近一个 Fiscal Year 累计派现 / 最新价 |
 | `has_dividend_5y` | boolean | 连续 5 年有分红（按年度是否存在 `cash_dividend > 0` 判断） |
 
 ### 估值分位与等级字段
@@ -172,7 +172,7 @@
 | `cash_dividend` | decimal | 每股派现（元/股） |
 | `bonus_issue` | decimal | 每股送股（股/股） |
 | `rights_issue` | decimal | 每股转增（股/股） |
-| `dividend_yield` | decimal | 数据源返回的参考股息率（%）（可能为空） |
+| `dividend_yield` | decimal | 数据源返回的参考股息率（%）（可能为空，页面主口径不直接依赖它） |
 
 ## roe_histories（ROE 历史）
 
@@ -228,4 +228,3 @@
 - `RoeHistorySyncer` → `roe_histories` + `stocks.roe_*`
 - `PriceMetricsCalculator` → `stocks.pos_30d/pos_1y/pos_3y/pos_5y`、`high_*/low_*`、`drop_30d`
 - `ValuationCalculator` → `stocks.dividend_yield/expected_dividend_yield/has_dividend_5y`、`price_position`、`pb/pe` 分位与等级、`valuation_label`
-

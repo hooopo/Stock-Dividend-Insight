@@ -1,3 +1,5 @@
+require_relative 'dividend_metrics'
+
 class ValuationCalculator
   def calculate_all
     puts "Calculating yields and valuation positions for all stocks..."
@@ -13,35 +15,36 @@ class ValuationCalculator
     base_date = latest_history&.date
 
     if stock.asset_type == 'stock'
-      one_year_ago = Date.today - 365
-      recent_dividends_sum = stock.dividends.where('report_date > ?', one_year_ago).sum(:cash_dividend)
-      
-      if recent_dividends_sum == 0
-        latest_dividend = stock.dividends.order(report_date: :desc).first
-        if latest_dividend
-          latest_year = latest_dividend.report_date.year
-          recent_dividends_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend)
-        end
+      dividends =
+        DividendMetrics.normalized_rows(
+          stock.dividends.order(report_date: :desc).to_a,
+          future_dividends: stock.future_dividends.where('ex_dividend_date <= ?', Date.today).to_a,
+          base_date: Date.today
+        )
+      recent_dividends_sum = DividendMetrics.ttm_cash(dividends, base_date: Date.today)
+
+      if recent_dividends_sum.to_f <= 0
+        _, latest_year_sum = DividendMetrics.latest_cash_for_year(dividends)
+        recent_dividends_sum = latest_year_sum.to_f
       end
+
       if recent_dividends_sum > 0
         stock.expected_dividend_yield = (recent_dividends_sum / latest_price) * 100
       else
         stock.expected_dividend_yield = 0.0
       end
 
-      latest_dividend = stock.dividends.order(report_date: :desc).first
-      if latest_dividend
-        latest_year = latest_dividend.report_date.year
-        year_sum = stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', latest_year).sum(:cash_dividend)
-        stock.dividend_yield = year_sum.to_f > 0 ? (year_sum / latest_price) * 100 : 0.0
+      if recent_dividends_sum.to_f > 0
+        stock.dividend_yield = (recent_dividends_sum / latest_price) * 100
       else
         stock.dividend_yield = 0.0
       end
 
       current_year = Date.today.year
       years = (current_year - 5...current_year).to_a
+      annual_cash = DividendMetrics.annual_cash(dividends)
       all_years_have_dividend = years.all? do |y|
-        stock.dividends.where('EXTRACT(YEAR FROM report_date) = ?', y).where('cash_dividend > 0').exists?
+        annual_cash[y].to_f > 0
       end
       stock.has_dividend_5y = all_years_have_dividend
     else
