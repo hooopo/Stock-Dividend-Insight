@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-08-21'
+:generated_date_beijing: '2026-08-22'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt: 3.0
@@ -1341,8 +1341,8 @@
   :pe_ttm: 14.22
   :pe_percentile: 0.7494
   :valuation_label: 偏高区域
-  :peg: 1.0819
-  :peg_level: 3
+  :peg: 0.8792
+  :peg_level: 2
   :net_profit_yoy: -2.6713
   :finance_report_date: '2026-03-31'
   :pb: 2.17
@@ -1473,7 +1473,7 @@
   :pe_ttm: 14.82
   :pe_percentile: 0.4177
   :valuation_label: 偏高区域
-  :peg: 7.6973
+  :peg: 7.0156
   :peg_level: 4
   :net_profit_yoy: 1.9141
   :finance_report_date: '2026-03-31'
@@ -1631,14 +1631,14 @@
   :net_profit_yoy: 8.2858
   :finance_report_date: '2026-06-30'
   :pb: 0.75
-  :pb_percentile: 0.2783
+  :pb_percentile: 0.2802
   :drop_30d: -5.4611
   :asset_liability_ratio: 93.1358
   :interest_debt_ratio: 88.4196
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.57
+  :roe_jq: 7.25
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 12363582342.0
@@ -1742,7 +1742,7 @@
   :pe_ttm: 15.79
   :pe_percentile: 0.9079
   :valuation_label: 偏高区域
-  :peg: 4.4983
+  :peg: 4.161
   :peg_level: 4
   :net_profit_yoy: 3.4879
   :finance_report_date: '2026-03-31'
@@ -1874,7 +1874,7 @@
   :pe_ttm: 12.72
   :pe_percentile: 0.6831
   :valuation_label: 中位区域
-  :peg: 0.5588
+  :peg: 0.5385
   :peg_level: 2
   :net_profit_yoy: 23.4578
   :finance_report_date: '2026-03-31'
@@ -1982,7 +1982,7 @@
   :pe_ttm: 12.64
   :pe_percentile: 0.4936
   :valuation_label: 中位区域
-  :peg: 0.9251
+  :peg: 0.8967
   :peg_level: 2
   :net_profit_yoy: 12.8073
   :finance_report_date: '2026-03-31'
@@ -2200,7 +2200,7 @@
   :pe_ttm: 13.46
   :pe_percentile: 0.6134
   :valuation_label: 偏低区域
-  :peg: 6.9464
+  :peg: 6.0674
   :peg_level: 4
   :net_profit_yoy: 1.4961
   :finance_report_date: '2026-03-31'
@@ -2361,8 +2361,8 @@
   :pe_ttm: 17.09
   :pe_percentile: 0.8329
   :valuation_label: 偏高区域
-  :peg: 1.5703
-  :peg_level: 4
+  :peg: 1.3644
+  :peg_level: 3
   :net_profit_yoy: -31.2703
   :finance_report_date: '2026-03-31'
   :pb: 2.66
@@ -2508,7 +2508,7 @@
   :pe_ttm: 8.82
   :pe_percentile: 0.2678
   :valuation_label: 偏低区域
-  :peg: 2.5727
+  :peg: 2.5814
   :peg_level: 4
   :net_profit_yoy: 2.5715
   :finance_report_date: '2026-03-31'
@@ -3122,7 +3122,7 @@
   :pe_ttm: 11.53
   :pe_percentile: 0.8027
   :valuation_label: 中位区域
-  :peg: 1.4089
+  :peg: 1.4675
   :peg_level: 3
   :net_profit_yoy: 5.6513
   :finance_report_date: '2026-03-31'
@@ -3205,8 +3205,8 @@
   :pe_ttm: 18.96
   :pe_percentile: 0.4926
   :valuation_label: 中位区域
-  :peg: 1.0267
-  :peg_level: 3
+  :peg: 0.9876
+  :peg_level: 2
   :net_profit_yoy: 30.5016
   :finance_report_date: '2026-03-31'
   :pb: 3.28
@@ -3541,14 +3541,14 @@
   :net_profit_yoy: 7.9852
   :finance_report_date: '2026-06-30'
   :pb: 0.81
-  :pb_percentile: 0.885
+  :pb_percentile: 0.8897
   :drop_30d: -4.7368
   :asset_liability_ratio: 93.5185
   :interest_debt_ratio: 88.2307
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 4.09
+  :roe_jq: 7.86
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 18351340033.0
@@ -4257,7 +4257,7 @@
   :pe_ttm: 12.74
   :pe_percentile: 0.0239
   :valuation_label: 底部区域
-  :peg: 3.4693
+  :peg: 3.4396
   :peg_level: 4
   :net_profit_yoy: -0.4427
   :finance_report_date: '2026-03-31'
@@ -4365,7 +4365,7 @@
   :pe_ttm: 12.19
   :pe_percentile: 0.5036
   :valuation_label: 偏高区域
-  :peg: 3.911
+  :peg: 4.1931
   :peg_level: 4
   :net_profit_yoy: 3.7785
   :finance_report_date: '2026-03-31'
@@ -4523,7 +4523,7 @@
   :pe_ttm: 11.44
   :pe_percentile: 0.3489
   :valuation_label: 底部区域
-  :peg: 1.3584
+  :peg: 1.3293
   :peg_level: 3
   :net_profit_yoy: 7.6713
   :finance_report_date: '2026-03-31'
@@ -4660,8 +4660,8 @@
   :pe_ttm: 13.03
   :pe_percentile: 0.7411
   :valuation_label: 中位区域
-  :peg: 0.9221
-  :peg_level: 2
+  :peg: 1.0962
+  :peg_level: 3
   :net_profit_yoy: -3.6329
   :finance_report_date: '2026-03-31'
   :pb: 2.47
@@ -5037,7 +5037,7 @@
   :pe_ttm: 10.98
   :pe_percentile: 0.6879
   :valuation_label: 中位区域
-  :peg: 89.9757
+  :peg: 89.6491
   :peg_level: 4
   :net_profit_yoy: -1.9984
   :finance_report_date: '2026-03-31'
@@ -5121,7 +5121,7 @@
   :pe_ttm: 15.65
   :pe_percentile: 0.0229
   :valuation_label: 偏低区域
-  :peg: 1.7508
+  :peg: 1.7746
   :peg_level: 4
   :net_profit_yoy: 8.8488
   :finance_report_date: '2026-03-31'
@@ -5623,7 +5623,7 @@
   :pe_ttm: 10.79
   :pe_percentile: 0.1031
   :valuation_label: 中位区域
-  :peg: 0.2937
+  :peg: 0.2886
   :peg_level: 1
   :net_profit_yoy: 37.8281
   :finance_report_date: '2026-03-31'
@@ -5899,7 +5899,7 @@
   :pe_ttm: 13.0
   :pe_percentile: 0.5499
   :valuation_label: 偏低区域
-  :peg: 6.1949
+  :peg: 6.0735
   :peg_level: 4
   :net_profit_yoy: 1.5076
   :finance_report_date: '2026-03-31'
@@ -6033,7 +6033,7 @@
   :pe_ttm: 21.93
   :pe_percentile: 0.2735
   :valuation_label: 底部区域
-  :peg: 0.2813
+  :peg: 0.2677
   :peg_level: 1
   :net_profit_yoy: 82.5678
   :finance_report_date: '2026-03-31'
@@ -6556,7 +6556,7 @@
   :pe_ttm: 16.17
   :pe_percentile: 0.0115
   :valuation_label: 底部区域
-  :peg: 16.304
+  :peg: 16.0852
   :peg_level: 4
   :net_profit_yoy: 1.6796
   :finance_report_date: '2026-03-31'
@@ -6916,8 +6916,8 @@
   :pe_ttm: 14.22
   :pe_percentile: 0.9676
   :valuation_label: 中位区域
-  :peg: 1.4698
-  :peg_level: 3
+  :peg: 1.508
+  :peg_level: 4
   :net_profit_yoy: 14.7265
   :finance_report_date: '2026-03-31'
   :pb: 0.88
@@ -7055,7 +7055,7 @@
   :pe_ttm: 16.4
   :pe_percentile: 0.2616
   :valuation_label: 底部区域
-  :peg: 0.8365
+  :peg: 0.8103
   :peg_level: 2
   :net_profit_yoy: 13.5898
   :finance_report_date: '2026-03-31'
@@ -7877,7 +7877,7 @@
   :pe_ttm: 13.29
   :pe_percentile: 0.0453
   :valuation_label: 底部区域
-  :peg: 0.9205
+  :peg: 0.8795
   :peg_level: 2
   :net_profit_yoy: 10.6799
   :finance_report_date: '2026-03-31'
@@ -8022,7 +8022,7 @@
   :pe_ttm: 14.3
   :pe_percentile: 0.7399
   :valuation_label: 中位区域
-  :peg: 0.3788
+  :peg: 0.4012
   :peg_level: 1
   :net_profit_yoy: 42.7989
   :finance_report_date: '2026-03-31'
@@ -8509,140 +8509,6 @@
   - :year: 2025
     :cash_dividend: 0.22
     :dividend_yield: 4.1308
-- :code: '000999'
-  :name: 华润三九
-  :categories:
-  - 中药
-  - 医药卫生
-  :avg_dividend_yield_3y: 5.33
-  :min_dividend_yield_3y: 4.3082
-  :dividend_yield: 4.3082
-  :consecutive_dividend_years: 18
-  :dividend_cash_per_share_latest_year: 1.04
-  :current_price: 24.14
-  :turnover_rate: 0.97
-  :market_cap: 40174000000.0
-  :volume: 161172.0
-  :avg_price: 24.382
-  :dividend_payout_ratio: 52.8185
-  :pos_30d: 0.0
-  :pe_ttm: 12.26
-  :pe_percentile: 0.0143
-  :valuation_label: 底部区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -15.2917
-  :finance_report_date: '2026-03-31'
-  :pb: 1.76
-  :pb_percentile: 0.0745
-  :drop_30d: 4.0541
-  :asset_liability_ratio: 31.7612
-  :interest_debt_ratio: 9.7937
-  :fcf_yield: -0.7732
-  :fcf_ev: -0.7399
-  :fcff_back: -310630165.5053
-  :roe_jq: 4.74
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 1664208782.0
-  :is_core: false
-  :core_categories: []
-  :is_whitelist: false
-  :whitelist_big_category:
-  :whitelist_sub_category:
-  :whitelist_categories: []
-  :first_yield:
-  :add_yield:
-  :heavy_yield:
-  :buy_method: min3y
-  :buy_price_5: 20.799989600000004
-  :buy_price_6: 17.33332466666667
-  :buy_price_7: 14.85713542857143
-  :need_drop_to_5: 13.835999999999993
-  :drop_to_5: 13.835999999999993
-  :drop_to_6: 28.19666666666666
-  :drop_to_7: 38.45428571428571
-  :roe_5y_avg: 15.709999999999999
-  :roe_5y_min: 14.14
-  :annual_dividends:
-  - :year: 2000
-    :cash_dividend: 0.26
-    :dividend_yield: 1.6894
-  - :year: 2001
-    :cash_dividend: 0.04
-    :dividend_yield: 0.4357
-  - :year: 2002
-    :cash_dividend: 0.093
-    :dividend_yield: 1.0054
-  - :year: 2003
-    :cash_dividend: 0.045
-    :dividend_yield: 0.7881
-  - :year: 2004
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2005
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2006
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2007
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2008
-    :cash_dividend: 0.2
-    :dividend_yield: 1.2698
-  - :year: 2009
-    :cash_dividend: 0.3
-    :dividend_yield: 1.0601
-  - :year: 2010
-    :cash_dividend: 0.3
-    :dividend_yield: 1.5448
-  - :year: 2011
-    :cash_dividend: 0.24
-    :dividend_yield: 1.039
-  - :year: 2012
-    :cash_dividend: 0.26
-    :dividend_yield: 0.8784
-  - :year: 2013
-    :cash_dividend: 0.26
-    :dividend_yield: 1.4054
-  - :year: 2014
-    :cash_dividend: 0.408
-    :dividend_yield: 1.6425
-  - :year: 2015
-    :cash_dividend: 0.15
-    :dividend_yield: 0.583
-  - :year: 2016
-    :cash_dividend: 0.16
-    :dividend_yield: 0.5457
-  - :year: 2017
-    :cash_dividend: 0.46
-    :dividend_yield: 1.6214
-  - :year: 2018
-    :cash_dividend: 0.39
-    :dividend_yield: 1.3939
-  - :year: 2019
-    :cash_dividend: 0.43
-    :dividend_yield: 1.3638
-  - :year: 2020
-    :cash_dividend: 0.5
-    :dividend_yield: 1.9268
-  - :year: 2021
-    :cash_dividend: 0.8528
-    :dividend_yield: 2.198
-  - :year: 2022
-    :cash_dividend: 1.0
-    :dividend_yield: 1.6095
-  - :year: 2023
-    :cash_dividend: 1.5
-    :dividend_yield: 2.4534
-  - :year: 2024
-    :cash_dividend: 1.32
-    :dividend_yield: 2.9117
-  - :year: 2025
-    :cash_dividend: 1.04
-    :dividend_yield: 3.9855
 - :code: '601567'
   :name: 三星医疗
   :categories:
@@ -8891,7 +8757,7 @@
   :pe_ttm: 12.27
   :pe_percentile: 0.3943
   :valuation_label: 底部区域
-  :peg: 1.7608
+  :peg: 1.7229
   :peg_level: 4
   :net_profit_yoy: -24.4052
   :finance_report_date: '2026-03-31'
@@ -8995,7 +8861,7 @@
   :pe_ttm: 14.82
   :pe_percentile: 0.0
   :valuation_label: 底部区域
-  :peg: 2.4738
+  :peg: 2.3087
   :peg_level: 4
   :net_profit_yoy: 5.2286
   :finance_report_date: '2026-03-31'
@@ -9150,7 +9016,7 @@
   :pe_ttm: 12.96
   :pe_percentile: 0.5642
   :valuation_label: 中位区域
-  :peg: 2.552
+  :peg: 2.5758
   :peg_level: 4
   :net_profit_yoy: 1.8588
   :finance_report_date: '2026-03-31'
@@ -9263,7 +9129,7 @@
   :pe_ttm: 17.35
   :pe_percentile: 0.853
   :valuation_label: 中位区域
-  :peg: 0.603
+  :peg: 0.5937
   :peg_level: 2
   :net_profit_yoy: 28.2117
   :finance_report_date: '2026-03-31'
@@ -9850,160 +9716,6 @@
   - :year: 2025
     :cash_dividend: 1.47
     :dividend_yield: 3.6695
-- :code: '000513'
-  :name: 丽珠集团
-  :categories:
-  - 化学制剂
-  :avg_dividend_yield_3y: 4.4201
-  :min_dividend_yield_3y: 3.7594
-  :dividend_yield: 4.8872
-  :consecutive_dividend_years: 19
-  :dividend_cash_per_share_latest_year: 1.43
-  :current_price: 29.26
-  :turnover_rate: 2.31
-  :market_cap: 25980000000.0
-  :volume: 131464.0
-  :avg_price: 29.5815
-  :dividend_payout_ratio: 64.6577
-  :pos_30d: 0.0
-  :pe_ttm: 13.23
-  :pe_percentile: 0.095
-  :valuation_label: 偏低区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -9.3919
-  :finance_report_date: '2026-03-31'
-  :pb: 1.96
-  :pb_percentile: 0.063
-  :drop_30d: 5.3074
-  :asset_liability_ratio: 35.5889
-  :interest_debt_ratio: 12.2598
-  :fcf_yield: 7.0665
-  :fcf_ev: 6.7906
-  :fcff_back: 1835877562.9398
-  :roe_jq: 4.06
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 887901572.0
-  :is_core: false
-  :core_categories: []
-  :is_whitelist: false
-  :whitelist_big_category:
-  :whitelist_sub_category:
-  :whitelist_categories: []
-  :first_yield:
-  :add_yield:
-  :heavy_yield:
-  :buy_method: min3y
-  :buy_price_5: 22.0000088
-  :buy_price_6: 18.333340666666665
-  :buy_price_7: 15.714291999999999
-  :need_drop_to_5: 24.812
-  :drop_to_5: 24.812
-  :drop_to_6: 37.34333333333334
-  :drop_to_7: 46.29428571428572
-  :roe_5y_avg: 14.346
-  :roe_5y_min: 14.0
-  :annual_dividends:
-  - :year: 1993
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 1994
-    :cash_dividend: 0.3
-    :dividend_yield: 7.874
-  - :year: 1995
-    :cash_dividend: 0.2
-    :dividend_yield: 2.2548
-  - :year: 1996
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 1997
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 1998
-    :cash_dividend: 0.05
-    :dividend_yield: 0.6329
-  - :year: 1999
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2000
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2001
-    :cash_dividend: 0.03
-    :dividend_yield: 0.2799
-  - :year: 2002
-    :cash_dividend: 0.1
-    :dividend_yield: 1.0917
-  - :year: 2003
-    :cash_dividend: 0.1
-    :dividend_yield: 1.1299
-  - :year: 2004
-    :cash_dividend: 0.15
-    :dividend_yield: 2.6882
-  - :year: 2005
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2006
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2007
-    :cash_dividend: 0.5
-    :dividend_yield: 2.3787
-  - :year: 2008
-    :cash_dividend: 0.1
-    :dividend_yield: 0.3676
-  - :year: 2009
-    :cash_dividend: 0.15
-    :dividend_yield: 0.3464
-  - :year: 2010
-    :cash_dividend: 0.1
-    :dividend_yield: 0.3412
-  - :year: 2011
-    :cash_dividend: 0.5
-    :dividend_yield: 1.9516
-  - :year: 2012
-    :cash_dividend: 0.5
-    :dividend_yield: 1.289
-  - :year: 2013
-    :cash_dividend: 0.5
-    :dividend_yield: 1.0417
-  - :year: 2014
-    :cash_dividend: 0.1
-    :dividend_yield: 0.144
-  - :year: 2015
-    :cash_dividend: 0.5
-    :dividend_yield: 1.1818
-  - :year: 2016
-    :cash_dividend: 0.5
-    :dividend_yield: 0.7497
-  - :year: 2017
-    :cash_dividend: 2.0
-    :dividend_yield: 3.067
-  - :year: 2018
-    :cash_dividend: 1.2
-    :dividend_yield: 3.4642
-  - :year: 2019
-    :cash_dividend: 1.1501
-    :dividend_yield: 2.8559
-  - :year: 2020
-    :cash_dividend: 1.25
-    :dividend_yield: 2.5126
-  - :year: 2021
-    :cash_dividend: 1.3
-    :dividend_yield: 3.9646
-  - :year: 2022
-    :cash_dividend: 1.6
-    :dividend_yield: 4.0816
-  - :year: 2023
-    :cash_dividend: 1.35
-    :dividend_yield: 3.5895
-  - :year: 2024
-    :cash_dividend: 1.1
-    :dividend_yield: 2.8126
-  - :year: 2025
-    :cash_dividend: 1.43
-    :dividend_yield: 4.487
 - :code: '600809'
   :name: 山西汾酒
   :categories:
@@ -10251,140 +9963,6 @@
   - :year: 2025
     :cash_dividend: 0.948
     :dividend_yield: 4.397
-- :code: '600332'
-  :name: 白云山
-  :categories:
-  - 中药
-  - 医药卫生
-  :avg_dividend_yield_3y: 3.8243
-  :min_dividend_yield_3y: 3.582
-  :dividend_yield: 4.065
-  :consecutive_dividend_years: 10
-  :dividend_cash_per_share_latest_year: 0.85
-  :current_price: 20.91
-  :turnover_rate: 0.87
-  :market_cap: 33995000000.0
-  :volume: 122960.0
-  :avg_price: 21.028
-  :dividend_payout_ratio: 46.9101
-  :pos_30d: 0.0
-  :pe_ttm: 11.54
-  :pe_percentile: 0.0802
-  :valuation_label: 底部区域
-  :peg: 6.9615
-  :peg_level: 4
-  :net_profit_yoy: -2.0621
-  :finance_report_date: '2026-03-31'
-  :pb: 0.88
-  :pb_percentile: 0.0134
-  :drop_30d: 5.084
-  :asset_liability_ratio: 53.3271
-  :interest_debt_ratio: 20.5535
-  :fcf_yield: -0.717
-  :fcf_ev: -0.5561
-  :fcff_back: -243742472.108
-  :roe_jq: 4.61
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 1625777140.0
-  :is_core: false
-  :core_categories: []
-  :is_whitelist: false
-  :whitelist_big_category:
-  :whitelist_sub_category:
-  :whitelist_categories: []
-  :first_yield:
-  :add_yield:
-  :heavy_yield:
-  :buy_method: min3y
-  :buy_price_5: 14.979923999999999
-  :buy_price_6: 12.48327
-  :buy_price_7: 10.699945714285713
-  :need_drop_to_5: 28.360000000000007
-  :drop_to_5: 28.360000000000007
-  :drop_to_6: 40.300000000000004
-  :drop_to_7: 48.82857142857143
-  :roe_5y_avg: 10.916
-  :roe_5y_min: 7.99
-  :annual_dividends:
-  - :year: 2000
-    :cash_dividend: 0.03
-    :dividend_yield: 0.1846
-  - :year: 2001
-    :cash_dividend: 0.06
-    :dividend_yield: 0.5535
-  - :year: 2002
-    :cash_dividend: 0.06
-    :dividend_yield: 0.6322
-  - :year: 2003
-    :cash_dividend: 0.06
-    :dividend_yield: 0.9091
-  - :year: 2004
-    :cash_dividend: 0.025
-    :dividend_yield: 0.5102
-  - :year: 2005
-    :cash_dividend: 0.07
-    :dividend_yield: 0.9576
-  - :year: 2006
-    :cash_dividend: 0.084
-    :dividend_yield: 0.6902
-  - :year: 2007
-    :cash_dividend: 0.124
-    :dividend_yield: 1.0783
-  - :year: 2008
-    :cash_dividend: 0.04
-    :dividend_yield: 0.4938
-  - :year: 2009
-    :cash_dividend: 0.05
-    :dividend_yield: 0.5663
-  - :year: 2010
-    :cash_dividend: 0.05
-    :dividend_yield: 0.2976
-  - :year: 2011
-    :cash_dividend: 0.1
-    :dividend_yield: 0.498
-  - :year: 2012
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2013
-    :cash_dividend: 0.23
-    :dividend_yield: 0.9278
-  - :year: 2014
-    :cash_dividend: 0.28
-    :dividend_yield: 0.8995
-  - :year: 2015
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2016
-    :cash_dividend: 0.28
-    :dividend_yield: 1.0047
-  - :year: 2017
-    :cash_dividend: 0.381
-    :dividend_yield: 0.923
-  - :year: 2018
-    :cash_dividend: 0.424
-    :dividend_yield: 1.0309
-  - :year: 2019
-    :cash_dividend: 0.589
-    :dividend_yield: 1.6681
-  - :year: 2020
-    :cash_dividend: 0.538
-    :dividend_yield: 1.8237
-  - :year: 2021
-    :cash_dividend: 0.687
-    :dividend_yield: 2.19
-  - :year: 2022
-    :cash_dividend: 0.732
-    :dividend_yield: 2.2155
-  - :year: 2023
-    :cash_dividend: 0.749
-    :dividend_yield: 2.4525
-  - :year: 2024
-    :cash_dividend: 0.8
-    :dividend_yield: 2.9074
-  - :year: 2025
-    :cash_dividend: 0.85
-    :dividend_yield: 3.5718
 - :code: '600219'
   :name: 南山铝业
   :categories:
@@ -10405,19 +9983,19 @@
   :pe_ttm: 12.52
   :pe_percentile: 0.4277
   :valuation_label: 中位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -35.3868
-  :finance_report_date: '2026-03-31'
+  :peg: 0.5992
+  :peg_level: 2
+  :net_profit_yoy: 24.3993
+  :finance_report_date: '2026-06-30'
   :pb: 1.09
-  :pb_percentile: 0.8196
+  :pb_percentile: 0.8186
   :drop_30d: -9.1954
-  :asset_liability_ratio: 18.4404
-  :interest_debt_ratio: 7.5375
-  :fcf_yield: -3.9098
-  :fcf_ev: -3.8373
-  :fcff_back: -2132741731.7201
-  :roe_jq: 2.09
+  :asset_liability_ratio: 20.264
+  :interest_debt_ratio: 8.4385
+  :fcf_yield: 1.1846
+  :fcf_ev: 1.1577
+  :fcff_back: 646148853.7384
+  :roe_jq: 4.41
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 11483789473.0
@@ -10638,7 +10216,7 @@
   :pe_ttm: 18.42
   :pe_percentile: 0.1274
   :valuation_label: 中位区域
-  :peg: 2.1675
+  :peg: 2.271
   :peg_level: 4
   :net_profit_yoy: 7.8438
   :finance_report_date: '2026-03-31'
@@ -10949,7 +10527,7 @@
   :pe_ttm: 12.91
   :pe_percentile: 0.9183
   :valuation_label: 中位区域
-  :peg: 2.1984
+  :peg: 2.377
   :peg_level: 4
   :net_profit_yoy: 7.059
   :finance_report_date: '2026-03-31'
@@ -11326,119 +10904,6 @@
   - :year: 2025
     :cash_dividend: 0.547
     :dividend_yield: 2.8972
-- :code: '002223'
-  :name: 鱼跃医疗
-  :categories:
-  - 医疗器械
-  - 医药卫生
-  :avg_dividend_yield_3y: 3.4027
-  :min_dividend_yield_3y: 3.141
-  :dividend_yield: 3.9262
-  :consecutive_dividend_years: 11
-  :dividend_cash_per_share_latest_year: 1.0
-  :current_price: 25.47
-  :turnover_rate: 1.18
-  :market_cap: 25533000000.0
-  :volume: 111307.0
-  :avg_price: 25.5779
-  :dividend_payout_ratio: 77.9743
-  :pos_30d: 0.0
-  :pe_ttm: 19.86
-  :pe_percentile: 0.3637
-  :valuation_label: 底部区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -31.441
-  :finance_report_date: '2026-03-31'
-  :pb: 1.96
-  :pb_percentile: 0.0177
-  :drop_30d: 8.6114
-  :asset_liability_ratio: 18.5046
-  :interest_debt_ratio: 0.1915
-  :fcf_yield: -8.2613
-  :fcf_ev: -8.2593
-  :fcff_back: -2109346148.8713
-  :roe_jq: 3.19
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 1002473498.0
-  :is_core: false
-  :core_categories: []
-  :is_whitelist: false
-  :whitelist_big_category:
-  :whitelist_sub_category:
-  :whitelist_categories: []
-  :first_yield:
-  :add_yield:
-  :heavy_yield:
-  :buy_method: min3y
-  :buy_price_5: 16.000253999999998
-  :buy_price_6: 13.333544999999999
-  :buy_price_7: 11.428752857142857
-  :need_drop_to_5: 37.18
-  :drop_to_5: 37.18
-  :drop_to_6: 47.650000000000006
-  :drop_to_7: 55.128571428571426
-  :roe_5y_avg: 17.084
-  :roe_5y_min: 11.42
-  :annual_dividends:
-  - :year: 2007
-    :cash_dividend: 0.2
-    :dividend_yield: 1.1799
-  - :year: 2008
-    :cash_dividend: 0.3
-    :dividend_yield: 0.778
-  - :year: 2009
-    :cash_dividend: 0.1
-    :dividend_yield: 0.1678
-  - :year: 2010
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2011
-    :cash_dividend: 0.1
-    :dividend_yield: 0.5033
-  - :year: 2012
-    :cash_dividend: 0.1
-    :dividend_yield: 0.4953
-  - :year: 2013
-    :cash_dividend: 0.1
-    :dividend_yield: 0.3899
-  - :year: 2014
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2015
-    :cash_dividend: 0.4
-    :dividend_yield: 1.2821
-  - :year: 2016
-    :cash_dividend: 0.4
-    :dividend_yield: 1.1799
-  - :year: 2017
-    :cash_dividend: 0.15
-    :dividend_yield: 0.7953
-  - :year: 2018
-    :cash_dividend: 0.15
-    :dividend_yield: 0.6605
-  - :year: 2019
-    :cash_dividend: 0.4
-    :dividend_yield: 1.2052
-  - :year: 2020
-    :cash_dividend: 0.3
-    :dividend_yield: 0.9554
-  - :year: 2021
-    :cash_dividend: 0.3
-    :dividend_yield: 1.2701
-  - :year: 2022
-    :cash_dividend: 0.6
-    :dividend_yield: 1.771
-  - :year: 2023
-    :cash_dividend: 0.8
-    :dividend_yield: 2.0126
-  - :year: 2024
-    :cash_dividend: 0.8
-    :dividend_yield: 2.1978
-  - :year: 2025
-    :cash_dividend: 1.0
-    :dividend_yield: 3.2295
 - :code: '600060'
   :name: 海信视像
   :categories:
@@ -11459,7 +10924,7 @@
   :pe_ttm: 13.48
   :pe_percentile: 0.3508
   :valuation_label: 中位区域
-  :peg: 26.0621
+  :peg: 24.3126
   :peg_level: 4
   :net_profit_yoy: 6.7138
   :finance_report_date: '2026-03-31'
@@ -11604,17 +11069,17 @@
   :valuation_label: 底部区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -49.5957
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -37.4367
+  :finance_report_date: '2026-06-30'
   :pb: 2.51
-  :pb_percentile: 0.0449
+  :pb_percentile: 0.0333
   :drop_30d: -0.5445
-  :asset_liability_ratio: 28.4102
-  :interest_debt_ratio: 13.1437
-  :fcf_yield: -0.563
-  :fcf_ev: -0.5508
-  :fcff_back: -218383027.4646
-  :roe_jq: 2.35
+  :asset_liability_ratio: 34.384
+  :interest_debt_ratio: 13.5608
+  :fcf_yield: 3.7687
+  :fcf_ev: 3.6649
+  :fcff_back: 1461897842.6667
+  :roe_jq: 5.86
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1166997593.0
@@ -11656,143 +11121,6 @@
   - :year: 2026
     :cash_dividend: 1.0
     :dividend_yield: 3.0084
-- :code: '000932'
-  :name: 华菱钢铁
-  :categories:
-  - 钢铁
-  - 原材料
-  :avg_dividend_yield_3y: 4.5497
-  :min_dividend_yield_3y: 2.7855
-  :dividend_yield: 4.4568
-  :consecutive_dividend_years: 7
-  :dividend_cash_per_share_latest_year: 0.16
-  :current_price: 3.59
-  :turnover_rate: 0.86
-  :market_cap: 24601000000.0
-  :volume: 590839.0
-  :avg_price: 3.5707
-  :dividend_payout_ratio: 48.802
-  :pos_30d: 0.0455
-  :pe_ttm: 10.95
-  :pe_percentile: 0.8091
-  :valuation_label: 底部区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -64.8208
-  :finance_report_date: '2026-03-31'
-  :pb: 0.45
-  :pb_percentile: 0.0153
-  :drop_30d: 4.7745
-  :asset_liability_ratio: 55.131
-  :interest_debt_ratio: 15.2116
-  :fcf_yield: -10.7285
-  :fcf_ev: -7.0247
-  :fcff_back: -2639315292.9518
-  :roe_jq: 0.36
-  :roe_5y_avg_ge_12: false
-  :roe_5y_min_ge_8: false
-  :total_shares: 6852646239.0
-  :is_core: false
-  :core_categories: []
-  :is_whitelist: false
-  :whitelist_big_category:
-  :whitelist_sub_category:
-  :whitelist_categories: []
-  :first_yield:
-  :add_yield:
-  :heavy_yield:
-  :buy_method: min3y
-  :buy_price_5: 1.9999889999999996
-  :buy_price_6: 1.6666575
-  :buy_price_7: 1.4285635714285714
-  :need_drop_to_5: 44.290000000000006
-  :drop_to_5: 44.290000000000006
-  :drop_to_6: 53.574999999999996
-  :drop_to_7: 60.207142857142856
-  :roe_5y_avg: 9.334
-  :roe_5y_min: 0.1
-  :annual_dividends:
-  - :year: 1999
-    :cash_dividend: 0.05
-    :dividend_yield: 0.5501
-  - :year: 2000
-    :cash_dividend: 0.05
-    :dividend_yield: 0.7225
-  - :year: 2001
-    :cash_dividend: 0.1
-    :dividend_yield: 1.6611
-  - :year: 2002
-    :cash_dividend: 0.1
-    :dividend_yield: 1.8519
-  - :year: 2003
-    :cash_dividend: 0.1
-    :dividend_yield: 1.634
-  - :year: 2004
-    :cash_dividend: 0.1
-    :dividend_yield: 2.4331
-  - :year: 2005
-    :cash_dividend: 0.1
-    :dividend_yield: 2.6667
-  - :year: 2006
-    :cash_dividend: 0.1
-    :dividend_yield: 1.0616
-  - :year: 2007
-    :cash_dividend: 0.1
-    :dividend_yield: 0.9872
-  - :year: 2008
-    :cash_dividend: 0.05
-    :dividend_yield: 0.7874
-  - :year: 2009
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2010
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2011
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2012
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2013
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2014
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2015
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2016
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2017
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2018
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2019
-    :cash_dividend: 0.25
-    :dividend_yield: 6.1425
-  - :year: 2020
-    :cash_dividend: 0.21
-    :dividend_yield: 2.497
-  - :year: 2021
-    :cash_dividend: 0.29
-    :dividend_yield: 5.4409
-  - :year: 2022
-    :cash_dividend: 0.24
-    :dividend_yield: 4.878
-  - :year: 2023
-    :cash_dividend: 0.23
-    :dividend_yield: 4.6559
-  - :year: 2024
-    :cash_dividend: 0.1
-    :dividend_yield: 2.2779
-  - :year: 2025
-    :cash_dividend: 0.16
-    :dividend_yield: 4.3716
 - :code: '600968'
   :name: 海油发展
   :categories:
@@ -11812,7 +11140,7 @@
   :pe_ttm: 10.35
   :pe_percentile: 0.0645
   :valuation_label: 中位区域
-  :peg: 0.6453
+  :peg: 0.6935
   :peg_level: 2
   :net_profit_yoy: 7.3095
   :finance_report_date: '2026-03-31'
@@ -11981,7 +11309,7 @@
   :pe_ttm: 14.47
   :pe_percentile: 0.9909
   :valuation_label: 中位区域
-  :peg: 0.466
+  :peg: 0.4845
   :peg_level: 1
   :net_profit_yoy: 28.3545
   :finance_report_date: '2026-03-31'
@@ -12094,7 +11422,7 @@
   :pe_ttm: 16.75
   :pe_percentile: 0.011
   :valuation_label: 底部区域
-  :peg: 4.2376
+  :peg: 4.0653
   :peg_level: 4
   :net_profit_yoy: 5.3068
   :finance_report_date: '2026-03-31'
@@ -12429,7 +11757,7 @@
   :pe_ttm: 13.67
   :pe_percentile: 0.4387
   :valuation_label: 中位区域
-  :peg: 0.2879
+  :peg: 0.2766
   :peg_level: 1
   :net_profit_yoy: 46.4972
   :finance_report_date: '2026-03-31'
@@ -12853,7 +12181,7 @@
   :pe_ttm: 15.59
   :pe_percentile: 0.1399
   :valuation_label: 中位区域
-  :peg: 0.7827
+  :peg: 0.8261
   :peg_level: 2
   :net_profit_yoy: 23.293
   :finance_report_date: '2026-03-31'
@@ -13524,24 +12852,6 @@
     :cash_dividend: 0.5
     :dividend_yield: 3.2723
 :upcoming_dividends_6m:
-- :code: '600690'
-  :name: 海尔智家
-  :ex_dividend_date: '2026-08-21'
-  :equity_record_date: '2026-08-20'
-  :notice_date: '2026-08-15'
-  :cash_dividend_per_share: 0.8915
-  :dividend_yield_pct: 4.0951
-  :progress: 实施分配
-  :plan_description: 10派8.9151元(含税)
-- :code: '601928'
-  :name: 凤凰传媒
-  :ex_dividend_date: '2026-08-21'
-  :equity_record_date: '2026-08-20'
-  :notice_date: '2026-08-14'
-  :cash_dividend_per_share: 0.4
-  :dividend_yield_pct: 4.2644
-  :progress: 实施分配
-  :plan_description: 10派4.00元(含税)
 - :code: '000651'
   :name: 格力电器
   :ex_dividend_date: '2026-08-27'
