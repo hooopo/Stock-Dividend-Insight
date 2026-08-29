@@ -86,9 +86,9 @@ class DividendSyncer
   def per_year_cash(stock)
     per_year = Hash.new(0.0)
     stock.dividends.pluck(:report_date, :cash_dividend).each do |d, cash|
-      y = d&.year
-      next unless y
-      per_year[y] += cash.to_f
+      next unless d
+      next unless d.month == 12 && d.day == 31
+      per_year[d.year] += cash.to_f
     end
     per_year
   end
@@ -232,7 +232,20 @@ class DividendSyncer
     end
 
     if latest_dividend
-      latest_year = latest_dividend.report_date.year
+      latest_year_end =
+        stock
+          .dividends
+          .where("extract(month from report_date) = 12 and extract(day from report_date) = 31")
+          .order(report_date: :desc)
+          .limit(1)
+          .pluck(:report_date)
+          .first
+      if latest_year_end
+        latest_year = latest_year_end.year
+      else
+        latest_year = latest_dividend.report_date.year
+        latest_year = latest_year - 1 if latest_dividend.report_date.month <= 6
+      end
       year_sum = per_year[latest_year].to_f
 
       stock.dividend_cash_per_share_year = latest_year if stock.has_attribute?(:dividend_cash_per_share_year)
@@ -243,8 +256,8 @@ class DividendSyncer
         ttm_cash = ttm_cash_from_bonus(stock, base_date: Date.today, headers: headers)
       end
 
-      cash_for_yield = ttm_cash || year_sum
-      if latest_price && latest_price.to_f > 0 && year_sum.to_f > 0
+      cash_for_yield = ttm_cash&.positive? ? ttm_cash : (year_sum.positive? ? year_sum : nil)
+      if latest_price && latest_price.to_f > 0 && cash_for_yield
         stock.dividend_yield = (cash_for_yield.to_f / latest_price.to_f) * 100.0
         stock.expected_dividend_yield = stock.dividend_yield if stock.has_attribute?(:expected_dividend_yield)
       else

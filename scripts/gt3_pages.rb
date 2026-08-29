@@ -357,9 +357,6 @@ rows_out =
       wl_sub = wl ? Array(wl[:sub_categories]).first : nil
       wl_categories = wl ? (Array(wl[:big_categories]) + Array(wl[:sub_categories])).map(&:to_s).uniq : []
 
-      dy = m[:dividend_yield]
-      next unless dy && dy > 3.0
-
       price = m[:current_price]
       min3y = m[:min_dividend_yield_3y]
 
@@ -1043,7 +1040,7 @@ File.write(OUT_HTML, html)
 payload = {
   generated_date_beijing: generated_at_bj,
   source_yml: File.basename(IN_YML),
-  filter: { dividend_yield_gt: 3.0, default_whitelist_only: true },
+  filter: { dividend_yield_gt: nil, default_whitelist_only: true },
   whitelist_big_order: WHITELIST_BIG_ORDER,
   whitelist_sub_by_big: WHITELIST_SUB_BY_BIG,
   stocks: rows_out.map { |x| x.reject { |k, _| k == :id } },
