@@ -87,7 +87,7 @@ class DividendSyncer
     per_year = Hash.new(0.0)
     stock.dividends.pluck(:report_date, :cash_dividend).each do |d, cash|
       next unless d
-      next unless d.month == 12 && d.day == 31
+      next if cash.to_f <= 0.0
       per_year[d.year] += cash.to_f
     end
     per_year
@@ -232,21 +232,24 @@ class DividendSyncer
     end
 
     if latest_dividend
-      latest_year_end =
-        stock
-          .dividends
-          .where("extract(month from report_date) = 12 and extract(day from report_date) = 31")
-          .order(report_date: :desc)
-          .limit(1)
-          .pluck(:report_date)
-          .first
-      if latest_year_end
-        latest_year = latest_year_end.year
-      else
-        latest_year = latest_dividend.report_date.year
-        latest_year = latest_year - 1 if latest_dividend.report_date.month <= 6
+      positive_years = per_year.select { |_, v| v.to_f > 0.0 }.keys.map(&:to_i)
+      current_year = Date.today.year
+      latest_year = nil
+      if positive_years.any?
+        latest_year = positive_years.max
+        if latest_year == current_year
+          prev = positive_years.sort[-2]
+          latest_year = prev if prev
+        end
       end
-      year_sum = per_year[latest_year].to_f
+      if latest_year.nil?
+        fallback_d = stock.dividends.order(report_date: :desc).first&.report_date
+        if fallback_d
+          latest_year = fallback_d.year
+          latest_year = latest_year - 1 if fallback_d.month <= 6
+        end
+      end
+      year_sum = latest_year ? per_year[latest_year].to_f : 0.0
 
       stock.dividend_cash_per_share_year = latest_year if stock.has_attribute?(:dividend_cash_per_share_year)
       stock.dividend_cash_per_share_latest_year = year_sum if stock.has_attribute?(:dividend_cash_per_share_latest_year)
@@ -265,7 +268,7 @@ class DividendSyncer
         stock.expected_dividend_yield = 0.0 if stock.has_attribute?(:expected_dividend_yield)
       end
 
-      if stock.has_attribute?(:avg_dividend_yield_3y)
+      if stock.has_attribute?(:avg_dividend_yield_3y) && latest_year
         y2 = latest_year - 2
         y1 = latest_year - 1
         y0 = latest_year
@@ -281,6 +284,9 @@ class DividendSyncer
           stock.avg_dividend_yield_3y = nil
           stock.min_dividend_yield_3y = nil if stock.has_attribute?(:min_dividend_yield_3y)
         end
+      elsif stock.has_attribute?(:avg_dividend_yield_3y)
+        stock.avg_dividend_yield_3y = nil
+        stock.min_dividend_yield_3y = nil if stock.has_attribute?(:min_dividend_yield_3y)
       end
     else
       stock.consecutive_dividend_years = nil if stock.has_attribute?(:consecutive_dividend_years)
