@@ -338,6 +338,63 @@ end
 
 by_code = stocks.index_by { |x| x[:code] }
 
+div_raw_per_stock = {}
+begin
+  conn = ActiveRecord::Base.connection
+  if conn.data_source_exists?('dividends')
+    ids = stocks.map { |x| x[:id] }.compact.uniq
+    if ids.any?
+      raw = Dividend.where(stock_id: ids).pluck(:stock_id, :report_date, :cash_dividend)
+      raw.each do |sid, rd, cash|
+        next unless rd && cash.to_f > 0.0
+        (div_raw_per_stock[sid] ||= []) << [rd, cash.to_f]
+      end
+    end
+  end
+rescue StandardError
+  div_raw_per_stock = {}
+end
+
+div_derived_per_stock = {}
+div_raw_per_stock.each do |sid, rows|
+  per_year = Hash.new(0.0)
+  rows.each { |rd, cash| per_year[rd.year] += cash }
+  positive = per_year.select { |_, v| v > 0 }.keys.map(&:to_i).sort
+  next if positive.empty?
+
+  ly = positive.max
+  ly = positive[-2] if ly == Date.today.year && positive.size >= 2
+  year_sum = per_year[ly].to_f
+  y2, y1, y0 = per_year[ly - 2].to_f, per_year[ly - 1].to_f, per_year[ly].to_f
+  div_derived_per_stock[sid] = { latest_year: ly, year_sum: year_sum, dps2: y2, dps1: y1, dps0: y0 }
+end
+
+stocks.each do |m|
+  der = div_derived_per_stock[m[:id]]
+  next unless der && m[:current_price] && m[:current_price] > 0
+
+  cp = m[:current_price].to_f
+  fallback_yield = (der[:year_sum].to_f / cp) * 100.0 rescue 0.0
+  existing_yield = m[:dividend_yield].to_f
+
+  invalid =
+    existing_yield <= 0.01 ||
+    (fallback_yield > 0 && existing_yield < fallback_yield * 0.55) ||
+    (m[:min_dividend_yield_3y] && m[:min_dividend_yield_3y] > 0 && existing_yield < m[:min_dividend_yield_3y] * 0.55)
+
+  if invalid
+    m[:dividend_yield] = fallback_yield
+    if der[:dps2] > 0 && der[:dps1] > 0 && der[:dps0] > 0
+      ylds = [der[:dps2], der[:dps1], der[:dps0]].map { |d| (d / cp) * 100.0 }
+      if !m[:avg_dividend_yield_3y] || m[:avg_dividend_yield_3y].to_f < ylds.min * 0.6
+        m[:avg_dividend_yield_3y] = ylds.sum / 3.0
+        m[:min_dividend_yield_3y] = ylds.min if m.key?(:min_dividend_yield_3y)
+      end
+    end
+  end
+end
+by_code = stocks.index_by { |x| x[:code] }
+
 rows_out =
   yml_rows
     .filter_map do |row|

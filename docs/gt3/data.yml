@@ -38,7 +38,7 @@
   - 金融
   :avg_dividend_yield_3y: 6.1527
   :min_dividend_yield_3y: 5.8626
-  :dividend_yield: 0.0
+  :dividend_yield: 6.4122
   :consecutive_dividend_years: 24
   :dividend_cash_per_share_latest_year: 0.42
   :current_price: 6.55
@@ -291,7 +291,7 @@
   - 金融
   :avg_dividend_yield_3y: 6.0118
   :min_dividend_yield_3y: 5.4617
-  :dividend_yield: 2.554
+  :dividend_yield: 5.4617
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 0.278
   :current_price: 5.09
@@ -410,7 +410,7 @@
   - 金融
   :avg_dividend_yield_3y: 5.9076
   :min_dividend_yield_3y: 5.7096
-  :dividend_yield: 2.6733
+  :dividend_yield: 5.7756
   :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 0.175
   :current_price: 3.03
@@ -520,7 +520,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 5.8704
   :min_dividend_yield_3y: 5.0607
-  :dividend_yield: 0.4049
+  :dividend_yield: 6.6802
   :consecutive_dividend_years: 4
   :dividend_cash_per_share_latest_year: 0.33
   :current_price: 4.94
@@ -622,7 +622,7 @@
   - 金融
   :avg_dividend_yield_3y: 5.8187
   :min_dividend_yield_3y: 5.5263
-  :dividend_yield: 3.4503
+  :dividend_yield: 5.5263
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 0.189
   :current_price: 3.42
@@ -762,7 +762,7 @@
   - 金融
   :avg_dividend_yield_3y: 5.5021
   :min_dividend_yield_3y: 5.1159
-  :dividend_yield: 2.1373
+  :dividend_yield: 5.1159
   :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.596
   :current_price: 11.65
@@ -932,7 +932,7 @@
   - 金融
   :avg_dividend_yield_3y: 5.3333
   :min_dividend_yield_3y: 5.2727
-  :dividend_yield: 0.0
+  :dividend_yield: 5.4545
   :consecutive_dividend_years: 10
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 5.5
@@ -1024,7 +1024,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 5.1494
   :min_dividend_yield_3y: 4.717
-  :dividend_yield: 0.0
+  :dividend_yield: 5.4245
   :consecutive_dividend_years: 33
   :dividend_cash_per_share_latest_year: 0.46
   :current_price: 8.48
@@ -1317,7 +1317,7 @@
   - 金融
   :avg_dividend_yield_3y: 5.0643
   :min_dividend_yield_3y: 4.5732
-  :dividend_yield: 2.3662
+  :dividend_yield: 4.5732
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 0.3247
   :current_price: 7.1
@@ -1436,7 +1436,7 @@
   - 金融
   :avg_dividend_yield_3y: 4.8259
   :min_dividend_yield_3y: 4.7622
-  :dividend_yield: 2.6136
+  :dividend_yield: 4.9225
   :consecutive_dividend_years: 10
   :dividend_cash_per_share_latest_year: 0.921
   :current_price: 18.71
@@ -1525,7 +1525,7 @@
   - 电信业务
   :avg_dividend_yield_3y: 4.6951
   :min_dividend_yield_3y: 4.506
-  :dividend_yield: 2.5649
+  :dividend_yield: 4.8066
   :consecutive_dividend_years: 6
   :dividend_cash_per_share_latest_year: 4.7037
   :current_price: 97.86
@@ -1718,7 +1718,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 4.0115
   :min_dividend_yield_3y: 4.0115
-  :dividend_yield: 0.0
+  :dividend_yield: 4.0115
   :consecutive_dividend_years: 24
   :dividend_cash_per_share_latest_year: 0.42
   :current_price: 10.47
@@ -1853,7 +1853,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 3.5665
   :min_dividend_yield_3y: 3.3468
-  :dividend_yield: 0.0
+  :dividend_yield: 3.7251
   :consecutive_dividend_years: 22
   :dividend_cash_per_share_latest_year: 0.5081
   :current_price: 13.64
@@ -2009,7 +2009,7 @@
   - 金融
   :avg_dividend_yield_3y: 5.3047
   :min_dividend_yield_3y: 4.9462
-  :dividend_yield: 3.2258
+  :dividend_yield: 5.5914
   :consecutive_dividend_years: 11
   :dividend_cash_per_share_latest_year: 0.52
   :current_price: 9.3
@@ -2101,7 +2101,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 4.3764
   :min_dividend_yield_3y: 4.3764
-  :dividend_yield: 0.0
+  :dividend_yield: 4.3764
   :consecutive_dividend_years: 11
   :dividend_cash_per_share_latest_year: 0.2
   :current_price: 4.57
@@ -2212,7 +2212,7 @@
   - 金融
   :avg_dividend_yield_3y: 4.9492
   :min_dividend_yield_3y: 4.3747
-  :dividend_yield: 2.6653
+  :dividend_yield: 4.3747
   :consecutive_dividend_years: 8
   :dividend_cash_per_share_latest_year: 0.2183
   :current_price: 4.99
@@ -2295,7 +2295,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 3.786
   :min_dividend_yield_3y: 3.6602
-  :dividend_yield: 0.0
+  :dividend_yield: 4.0195
   :consecutive_dividend_years: 24
   :dividend_cash_per_share_latest_year: 0.66
   :current_price: 16.42
@@ -2430,7 +2430,7 @@
   - 金融
   :avg_dividend_yield_3y: 4.7037
   :min_dividend_yield_3y: 4.2922
-  :dividend_yield: 2.8301
+  :dividend_yield: 4.9264
   :consecutive_dividend_years: 6
   :dividend_cash_per_share_latest_year: 0.435
   :current_price: 8.83
@@ -2507,7 +2507,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 3.9073
   :min_dividend_yield_3y: 3.7995
-  :dividend_yield: 2.021
+  :dividend_yield: 3.9612
   :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 0.49
   :current_price: 12.37
@@ -2648,7 +2648,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 3.5956
   :min_dividend_yield_3y: 3.3013
-  :dividend_yield: 0.9597
+  :dividend_yield: 3.7428
   :consecutive_dividend_years: 25
   :dividend_cash_per_share_latest_year: 0.195
   :current_price: 5.21
@@ -2783,7 +2783,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 6.112
   :min_dividend_yield_3y: 4.6576
-  :dividend_yield: 1.6807
+  :dividend_yield: 4.6576
   :consecutive_dividend_years: 21
   :dividend_cash_per_share_latest_year: 0.2217
   :current_price: 4.76
@@ -2906,7 +2906,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 4.1673
   :min_dividend_yield_3y: 3.9059
-  :dividend_yield: 0.0
+  :dividend_yield: 4.5108
   :consecutive_dividend_years: 29
   :dividend_cash_per_share_latest_year: 0.604
   :current_price: 13.39
@@ -3056,7 +3056,7 @@
   - 金融
   :avg_dividend_yield_3y: 4.396
   :min_dividend_yield_3y: 4.1284
-  :dividend_yield: 0.0
+  :dividend_yield: 4.1284
   :consecutive_dividend_years: 7
   :dividend_cash_per_share_latest_year: 0.36
   :current_price: 8.72
@@ -3139,7 +3139,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 4.5116
   :min_dividend_yield_3y: 3.8217
-  :dividend_yield: 0.0
+  :dividend_yield: 3.8217
   :consecutive_dividend_years: 9
   :dividend_cash_per_share_latest_year: 0.373
   :current_price: 9.76
@@ -3229,7 +3229,7 @@
   - 金融
   :avg_dividend_yield_3y: 5.2018
   :min_dividend_yield_3y: 4.5329
-  :dividend_yield: 0.0
+  :dividend_yield: 4.5329
   :consecutive_dividend_years: 4
   :dividend_cash_per_share_latest_year: 0.131
   :current_price: 2.89
@@ -3312,7 +3312,7 @@
   - 金融
   :avg_dividend_yield_3y: 4.1734
   :min_dividend_yield_3y: 4.065
-  :dividend_yield: 0.0
+  :dividend_yield: 4.3902
   :consecutive_dividend_years: 10
   :dividend_cash_per_share_latest_year: 0.27
   :current_price: 6.15
@@ -3678,7 +3678,7 @@
   - 金融
   :avg_dividend_yield_3y: 4.2887
   :min_dividend_yield_3y: 3.9749
-  :dividend_yield: 2.3013
+  :dividend_yield: 4.4979
   :consecutive_dividend_years: 9
   :dividend_cash_per_share_latest_year: 0.43
   :current_price: 9.56
@@ -3853,7 +3853,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 2.8157
   :min_dividend_yield_3y: 2.5991
-  :dividend_yield: 0.0
+  :dividend_yield: 3.2489
   :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.5
   :current_price: 15.39
@@ -4015,7 +4015,7 @@
   - 金融
   :avg_dividend_yield_3y: 3.9215
   :min_dividend_yield_3y: 3.8982
-  :dividend_yield: 1.9224
+  :dividend_yield: 3.9478
   :consecutive_dividend_years: 21
   :dividend_cash_per_share_latest_year: 0.3103
   :current_price: 7.86
@@ -4137,7 +4137,7 @@
   - 电信业务
   :avg_dividend_yield_3y: 4.0476
   :min_dividend_yield_3y: 3.7016
-  :dividend_yield: 2.5492
+  :dividend_yield: 4.3175
   :consecutive_dividend_years: 6
   :dividend_cash_per_share_latest_year: 0.272
   :current_price: 6.3
@@ -4293,7 +4293,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 4.2698
   :min_dividend_yield_3y: 4.2213
-  :dividend_yield: 2.0378
+  :dividend_yield: 4.3668
   :consecutive_dividend_years: 9
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 6.87
@@ -4379,7 +4379,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 4.4516
   :min_dividend_yield_3y: 3.953
-  :dividend_yield: 0.0
+  :dividend_yield: 4.7009
   :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.22
   :current_price: 4.68
@@ -4538,7 +4538,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 4.828
   :min_dividend_yield_3y: 3.6626
-  :dividend_yield: 0.0
+  :dividend_yield: 6.3263
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 1.14
   :current_price: 18.02
@@ -4702,7 +4702,7 @@
   - 金融
   :avg_dividend_yield_3y: 3.797
   :min_dividend_yield_3y: 3.6559
-  :dividend_yield: 1.9225
+  :dividend_yield: 3.6559
   :consecutive_dividend_years: 21
   :dividend_cash_per_share_latest_year: 0.2263
   :current_price: 6.19
@@ -4824,7 +4824,7 @@
   - 金融
   :avg_dividend_yield_3y: 3.7159
   :min_dividend_yield_3y: 3.6361
-  :dividend_yield: 1.8803
+  :dividend_yield: 3.6361
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 0.3887
   :current_price: 10.69
@@ -4943,7 +4943,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 3.1116
   :min_dividend_yield_3y: 2.5551
-  :dividend_yield: 0.8811
+  :dividend_yield: 3.5198
   :consecutive_dividend_years: 34
   :dividend_cash_per_share_latest_year: 0.799
   :current_price: 22.7
@@ -5105,7 +5105,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 3.0732
   :min_dividend_yield_3y: 2.6301
-  :dividend_yield: 0.896
+  :dividend_yield: 3.4682
   :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 0.12
   :current_price: 3.46
@@ -5352,7 +5352,7 @@
   - 电信业务
   :avg_dividend_yield_3y: 3.5319
   :min_dividend_yield_3y: 3.0841
-  :dividend_yield: 0.0
+  :dividend_yield: 3.8201
   :consecutive_dividend_years: 9
   :dividend_cash_per_share_latest_year: 0.1635
   :current_price: 4.28
@@ -5485,7 +5485,7 @@
   - 火电
   :avg_dividend_yield_3y: 3.2374
   :min_dividend_yield_3y: 2.8784
-  :dividend_yield: 0.6592
+  :dividend_yield: 3.9554
   :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.426
   :current_price: 10.77
@@ -5616,7 +5616,7 @@
   - 金融
   :avg_dividend_yield_3y: 3.5459
   :min_dividend_yield_3y: 3.4006
-  :dividend_yield: 1.9102
+  :dividend_yield: 3.6745
   :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 0.2495
   :current_price: 6.79
@@ -5726,7 +5726,7 @@
   - 金融
   :avg_dividend_yield_3y: 4.0589
   :min_dividend_yield_3y: 3.7397
-  :dividend_yield: 2.328
+  :dividend_yield: 4.3693
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 0.381
   :current_price: 8.72
@@ -5845,7 +5845,7 @@
   - 金融
   :avg_dividend_yield_3y: 3.7188
   :min_dividend_yield_3y: 3.3384
-  :dividend_yield: 0.0
+  :dividend_yield: 3.7815
   :consecutive_dividend_years: 6
   :dividend_cash_per_share_latest_year: 0.2492
   :current_price: 6.59
@@ -5925,7 +5925,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 5.526
   :min_dividend_yield_3y: 5.0951
-  :dividend_yield: 0.0
+  :dividend_yield: 5.0951
   :consecutive_dividend_years: 6
   :dividend_cash_per_share_latest_year: 0.67
   :current_price: 13.15
@@ -6005,7 +6005,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 3.7307
   :min_dividend_yield_3y: 2.8698
-  :dividend_yield: 0.0
+  :dividend_yield: 4.3046
   :consecutive_dividend_years: 29
   :dividend_cash_per_share_latest_year: 0.195
   :current_price: 4.53
@@ -6155,7 +6155,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 3.4994
   :min_dividend_yield_3y: 3.2271
-  :dividend_yield: 1.5424
+  :dividend_yield: 3.8082
   :consecutive_dividend_years: 9
   :dividend_cash_per_share_latest_year: 0.3454
   :current_price: 9.07
@@ -6242,7 +6242,7 @@
   - 金融
   :avg_dividend_yield_3y: 4.263
   :min_dividend_yield_3y: 3.5667
-  :dividend_yield: 0.0
+  :dividend_yield: 4.6667
   :consecutive_dividend_years: 25
   :dividend_cash_per_share_latest_year: 0.42
   :current_price: 9.0
@@ -6385,7 +6385,7 @@
   - 金融
   :avg_dividend_yield_3y: 3.6769
   :min_dividend_yield_3y: 3.1344
-  :dividend_yield: 2.7728
+  :dividend_yield: 3.9783
   :consecutive_dividend_years: 11
   :dividend_cash_per_share_latest_year: 0.66
   :current_price: 16.59
@@ -6477,7 +6477,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 4.1844
   :min_dividend_yield_3y: 3.1915
-  :dividend_yield: 1.9149
+  :dividend_yield: 4.8936
   :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.23
   :current_price: 4.7
@@ -6606,7 +6606,7 @@
   - 电力
   :avg_dividend_yield_3y: 2.1619
   :min_dividend_yield_3y: 2.0283
-  :dividend_yield: 0.0
+  :dividend_yield: 2.0283
   :consecutive_dividend_years: 7
   :dividend_cash_per_share_latest_year: 0.086
   :current_price: 4.24
@@ -6689,7 +6689,7 @@
   - 电力
   :avg_dividend_yield_3y: 2.0397
   :min_dividend_yield_3y: 1.8828
-  :dividend_yield: 0.0
+  :dividend_yield: 2.1444
   :consecutive_dividend_years: 9
   :dividend_cash_per_share_latest_year: 0.205
   :current_price: 9.56
@@ -6779,7 +6779,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 4.2773
   :min_dividend_yield_3y: 2.9499
-  :dividend_yield: 0.0
+  :dividend_yield: 5.8997
   :consecutive_dividend_years: 3
   :dividend_cash_per_share_latest_year: 0.4
   :current_price: 6.78
@@ -6917,7 +6917,7 @@
   - 电力
   :avg_dividend_yield_3y: 2.3502
   :min_dividend_yield_3y: 2.0202
-  :dividend_yield: 1.2121
+  :dividend_yield: 2.9596
   :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 0.293
   :current_price: 9.9
@@ -7058,7 +7058,7 @@
   - 电力
   :avg_dividend_yield_3y: 1.9993
   :min_dividend_yield_3y: 1.7937
-  :dividend_yield: 0.2242
+  :dividend_yield: 2.0179
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 0.18
   :current_price: 8.92
@@ -7153,7 +7153,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 3.6031
   :min_dividend_yield_3y: 2.3121
-  :dividend_yield: 0.0
+  :dividend_yield: 4.6435
   :consecutive_dividend_years: 4
   :dividend_cash_per_share_latest_year: 0.241
   :current_price: 5.19
@@ -7306,7 +7306,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 2.9834
   :min_dividend_yield_3y: 1.6824
-  :dividend_yield: 0.0
+  :dividend_yield: 4.0377
   :consecutive_dividend_years: 11
   :dividend_cash_per_share_latest_year: 0.6
   :current_price: 14.86
@@ -7402,7 +7402,7 @@
   - 公用事业
   :avg_dividend_yield_3y: 2.5692
   :min_dividend_yield_3y: 1.5878
-  :dividend_yield: 0.9262
+  :dividend_yield: 3.4734
   :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 1.05
   :current_price: 30.23
@@ -7542,7 +7542,7 @@
   - 原材料
   :avg_dividend_yield_3y: 8.8714
   :min_dividend_yield_3y: 5.2356
-  :dividend_yield: 0.0
+  :dividend_yield: 8.0716
   :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.925
   :current_price: 11.46
@@ -7654,7 +7654,7 @@
   - 物流
   :avg_dividend_yield_3y: 7.9909
   :min_dividend_yield_3y: 7.9909
-  :dividend_yield: 0.0
+  :dividend_yield: 7.9909
   :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 0.7
   :current_price: 8.76
@@ -7797,7 +7797,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 7.7311
   :min_dividend_yield_3y: 6.8908
-  :dividend_yield: 4.5378
+  :dividend_yield: 6.8908
   :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.41
   :current_price: 5.95
@@ -7934,7 +7934,7 @@
   - 消费
   :avg_dividend_yield_3y: 7.259
   :min_dividend_yield_3y: 6.5306
-  :dividend_yield: 0.0
+  :dividend_yield: 7.2126
   :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 5.1577
   :current_price: 71.51
@@ -8076,7 +8076,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 7.1624
   :min_dividend_yield_3y: 6.1026
-  :dividend_yield: 0.0
+  :dividend_yield: 7.6923
   :consecutive_dividend_years: 8
   :dividend_cash_per_share_latest_year: 3.0
   :current_price: 39.0
@@ -8332,7 +8332,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 6.8263
   :min_dividend_yield_3y: 5.1896
-  :dividend_yield: 0.0
+  :dividend_yield: 6.9461
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 1.74
   :current_price: 25.05
@@ -8466,7 +8466,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 6.7577
   :min_dividend_yield_3y: 6.5261
-  :dividend_yield: 0.0
+  :dividend_yield: 6.5261
   :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 2.63
   :current_price: 40.3
@@ -8591,7 +8591,7 @@
   - 传媒
   :avg_dividend_yield_3y: 6.7069
   :min_dividend_yield_3y: 6.6398
-  :dividend_yield: 1.006
+  :dividend_yield: 6.841
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 0.34
   :current_price: 4.97
@@ -8716,7 +8716,7 @@
   - 消费
   :avg_dividend_yield_3y: 6.3721
   :min_dividend_yield_3y: 5.9583
-  :dividend_yield: 0.0
+  :dividend_yield: 6.2066
   :consecutive_dividend_years: 5
   :dividend_cash_per_share_latest_year: 2.5
   :current_price: 40.28
@@ -8862,7 +8862,7 @@
   - 消费
   :avg_dividend_yield_3y: 6.128
   :min_dividend_yield_3y: 5.3232
-  :dividend_yield: 0.0
+  :dividend_yield: 5.4309
   :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 0.4285
   :current_price: 7.89
@@ -9017,7 +9017,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 6.1069
   :min_dividend_yield_3y: 5.598
-  :dividend_yield: 2.5445
+  :dividend_yield: 5.598
   :consecutive_dividend_years: 29
   :dividend_cash_per_share_latest_year: 0.44
   :current_price: 7.86
@@ -9160,7 +9160,7 @@
   - 工业
   :avg_dividend_yield_3y: 6.0897
   :min_dividend_yield_3y: 6.0874
-  :dividend_yield: 0.0
+  :dividend_yield: 6.0942
   :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 0.2718
   :current_price: 4.46
@@ -9400,7 +9400,7 @@
   - 平面媒体
   :avg_dividend_yield_3y: 5.9032
   :min_dividend_yield_3y: 5.9032
-  :dividend_yield: 1.1806
+  :dividend_yield: 5.9032
   :consecutive_dividend_years: 16
   :dividend_cash_per_share_latest_year: 0.5
   :current_price: 8.47
@@ -9503,7 +9503,7 @@
   - 肉制品
   :avg_dividend_yield_3y: 5.7767
   :min_dividend_yield_3y: 5.6695
-  :dividend_yield: 0.0
+  :dividend_yield: 5.8303
   :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 1.45
   :current_price: 24.87
@@ -9645,7 +9645,7 @@
   - 国际工程承包
   :avg_dividend_yield_3y: 5.7576
   :min_dividend_yield_3y: 5.1948
-  :dividend_yield: 0.0
+  :dividend_yield: 6.2338
   :consecutive_dividend_years: 22
   :dividend_cash_per_share_latest_year: 0.48
   :current_price: 7.7
@@ -9770,7 +9770,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 6.0989
   :min_dividend_yield_3y: 4.99
-  :dividend_yield: 0.0
+  :dividend_yield: 8.3167
   :consecutive_dividend_years: 23
   :dividend_cash_per_share_latest_year: 2.5
   :current_price: 30.06
@@ -9916,7 +9916,7 @@
   - 工业
   :avg_dividend_yield_3y: 5.1913
   :min_dividend_yield_3y: 4.918
-  :dividend_yield: 0.0
+  :dividend_yield: 4.918
   :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 6.1
@@ -10032,7 +10032,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 5.5231
   :min_dividend_yield_3y: 4.8733
-  :dividend_yield: 0.0
+  :dividend_yield: 6.4977
   :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 1.0
   :current_price: 15.39
@@ -10181,7 +10181,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 6.3038
   :min_dividend_yield_3y: 4.8556
-  :dividend_yield: 0.0
+  :dividend_yield: 4.8556
   :consecutive_dividend_years: 7
   :dividend_cash_per_share_latest_year: 1.9
   :current_price: 39.13
@@ -10261,7 +10261,7 @@
   - 原材料
   :avg_dividend_yield_3y: 4.717
   :min_dividend_yield_3y: 4.717
-  :dividend_yield: 0.0
+  :dividend_yield: 4.717
   :consecutive_dividend_years: 5
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 6.36
@@ -10410,7 +10410,7 @@
   - 工业
   :avg_dividend_yield_3y: 5.3779
   :min_dividend_yield_3y: 4.6939
-  :dividend_yield: 0.4082
+  :dividend_yield: 5.5782
   :consecutive_dividend_years: 16
   :dividend_cash_per_share_latest_year: 0.492
   :current_price: 8.82
@@ -10538,7 +10538,7 @@
   - 消费
   :avg_dividend_yield_3y: 4.7158
   :min_dividend_yield_3y: 4.4676
-  :dividend_yield: 0.0
+  :dividend_yield: 5.1378
   :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 1.38
   :current_price: 26.86
@@ -10687,7 +10687,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 6.4968
   :min_dividend_yield_3y: 4.3839
-  :dividend_yield: 2.5474
+  :dividend_yield: 5.9242
   :consecutive_dividend_years: 6
   :dividend_cash_per_share_latest_year: 1.0
   :current_price: 16.88
@@ -10804,7 +10804,7 @@
   - 其他采掘
   :avg_dividend_yield_3y: 5.0946
   :min_dividend_yield_3y: 4.3668
-  :dividend_yield: 0.0
+  :dividend_yield: 5.0946
   :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 0.7
   :current_price: 13.74
@@ -10941,7 +10941,7 @@
   - 金融
   :avg_dividend_yield_3y: 4.5837
   :min_dividend_yield_3y: 4.3509
-  :dividend_yield: 1.7547
+  :dividend_yield: 4.8344
   :consecutive_dividend_years: 21
   :dividend_cash_per_share_latest_year: 2.7
   :current_price: 55.85
@@ -11060,7 +11060,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 5.2754
   :min_dividend_yield_3y: 4.264
-  :dividend_yield: 1.7015
+  :dividend_yield: 4.264
   :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 1.04
   :current_price: 24.39
@@ -11297,7 +11297,7 @@
   - 能源
   :avg_dividend_yield_3y: 4.5699
   :min_dividend_yield_3y: 4.22
-  :dividend_yield: 2.0575
+  :dividend_yield: 4.22
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 2.01
   :current_price: 47.63
@@ -11412,7 +11412,7 @@
   - 物流
   :avg_dividend_yield_3y: 4.2752
   :min_dividend_yield_3y: 4.2084
-  :dividend_yield: 0.0
+  :dividend_yield: 4.4088
   :consecutive_dividend_years: 21
   :dividend_cash_per_share_latest_year: 0.22
   :current_price: 4.99
@@ -11560,7 +11560,7 @@
   - 多元金融
   :avg_dividend_yield_3y: 4.5362
   :min_dividend_yield_3y: 4.1284
-  :dividend_yield: 0.0
+  :dividend_yield: 4.5872
   :consecutive_dividend_years: 9
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 6.54
@@ -11645,7 +11645,7 @@
   - 化学制剂
   :avg_dividend_yield_3y: 4.8331
   :min_dividend_yield_3y: 4.1106
-  :dividend_yield: 0.0
+  :dividend_yield: 5.3438
   :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 1.43
   :current_price: 26.76
@@ -11803,7 +11803,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 4.4218
   :min_dividend_yield_3y: 4.0816
-  :dividend_yield: 0.0
+  :dividend_yield: 4.0816
   :consecutive_dividend_years: 6
   :dividend_cash_per_share_latest_year: 0.2
   :current_price: 4.9
@@ -12023,7 +12023,7 @@
   - 消费
   :avg_dividend_yield_3y: 4.2693
   :min_dividend_yield_3y: 3.9108
-  :dividend_yield: 0.0
+  :dividend_yield: 4.5952
   :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 2.35
   :current_price: 51.14
@@ -12180,7 +12180,7 @@
   - 原材料
   :avg_dividend_yield_3y: 4.8477
   :min_dividend_yield_3y: 3.8947
-  :dividend_yield: 2.2568
+  :dividend_yield: 5.3853
   :consecutive_dividend_years: 10
   :dividend_cash_per_share_latest_year: 0.2558
   :current_price: 4.75
@@ -12317,7 +12317,7 @@
   - 原材料
   :avg_dividend_yield_3y: 4.6053
   :min_dividend_yield_3y: 3.8925
-  :dividend_yield: 0.7127
+  :dividend_yield: 4.6601
   :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.85
   :current_price: 18.24
@@ -12447,7 +12447,7 @@
   - 冰箱
   :avg_dividend_yield_3y: 4.4109
   :min_dividend_yield_3y: 3.8212
-  :dividend_yield: 0.0
+  :dividend_yield: 4.7718
   :consecutive_dividend_years: 11
   :dividend_cash_per_share_latest_year: 1.265
   :current_price: 26.51
@@ -12587,7 +12587,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 4.6196
   :min_dividend_yield_3y: 3.794
-  :dividend_yield: 0.0
+  :dividend_yield: 5.4958
   :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 1.1607
   :current_price: 21.12
@@ -12745,7 +12745,7 @@
   - 工业
   :avg_dividend_yield_3y: 4.1648
   :min_dividend_yield_3y: 3.7753
-  :dividend_yield: 1.4315
+  :dividend_yield: 3.7753
   :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 0.168
   :current_price: 4.45
@@ -12861,7 +12861,7 @@
   - 消费
   :avg_dividend_yield_3y: 9.1805
   :min_dividend_yield_3y: 3.7567
-  :dividend_yield: 0.0
+  :dividend_yield: 3.7567
   :consecutive_dividend_years: 17
   :dividend_cash_per_share_latest_year: 1.47
   :current_price: 39.13
@@ -12971,7 +12971,7 @@
   - 能源
   :avg_dividend_yield_3y: 4.0802
   :min_dividend_yield_3y: 3.7344
-  :dividend_yield: 0.0
+  :dividend_yield: 4.2531
   :consecutive_dividend_years: 4
   :dividend_cash_per_share_latest_year: 0.41
   :current_price: 9.64
@@ -13194,7 +13194,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 3.9161
   :min_dividend_yield_3y: 3.668
-  :dividend_yield: 1.4691
+  :dividend_yield: 4.1626
   :consecutive_dividend_years: 11
   :dividend_cash_per_share_latest_year: 0.85
   :current_price: 20.42
@@ -13331,7 +13331,7 @@
   - 能源
   :avg_dividend_yield_3y: 5.0733
   :min_dividend_yield_3y: 3.663
-  :dividend_yield: 1.9231
+  :dividend_yield: 3.663
   :consecutive_dividend_years: 26
   :dividend_cash_per_share_latest_year: 0.2
   :current_price: 5.46
@@ -13465,7 +13465,7 @@
   - 原材料
   :avg_dividend_yield_3y: 4.1015
   :min_dividend_yield_3y: 3.6332
-  :dividend_yield: 1.4327
+  :dividend_yield: 4.6261
   :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 0.6458
   :current_price: 13.96
@@ -13614,7 +13614,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 4.6889
   :min_dividend_yield_3y: 3.6323
-  :dividend_yield: 2.7378
+  :dividend_yield: 5.5081
   :consecutive_dividend_years: 28
   :dividend_cash_per_share_latest_year: 2.7056
   :current_price: 49.12
@@ -13766,7 +13766,7 @@
   - 原材料
   :avg_dividend_yield_3y: 4.8193
   :min_dividend_yield_3y: 3.6145
-  :dividend_yield: 0.0
+  :dividend_yield: 3.6145
   :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.6
   :current_price: 16.6
@@ -13870,7 +13870,7 @@
   - 原材料
   :avg_dividend_yield_3y: 4.6884
   :min_dividend_yield_3y: 3.6021
-  :dividend_yield: 2.2298
+  :dividend_yield: 5.1458
   :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 5.83
@@ -14007,7 +14007,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 5.5407
   :min_dividend_yield_3y: 3.5619
-  :dividend_yield: 2.9682
+  :dividend_yield: 6.2333
   :consecutive_dividend_years: 6
   :dividend_cash_per_share_latest_year: 2.1
   :current_price: 33.69
@@ -14081,7 +14081,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 6.7252
   :min_dividend_yield_3y: 3.5136
-  :dividend_yield: 0.0
+  :dividend_yield: 13.1485
   :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 4.79
   :current_price: 36.43
@@ -14215,7 +14215,7 @@
   - 消费
   :avg_dividend_yield_3y: 3.9808
   :min_dividend_yield_3y: 3.5125
-  :dividend_yield: 0.0
+  :dividend_yield: 4.215
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 1.2
   :current_price: 28.47
@@ -14310,7 +14310,7 @@
   - 能源
   :avg_dividend_yield_3y: 4.4465
   :min_dividend_yield_3y: 3.502
-  :dividend_yield: 0.2143
+  :dividend_yield: 3.502
   :consecutive_dividend_years: 11
   :dividend_cash_per_share_latest_year: 0.948
   :current_price: 27.07
@@ -14408,7 +14408,7 @@
   - 信息技术
   :avg_dividend_yield_3y: 4.2289
   :min_dividend_yield_3y: 3.4826
-  :dividend_yield: 1.2438
+  :dividend_yield: 4.4776
   :consecutive_dividend_years: 11
   :dividend_cash_per_share_latest_year: 1.8
   :current_price: 40.2
@@ -14497,7 +14497,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 4.1749
   :min_dividend_yield_3y: 3.4791
-  :dividend_yield: 0.5798
+  :dividend_yield: 4.9867
   :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 4.3
   :current_price: 86.23
@@ -14595,7 +14595,7 @@
   - 信息技术
   :avg_dividend_yield_3y: 3.8703
   :min_dividend_yield_3y: 3.4112
-  :dividend_yield: 1.8808
+  :dividend_yield: 3.4112
   :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.555
   :current_price: 16.27
@@ -14708,7 +14708,7 @@
   - 工业
   :avg_dividend_yield_3y: 3.4068
   :min_dividend_yield_3y: 3.4068
-  :dividend_yield: 0.0
+  :dividend_yield: 3.4068
   :consecutive_dividend_years: 7
   :dividend_cash_per_share_latest_year: 0.17
   :current_price: 4.99
@@ -14787,7 +14787,7 @@
   - 能源
   :avg_dividend_yield_3y: 3.4786
   :min_dividend_yield_3y: 3.3387
-  :dividend_yield: 2.3878
+  :dividend_yield: 3.3487
   :consecutive_dividend_years: 5
   :dividend_cash_per_share_latest_year: 1.1449
   :current_price: 34.19
@@ -14857,7 +14857,7 @@
   - 农业
   :avg_dividend_yield_3y: 3.8251
   :min_dividend_yield_3y: 3.2787
-  :dividend_yield: 0.0
+  :dividend_yield: 4.0984
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 0.55
   :current_price: 13.42
@@ -14991,7 +14991,7 @@
   - 工业
   :avg_dividend_yield_3y: 4.4036
   :min_dividend_yield_3y: 3.2726
-  :dividend_yield: 0.0
+  :dividend_yield: 3.2731
   :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.1957
   :current_price: 5.98
@@ -15095,7 +15095,7 @@
   - 工业
   :avg_dividend_yield_3y: 3.4409
   :min_dividend_yield_3y: 3.2258
-  :dividend_yield: 1.7742
+  :dividend_yield: 3.7097
   :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.23
   :current_price: 6.2
@@ -15208,7 +15208,7 @@
   - 金融
   :avg_dividend_yield_3y: 3.4099
   :min_dividend_yield_3y: 3.2106
-  :dividend_yield: 1.322
+  :dividend_yield: 3.6198
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 1.15
   :current_price: 31.77
@@ -15324,7 +15324,7 @@
   - 原材料
   :avg_dividend_yield_3y: 6.0284
   :min_dividend_yield_3y: 3.1915
-  :dividend_yield: 0.0
+  :dividend_yield: 8.0851
   :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.38
   :current_price: 4.7
@@ -15430,7 +15430,7 @@
   - 原材料
   :avg_dividend_yield_3y: 4.011
   :min_dividend_yield_3y: 3.1666
-  :dividend_yield: 0.6333
+  :dividend_yield: 4.4332
   :consecutive_dividend_years: 5
   :dividend_cash_per_share_latest_year: 1.4
   :current_price: 31.58
@@ -15576,7 +15576,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 3.2966
   :min_dividend_yield_3y: 3.043
-  :dividend_yield: 1.5215
+  :dividend_yield: 3.8037
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 1.0
   :current_price: 26.29
@@ -15691,7 +15691,7 @@
   - 煤炭开采
   :avg_dividend_yield_3y: 3.7919
   :min_dividend_yield_3y: 2.9744
-  :dividend_yield: 0.0
+  :dividend_yield: 2.9744
   :consecutive_dividend_years: 5
   :dividend_cash_per_share_latest_year: 0.547
   :current_price: 18.39
@@ -15810,7 +15810,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 3.1459
   :min_dividend_yield_3y: 2.8947
-  :dividend_yield: 0.0
+  :dividend_yield: 3.3799
   :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 0.9403
   :current_price: 27.82
@@ -15955,7 +15955,7 @@
   - 油气钻采服务
   :avg_dividend_yield_3y: 3.3164
   :min_dividend_yield_3y: 2.7919
-  :dividend_yield: 0.0
+  :dividend_yield: 3.731
   :consecutive_dividend_years: 7
   :dividend_cash_per_share_latest_year: 0.147
   :current_price: 3.94
@@ -16035,7 +16035,7 @@
   - 原材料
   :avg_dividend_yield_3y: 4.3324
   :min_dividend_yield_3y: 2.6525
-  :dividend_yield: 0.0
+  :dividend_yield: 4.244
   :consecutive_dividend_years: 7
   :dividend_cash_per_share_latest_year: 0.16
   :current_price: 3.77
@@ -16175,7 +16175,7 @@
   - 金融
   :avg_dividend_yield_3y: 3.4695
   :min_dividend_yield_3y: 2.6265
-  :dividend_yield: 0.9728
+  :dividend_yield: 4.3774
   :consecutive_dividend_years: 13
   :dividend_cash_per_share_latest_year: 0.45
   :current_price: 10.28
@@ -16270,7 +16270,7 @@
   - 原材料
   :avg_dividend_yield_3y: 3.1831
   :min_dividend_yield_3y: 2.459
-  :dividend_yield: 5.4303
+  :dividend_yield: 8.9016
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 0.176
   :current_price: 4.88
@@ -16409,7 +16409,7 @@
   - 油气钻采服务
   :avg_dividend_yield_3y: 2.9485
   :min_dividend_yield_3y: 2.3902
-  :dividend_yield: 0.0
+  :dividend_yield: 3.187
   :consecutive_dividend_years: 15
   :dividend_cash_per_share_latest_year: 0.196
   :current_price: 6.15
@@ -16543,7 +16543,7 @@
   - 消费
   :avg_dividend_yield_3y: 3.4534
   :min_dividend_yield_3y: 2.3798
-  :dividend_yield: 0.0
+  :dividend_yield: 4.0066
   :consecutive_dividend_years: 25
   :dividend_cash_per_share_latest_year: 51.9812
   :current_price: 1297.4
@@ -16677,7 +16677,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 3.23
   :min_dividend_yield_3y: 2.37
-  :dividend_yield: 3.166
+  :dividend_yield: 5.204
   :consecutive_dividend_years: 27
   :dividend_cash_per_share_latest_year: 1.583
   :current_price: 50.0
@@ -16832,7 +16832,7 @@
   - 能源
   :avg_dividend_yield_3y: 3.2406
   :min_dividend_yield_3y: 2.336
-  :dividend_yield: 0.0
+  :dividend_yield: 4.4658
   :consecutive_dividend_years: 7
   :dividend_cash_per_share_latest_year: 1.3
   :current_price: 29.11
@@ -17049,7 +17049,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 3.0219
   :min_dividend_yield_3y: 2.2664
-  :dividend_yield: 1.7434
+  :dividend_yield: 3.6611
   :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 2.1
   :current_price: 57.36
@@ -17207,7 +17207,7 @@
   - 金融
   :avg_dividend_yield_3y: 2.474
   :min_dividend_yield_3y: 2.2321
-  :dividend_yield: 1.6741
+  :dividend_yield: 2.7902
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 0.5
   :current_price: 17.92
@@ -17299,7 +17299,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 2.6952
   :min_dividend_yield_3y: 2.1853
-  :dividend_yield: 1.3112
+  :dividend_yield: 3.0594
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 0.7
   :current_price: 22.88
@@ -17391,7 +17391,7 @@
   - 金融
   :avg_dividend_yield_3y: 2.5957
   :min_dividend_yield_3y: 2.1849
-  :dividend_yield: 1.5406
+  :dividend_yield: 3.0812
   :consecutive_dividend_years: 9
   :dividend_cash_per_share_latest_year: 0.22
   :current_price: 7.14
@@ -17474,7 +17474,7 @@
   - 交通运输
   :avg_dividend_yield_3y: 2.476
   :min_dividend_yield_3y: 2.1622
-  :dividend_yield: 0.0
+  :dividend_yield: 2.8335
   :consecutive_dividend_years: 6
   :dividend_cash_per_share_latest_year: 0.325
   :current_price: 11.47
@@ -17605,7 +17605,7 @@
   - 商用载货车
   :avg_dividend_yield_3y: 3.0241
   :min_dividend_yield_3y: 2.1115
-  :dividend_yield: 2.4726
+  :dividend_yield: 3.7797
   :consecutive_dividend_years: 19
   :dividend_cash_per_share_latest_year: 0.827
   :current_price: 21.88
@@ -17745,7 +17745,7 @@
   - 消费
   :avg_dividend_yield_3y: 3.4489
   :min_dividend_yield_3y: 2.0694
-  :dividend_yield: 2.4832
+  :dividend_yield: 4.1387
   :consecutive_dividend_years: 6
   :dividend_cash_per_share_latest_year: 5.0
   :current_price: 120.81
@@ -17819,7 +17819,7 @@
   - 信息技术
   :avg_dividend_yield_3y: 2.6406
   :min_dividend_yield_3y: 2.0576
-  :dividend_yield: 1.0288
+  :dividend_yield: 3.8066
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 0.37
   :current_price: 9.72
@@ -17935,7 +17935,7 @@
   - 信息技术
   :avg_dividend_yield_3y: 2.6116
   :min_dividend_yield_3y: 1.9943
-  :dividend_yield: 1.567
+  :dividend_yield: 4.8433
   :consecutive_dividend_years: 18
   :dividend_cash_per_share_latest_year: 1.15
   :current_price: 35.1
@@ -18044,7 +18044,7 @@
   - 日用化学产品
   :avg_dividend_yield_3y: 2.4341
   :min_dividend_yield_3y: 1.9397
-  :dividend_yield: 1.9234
+  :dividend_yield: 3.26
   :consecutive_dividend_years: 10
   :dividend_cash_per_share_latest_year: 2.0
   :current_price: 61.35
@@ -18130,7 +18130,7 @@
   - 工业
   :avg_dividend_yield_3y: 2.8491
   :min_dividend_yield_3y: 1.8235
-  :dividend_yield: 1.0798
+  :dividend_yield: 4.6009
   :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 0.98
   :current_price: 21.3
@@ -18248,7 +18248,7 @@
   - 传媒
   :avg_dividend_yield_3y: 3.1437
   :min_dividend_yield_3y: 1.8038
-  :dividend_yield: 2.5768
+  :dividend_yield: 5.0505
   :consecutive_dividend_years: 11
   :dividend_cash_per_share_latest_year: 19.6
   :current_price: 388.08
@@ -18337,7 +18337,7 @@
   - 金融
   :avg_dividend_yield_3y: 2.658
   :min_dividend_yield_3y: 1.772
-  :dividend_yield: 1.1813
+  :dividend_yield: 3.544
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 1.2
   :current_price: 33.86
@@ -18454,7 +18454,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 2.395
   :min_dividend_yield_3y: 1.6581
-  :dividend_yield: 0.7369
+  :dividend_yield: 3.6846
   :consecutive_dividend_years: 25
   :dividend_cash_per_share_latest_year: 1.0
   :current_price: 27.14
@@ -18585,7 +18585,7 @@
   - 金融
   :avg_dividend_yield_3y: 2.3395
   :min_dividend_yield_3y: 1.6322
-  :dividend_yield: 0.0
+  :dividend_yield: 3.482
   :consecutive_dividend_years: 12
   :dividend_cash_per_share_latest_year: 0.32
   :current_price: 9.19
@@ -18680,7 +18680,7 @@
   - 可选消费
   :avg_dividend_yield_3y: 2.7555
   :min_dividend_yield_3y: 1.6051
-  :dividend_yield: 0.8026
+  :dividend_yield: 4.0128
   :consecutive_dividend_years: 16
   :dividend_cash_per_share_latest_year: 0.5
   :current_price: 12.46
@@ -18811,7 +18811,7 @@
   - 医药卫生
   :avg_dividend_yield_3y: 3.8023
   :min_dividend_yield_3y: 1.5209
-  :dividend_yield: 1.5209
+  :dividend_yield: 7.6046
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 1.0
   :current_price: 13.15
@@ -18936,7 +18936,7 @@
   - 金融
   :avg_dividend_yield_3y: 3.4058
   :min_dividend_yield_3y: 1.4214
-  :dividend_yield: 1.2207
+  :dividend_yield: 4.5652
   :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 2.73
   :current_price: 59.8
@@ -19040,7 +19040,7 @@
   - 金融
   :avg_dividend_yield_3y: 2.1776
   :min_dividend_yield_3y: 1.3999
-  :dividend_yield: 1.1666
+  :dividend_yield: 2.7998
   :consecutive_dividend_years: 8
   :dividend_cash_per_share_latest_year: 0.6
   :current_price: 21.43
@@ -19186,7 +19186,7 @@
   - 金融
   :avg_dividend_yield_3y: 2.3125
   :min_dividend_yield_3y: 1.3469
-  :dividend_yield: 0.8926
+  :dividend_yield: 3.0358
   :consecutive_dividend_years: 7
   :dividend_cash_per_share_latest_year: 0.568
   :current_price: 18.71
@@ -19296,7 +19296,7 @@
   - 金融
   :avg_dividend_yield_3y: 2.063
   :min_dividend_yield_3y: 1.3029
-  :dividend_yield: 0.5429
+  :dividend_yield: 3.2573
   :consecutive_dividend_years: 20
   :dividend_cash_per_share_latest_year: 0.3
   :current_price: 9.21
@@ -19441,7 +19441,7 @@
   - 其它通用机械
   :avg_dividend_yield_3y: 2.7841
   :min_dividend_yield_3y: 1.139
-  :dividend_yield: 2.2779
+  :dividend_yield: 6.4541
   :consecutive_dividend_years: 7
   :dividend_cash_per_share_latest_year: 0.55
   :current_price: 13.17
@@ -19548,7 +19548,7 @@
   - 消费
   :avg_dividend_yield_3y: 2.216
   :min_dividend_yield_3y: 0.6998
-  :dividend_yield: 0.0
+  :dividend_yield: 3.499
   :consecutive_dividend_years: 4
   :dividend_cash_per_share_latest_year: 0.5
   :current_price: 14.29
@@ -19639,7 +19639,7 @@
   - 其他交运设备
   :avg_dividend_yield_3y: 2.7174
   :min_dividend_yield_3y: 0.6793
-  :dividend_yield: 0.0
+  :dividend_yield: 4.7554
   :consecutive_dividend_years: 14
   :dividend_cash_per_share_latest_year: 0.7
   :current_price: 14.72
@@ -19739,7 +19739,7 @@
   - 其他交运设备
   :avg_dividend_yield_3y: 2.4176
   :min_dividend_yield_3y: 0.6689
-  :dividend_yield: 0.0
+  :dividend_yield: 3.9152
   :consecutive_dividend_years: 3
   :dividend_cash_per_share_latest_year: 1.6592
   :current_price: 42.38

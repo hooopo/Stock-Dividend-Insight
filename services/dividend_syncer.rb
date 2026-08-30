@@ -256,10 +256,20 @@ class DividendSyncer
 
       ttm_cash = nil
       if latest_price && latest_price.to_f > 0
-        ttm_cash = ttm_cash_from_bonus(stock, base_date: Date.today, headers: headers)
+        ttm_cash = ttm_cash_from_bonus(stock, base_date: Date.today, headers: headers) rescue nil
       end
 
-      cash_for_yield = ttm_cash&.positive? ? ttm_cash : (year_sum.positive? ? year_sum : nil)
+      year_cash = year_sum.positive? ? year_sum : nil
+      ttm_val  = ttm_cash&.positive? ? ttm_cash : nil
+      if year_cash && ttm_val
+        cash_for_yield = [year_cash.to_f, ttm_val.to_f].max
+      elsif year_cash
+        cash_for_yield = year_cash
+      elsif ttm_val
+        cash_for_yield = ttm_val
+      else
+        cash_for_yield = nil
+      end
       if latest_price && latest_price.to_f > 0 && cash_for_yield
         stock.dividend_yield = (cash_for_yield.to_f / latest_price.to_f) * 100.0
         stock.expected_dividend_yield = stock.dividend_yield if stock.has_attribute?(:expected_dividend_yield)
