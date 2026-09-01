@@ -477,6 +477,52 @@ stocks:
   categories:
   - 煤炭
   - 能源
+- code: "600188"
+  name: 兖矿能源
+  categories:
+  - 煤炭
+  - 能源
+- code: "600971"
+  name: 恒源煤电
+  categories:
+  - 煤炭
+  - 能源
+- code: "000807"
+  name: 云铝股份
+  categories:
+  - 有色金属
+  - 铝
+  - 周期
+- code: "601600"
+  name: 中国铝业
+  categories:
+  - 有色金属
+  - 铝
+  - 周期
+- code: "600362"
+  name: 江西铜业
+  categories:
+  - 有色金属
+  - 铜
+  - 周期
+- code: "000878"
+  name: 云南铜业
+  categories:
+  - 有色金属
+  - 铜
+  - 周期
+- code: "601899"
+  name: 紫金矿业
+  categories:
+  - 有色金属
+  - 黄金
+  - 周期
+- code: "603993"
+  name: 洛阳钼业
+  categories:
+  - 有色金属
+  - 小金属
+  - 周期
 - code: "600483"
   name: 福能股份
   categories:

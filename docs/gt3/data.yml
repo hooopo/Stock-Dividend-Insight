@@ -30,6 +30,8 @@
   周期:
   - 综合物流
   - 内贸航运
+  - 煤炭
+  - 有色
 :stocks:
 - :code: '600015'
   :name: 华夏银行
@@ -6167,6 +6169,124 @@
   - :year: 2026
     :cash_dividend: 0.1399
     :dividend_yield: 1.5092
+- :code: '601088'
+  :name: 中国神华
+  :categories:
+  - 煤炭
+  - 能源
+  :avg_dividend_yield_3y: 4.5066
+  :min_dividend_yield_3y: 4.1615
+  :dividend_yield: 4.1615
+  :consecutive_dividend_years: 20
+  :dividend_cash_per_share_latest_year: 2.01
+  :current_price: 48.3
+  :turnover_rate: 0.2
+  :market_cap: 1047600000000.0
+  :volume: 323023.0
+  :avg_price: 48.9476
+  :dividend_payout_ratio: 39.3829
+  :pos_30d: 0.9524
+  :pe_ttm: 19.41
+  :pe_percentile: 0.9881
+  :valuation_label: 高位区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -10.7289
+  :finance_report_date: '2026-03-31'
+  :pb: 2.32
+  :pb_percentile: 0.9924
+  :drop_30d: -10.4505
+  :asset_liability_ratio: 29.0313
+  :interest_debt_ratio: 16.0279
+  :fcf_yield: 6.0366
+  :fcf_ev: 5.8337
+  :fcff_back: 63239596962.7576
+  :roe_jq: 2.4
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 21689440993.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 煤炭
+  :whitelist_categories:
+  - 周期
+  - 煤炭
+  :first_yield: 6.0
+  :add_yield: 7.0
+  :heavy_yield: 8.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 33.500074999999995
+  :buy_price_6: 28.71435
+  :buy_price_7: 25.12505625
+  :need_drop_to_5: 30.641666666666666
+  :drop_to_5: 30.641666666666666
+  :drop_to_6: 40.55
+  :drop_to_7: 47.981249999999996
+  :roe_5y_avg: 14.501999999999999
+  :roe_5y_min: 12.76
+  :annual_dividends:
+  - :year: 2007
+    :cash_dividend: 0.18
+    :dividend_yield: 0.374
+  - :year: 2008
+    :cash_dividend: 0.46
+    :dividend_yield: 1.6358
+  - :year: 2009
+    :cash_dividend: 0.53
+    :dividend_yield: 2.4435
+  - :year: 2010
+    :cash_dividend: 0.75
+    :dividend_yield: 2.6586
+  - :year: 2011
+    :cash_dividend: 0.9
+    :dividend_yield: 3.6159
+  - :year: 2012
+    :cash_dividend: 0.96
+    :dividend_yield: 5.5749
+  - :year: 2013
+    :cash_dividend: 0.91
+    :dividend_yield: 6.157
+  - :year: 2014
+    :cash_dividend: 0.74
+    :dividend_yield: 2.9203
+  - :year: 2015
+    :cash_dividend: 0.32
+    :dividend_yield: 2.2535
+  - :year: 2016
+    :cash_dividend: 0.46
+    :dividend_yield: 13.3244
+  - :year: 2017
+    :cash_dividend: 0.91
+    :dividend_yield: 4.715
+  - :year: 2018
+    :cash_dividend: 0.88
+    :dividend_yield: 4.2698
+  - :year: 2019
+    :cash_dividend: 1.26
+    :dividend_yield: 7.7396
+  - :year: 2020
+    :cash_dividend: 1.81
+    :dividend_yield: 9.0591
+  - :year: 2021
+    :cash_dividend: 2.54
+    :dividend_yield: 7.5934
+  - :year: 2022
+    :cash_dividend: 2.55
+    :dividend_yield: 8.1967
+  - :year: 2023
+    :cash_dividend: 2.26
+    :dividend_yield: 5.0111
+  - :year: 2024
+    :cash_dividend: 2.26
+    :dividend_yield: 5.5055
+  - :year: 2025
+    :cash_dividend: 2.01
+    :dividend_yield: 4.691
+  - :year: 2026
+    :cash_dividend: 0.98
+    :dividend_yield: 2.029
 - :code: '600000'
   :name: 浦发银行
   :categories:
@@ -6611,6 +6731,106 @@
   - :year: 2026
     :cash_dividend: 0.09
     :dividend_yield: 1.9313
+- :code: '601225'
+  :name: 陕西煤业
+  :categories:
+  - 煤炭
+  - 能源
+  :avg_dividend_yield_3y: 4.5047
+  :min_dividend_yield_3y: 3.5479
+  :dividend_yield: 3.5479
+  :consecutive_dividend_years: 11
+  :dividend_cash_per_share_latest_year: 0.948
+  :current_price: 26.72
+  :turnover_rate: 0.46
+  :market_cap: 259050000000.0
+  :volume: 449976.0
+  :avg_price: 27.1866
+  :dividend_payout_ratio: 2.7572
+  :pos_30d: 0.8571
+  :pe_ttm: 12.7
+  :pe_percentile: 0.9087
+  :valuation_label: 高位区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -12.379
+  :finance_report_date: '2026-03-31'
+  :pb: 2.56
+  :pb_percentile: 0.9196
+  :drop_30d: -10.5045
+  :asset_liability_ratio: 40.1002
+  :interest_debt_ratio: 10.6831
+  :fcf_yield: -2.1907
+  :fcf_ev: -2.106
+  :fcff_back: -5675117700.9651
+  :roe_jq: 4.21
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 9694985029.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 煤炭
+  :whitelist_categories:
+  - 周期
+  - 煤炭
+  :first_yield: 6.0
+  :add_yield: 7.0
+  :heavy_yield: 8.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 15.799981333333331
+  :buy_price_6: 13.542841142857142
+  :buy_price_7: 11.849986
+  :need_drop_to_5: 40.86833333333334
+  :drop_to_5: 40.86833333333334
+  :drop_to_6: 49.315714285714286
+  :drop_to_7: 55.65125
+  :roe_5y_avg: 22.762
+  :roe_5y_min: 17.88
+  :annual_dividends:
+  - :year: 2013
+    :cash_dividend: 0.12
+    :dividend_yield: 2.864
+  - :year: 2014
+    :cash_dividend: 0.03
+    :dividend_yield: 0.324
+  - :year: 2015
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2016
+    :cash_dividend: 0.11
+    :dividend_yield: 1.2291
+  - :year: 2017
+    :cash_dividend: 0.418
+    :dividend_yield: 5.2778
+  - :year: 2018
+    :cash_dividend: 0.33
+    :dividend_yield: 3.6304
+  - :year: 2019
+    :cash_dividend: 0.36
+    :dividend_yield: 4.186
+  - :year: 2020
+    :cash_dividend: 0.8
+    :dividend_yield: 7.2926
+  - :year: 2021
+    :cash_dividend: 1.35
+    :dividend_yield: 6.156
+  - :year: 2022
+    :cash_dividend: 2.18
+    :dividend_yield: 11.4496
+  - :year: 2023
+    :cash_dividend: 1.315
+    :dividend_yield: 4.938
+  - :year: 2024
+    :cash_dividend: 1.348
+    :dividend_yield: 6.3769
+  - :year: 2025
+    :cash_dividend: 0.948
+    :dividend_yield: 4.397
+  - :year: 2026
+    :cash_dividend: 0.058
+    :dividend_yield: 0.2171
 - :code: '003816'
   :name: 中国广核
   :categories:
@@ -7063,6 +7283,126 @@
   - :year: 2026
     :cash_dividend: 0.12
     :dividend_yield: 1.2146
+- :code: '601001'
+  :name: 晋控煤业
+  :categories:
+  - 煤炭开采
+  :avg_dividend_yield_3y: 3.9666
+  :min_dividend_yield_3y: 3.1115
+  :dividend_yield: 3.1115
+  :consecutive_dividend_years: 5
+  :dividend_cash_per_share_latest_year: 0.547
+  :current_price: 17.58
+  :turnover_rate: 1.89
+  :market_cap: 29424000000.0
+  :volume: 315821.0
+  :avg_price: 18.0647
+  :dividend_payout_ratio: 0.0
+  :pos_30d: 0.6667
+  :pe_ttm: 17.53
+  :pe_percentile: 0.9558
+  :valuation_label: 高位区域
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -33.9034
+  :finance_report_date: '2026-03-31'
+  :pb: 1.54
+  :pb_percentile: 0.7464
+  :drop_30d: -10.0814
+  :asset_liability_ratio: 21.993
+  :interest_debt_ratio: 2.327
+  :fcf_yield: -4.2944
+  :fcf_ev: -4.2675
+  :fcff_back: -1263584697.3473
+  :roe_jq: 1.75
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 1673720136.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 煤炭
+  :whitelist_categories:
+  - 周期
+  - 煤炭
+  :first_yield: 6.0
+  :add_yield: 7.0
+  :heavy_yield: 8.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 9.116694999999998
+  :buy_price_6: 7.814309999999999
+  :buy_price_7: 6.837521249999999
+  :need_drop_to_5: 48.14166666666667
+  :drop_to_5: 48.14166666666667
+  :drop_to_6: 55.55
+  :drop_to_7: 61.10625
+  :roe_5y_avg: 23.607999999999997
+  :roe_5y_min: 9.65
+  :annual_dividends:
+  - :year: 2006
+    :cash_dividend: 0.155
+    :dividend_yield: 0.5747
+  - :year: 2007
+    :cash_dividend: 0.16
+    :dividend_yield: 0.674
+  - :year: 2008
+    :cash_dividend: 0.4
+    :dividend_yield: 0.7592
+  - :year: 2009
+    :cash_dividend: 0.53
+    :dividend_yield: 1.5849
+  - :year: 2010
+    :cash_dividend: 0.208
+    :dividend_yield: 1.2051
+  - :year: 2011
+    :cash_dividend: 0.19
+    :dividend_yield: 1.7774
+  - :year: 2012
+    :cash_dividend: 0.012
+    :dividend_yield: 0.1783
+  - :year: 2013
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2014
+    :cash_dividend: 0.027
+    :dividend_yield: 0.2922
+  - :year: 2015
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2016
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2017
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2018
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2019
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2020
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2021
+    :cash_dividend: 0.4
+    :dividend_yield: 2.6828
+  - :year: 2022
+    :cash_dividend: 0.63
+    :dividend_yield: 6.5083
+  - :year: 2023
+    :cash_dividend: 0.79
+    :dividend_yield: 4.5533
+  - :year: 2024
+    :cash_dividend: 0.755
+    :dividend_yield: 5.2394
+  - :year: 2025
+    :cash_dividend: 0.547
+    :dividend_yield: 2.8972
+  - :year: 2026
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
 - :code: '601985'
   :name: 中国核电
   :categories:
@@ -7407,6 +7747,131 @@
   - :year: 2026
     :cash_dividend: 0.0
     :dividend_yield: 0.0
+- :code: '600971'
+  :name: 恒源煤电
+  :categories:
+  - 煤炭
+  - 能源
+  :avg_dividend_yield_3y: 5.1024
+  :min_dividend_yield_3y: 2.7933
+  :dividend_yield: 2.7933
+  :consecutive_dividend_years: 9
+  :dividend_cash_per_share_latest_year: 0.25
+  :current_price: 8.95
+  :turnover_rate: 3.79
+  :market_cap: 10740000000.0
+  :volume: 455340.0
+  :avg_price: 9.1417
+  :dividend_payout_ratio:
+  :pos_30d:
+  :pe_ttm: 108.81
+  :pe_percentile:
+  :valuation_label: ''
+  :peg:
+  :peg_level:
+  :net_profit_yoy:
+  :finance_report_date:
+  :pb: 0.91
+  :pb_percentile:
+  :drop_30d:
+  :asset_liability_ratio:
+  :interest_debt_ratio:
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq:
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 1200000000.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 煤炭
+  :whitelist_categories:
+  - 周期
+  - 煤炭
+  :first_yield: 6.0
+  :add_yield: 7.0
+  :heavy_yield: 8.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 4.1666725
+  :buy_price_6: 3.571433571428571
+  :buy_price_7: 3.1250043749999996
+  :need_drop_to_5: 53.445
+  :drop_to_5: 53.445
+  :drop_to_6: 60.09571428571429
+  :drop_to_7: 65.08375
+  :annual_dividends:
+  - :year: 2004
+    :cash_dividend: 0.1
+    :dividend_yield: 0.6305
+  - :year: 2005
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2006
+    :cash_dividend: 0.6
+    :dividend_yield: 3.006
+  - :year: 2007
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2008
+    :cash_dividend: 0.3
+    :dividend_yield: 1.2161
+  - :year: 2009
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2010
+    :cash_dividend: 0.8
+    :dividend_yield: 1.8446
+  - :year: 2011
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2012
+    :cash_dividend: 0.26
+    :dividend_yield: 2.7807
+  - :year: 2013
+    :cash_dividend: 0.1
+    :dividend_yield: 1.8215
+  - :year: 2014
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2015
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2016
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2017
+    :cash_dividend: 0.36
+    :dividend_yield: 5.0992
+  - :year: 2018
+    :cash_dividend: 0.41
+    :dividend_yield: 5.4233
+  - :year: 2019
+    :cash_dividend: 0.35
+    :dividend_yield: 6.9034
+  - :year: 2020
+    :cash_dividend: 0.33
+    :dividend_yield: 5.1322
+  - :year: 2021
+    :cash_dividend: 0.5
+    :dividend_yield: 6.3291
+  - :year: 2022
+    :cash_dividend: 1.0
+    :dividend_yield: 11.0011
+  - :year: 2023
+    :cash_dividend: 0.85
+    :dividend_yield: 6.4935
+  - :year: 2024
+    :cash_dividend: 0.27
+    :dividend_yield: 3.8462
+  - :year: 2025
+    :cash_dividend: 0.25
+    :dividend_yield: 3.2552
+  - :year: 2026
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
 - :code: '600323'
   :name: 瀚蓝环境
   :categories:
@@ -7547,6 +8012,1030 @@
   - :year: 2026
     :cash_dividend: 0.28
     :dividend_yield: 0.9118
+- :code: '002142'
+  :name: 宁波银行
+  :categories:
+  - 银行
+  - 金融
+  :avg_dividend_yield_3y: 2.6239
+  :min_dividend_yield_3y: 1.7493
+  :dividend_yield: 3.498542274052478
+  :consecutive_dividend_years: 20
+  :dividend_cash_per_share_latest_year: 1.2
+  :current_price: 34.3
+  :turnover_rate: 0.48
+  :market_cap: 226503000000.0
+  :volume: 318161.0
+  :avg_price: 34.3244
+  :dividend_payout_ratio: 8.4899
+  :pos_30d: 1.0
+  :pe_ttm: 7.28
+  :pe_percentile: 0.3539
+  :valuation_label: 偏高区域
+  :peg: 0.4975
+  :peg_level: 1
+  :net_profit_yoy: 13.9497
+  :finance_report_date: '2026-06-30'
+  :pb: 0.96
+  :pb_percentile: 0.3249
+  :drop_30d: -6.2248
+  :asset_liability_ratio: 92.7822
+  :interest_debt_ratio: 87.1049
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq: 3.6
+  :roe_5y_avg_ge_12: true
+  :roe_5y_min_ge_8: true
+  :total_shares: 6603586005.0
+  :is_core: true
+  :core_categories:
+  - 银行
+  :is_whitelist: true
+  :whitelist_big_category: 银行
+  :whitelist_sub_category: 城商行
+  :whitelist_categories:
+  - 银行
+  - 城商行
+  :first_yield: 4.5
+  :add_yield: 5.2
+  :heavy_yield: 6.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 13.333553333333334
+  :buy_price_6: 11.538651923076923
+  :buy_price_7: 10.000165
+  :need_drop_to_5: 61.126666666666665
+  :drop_to_5: 61.126666666666665
+  :drop_to_6: 66.3596153846154
+  :drop_to_7: 70.845
+  :roe_5y_avg: 14.796000000000001
+  :roe_5y_min: 13.11
+  :annual_dividends:
+  - :year: 2007
+    :cash_dividend: 0.2
+    :dividend_yield: 1.4993
+  - :year: 2008
+    :cash_dividend: 0.2
+    :dividend_yield: 1.99
+  - :year: 2009
+    :cash_dividend: 0.2
+    :dividend_yield: 1.6667
+  - :year: 2010
+    :cash_dividend: 0.2
+    :dividend_yield: 1.7841
+  - :year: 2011
+    :cash_dividend: 0.2
+    :dividend_yield: 2.0877
+  - :year: 2012
+    :cash_dividend: 0.25
+    :dividend_yield: 2.7778
+  - :year: 2013
+    :cash_dividend: 0.4
+    :dividend_yield: 4.3956
+  - :year: 2014
+    :cash_dividend: 0.45
+    :dividend_yield: 2.1718
+  - :year: 2015
+    :cash_dividend: 0.45
+    :dividend_yield: 2.9316
+  - :year: 2016
+    :cash_dividend: 0.35
+    :dividend_yield: 1.8154
+  - :year: 2017
+    :cash_dividend: 0.4
+    :dividend_yield: 2.4096
+  - :year: 2018
+    :cash_dividend: 0.4
+    :dividend_yield: 1.7219
+  - :year: 2019
+    :cash_dividend: 0.5
+    :dividend_yield: 1.5689
+  - :year: 2020
+    :cash_dividend: 0.5
+    :dividend_yield: 1.3943
+  - :year: 2021
+    :cash_dividend: 0.5
+    :dividend_yield: 1.5015
+  - :year: 2022
+    :cash_dividend: 0.5
+    :dividend_yield: 2.0218
+  - :year: 2023
+    :cash_dividend: 0.6
+    :dividend_yield: 2.765
+  - :year: 2024
+    :cash_dividend: 0.9
+    :dividend_yield: 3.2247
+  - :year: 2025
+    :cash_dividend: 1.2
+    :dividend_yield: 3.8328
+  - :year: 2026
+    :cash_dividend: 0.4
+    :dividend_yield: 1.1662
+- :code: '600188'
+  :name: 兖矿能源
+  :categories:
+  - 煤炭
+  - 能源
+  :avg_dividend_yield_3y: 4.0925
+  :min_dividend_yield_3y: 2.2242
+  :dividend_yield: 2.2242
+  :consecutive_dividend_years: 29
+  :dividend_cash_per_share_latest_year: 0.5
+  :current_price: 22.48
+  :turnover_rate: 1.0
+  :market_cap: 225628000000.0
+  :volume: 596543.0
+  :avg_price: 23.1842
+  :dividend_payout_ratio:
+  :pos_30d:
+  :pe_ttm: 19.92
+  :pe_percentile:
+  :valuation_label: ''
+  :peg:
+  :peg_level:
+  :net_profit_yoy:
+  :finance_report_date:
+  :pb: 2.94
+  :pb_percentile:
+  :drop_30d:
+  :asset_liability_ratio:
+  :interest_debt_ratio:
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq:
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 10036832740.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 煤炭
+  :whitelist_categories:
+  - 周期
+  - 煤炭
+  :first_yield: 6.0
+  :add_yield: 7.0
+  :heavy_yield: 8.0
+  :buy_method: whitelist_min3y
+  :buy_price_5: 8.333336000000001
+  :buy_price_6: 7.1428594285714295
+  :buy_price_7: 6.250002
+  :need_drop_to_5: 62.93
+  :drop_to_5: 62.93
+  :drop_to_6: 68.22571428571429
+  :drop_to_7: 72.1975
+  :annual_dividends:
+  - :year: 1998
+    :cash_dividend: 0.086
+    :dividend_yield: 1.259
+  - :year: 1999
+    :cash_dividend: 0.089
+    :dividend_yield: 0.8725
+  - :year: 2000
+    :cash_dividend: 0.082
+    :dividend_yield: 0.655
+  - :year: 2001
+    :cash_dividend: 0.1
+    :dividend_yield: 1.0225
+  - :year: 2002
+    :cash_dividend: 0.104
+    :dividend_yield: 1.1404
+  - :year: 2003
+    :cash_dividend: 0.164
+    :dividend_yield: 1.1271
+  - :year: 2004
+    :cash_dividend: 0.26
+    :dividend_yield: 2.6026
+  - :year: 2005
+    :cash_dividend: 0.22
+    :dividend_yield: 3.1746
+  - :year: 2006
+    :cash_dividend: 0.2
+    :dividend_yield: 1.3333
+  - :year: 2007
+    :cash_dividend: 0.17
+    :dividend_yield: 0.8551
+  - :year: 2008
+    :cash_dividend: 0.4
+    :dividend_yield: 1.997
+  - :year: 2009
+    :cash_dividend: 0.25
+    :dividend_yield: 1.3966
+  - :year: 2010
+    :cash_dividend: 0.59
+    :dividend_yield: 1.7171
+  - :year: 2011
+    :cash_dividend: 0.57
+    :dividend_yield: 2.9921
+  - :year: 2012
+    :cash_dividend: 0.36
+    :dividend_yield: 3.0981
+  - :year: 2013
+    :cash_dividend: 0.02
+    :dividend_yield: 0.2911
+  - :year: 2014
+    :cash_dividend: 0.02
+    :dividend_yield: 0.105
+  - :year: 2015
+    :cash_dividend: 0.01
+    :dividend_yield: 0.0912
+  - :year: 2016
+    :cash_dividend: 0.12
+    :dividend_yield: 0.9231
+  - :year: 2017
+    :cash_dividend: 0.48
+    :dividend_yield: 3.3566
+  - :year: 2018
+    :cash_dividend: 0.54
+    :dividend_yield: 5.0326
+  - :year: 2019
+    :cash_dividend: 1.58
+    :dividend_yield: 15.299
+  - :year: 2020
+    :cash_dividend: 0.6
+    :dividend_yield: 5.5556
+  - :year: 2021
+    :cash_dividend: 1.6
+    :dividend_yield: 5.5648
+  - :year: 2022
+    :cash_dividend: 3.07
+    :dividend_yield: 12.6956
+  - :year: 2023
+    :cash_dividend: 1.49
+    :dividend_yield: 6.3921
+  - :year: 2024
+    :cash_dividend: 0.77
+    :dividend_yield: 5.5775
+  - :year: 2025
+    :cash_dividend: 0.5
+    :dividend_yield: 2.789
+  - :year: 2026
+    :cash_dividend: 0.2
+    :dividend_yield: 0.8897
+- :code: '000878'
+  :name: 云南铜业
+  :categories:
+  - 有色金属
+  - 铜
+  - 周期
+  :avg_dividend_yield_3y: 1.5083
+  :min_dividend_yield_3y: 1.3009
+  :dividend_yield: 1.3009
+  :consecutive_dividend_years: 7
+  :dividend_cash_per_share_latest_year: 0.23
+  :current_price: 17.68
+  :turnover_rate: 3.72
+  :market_cap: 42877000000.0
+  :volume: 746069.0
+  :avg_price: 17.8222
+  :dividend_payout_ratio:
+  :pos_30d:
+  :pe_ttm: 24.81
+  :pe_percentile:
+  :valuation_label: ''
+  :peg:
+  :peg_level:
+  :net_profit_yoy:
+  :finance_report_date:
+  :pb: 2.25
+  :pb_percentile:
+  :drop_30d:
+  :asset_liability_ratio:
+  :interest_debt_ratio:
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq:
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 2425169683.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 有色
+  :whitelist_categories:
+  - 周期
+  - 有色
+  :first_yield: 4.0
+  :add_yield: 4.7
+  :heavy_yield: 5.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 5.749978
+  :buy_price_6: 4.89359829787234
+  :buy_price_7: 4.181802181818182
+  :need_drop_to_5: 67.4775
+  :drop_to_5: 67.4775
+  :drop_to_6: 72.32127659574468
+  :drop_to_7: 76.34727272727272
+  :annual_dividends:
+  - :year: 1998
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 1999
+    :cash_dividend: 0.13
+    :dividend_yield: 1.3786
+  - :year: 2000
+    :cash_dividend: 0.14
+    :dividend_yield: 1.5351
+  - :year: 2001
+    :cash_dividend: 0.1
+    :dividend_yield: 1.7762
+  - :year: 2002
+    :cash_dividend: 0.05
+    :dividend_yield: 1.0309
+  - :year: 2003
+    :cash_dividend: 0.1
+    :dividend_yield: 1.9881
+  - :year: 2004
+    :cash_dividend: 0.1
+    :dividend_yield: 2.6178
+  - :year: 2005
+    :cash_dividend: 0.25
+    :dividend_yield: 1.8854
+  - :year: 2006
+    :cash_dividend: 0.5
+    :dividend_yield: 1.2398
+  - :year: 2007
+    :cash_dividend: 0.2
+    :dividend_yield: 1.2715
+  - :year: 2008
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2009
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2010
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2011
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2012
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2013
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2014
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2015
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2016
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2017
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2018
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2019
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2020
+    :cash_dividend: 0.1
+    :dividend_yield: 0.693
+  - :year: 2021
+    :cash_dividend: 0.2
+    :dividend_yield: 1.9084
+  - :year: 2022
+    :cash_dividend: 0.4
+    :dividend_yield: 3.5242
+  - :year: 2023
+    :cash_dividend: 0.3
+    :dividend_yield: 2.0311
+  - :year: 2024
+    :cash_dividend: 0.27
+    :dividend_yield: 2.2534
+  - :year: 2025
+    :cash_dividend: 0.23
+    :dividend_yield: 1.3302
+  - :year: 2026
+    :cash_dividend: 0.04
+    :dividend_yield: 0.2262
+- :code: '600362'
+  :name: 江西铜业
+  :categories:
+  - 有色金属
+  - 铜
+  - 周期
+  :avg_dividend_yield_3y: 1.5946
+  :min_dividend_yield_3y: 1.2479
+  :dividend_yield: 2.0799
+  :consecutive_dividend_years: 25
+  :dividend_cash_per_share_latest_year: 1.0
+  :current_price: 48.08
+  :turnover_rate: 3.51
+  :market_cap: 166488000000.0
+  :volume: 729182.0
+  :avg_price: 48.7502
+  :dividend_payout_ratio:
+  :pos_30d:
+  :pe_ttm: 14.37
+  :pe_percentile:
+  :valuation_label: ''
+  :peg:
+  :peg_level:
+  :net_profit_yoy:
+  :finance_report_date:
+  :pb: 1.9
+  :pb_percentile:
+  :drop_30d:
+  :asset_liability_ratio:
+  :interest_debt_ratio:
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq:
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 3462728785.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 有色
+  :whitelist_categories:
+  - 周期
+  - 有色
+  :first_yield: 4.0
+  :add_yield: 4.7
+  :heavy_yield: 5.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 14.999758
+  :buy_price_6: 12.765751489361703
+  :buy_price_7: 10.908914909090909
+  :need_drop_to_5: 68.8025
+  :drop_to_5: 68.8025
+  :drop_to_6: 73.44893617021276
+  :drop_to_7: 77.31090909090909
+  :annual_dividends:
+  - :year: 2001
+    :cash_dividend: 0.05
+    :dividend_yield: 0.7825
+  - :year: 2002
+    :cash_dividend: 0.03
+    :dividend_yield: 0.5814
+  - :year: 2003
+    :cash_dividend: 0.12
+    :dividend_yield: 1.5584
+  - :year: 2004
+    :cash_dividend: 0.12
+    :dividend_yield: 2.8235
+  - :year: 2005
+    :cash_dividend: 0.192
+    :dividend_yield: 1.7745
+  - :year: 2006
+    :cash_dividend: 0.4
+    :dividend_yield: 1.525
+  - :year: 2007
+    :cash_dividend: 0.3
+    :dividend_yield: 1.4144
+  - :year: 2008
+    :cash_dividend: 0.08
+    :dividend_yield: 0.2347
+  - :year: 2009
+    :cash_dividend: 0.1
+    :dividend_yield: 0.4266
+  - :year: 2010
+    :cash_dividend: 0.2
+    :dividend_yield: 0.5596
+  - :year: 2011
+    :cash_dividend: 0.7
+    :dividend_yield: 3.0262
+  - :year: 2012
+    :cash_dividend: 0.5
+    :dividend_yield: 3.0321
+  - :year: 2013
+    :cash_dividend: 0.5
+    :dividend_yield: 3.6496
+  - :year: 2014
+    :cash_dividend: 0.2
+    :dividend_yield: 1.2579
+  - :year: 2015
+    :cash_dividend: 0.1
+    :dividend_yield: 0.6658
+  - :year: 2016
+    :cash_dividend: 0.15
+    :dividend_yield: 0.8813
+  - :year: 2017
+    :cash_dividend: 0.2
+    :dividend_yield: 1.2715
+  - :year: 2018
+    :cash_dividend: 0.2
+    :dividend_yield: 1.3236
+  - :year: 2019
+    :cash_dividend: 0.1
+    :dividend_yield: 0.6301
+  - :year: 2020
+    :cash_dividend: 0.1
+    :dividend_yield: 0.4042
+  - :year: 2021
+    :cash_dividend: 0.5
+    :dividend_yield: 2.8785
+  - :year: 2022
+    :cash_dividend: 0.5
+    :dividend_yield: 2.5667
+  - :year: 2023
+    :cash_dividend: 0.6
+    :dividend_yield: 2.7868
+  - :year: 2024
+    :cash_dividend: 0.7
+    :dividend_yield: 2.8689
+  - :year: 2025
+    :cash_dividend: 1.0
+    :dividend_yield: 2.4978
+  - :year: 2026
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+- :code: '000807'
+  :name: 云铝股份
+  :categories:
+  - 有色金属
+  - 铝
+  - 周期
+  :avg_dividend_yield_3y: 1.6494
+  :min_dividend_yield_3y: 0.85
+  :dividend_yield: 2.5831
+  :consecutive_dividend_years: 6
+  :dividend_cash_per_share_latest_year: 0.699
+  :current_price: 27.06
+  :turnover_rate: 1.78
+  :market_cap: 93843000000.0
+  :volume: 617796.0
+  :avg_price: 27.2763
+  :dividend_payout_ratio:
+  :pos_30d:
+  :pe_ttm: 8.55
+  :pe_percentile:
+  :valuation_label: ''
+  :peg:
+  :peg_level:
+  :net_profit_yoy:
+  :finance_report_date:
+  :pb: 2.46
+  :pb_percentile:
+  :drop_30d:
+  :asset_liability_ratio:
+  :interest_debt_ratio:
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq:
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 3467960088.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 有色
+  :whitelist_categories:
+  - 周期
+  - 有色
+  :first_yield: 4.0
+  :add_yield: 4.7
+  :heavy_yield: 5.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 5.750249999999999
+  :buy_price_6: 4.893829787234042
+  :buy_price_7: 4.1819999999999995
+  :need_drop_to_5: 78.75
+  :drop_to_5: 78.75
+  :drop_to_6: 81.91489361702128
+  :drop_to_7: 84.54545454545455
+  :annual_dividends:
+  - :year: 1998
+    :cash_dividend: 0.075
+    :dividend_yield: 0.9628
+  - :year: 1999
+    :cash_dividend: 0.16
+    :dividend_yield: 1.8868
+  - :year: 2000
+    :cash_dividend: 0.25
+    :dividend_yield: 2.1422
+  - :year: 2001
+    :cash_dividend: 0.3
+    :dividend_yield: 2.8986
+  - :year: 2002
+    :cash_dividend: 0.3
+    :dividend_yield: 3.6855
+  - :year: 2003
+    :cash_dividend: 0.3
+    :dividend_yield: 3.3937
+  - :year: 2004
+    :cash_dividend: 0.3
+    :dividend_yield: 9.8684
+  - :year: 2005
+    :cash_dividend: 0.2
+    :dividend_yield: 2.139
+  - :year: 2006
+    :cash_dividend: 0.45
+    :dividend_yield: 1.6304
+  - :year: 2007
+    :cash_dividend: 0.4
+    :dividend_yield: 2.952
+  - :year: 2008
+    :cash_dividend: 0.08
+    :dividend_yield: 0.9281
+  - :year: 2009
+    :cash_dividend: 0.03
+    :dividend_yield: 0.339
+  - :year: 2010
+    :cash_dividend: 0.03
+    :dividend_yield: 0.2571
+  - :year: 2011
+    :cash_dividend: 0.03
+    :dividend_yield: 0.471
+  - :year: 2012
+    :cash_dividend: 0.03
+    :dividend_yield: 0.7712
+  - :year: 2013
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2014
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2015
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2016
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2017
+    :cash_dividend: 0.07
+    :dividend_yield: 0.9777
+  - :year: 2018
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2019
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2020
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2021
+    :cash_dividend: 0.113
+    :dividend_yield: 1.1068
+  - :year: 2022
+    :cash_dividend: 0.16
+    :dividend_yield: 1.2698
+  - :year: 2023
+    :cash_dividend: 0.23
+    :dividend_yield: 1.6655
+  - :year: 2024
+    :cash_dividend: 0.41
+    :dividend_yield: 2.8066
+  - :year: 2025
+    :cash_dividend: 0.699
+    :dividend_yield: 2.7988
+  - :year: 2026
+    :cash_dividend: 0.887
+    :dividend_yield: 3.2779
+- :code: '601600'
+  :name: 中国铝业
+  :categories:
+  - 有色金属
+  - 铝
+  - 周期
+  :avg_dividend_yield_3y: 1.9305
+  :min_dividend_yield_3y: 0.8172
+  :dividend_yield: 2.7579
+  :consecutive_dividend_years: 6
+  :dividend_cash_per_share_latest_year: 0.27
+  :current_price: 9.79
+  :turnover_rate: 1.28
+  :market_cap: 167947000000.0
+  :volume: 1691721.0
+  :avg_price: 9.8458
+  :dividend_payout_ratio:
+  :pos_30d:
+  :pe_ttm: 9.61
+  :pe_percentile:
+  :valuation_label: ''
+  :peg:
+  :peg_level:
+  :net_profit_yoy:
+  :finance_report_date:
+  :pb: 1.99
+  :pb_percentile:
+  :drop_30d:
+  :asset_liability_ratio:
+  :interest_debt_ratio:
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq:
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 17154954034.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 有色
+  :whitelist_categories:
+  - 周期
+  - 有色
+  :first_yield: 4.0
+  :add_yield: 4.7
+  :heavy_yield: 5.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 2.000097
+  :buy_price_6: 1.7022102127659575
+  :buy_price_7: 1.454616
+  :need_drop_to_5: 79.57
+  :drop_to_5: 79.57
+  :drop_to_6: 82.61276595744681
+  :drop_to_7: 85.14181818181818
+  :annual_dividends:
+  - :year: 2006
+    :cash_dividend: 0.115
+    :dividend_yield: 0.5215
+  - :year: 2007
+    :cash_dividend: 0.19
+    :dividend_yield: 0.7089
+  - :year: 2008
+    :cash_dividend: 0.052
+    :dividend_yield: 0.6727
+  - :year: 2009
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2010
+    :cash_dividend: 0.0114
+    :dividend_yield: 0.1057
+  - :year: 2011
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2012
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2013
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2014
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2015
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2016
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2017
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2018
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2019
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2020
+    :cash_dividend: 0.0
+    :dividend_yield: 0.0
+  - :year: 2021
+    :cash_dividend: 0.0318
+    :dividend_yield: 0.6958
+  - :year: 2022
+    :cash_dividend: 0.036
+    :dividend_yield: 0.596
+  - :year: 2023
+    :cash_dividend: 0.08
+    :dividend_yield: 1.1887
+  - :year: 2024
+    :cash_dividend: 0.217
+    :dividend_yield: 2.8927
+  - :year: 2025
+    :cash_dividend: 0.27
+    :dividend_yield: 2.9778
+  - :year: 2026
+    :cash_dividend: 0.276
+    :dividend_yield: 2.8192
+- :code: '603993'
+  :name: 洛阳钼业
+  :categories:
+  - 有色金属
+  - 小金属
+  - 周期
+  :avg_dividend_yield_3y: 1.216
+  :min_dividend_yield_3y: 0.8095
+  :dividend_yield: 1.5005
+  :consecutive_dividend_years: 15
+  :dividend_cash_per_share_latest_year: 0.286
+  :current_price: 19.06
+  :turnover_rate: 0.92
+  :market_cap: 407776000000.0
+  :volume: 1600451.0
+  :avg_price: 19.1982
+  :dividend_payout_ratio:
+  :pos_30d:
+  :pe_ttm: 14.66
+  :pe_percentile:
+  :valuation_label: ''
+  :peg:
+  :peg_level:
+  :net_profit_yoy:
+  :finance_report_date:
+  :pb: 4.55
+  :pb_percentile:
+  :drop_30d:
+  :asset_liability_ratio:
+  :interest_debt_ratio:
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq:
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 21394333683.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 有色
+  :whitelist_categories:
+  - 周期
+  - 有色
+  :first_yield: 4.0
+  :add_yield: 4.7
+  :heavy_yield: 5.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 3.8572675
+  :buy_price_6: 3.282780851063829
+  :buy_price_7: 2.8052854545454546
+  :need_drop_to_5: 79.7625
+  :drop_to_5: 79.7625
+  :drop_to_6: 82.77659574468086
+  :drop_to_7: 85.28181818181818
+  :annual_dividends:
+  - :year: 2012
+    :cash_dividend: 0.21
+    :dividend_yield: 2.7885
+  - :year: 2013
+    :cash_dividend: 0.14
+    :dividend_yield: 2.24
+  - :year: 2014
+    :cash_dividend: 0.18
+    :dividend_yield: 1.0651
+  - :year: 2015
+    :cash_dividend: 0.025
+    :dividend_yield: 0.5459
+  - :year: 2016
+    :cash_dividend: 0.035
+    :dividend_yield: 0.7743
+  - :year: 2017
+    :cash_dividend: 0.076
+    :dividend_yield: 1.2102
+  - :year: 2018
+    :cash_dividend: 0.11
+    :dividend_yield: 2.6829
+  - :year: 2019
+    :cash_dividend: 0.043
+    :dividend_yield: 1.1749
+  - :year: 2020
+    :cash_dividend: 0.033
+    :dividend_yield: 0.5903
+  - :year: 2021
+    :cash_dividend: 0.0713
+    :dividend_yield: 1.352
+  - :year: 2022
+    :cash_dividend: 0.0851
+    :dividend_yield: 1.5441
+  - :year: 2023
+    :cash_dividend: 0.1543
+    :dividend_yield: 1.6969
+  - :year: 2024
+    :cash_dividend: 0.255
+    :dividend_yield: 3.1288
+  - :year: 2025
+    :cash_dividend: 0.286
+    :dividend_yield: 1.4026
+  - :year: 2026
+    :cash_dividend: 0.095
+    :dividend_yield: 0.4984
+- :code: '601899'
+  :name: 紫金矿业
+  :categories:
+  - 有色金属
+  - 黄金
+  - 周期
+  :avg_dividend_yield_3y: 1.2155
+  :min_dividend_yield_3y: 0.7412
+  :dividend_yield: 3.024
+  :consecutive_dividend_years: 20
+  :dividend_cash_per_share_latest_year: 0.6
+  :current_price: 33.73
+  :turnover_rate: 0.77
+  :market_cap: 896905000000.0
+  :volume: 1591142.0
+  :avg_price: 33.7961
+  :dividend_payout_ratio:
+  :pos_30d:
+  :pe_ttm: 13.26
+  :pe_percentile:
+  :valuation_label: ''
+  :peg:
+  :peg_level:
+  :net_profit_yoy:
+  :finance_report_date:
+  :pb: 4.7
+  :pb_percentile:
+  :drop_30d:
+  :asset_liability_ratio:
+  :interest_debt_ratio:
+  :fcf_yield:
+  :fcf_ev:
+  :fcff_back:
+  :roe_jq:
+  :roe_5y_avg_ge_12: false
+  :roe_5y_min_ge_8: false
+  :total_shares: 26590720426.0
+  :is_core: false
+  :core_categories: []
+  :is_whitelist: true
+  :whitelist_big_category: 周期
+  :whitelist_sub_category: 有色
+  :whitelist_categories:
+  - 周期
+  - 有色
+  :first_yield: 4.0
+  :add_yield: 4.7
+  :heavy_yield: 5.5
+  :buy_method: whitelist_min3y
+  :buy_price_5: 6.250168999999999
+  :buy_price_6: 5.319292765957446
+  :buy_price_7: 4.545577454545454
+  :need_drop_to_5: 81.47
+  :drop_to_5: 81.47
+  :drop_to_6: 84.22978723404255
+  :drop_to_7: 86.52363636363636
+  :annual_dividends:
+  - :year: 2007
+    :cash_dividend: 0.09
+    :dividend_yield: 1.1139
+  - :year: 2008
+    :cash_dividend: 0.1
+    :dividend_yield: 1.0081
+  - :year: 2009
+    :cash_dividend: 0.1
+    :dividend_yield: 1.4006
+  - :year: 2010
+    :cash_dividend: 0.1
+    :dividend_yield: 1.3699
+  - :year: 2011
+    :cash_dividend: 0.1
+    :dividend_yield: 2.5773
+  - :year: 2012
+    :cash_dividend: 0.1
+    :dividend_yield: 3.9526
+  - :year: 2013
+    :cash_dividend: 0.08
+    :dividend_yield: 3.6199
+  - :year: 2014
+    :cash_dividend: 0.08
+    :dividend_yield: 2.168
+  - :year: 2015
+    :cash_dividend: 0.06
+    :dividend_yield: 1.6304
+  - :year: 2016
+    :cash_dividend: 0.06
+    :dividend_yield: 1.5957
+  - :year: 2017
+    :cash_dividend: 0.09
+    :dividend_yield: 2.4725
+  - :year: 2018
+    :cash_dividend: 0.1
+    :dividend_yield: 2.7933
+  - :year: 2019
+    :cash_dividend: 0.1
+    :dividend_yield: 1.8382
+  - :year: 2020
+    :cash_dividend: 0.12
+    :dividend_yield: 1.2333
+  - :year: 2021
+    :cash_dividend: 0.2
+    :dividend_yield: 1.9455
+  - :year: 2022
+    :cash_dividend: 0.2
+    :dividend_yield: 1.6835
+  - :year: 2023
+    :cash_dividend: 0.25
+    :dividend_yield: 1.538
+  - :year: 2024
+    :cash_dividend: 0.38
+    :dividend_yield: 2.0963
+  - :year: 2025
+    :cash_dividend: 0.6
+    :dividend_yield: 2.2307
+  - :year: 2026
+    :cash_dividend: 0.42
+    :dividend_yield: 1.2263
 - :code: '002271'
   :name: 东方雨虹
   :categories:
@@ -11459,122 +12948,6 @@
   - :year: 2026
     :cash_dividend: 0.0
     :dividend_yield: 0.0
-- :code: '601088'
-  :name: 中国神华
-  :categories:
-  - 煤炭
-  - 能源
-  :avg_dividend_yield_3y: 4.5066
-  :min_dividend_yield_3y: 4.1615
-  :dividend_yield: 4.161490683229814
-  :consecutive_dividend_years: 20
-  :dividend_cash_per_share_latest_year: 2.01
-  :current_price: 48.3
-  :turnover_rate: 0.2
-  :market_cap: 1047600000000.0
-  :volume: 323023.0
-  :avg_price: 48.9476
-  :dividend_payout_ratio: 39.3829
-  :pos_30d: 0.9524
-  :pe_ttm: 19.41
-  :pe_percentile: 0.9881
-  :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -10.7289
-  :finance_report_date: '2026-03-31'
-  :pb: 2.32
-  :pb_percentile: 0.9924
-  :drop_30d: -10.4505
-  :asset_liability_ratio: 29.0313
-  :interest_debt_ratio: 16.0279
-  :fcf_yield: 6.0366
-  :fcf_ev: 5.8337
-  :fcff_back: 63239596962.7576
-  :roe_jq: 2.4
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 21689440993.0
-  :is_core: false
-  :core_categories: []
-  :is_whitelist: false
-  :whitelist_big_category:
-  :whitelist_sub_category:
-  :whitelist_categories: []
-  :first_yield:
-  :add_yield:
-  :heavy_yield:
-  :buy_method: min3y
-  :buy_price_5: 40.20009
-  :buy_price_6: 33.500074999999995
-  :buy_price_7: 28.71435
-  :need_drop_to_5: 16.769999999999985
-  :drop_to_5: 16.769999999999985
-  :drop_to_6: 30.641666666666666
-  :drop_to_7: 40.55
-  :roe_5y_avg: 14.501999999999999
-  :roe_5y_min: 12.76
-  :annual_dividends:
-  - :year: 2007
-    :cash_dividend: 0.18
-    :dividend_yield: 0.374
-  - :year: 2008
-    :cash_dividend: 0.46
-    :dividend_yield: 1.6358
-  - :year: 2009
-    :cash_dividend: 0.53
-    :dividend_yield: 2.4435
-  - :year: 2010
-    :cash_dividend: 0.75
-    :dividend_yield: 2.6586
-  - :year: 2011
-    :cash_dividend: 0.9
-    :dividend_yield: 3.6159
-  - :year: 2012
-    :cash_dividend: 0.96
-    :dividend_yield: 5.5749
-  - :year: 2013
-    :cash_dividend: 0.91
-    :dividend_yield: 6.157
-  - :year: 2014
-    :cash_dividend: 0.74
-    :dividend_yield: 2.9203
-  - :year: 2015
-    :cash_dividend: 0.32
-    :dividend_yield: 2.2535
-  - :year: 2016
-    :cash_dividend: 0.46
-    :dividend_yield: 13.3244
-  - :year: 2017
-    :cash_dividend: 0.91
-    :dividend_yield: 4.715
-  - :year: 2018
-    :cash_dividend: 0.88
-    :dividend_yield: 4.2698
-  - :year: 2019
-    :cash_dividend: 1.26
-    :dividend_yield: 7.7396
-  - :year: 2020
-    :cash_dividend: 1.81
-    :dividend_yield: 9.0591
-  - :year: 2021
-    :cash_dividend: 2.54
-    :dividend_yield: 7.5934
-  - :year: 2022
-    :cash_dividend: 2.55
-    :dividend_yield: 8.1967
-  - :year: 2023
-    :cash_dividend: 2.26
-    :dividend_yield: 5.0111
-  - :year: 2024
-    :cash_dividend: 2.26
-    :dividend_yield: 5.5055
-  - :year: 2025
-    :cash_dividend: 2.01
-    :dividend_yield: 4.691
-  - :year: 2026
-    :cash_dividend: 0.98
-    :dividend_yield: 2.029
 - :code: '000513'
   :name: 丽珠集团
   :categories:
@@ -14101,104 +15474,6 @@
   - :year: 2026
     :cash_dividend: 1.0
     :dividend_yield: 2.9824
-- :code: '601225'
-  :name: 陕西煤业
-  :categories:
-  - 煤炭
-  - 能源
-  :avg_dividend_yield_3y: 4.5047
-  :min_dividend_yield_3y: 3.5479
-  :dividend_yield: 3.5479041916167664
-  :consecutive_dividend_years: 11
-  :dividend_cash_per_share_latest_year: 0.948
-  :current_price: 26.72
-  :turnover_rate: 0.46
-  :market_cap: 259050000000.0
-  :volume: 449976.0
-  :avg_price: 27.1866
-  :dividend_payout_ratio: 2.7572
-  :pos_30d: 0.8571
-  :pe_ttm: 12.7
-  :pe_percentile: 0.9087
-  :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -12.379
-  :finance_report_date: '2026-03-31'
-  :pb: 2.56
-  :pb_percentile: 0.9196
-  :drop_30d: -10.5045
-  :asset_liability_ratio: 40.1002
-  :interest_debt_ratio: 10.6831
-  :fcf_yield: -2.1907
-  :fcf_ev: -2.106
-  :fcff_back: -5675117700.9651
-  :roe_jq: 4.21
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 9694985029.0
-  :is_core: false
-  :core_categories: []
-  :is_whitelist: false
-  :whitelist_big_category:
-  :whitelist_sub_category:
-  :whitelist_categories: []
-  :first_yield:
-  :add_yield:
-  :heavy_yield:
-  :buy_method: min3y
-  :buy_price_5: 18.9599776
-  :buy_price_6: 15.799981333333331
-  :buy_price_7: 13.542841142857142
-  :need_drop_to_5: 29.042
-  :drop_to_5: 29.042
-  :drop_to_6: 40.86833333333334
-  :drop_to_7: 49.315714285714286
-  :roe_5y_avg: 22.762
-  :roe_5y_min: 17.88
-  :annual_dividends:
-  - :year: 2013
-    :cash_dividend: 0.12
-    :dividend_yield: 2.864
-  - :year: 2014
-    :cash_dividend: 0.03
-    :dividend_yield: 0.324
-  - :year: 2015
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2016
-    :cash_dividend: 0.11
-    :dividend_yield: 1.2291
-  - :year: 2017
-    :cash_dividend: 0.418
-    :dividend_yield: 5.2778
-  - :year: 2018
-    :cash_dividend: 0.33
-    :dividend_yield: 3.6304
-  - :year: 2019
-    :cash_dividend: 0.36
-    :dividend_yield: 4.186
-  - :year: 2020
-    :cash_dividend: 0.8
-    :dividend_yield: 7.2926
-  - :year: 2021
-    :cash_dividend: 1.35
-    :dividend_yield: 6.156
-  - :year: 2022
-    :cash_dividend: 2.18
-    :dividend_yield: 11.4496
-  - :year: 2023
-    :cash_dividend: 1.315
-    :dividend_yield: 4.938
-  - :year: 2024
-    :cash_dividend: 1.348
-    :dividend_yield: 6.3769
-  - :year: 2025
-    :cash_dividend: 0.948
-    :dividend_yield: 4.397
-  - :year: 2026
-    :cash_dividend: 0.058
-    :dividend_yield: 0.2171
 - :code: '600329'
   :name: 达仁堂
   :categories:
@@ -15373,124 +16648,6 @@
   - :year: 2026
     :cash_dividend: 0.2
     :dividend_yield: 0.6258
-- :code: '601001'
-  :name: 晋控煤业
-  :categories:
-  - 煤炭开采
-  :avg_dividend_yield_3y: 3.9666
-  :min_dividend_yield_3y: 3.1115
-  :dividend_yield: 3.1114903299203647
-  :consecutive_dividend_years: 5
-  :dividend_cash_per_share_latest_year: 0.547
-  :current_price: 17.58
-  :turnover_rate: 1.89
-  :market_cap: 29424000000.0
-  :volume: 315821.0
-  :avg_price: 18.0647
-  :dividend_payout_ratio: 0.0
-  :pos_30d: 0.6667
-  :pe_ttm: 17.53
-  :pe_percentile: 0.9558
-  :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -33.9034
-  :finance_report_date: '2026-03-31'
-  :pb: 1.54
-  :pb_percentile: 0.7464
-  :drop_30d: -10.0814
-  :asset_liability_ratio: 21.993
-  :interest_debt_ratio: 2.327
-  :fcf_yield: -4.2944
-  :fcf_ev: -4.2675
-  :fcff_back: -1263584697.3473
-  :roe_jq: 1.75
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 1673720136.0
-  :is_core: false
-  :core_categories: []
-  :is_whitelist: false
-  :whitelist_big_category:
-  :whitelist_sub_category:
-  :whitelist_categories: []
-  :first_yield:
-  :add_yield:
-  :heavy_yield:
-  :buy_method: min3y
-  :buy_price_5: 10.940033999999999
-  :buy_price_6: 9.116694999999998
-  :buy_price_7: 7.814309999999999
-  :need_drop_to_5: 37.77
-  :drop_to_5: 37.77
-  :drop_to_6: 48.14166666666667
-  :drop_to_7: 55.55
-  :roe_5y_avg: 23.607999999999997
-  :roe_5y_min: 9.65
-  :annual_dividends:
-  - :year: 2006
-    :cash_dividend: 0.155
-    :dividend_yield: 0.5747
-  - :year: 2007
-    :cash_dividend: 0.16
-    :dividend_yield: 0.674
-  - :year: 2008
-    :cash_dividend: 0.4
-    :dividend_yield: 0.7592
-  - :year: 2009
-    :cash_dividend: 0.53
-    :dividend_yield: 1.5849
-  - :year: 2010
-    :cash_dividend: 0.208
-    :dividend_yield: 1.2051
-  - :year: 2011
-    :cash_dividend: 0.19
-    :dividend_yield: 1.7774
-  - :year: 2012
-    :cash_dividend: 0.012
-    :dividend_yield: 0.1783
-  - :year: 2013
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2014
-    :cash_dividend: 0.027
-    :dividend_yield: 0.2922
-  - :year: 2015
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2016
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2017
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2018
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2019
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2020
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
-  - :year: 2021
-    :cash_dividend: 0.4
-    :dividend_yield: 2.6828
-  - :year: 2022
-    :cash_dividend: 0.63
-    :dividend_yield: 6.5083
-  - :year: 2023
-    :cash_dividend: 0.79
-    :dividend_yield: 4.5533
-  - :year: 2024
-    :cash_dividend: 0.755
-    :dividend_yield: 5.2394
-  - :year: 2025
-    :cash_dividend: 0.547
-    :dividend_yield: 2.8972
-  - :year: 2026
-    :cash_dividend: 0.0
-    :dividend_yield: 0.0
 - :code: '601216'
   :name: 君正集团
   :categories:
@@ -18360,123 +19517,6 @@
   - :year: 2026
     :cash_dividend: 10.0
     :dividend_yield: 2.5808
-- :code: '002142'
-  :name: 宁波银行
-  :categories:
-  - 银行
-  - 金融
-  :avg_dividend_yield_3y: 2.6239
-  :min_dividend_yield_3y: 1.7493
-  :dividend_yield: 3.498542274052478
-  :consecutive_dividend_years: 20
-  :dividend_cash_per_share_latest_year: 1.2
-  :current_price: 34.3
-  :turnover_rate: 0.48
-  :market_cap: 226503000000.0
-  :volume: 318161.0
-  :avg_price: 34.3244
-  :dividend_payout_ratio: 8.4899
-  :pos_30d: 1.0
-  :pe_ttm: 7.28
-  :pe_percentile: 0.3539
-  :valuation_label: 偏高区域
-  :peg: 0.4975
-  :peg_level: 1
-  :net_profit_yoy: 13.9497
-  :finance_report_date: '2026-06-30'
-  :pb: 0.96
-  :pb_percentile: 0.3249
-  :drop_30d: -6.2248
-  :asset_liability_ratio: 92.7822
-  :interest_debt_ratio: 87.1049
-  :fcf_yield:
-  :fcf_ev:
-  :fcff_back:
-  :roe_jq: 3.6
-  :roe_5y_avg_ge_12: true
-  :roe_5y_min_ge_8: true
-  :total_shares: 6603586005.0
-  :is_core: true
-  :core_categories:
-  - 银行
-  :is_whitelist: false
-  :whitelist_big_category:
-  :whitelist_sub_category:
-  :whitelist_categories: []
-  :first_yield:
-  :add_yield:
-  :heavy_yield:
-  :buy_method: min3y
-  :buy_price_5: 12.000198
-  :buy_price_6: 10.000165
-  :buy_price_7: 8.57157
-  :need_drop_to_5: 65.014
-  :drop_to_5: 65.014
-  :drop_to_6: 70.845
-  :drop_to_7: 75.01
-  :roe_5y_avg: 14.796000000000001
-  :roe_5y_min: 13.11
-  :annual_dividends:
-  - :year: 2007
-    :cash_dividend: 0.2
-    :dividend_yield: 1.4993
-  - :year: 2008
-    :cash_dividend: 0.2
-    :dividend_yield: 1.99
-  - :year: 2009
-    :cash_dividend: 0.2
-    :dividend_yield: 1.6667
-  - :year: 2010
-    :cash_dividend: 0.2
-    :dividend_yield: 1.7841
-  - :year: 2011
-    :cash_dividend: 0.2
-    :dividend_yield: 2.0877
-  - :year: 2012
-    :cash_dividend: 0.25
-    :dividend_yield: 2.7778
-  - :year: 2013
-    :cash_dividend: 0.4
-    :dividend_yield: 4.3956
-  - :year: 2014
-    :cash_dividend: 0.45
-    :dividend_yield: 2.1718
-  - :year: 2015
-    :cash_dividend: 0.45
-    :dividend_yield: 2.9316
-  - :year: 2016
-    :cash_dividend: 0.35
-    :dividend_yield: 1.8154
-  - :year: 2017
-    :cash_dividend: 0.4
-    :dividend_yield: 2.4096
-  - :year: 2018
-    :cash_dividend: 0.4
-    :dividend_yield: 1.7219
-  - :year: 2019
-    :cash_dividend: 0.5
-    :dividend_yield: 1.5689
-  - :year: 2020
-    :cash_dividend: 0.5
-    :dividend_yield: 1.3943
-  - :year: 2021
-    :cash_dividend: 0.5
-    :dividend_yield: 1.5015
-  - :year: 2022
-    :cash_dividend: 0.5
-    :dividend_yield: 2.0218
-  - :year: 2023
-    :cash_dividend: 0.6
-    :dividend_yield: 2.765
-  - :year: 2024
-    :cash_dividend: 0.9
-    :dividend_yield: 3.2247
-  - :year: 2025
-    :cash_dividend: 1.2
-    :dividend_yield: 3.8328
-  - :year: 2026
-    :cash_dividend: 0.4
-    :dividend_yield: 1.1662
 - :code: '002001'
   :name: 新和成
   :categories:
