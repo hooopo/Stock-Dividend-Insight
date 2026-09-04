@@ -65,7 +65,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 1.57
+  :roe_jq: 2.61
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 15914873417.0
@@ -189,17 +189,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -11.8403
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -77.2056
+  :finance_report_date: '2026-06-30'
   :pb: 0.89
-  :pb_percentile: 0.4561
+  :pb_percentile: 0.4489
   :drop_30d: 1.2146
-  :asset_liability_ratio: 41.397
-  :interest_debt_ratio: 30.5583
-  :fcf_yield: -3.8127
-  :fcf_ev: -2.9375
-  :fcff_back: -2494852240.5455
-  :roe_jq: 1.23
+  :asset_liability_ratio: 44.742
+  :interest_debt_ratio: 30.4461
+  :fcf_yield: 7.2754
+  :fcf_ev: 5.4838
+  :fcff_back: 4760664564.4151
+  :roe_jq: 1.97
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 13408811475.0
@@ -294,14 +294,14 @@
   :net_profit_yoy: -40.352
   :finance_report_date: '2026-06-30'
   :pb: 0.36
-  :pb_percentile: 0.0176
+  :pb_percentile: 0.0181
   :drop_30d: 0.6515
   :asset_liability_ratio: 91.5172
   :interest_debt_ratio: 87.8919
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.0
+  :roe_jq: 3.28
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 59085573770.0
@@ -404,14 +404,14 @@
   :net_profit_yoy: -10.5764
   :finance_report_date: '2026-06-30'
   :pb: 0.46
-  :pb_percentile: 0.0651
+  :pb_percentile: 0.067
   :drop_30d: 0.7625
   :asset_liability_ratio: 91.6165
   :interest_debt_ratio: 87.6521
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.89
+  :roe_jq: 4.79
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 21162843029.0
@@ -523,14 +523,14 @@
   :net_profit_yoy: -7.1197
   :finance_report_date: '2026-06-30'
   :pb: 0.27
-  :pb_percentile: 0.028
+  :pb_percentile: 0.0295
   :drop_30d: -2.5568
   :asset_liability_ratio: 90.7942
   :interest_debt_ratio: 87.1382
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.02
+  :roe_jq: 3.03
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 43782548476.0
@@ -670,7 +670,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.83
+  :roe_jq: 5.22
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 19405887300.0
@@ -840,7 +840,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.27
+  :roe_jq: 3.6
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 3656227758.0
@@ -920,19 +920,19 @@
   :pe_ttm: 11.59
   :pe_percentile: 0.3876
   :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -22.0482
-  :finance_report_date: '2026-03-31'
+  :peg: 1.4464
+  :peg_level: 3
+  :net_profit_yoy: -16.0427
+  :finance_report_date: '2026-06-30'
   :pb: 1.14
-  :pb_percentile: 0.8086
+  :pb_percentile: 0.8043
   :drop_30d: -2.3895
-  :asset_liability_ratio: 54.134
-  :interest_debt_ratio: 39.7673
-  :fcf_yield: -2.5961
-  :fcf_ev: -1.6474
-  :fcff_back: -1088851520.5847
-  :roe_jq: 2.03
+  :asset_liability_ratio: 56.1105
+  :interest_debt_ratio: 42.6524
+  :fcf_yield: 4.1602
+  :fcf_ev: 2.5172
+  :fcff_back: 1744882914.4233
+  :roe_jq: 4.3
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 4894049008.0
@@ -1094,7 +1094,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.5
+  :roe_jq: 7.49
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 4238429964.0
@@ -1171,19 +1171,19 @@
   :pe_ttm: 15.93
   :pe_percentile: 0.9121
   :valuation_label: 高位区域
-  :peg: 4.4983
-  :peg_level: 4
-  :net_profit_yoy: 3.4879
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -16.4724
+  :finance_report_date: '2026-06-30'
   :pb: 1.68
-  :pb_percentile: 0.9207
+  :pb_percentile: 0.9183
   :drop_30d: 5.6586
-  :asset_liability_ratio: 62.6592
-  :interest_debt_ratio: 43.2162
-  :fcf_yield: -3.6376
-  :fcf_ev: -1.9089
-  :fcff_back: -1788547840.5064
-  :roe_jq: 2.26
+  :asset_liability_ratio: 64.0553
+  :interest_debt_ratio: 43.2125
+  :fcf_yield: 4.6865
+  :fcf_ev: 2.4082
+  :fcff_back: 2304267247.9322
+  :roe_jq: 4.07
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 4834611602.0
@@ -1318,7 +1318,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.91
+  :roe_jq: 5.3
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 21143035714.0
@@ -1342,7 +1342,7 @@
   :drop_to_5: 0.7140000000000035
   :drop_to_6: 17.261666666666663
   :drop_to_7: 29.08142857142858
-  :roe_5y_avg: 8.84
+  :roe_5y_avg: 8.794
   :roe_5y_min: 6.11
   :annual_dividends:
   - :year: 2007
@@ -1437,7 +1437,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.37
+  :roe_jq: 6.71
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 25219836891.0
@@ -1561,14 +1561,14 @@
   :net_profit_yoy: 8.2858
   :finance_report_date: '2026-06-30'
   :pb: 0.77
-  :pb_percentile: 0.3245
+  :pb_percentile: 0.3249
   :drop_30d: -6.6785
   :asset_liability_ratio: 93.1358
   :interest_debt_ratio: 88.4196
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.57
+  :roe_jq: 7.25
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 12363606010.0
@@ -1674,17 +1674,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -4.2082
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -7.4845
+  :finance_report_date: '2026-06-30'
   :pb: 1.53
   :pb_percentile: 0.4147
   :drop_30d: -4.4901
-  :asset_liability_ratio: 33.7319
-  :interest_debt_ratio: 4.7516
-  :fcf_yield: -1.0799
-  :fcf_ev: -1.063
-  :fcff_back: -23494126177.9394
-  :roe_jq: 2.1
+  :asset_liability_ratio: 32.7858
+  :interest_debt_ratio: 4.6584
+  :fcf_yield: 3.0672
+  :fcf_ev: 3.0222
+  :fcff_back: 66730801844.9243
+  :roe_jq: 5.6
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 21690937188.0
@@ -1761,7 +1761,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.27
+  :roe_jq: 4.05
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 88363746630.0
@@ -1868,19 +1868,19 @@
   :pe_ttm: 15.99
   :pe_percentile: 0.5335
   :valuation_label: 高位区域
-  :peg: 7.6973
-  :peg_level: 4
-  :net_profit_yoy: 1.9141
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -17.4169
+  :finance_report_date: '2026-06-30'
   :pb: 1.72
-  :pb_percentile: 0.6575
+  :pb_percentile: 0.6537
   :drop_30d: 3.6511
-  :asset_liability_ratio: 59.5845
-  :interest_debt_ratio: 50.1203
-  :fcf_yield: -4.9709
-  :fcf_ev: -2.7183
-  :fcff_back: -5670045792.0382
-  :roe_jq: 3.06
+  :asset_liability_ratio: 61.2637
+  :interest_debt_ratio: 50.3574
+  :fcf_yield: 4.5992
+  :fcf_ev: 2.4745
+  :fcff_back: 5246023562.3191
+  :roe_jq: 5.05
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 8004491228.0
@@ -2024,19 +2024,19 @@
   :pe_ttm: 14.66
   :pe_percentile: 0.7948
   :valuation_label: 高位区域
-  :peg: 1.0819
-  :peg_level: 3
-  :net_profit_yoy: -2.6713
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: 15.0625
+  :finance_report_date: '2026-06-30'
   :pb: 2.24
-  :pb_percentile: 0.9492
+  :pb_percentile: 0.943
   :drop_30d: -1.2262
-  :asset_liability_ratio: 53.1144
-  :interest_debt_ratio: 45.9021
-  :fcf_yield: 6.2062
-  :fcf_ev: 4.8763
-  :fcff_back: 1750712254.1617
-  :roe_jq: 4.1
+  :asset_liability_ratio: 56.8807
+  :interest_debt_ratio: 45.4975
+  :fcf_yield: 13.4339
+  :fcf_ev: 10.3746
+  :fcff_back: 3789566917.0695
+  :roe_jq: 7.6
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1708600847.0
@@ -2164,14 +2164,14 @@
   :net_profit_yoy: 0.3794
   :finance_report_date: '2026-06-30'
   :pb: 0.53
-  :pb_percentile: 0.3534
+  :pb_percentile: 0.3553
   :drop_30d: -3.556
   :asset_liability_ratio: 92.1579
   :interest_debt_ratio: 90.0196
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.54
+  :roe_jq: 5.25
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 14209053069.0
@@ -2251,19 +2251,19 @@
   :pe_ttm: 17.1
   :pe_percentile: 0.8295
   :valuation_label: 高位区域
-  :peg: 1.5703
-  :peg_level: 4
-  :net_profit_yoy: -31.2703
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -0.357
+  :finance_report_date: '2026-06-30'
   :pb: 2.58
-  :pb_percentile: 0.9344
+  :pb_percentile: 0.9245
   :drop_30d: 8.169
-  :asset_liability_ratio: 48.0381
-  :interest_debt_ratio: 39.5357
-  :fcf_yield: -3.259
-  :fcf_ev: -2.7228
-  :fcff_back: -888525321.2213
-  :roe_jq: 3.99
+  :asset_liability_ratio: 50.489
+  :interest_debt_ratio: 38.6911
+  :fcf_yield: 3.5993
+  :fcf_ev: 2.9903
+  :fcff_back: 981325573.5532
+  :roe_jq: 7.41
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 2090797546.0
@@ -2401,19 +2401,19 @@
   :pe_ttm: 13.1
   :pe_percentile: 0.7344
   :valuation_label: 高位区域
-  :peg: 0.5588
-  :peg_level: 2
-  :net_profit_yoy: 23.4578
-  :finance_report_date: '2026-03-31'
+  :peg: 1.507
+  :peg_level: 4
+  :net_profit_yoy: 6.7841
+  :finance_report_date: '2026-06-30'
   :pb: 1.3
-  :pb_percentile: 0.8865
+  :pb_percentile: 0.8841
   :drop_30d: 1.2632
-  :asset_liability_ratio: 8.3302
-  :interest_debt_ratio: 0.3499
-  :fcf_yield: 0.1599
-  :fcf_ev: 0.1598
-  :fcff_back: 44431320.9338
-  :roe_jq: 2.17
+  :asset_liability_ratio: 8.8761
+  :interest_debt_ratio: 0.5747
+  :fcf_yield: 5.1307
+  :fcf_ev: 5.1283
+  :fcff_back: 1425980014.002
+  :roe_jq: 4.63
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 5926012793.0
@@ -2512,19 +2512,19 @@
   :pe_ttm: 13.39
   :pe_percentile: 0.6651
   :valuation_label: 偏高区域
-  :peg: 0.9251
-  :peg_level: 2
-  :net_profit_yoy: 12.8073
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -6.235
+  :finance_report_date: '2026-06-30'
   :pb: 1.51
-  :pb_percentile: 0.3112
+  :pb_percentile: 0.3097
   :drop_30d: -4.0201
-  :asset_liability_ratio: 42.7849
-  :interest_debt_ratio: 31.2073
-  :fcf_yield: -6.9668
-  :fcf_ev: -5.7418
-  :fcff_back: -4359032960.0322
-  :roe_jq: 3.22
+  :asset_liability_ratio: 45.6405
+  :interest_debt_ratio: 35.5487
+  :fcf_yield: -3.9496
+  :fcf_ev: -3.1243
+  :fcff_back: -2471218140.2163
+  :roe_jq: 5.86
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 5037761674.0
@@ -2665,7 +2665,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.77
+  :roe_jq: 5.38
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 9644395116.0
@@ -2730,19 +2730,19 @@
   :pe_ttm: 15.88
   :pe_percentile: 0.9102
   :valuation_label: 偏低区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -7.2638
-  :finance_report_date: '2026-03-31'
+  :peg: 0.7608
+  :peg_level: 2
+  :net_profit_yoy: 21.1649
+  :finance_report_date: '2026-06-30'
   :pb: 0.58
-  :pb_percentile: 0.019
+  :pb_percentile: 0.0162
   :drop_30d: -0.4158
-  :asset_liability_ratio: 14.0612
-  :interest_debt_ratio: 6.4941
-  :fcf_yield: 0.0371
-  :fcf_ev: 0.0364
-  :fcff_back: 35631261.4159
-  :roe_jq: 1.44
+  :asset_liability_ratio: 15.8821
+  :interest_debt_ratio: 6.4062
+  :fcf_yield: 6.5877
+  :fcf_ev: 6.4412
+  :fcff_back: 6320130132.2588
+  :roe_jq: 2.57
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 19862939958.0
@@ -2852,19 +2852,19 @@
   :pe_ttm: 13.14
   :pe_percentile: 0.2499
   :valuation_label: 偏高区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: 18.3741
-  :finance_report_date: '2026-03-31'
+  :peg: 0.0179
+  :peg_level: 1
+  :net_profit_yoy: -65.2985
+  :finance_report_date: '2026-06-30'
   :pb: 0.79
-  :pb_percentile: 0.0646
+  :pb_percentile: 0.057
   :drop_30d: 3.7795
-  :asset_liability_ratio: 63.2771
-  :interest_debt_ratio: 45.5243
-  :fcf_yield: -7.573
-  :fcf_ev: -3.5524
-  :fcff_back: -1622218766.9926
-  :roe_jq: 1.95
+  :asset_liability_ratio: 64.5448
+  :interest_debt_ratio: 41.1416
+  :fcf_yield: -1.106
+  :fcf_ev: -0.5368
+  :fcff_back: -236912815.9627
+  :roe_jq: 3.42
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 3505891980.0
@@ -3001,19 +3001,19 @@
   :pe_ttm: 14.13
   :pe_percentile: 0.7107
   :valuation_label: 高位区域
-  :peg: 6.9464
+  :peg: 2.3797
   :peg_level: 4
-  :net_profit_yoy: 1.4961
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 6.9464
+  :finance_report_date: '2026-06-30'
   :pb: 0.97
-  :pb_percentile: 0.3919
+  :pb_percentile: 0.391
   :drop_30d: -2.2965
-  :asset_liability_ratio: 43.1624
-  :interest_debt_ratio: 33.1737
-  :fcf_yield: 1.599
-  :fcf_ev: 1.1829
-  :fcff_back: 1064828870.6861
-  :roe_jq: 1.9
+  :asset_liability_ratio: 43.2861
+  :interest_debt_ratio: 32.0705
+  :fcf_yield: 6.9609
+  :fcf_ev: 5.1805
+  :fcff_back: 4635385623.4385
+  :roe_jq: 3.69
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 6795102040.0
@@ -3091,19 +3091,19 @@
   :pe_ttm: 9.0
   :pe_percentile: 0.362
   :valuation_label: 偏高区域
-  :peg: 2.5727
-  :peg_level: 4
-  :net_profit_yoy: 2.5715
-  :finance_report_date: '2026-03-31'
+  :peg: 1.1524
+  :peg_level: 3
+  :net_profit_yoy: 9.181
+  :finance_report_date: '2026-06-30'
   :pb: 0.86
   :pb_percentile: 0.0708
   :drop_30d: -5.029
-  :asset_liability_ratio: 29.0853
-  :interest_debt_ratio: 21.732
-  :fcf_yield: -4.8838
-  :fcf_ev: -4.3829
-  :fcff_back: -6173562068.7777
-  :roe_jq: 2.8
+  :asset_liability_ratio: 31.5488
+  :interest_debt_ratio: 23.0541
+  :fcf_yield: -2.9116
+  :fcf_ev: -2.56
+  :fcff_back: -3680562532.6964
+  :roe_jq: 5.87
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 23279926335.0
@@ -3238,7 +3238,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.43
+  :roe_jq: 4.8
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 120095018450.0
@@ -3308,19 +3308,19 @@
   :pe_ttm: 12.29
   :pe_percentile: 0.8935
   :valuation_label: 偏高区域
-  :peg: 1.4089
-  :peg_level: 3
-  :net_profit_yoy: 5.6513
-  :finance_report_date: '2026-03-31'
+  :peg: 0.5151
+  :peg_level: 2
+  :net_profit_yoy: -19.8532
+  :finance_report_date: '2026-06-30'
   :pb: 1.13
-  :pb_percentile: 0.7746
+  :pb_percentile: 0.773
   :drop_30d: -2.3585
-  :asset_liability_ratio: 44.2898
-  :interest_debt_ratio: 13.7864
-  :fcf_yield: -0.5202
-  :fcf_ev: -0.4709
-  :fcff_back: -242934238.3218
-  :roe_jq: 1.64
+  :asset_liability_ratio: 44.1611
+  :interest_debt_ratio: 13.5186
+  :fcf_yield: 6.5054
+  :fcf_ev: 5.9072
+  :fcff_back: 3038092729.5758
+  :roe_jq: 4.12
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 7173732718.0
@@ -3399,14 +3399,14 @@
   :net_profit_yoy: 6.6356
   :finance_report_date: '2026-06-30'
   :pb: 0.45
-  :pb_percentile: 0.1661
+  :pb_percentile: 0.1655
   :drop_30d: -1.0204
   :asset_liability_ratio: 94.2788
   :interest_debt_ratio: 91.2256
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.32
+  :roe_jq: 4.31
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 27464646464.0
@@ -3477,19 +3477,19 @@
   :pe_ttm: 19.21
   :pe_percentile: 0.5226
   :valuation_label: 高位区域
-  :peg: 1.0267
-  :peg_level: 3
-  :net_profit_yoy: 30.5016
-  :finance_report_date: '2026-03-31'
+  :peg: 15.4032
+  :peg_level: 4
+  :net_profit_yoy: 1.5125
+  :finance_report_date: '2026-06-30'
   :pb: 3.22
-  :pb_percentile: 0.8641
+  :pb_percentile: 0.8584
   :drop_30d: -2.3775
-  :asset_liability_ratio: 57.3271
-  :interest_debt_ratio: 51.5376
-  :fcf_yield: 0.5108
-  :fcf_ev: 0.4123
-  :fcff_back: 3551983543.2944
-  :roe_jq: 3.01
+  :asset_liability_ratio: 59.3635
+  :interest_debt_ratio: 50.4793
+  :fcf_yield: 1.8709
+  :fcf_ev: 1.5065
+  :fcff_back: 13009915164.2689
+  :roe_jq: 6.55
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 24468226600.0
@@ -3621,7 +3621,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.08
+  :roe_jq: 6.12
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 4470652173.0
@@ -3697,14 +3697,14 @@
   :net_profit_yoy: 10.0716
   :finance_report_date: '2026-06-30'
   :pb: 0.71
-  :pb_percentile: 0.0214
+  :pb_percentile: 0.0261
   :drop_30d: -3.2154
   :asset_liability_ratio: 91.6469
   :interest_debt_ratio: 89.0923
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.75
+  :roe_jq: 6.67
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 3648130841.0
@@ -3789,14 +3789,14 @@
   :net_profit_yoy: 7.9852
   :finance_report_date: '2026-06-30'
   :pb: 0.83
-  :pb_percentile: 0.9178
+  :pb_percentile: 0.9183
   :drop_30d: -5.8621
   :asset_liability_ratio: 93.5185
   :interest_debt_ratio: 88.2307
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 4.09
+  :roe_jq: 7.86
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 18351302931.0
@@ -3875,17 +3875,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -17.0812
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -13.5322
+  :finance_report_date: '2026-06-30'
   :pb: 1.24
   :pb_percentile: 0.6355
   :drop_30d: -2.4077
-  :asset_liability_ratio: 45.8666
-  :interest_debt_ratio: 5.1983
-  :fcf_yield: -3.2859
-  :fcf_ev: -3.172
-  :fcff_back: -19183344781.8677
-  :roe_jq: 1.58
+  :asset_liability_ratio: 45.8129
+  :interest_debt_ratio: 5.344
+  :fcf_yield: 6.7291
+  :fcf_ev: 6.4884
+  :fcff_back: 39285834177.5273
+  :roe_jq: 4.2
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 91507210031.0
@@ -3952,17 +3952,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -1.761
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -10.7218
+  :finance_report_date: '2026-06-30'
   :pb: 1.72
-  :pb_percentile: 0.5316
+  :pb_percentile: 0.5264
   :drop_30d: -5.2069
-  :asset_liability_ratio: 32.6311
-  :interest_debt_ratio: 27.1445
-  :fcf_yield: -2.9437
-  :fcf_ev: -2.7193
-  :fcff_back: -2261503626.6521
-  :roe_jq: 3.18
+  :asset_liability_ratio: 35.0575
+  :interest_debt_ratio: 26.3536
+  :fcf_yield: 2.9944
+  :fcf_ev: 2.7569
+  :fcff_back: 2300401222.3871
+  :roe_jq: 5.06
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 4874619289.0
@@ -4124,7 +4124,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.17
+  :roe_jq: 6.17
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 4021592039.0
@@ -4210,7 +4210,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.21
+  :roe_jq: 4.32
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 356406273062.0
@@ -4325,14 +4325,14 @@
   :net_profit_yoy: 7.0607
   :finance_report_date: '2026-06-30'
   :pb: 0.56
-  :pb_percentile: 0.6983
+  :pb_percentile: 0.7055
   :drop_30d: -7.1207
   :asset_liability_ratio: 91.7088
   :interest_debt_ratio: 84.8276
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.99
+  :roe_jq: 6.0
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 11356936416.0
@@ -4405,17 +4405,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -24.6319
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -20.2229
+  :finance_report_date: '2026-06-30'
   :pb: 1.86
-  :pb_percentile: 0.8765
+  :pb_percentile: 0.8679
   :drop_30d: 1.6667
-  :asset_liability_ratio: 39.6507
-  :interest_debt_ratio: 29.6107
-  :fcf_yield: -16.4288
-  :fcf_ev: -14.2333
-  :fcff_back: -6075694855.8831
-  :roe_jq: 3.67
+  :asset_liability_ratio: 43.0862
+  :interest_debt_ratio: 27.5946
+  :fcf_yield: -8.3246
+  :fcf_ev: -7.1782
+  :fcff_back: -3078600603.0137
+  :roe_jq: 7.49
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 7835169491.0
@@ -4562,19 +4562,19 @@
   :pe_ttm: 13.2
   :pe_percentile: 0.0527
   :valuation_label: 中位区域
-  :peg: 3.4693
+  :peg: 8.9461
   :peg_level: 4
-  :net_profit_yoy: -0.4427
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -3.4979
+  :finance_report_date: '2026-06-30'
   :pb: 0.83
   :pb_percentile: 0.0323
   :drop_30d: -2.3599
-  :asset_liability_ratio: 24.462
-  :interest_debt_ratio: 15.9975
-  :fcf_yield: 1.9487
-  :fcf_ev: 1.8209
-  :fcff_back: 1315496714.9105
-  :roe_jq: 1.44
+  :asset_liability_ratio: 26.7819
+  :interest_debt_ratio: 18.0293
+  :fcf_yield: 7.5359
+  :fcf_ev: 6.9204
+  :fcff_back: 5087268010.327
+  :roe_jq: 3.12
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 19454466858.0
@@ -4672,19 +4672,19 @@
   :pe_ttm: 12.22
   :pe_percentile: 0.3971
   :valuation_label: 中位区域
-  :peg: 1.3584
-  :peg_level: 3
-  :net_profit_yoy: 7.6713
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -22.7131
+  :finance_report_date: '2026-06-30'
   :pb: 0.98
-  :pb_percentile: 0.0086
+  :pb_percentile: 0.0057
   :drop_30d: 2.7778
-  :asset_liability_ratio: 63.2275
-  :interest_debt_ratio: 45.2492
-  :fcf_yield: -9.4216
-  :fcf_ev: -3.7392
-  :fcff_back: -1936525775.2825
-  :roe_jq: 1.39
+  :asset_liability_ratio: 62.9699
+  :interest_debt_ratio: 45.4789
+  :fcf_yield: -3.865
+  :fcf_ev: -1.5424
+  :fcff_back: -794414063.5334
+  :roe_jq: 2.7
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 7340714285.0
@@ -4817,14 +4817,14 @@
   :net_profit_yoy: 5.7771
   :finance_report_date: '2026-06-30'
   :pb: 0.8
-  :pb_percentile: 0.7425
+  :pb_percentile: 0.743
   :drop_30d: -10.241
   :asset_liability_ratio: 91.8995
   :interest_debt_ratio: 87.1565
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.46
+  :roe_jq: 4.76
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 261600364298.0
@@ -4933,17 +4933,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -17.989
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -46.5155
+  :finance_report_date: '2026-06-30'
   :pb: 0.78
-  :pb_percentile: 0.0936
+  :pb_percentile: 0.0945
   :drop_30d: 3.1891
-  :asset_liability_ratio: 43.1089
-  :interest_debt_ratio: 4.9294
-  :fcf_yield: -12.5173
-  :fcf_ev: -11.3056
-  :fcff_back: -16632258559.2517
-  :roe_jq: 1.24
+  :asset_liability_ratio: 43.5983
+  :interest_debt_ratio: 4.6286
+  :fcf_yield: -26.1519
+  :fcf_ev: -23.7124
+  :fcff_back: -34749106261.0943
+  :roe_jq: 2.41
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 31264470588.0
@@ -5065,19 +5065,19 @@
   :pe_ttm: 12.94
   :pe_percentile: 0.7338
   :valuation_label: 偏高区域
-  :peg: 0.9221
-  :peg_level: 2
-  :net_profit_yoy: -3.6329
-  :finance_report_date: '2026-03-31'
+  :peg: 0.459
+  :peg_level: 1
+  :net_profit_yoy: 5.9345
+  :finance_report_date: '2026-06-30'
   :pb: 2.37
   :pb_percentile: 0.6115
   :drop_30d: -16.5414
-  :asset_liability_ratio: 56.1496
-  :interest_debt_ratio: 40.705
-  :fcf_yield: 0.1334
-  :fcf_ev: 0.1093
-  :fcff_back: 34729135.3519
-  :roe_jq: 4.92
+  :asset_liability_ratio: 54.9165
+  :interest_debt_ratio: 38.6878
+  :fcf_yield: 6.8108
+  :fcf_ev: 5.6787
+  :fcff_back: 1773604560.8774
+  :roe_jq: 9.94
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 2100080645.0
@@ -5157,7 +5157,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.12
+  :roe_jq: 4.33
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 322212480974.0
@@ -5267,19 +5267,19 @@
   :pe_ttm: 12.38
   :pe_percentile: 0.553
   :valuation_label: 高位区域
-  :peg: 3.911
-  :peg_level: 4
-  :net_profit_yoy: 3.7785
-  :finance_report_date: '2026-03-31'
+  :peg: 1.0413
+  :peg_level: 3
+  :net_profit_yoy: 7.3738
+  :finance_report_date: '2026-06-30'
   :pb: 0.9
   :pb_percentile: 0.7549
   :drop_30d: -8.2916
-  :asset_liability_ratio: 34.9403
-  :interest_debt_ratio: 26.3014
-  :fcf_yield: 3.8772
-  :fcf_ev: 2.9384
-  :fcff_back: 2287567329.6238
-  :roe_jq: 1.74
+  :asset_liability_ratio: 35.8523
+  :interest_debt_ratio: 25.2265
+  :fcf_yield: 18.9111
+  :fcf_ev: 14.3453
+  :fcff_back: 11157728526.6454
+  :roe_jq: 4.25
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 2482162389.0
@@ -5431,17 +5431,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -32.9209
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 0.1083
+  :finance_report_date: '2026-06-30'
   :pb: 2.54
   :pb_percentile: 0.466
   :drop_30d: -11.5229
-  :asset_liability_ratio: 54.0504
-  :interest_debt_ratio: 27.6848
-  :fcf_yield: 2.9066
-  :fcf_ev: 2.1543
-  :fcff_back: 1732689801.9339
-  :roe_jq: 2.68
+  :asset_liability_ratio: 54.2269
+  :interest_debt_ratio: 22.8442
+  :fcf_yield: 20.1664
+  :fcf_ev: 15.7006
+  :fcff_back: 12021796616.0458
+  :roe_jq: 8.18
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 3095171339.0
@@ -5598,14 +5598,14 @@
   :net_profit_yoy: 5.3523
   :finance_report_date: '2026-06-30'
   :pb: 0.85
-  :pb_percentile: 0.8594
+  :pb_percentile: 0.8608
   :drop_30d: -7.4074
   :asset_liability_ratio: 93.4686
   :interest_debt_ratio: 90.1711
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.65
+  :roe_jq: 5.07
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 349983045977.0
@@ -5715,7 +5715,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.78
+  :roe_jq: 4.81
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 55645106861.0
@@ -5821,19 +5821,19 @@
   :pe_ttm: 10.48
   :pe_percentile: 0.419
   :valuation_label: 偏高区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -13.5708
-  :finance_report_date: '2026-03-31'
+  :peg: 0.7331
+  :peg_level: 2
+  :net_profit_yoy: 15.9945
+  :finance_report_date: '2026-06-30'
   :pb: 1.12
-  :pb_percentile: 0.4855
+  :pb_percentile: 0.4846
   :drop_30d: -3.4419
-  :asset_liability_ratio: 40.4428
-  :interest_debt_ratio: 35.7957
-  :fcf_yield: 0.1731
-  :fcf_ev: 0.1354
-  :fcff_back: 53501767.8019
-  :roe_jq: 2.34
+  :asset_liability_ratio: 40.9451
+  :interest_debt_ratio: 34.366
+  :fcf_yield: 6.5741
+  :fcf_ev: 5.178
+  :fcff_back: 2032375576.0373
+  :roe_jq: 4.93
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 2780125899.0
@@ -5952,19 +5952,19 @@
   :pe_ttm: 15.8
   :pe_percentile: 0.0318
   :valuation_label: 中位区域
-  :peg: 1.7508
+  :peg: 3.3247
   :peg_level: 4
-  :net_profit_yoy: 8.8488
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 4.5975
+  :finance_report_date: '2026-06-30'
   :pb: 1.3
-  :pb_percentile: 0.3173
+  :pb_percentile: 0.3169
   :drop_30d: -0.4435
-  :asset_liability_ratio: 17.9132
-  :interest_debt_ratio: 10.291
-  :fcf_yield: -0.3609
-  :fcf_ev: -0.3541
-  :fcff_back: -85002402.5924
-  :roe_jq: 1.87
+  :asset_liability_ratio: 17.7345
+  :interest_debt_ratio: 10.6498
+  :fcf_yield: -2.5937
+  :fcf_ev: -2.5445
+  :fcff_back: -610919243.2138
+  :roe_jq: 3.81
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 5199558498.0
@@ -6102,19 +6102,19 @@
   :pe_ttm: 11.51
   :pe_percentile: 0.8118
   :valuation_label: 高位区域
-  :peg: 89.9757
+  :peg: 2.8147
   :peg_level: 4
-  :net_profit_yoy: -1.9984
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -3.5771
+  :finance_report_date: '2026-06-30'
   :pb: 1.27
   :pb_percentile: 0.5976
   :drop_30d: -2.4472
-  :asset_liability_ratio: 24.5097
-  :interest_debt_ratio: 6.2245
-  :fcf_yield: -0.8098
-  :fcf_ev: -0.7959
-  :fcff_back: -484136586.5737
-  :roe_jq: 2.96
+  :asset_liability_ratio: 26.9155
+  :interest_debt_ratio: 6.5361
+  :fcf_yield: 3.3874
+  :fcf_ev: 3.3181
+  :fcff_back: 2025116477.9334
+  :roe_jq: 5.86
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 6491096634.0
@@ -6189,19 +6189,19 @@
   :pe_ttm: 19.13
   :pe_percentile: 0.9772
   :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -10.7289
-  :finance_report_date: '2026-03-31'
+  :peg: 0.6744
+  :peg_level: 2
+  :net_profit_yoy: 15.4407
+  :finance_report_date: '2026-06-30'
   :pb: 2.29
   :pb_percentile: 0.9895
   :drop_30d: -10.7209
-  :asset_liability_ratio: 29.0313
-  :interest_debt_ratio: 16.0279
-  :fcf_yield: 6.1241
-  :fcf_ev: 5.9153
-  :fcff_back: 63239596962.7576
-  :roe_jq: 2.4
+  :asset_liability_ratio: 40.2728
+  :interest_debt_ratio: 18.3264
+  :fcf_yield: 9.0724
+  :fcf_ev: 8.5121
+  :fcff_back: 93684440717.4547
+  :roe_jq: 5.83
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 21689434992.0
@@ -6319,7 +6319,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.32
+  :roe_jq: 3.96
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 33305832449.0
@@ -6462,7 +6462,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.9
+  :roe_jq: 6.0
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 6153814147.0
@@ -6535,14 +6535,14 @@
   :net_profit_yoy: 9.6331
   :finance_report_date: '2026-06-30'
   :pb: 0.87
-  :pb_percentile: 0.4247
+  :pb_percentile: 0.4252
   :drop_30d: -6.8111
   :asset_liability_ratio: 92.9576
   :interest_debt_ratio: 91.3916
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 4.69
+  :roe_jq: 8.87
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 7248985507.0
@@ -6624,17 +6624,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -9.9305
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -31.3749
+  :finance_report_date: '2026-06-30'
   :pb: 1.13
-  :pb_percentile: 0.5458
+  :pb_percentile: 0.5449
   :drop_30d: -2.5424
-  :asset_liability_ratio: 59.7073
-  :interest_debt_ratio: 49.9772
-  :fcf_yield: -7.3761
-  :fcf_ev: -3.0996
-  :fcff_back: -4145446201.7728
-  :roe_jq: 3.39
+  :asset_liability_ratio: 60.6774
+  :interest_debt_ratio: 49.3939
+  :fcf_yield: 14.6202
+  :fcf_ev: 6.1088
+  :fcff_back: 8216716857.3811
+  :roe_jq: 5.76
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 11611776859.0
@@ -6751,19 +6751,19 @@
   :pe_ttm: 12.47
   :pe_percentile: 0.8983
   :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -12.379
-  :finance_report_date: '2026-03-31'
+  :peg: 0.1167
+  :peg_level: 1
+  :net_profit_yoy: 149.2312
+  :finance_report_date: '2026-06-30'
   :pb: 2.52
   :pb_percentile: 0.9026
   :drop_30d: -9.8368
-  :asset_liability_ratio: 40.1002
-  :interest_debt_ratio: 10.6831
-  :fcf_yield: -2.2308
-  :fcf_ev: -2.143
-  :fcff_back: -5675117700.9651
-  :roe_jq: 4.21
+  :asset_liability_ratio: 40.2639
+  :interest_debt_ratio: 10.9175
+  :fcf_yield: 0.5588
+  :fcf_ev: 0.5358
+  :fcff_back: 1421608242.3193
+  :roe_jq: 10.9
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 9695007621.0
@@ -6851,19 +6851,19 @@
   :pe_ttm: 22.24
   :pe_percentile: 0.9214
   :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -9.3278
-  :finance_report_date: '2026-03-31'
+  :peg: 2.4894
+  :peg_level: 4
+  :net_profit_yoy: 15.0566
+  :finance_report_date: '2026-06-30'
   :pb: 1.78
   :pb_percentile: 0.8298
   :drop_30d: -9.5238
-  :asset_liability_ratio: 65.9886
-  :interest_debt_ratio: 55.7713
-  :fcf_yield: -1.8194
-  :fcf_ev: -0.9655
-  :fcff_back: -4014945253.5731
-  :roe_jq: 2.2
+  :asset_liability_ratio: 68.2459
+  :interest_debt_ratio: 58.4641
+  :fcf_yield: -0.6495
+  :fcf_ev: -0.3139
+  :fcff_back: -1433217829.8862
+  :roe_jq: 4.6
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 50498855835.0
@@ -6934,19 +6934,19 @@
   :pe_ttm: 21.98
   :pe_percentile: 0.7857
   :valuation_label: 高位区域
-  :peg: 16.3685
-  :peg_level: 4
-  :net_profit_yoy: 2.3229
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -8.6348
+  :finance_report_date: '2026-06-30'
   :pb: 2.6
-  :pb_percentile: 0.7397
+  :pb_percentile: 0.7363
   :drop_30d: -0.1026
-  :asset_liability_ratio: 60.0391
-  :interest_debt_ratio: 50.8355
-  :fcf_yield: -1.4981
-  :fcf_ev: -1.0822
-  :fcff_back: -2724098194.1758
-  :roe_jq: 2.1
+  :asset_liability_ratio: 60.1578
+  :interest_debt_ratio: 50.3326
+  :fcf_yield: -0.3445
+  :fcf_ev: -0.2484
+  :fcff_back: -626442202.1302
+  :roe_jq: 5.91
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 18631045081.0
@@ -7023,19 +7023,19 @@
   :pe_ttm: 16.77
   :pe_percentile: 0.9278
   :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -33.9034
-  :finance_report_date: '2026-03-31'
+  :peg: 3.2558
+  :peg_level: 4
+  :net_profit_yoy: 5.7615
+  :finance_report_date: '2026-06-30'
   :pb: 1.47
-  :pb_percentile: 0.6337
+  :pb_percentile: 0.6309
   :drop_30d: -3.5714
-  :asset_liability_ratio: 21.993
-  :interest_debt_ratio: 2.327
-  :fcf_yield: -4.4884
-  :fcf_ev: -4.4591
-  :fcff_back: -1263584697.3473
-  :roe_jq: 1.75
+  :asset_liability_ratio: 22.1541
+  :interest_debt_ratio: 2.2047
+  :fcf_yield: -0.6566
+  :fcf_ev: -0.6525
+  :fcff_back: -184851961.1182
+  :roe_jq: 3.79
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1673721759.0
@@ -7144,19 +7144,19 @@
   :pe_ttm: 20.22
   :pe_percentile: 0.5363
   :valuation_label: 高位区域
-  :peg: 0.3692
+  :peg: 0.4812
   :peg_level: 1
-  :net_profit_yoy: 58.1195
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 39.6418
+  :finance_report_date: '2026-06-30'
   :pb: 4.3
-  :pb_percentile: 0.9686
+  :pb_percentile: 0.9672
   :drop_30d: 11.2309
-  :asset_liability_ratio: 53.6634
-  :interest_debt_ratio: 46.456
-  :fcf_yield: -1.2411
-  :fcf_ev: -1.0579
-  :fcff_back: -966560258.9455
-  :roe_jq: 4.53
+  :asset_liability_ratio: 55.1961
+  :interest_debt_ratio: 46.5211
+  :fcf_yield: 0.4588
+  :fcf_ev: 0.3903
+  :fcff_back: 357288542.7406
+  :roe_jq: 9.06
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: false
   :total_shares: 7882388663.0
@@ -7287,17 +7287,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -9.83
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -50.997
+  :finance_report_date: '2026-06-30'
   :pb: 1.67
-  :pb_percentile: 0.4822
+  :pb_percentile: 0.4698
   :drop_30d: 3.6517
-  :asset_liability_ratio: 66.3237
-  :interest_debt_ratio: 52.4705
-  :fcf_yield: 2.6961
-  :fcf_ev: 0.9028
-  :fcff_back: 2903417554.0838
-  :roe_jq: 5.78
+  :asset_liability_ratio: 65.8724
+  :interest_debt_ratio: 51.6507
+  :fcf_yield: 5.7929
+  :fcf_ev: 1.9629
+  :fcff_back: 6238314173.5535
+  :roe_jq: 8.13
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 15698104956.0
@@ -7425,17 +7425,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -34.1913
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -37.6622
+  :finance_report_date: '2026-06-30'
   :pb: 1.58
   :pb_percentile: 0.4124
   :drop_30d: -2.9478
-  :asset_liability_ratio: 69.4407
-  :interest_debt_ratio: 60.0354
-  :fcf_yield: -16.4731
-  :fcf_ev: -6.0244
-  :fcff_back: -30764620994.834
-  :roe_jq: 1.73
+  :asset_liability_ratio: 70.4526
+  :interest_debt_ratio: 60.0885
+  :fcf_yield: -15.9284
+  :fcf_ev: -5.7184
+  :fcff_back: -29747488486.4201
+  :roe_jq: 3.05
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 20567951541.0
@@ -7520,17 +7520,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -38.6266
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -30.8457
+  :finance_report_date: '2026-06-30'
   :pb: 2.03
-  :pb_percentile: 0.0071
+  :pb_percentile: 0.0048
   :drop_30d: 6.3595
-  :asset_liability_ratio: 42.9486
-  :interest_debt_ratio: 25.1674
-  :fcf_yield: -0.8173
-  :fcf_ev: -0.7354
-  :fcff_back: -241593862.5019
-  :roe_jq: 2.89
+  :asset_liability_ratio: 43.62
+  :interest_debt_ratio: 25.1818
+  :fcf_yield: 4.4582
+  :fcf_ev: 4.0166
+  :fcff_back: 1317790532.9331
+  :roe_jq: 6.08
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 2048440748.0
@@ -7614,7 +7614,7 @@
   :pe_ttm: 108.69
   :pe_percentile: 0.9467
   :valuation_label: 高位区域
-  :peg: 0.7922
+  :peg: 0.8103
   :peg_level: 2
   :net_profit_yoy: 183.5845
   :finance_report_date: '2026-06-30'
@@ -7743,17 +7743,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -22.7886
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -13.8599
+  :finance_report_date: '2026-06-30'
   :pb: 1.59
   :pb_percentile: 0.8603
   :drop_30d: -7.4
-  :asset_liability_ratio: 73.0098
-  :interest_debt_ratio: 54.7541
-  :fcf_yield: -5.6563
-  :fcf_ev: -1.7786
-  :fcff_back: -5417408667.774
-  :roe_jq: 2.32
+  :asset_liability_ratio: 73.0992
+  :interest_debt_ratio: 56.77
+  :fcf_yield: 3.9412
+  :fcf_ev: 1.2044
+  :fcff_back: 3774760155.3732
+  :roe_jq: 4.93
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 17835567970.0
@@ -7894,19 +7894,19 @@
   :pe_ttm: 11.05
   :pe_percentile: 0.1354
   :valuation_label: 高位区域
-  :peg: 0.2937
+  :peg: 0.491
   :peg_level: 1
-  :net_profit_yoy: 37.8281
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 14.7142
+  :finance_report_date: '2026-06-30'
   :pb: 1.61
-  :pb_percentile: 0.42
+  :pb_percentile: 0.4195
   :drop_30d: 1.1536
-  :asset_liability_ratio: 68.9699
-  :interest_debt_ratio: 16.7993
-  :fcf_yield: -5.2753
-  :fcf_ev: -4.0739
-  :fcff_back: -1289915627.0015
-  :roe_jq: 3.88
+  :asset_liability_ratio: 69.4389
+  :interest_debt_ratio: 53.9128
+  :fcf_yield: -2.5602
+  :fcf_ev: -1.2981
+  :fcff_back: -626028509.2461
+  :roe_jq: 7.93
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 815338446.0
@@ -8034,7 +8034,7 @@
   :pe_ttm: 19.1
   :pe_percentile: 0.9382
   :valuation_label: 高位区域
-  :peg: 0.1793
+  :peg: 0.176
   :peg_level: 1
   :net_profit_yoy: 55.329
   :finance_report_date: '2026-06-30'
@@ -8191,7 +8191,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.6
+  :roe_jq: 7.12
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 6603594202.0
@@ -8299,7 +8299,7 @@
   :pe_ttm: 24.34
   :pe_percentile: 0.401
   :valuation_label: 高位区域
-  :peg: 0.4199
+  :peg: 0.4163
   :peg_level: 1
   :net_profit_yoy: 44.7076
   :finance_report_date: '2026-06-30'
@@ -8445,7 +8445,7 @@
   :pe_ttm: 13.7
   :pe_percentile: 0.3981
   :valuation_label: 高位区域
-  :peg: 0.102
+  :peg: 0.1005
   :peg_level: 1
   :net_profit_yoy: 161.6543
   :finance_report_date: '2026-06-30'
@@ -8582,7 +8582,7 @@
   :pe_ttm: 8.52
   :pe_percentile: 0.0204
   :valuation_label: 高位区域
-  :peg: 0.0658
+  :peg: 0.0667
   :peg_level: 1
   :net_profit_yoy: 127.7156
   :finance_report_date: '2026-06-30'
@@ -8728,7 +8728,7 @@
   :pe_ttm: 14.21
   :pe_percentile: 0.1197
   :valuation_label: 高位区域
-  :peg: 0.2049
+  :peg: 0.205
   :peg_level: 1
   :net_profit_yoy: 77.6025
   :finance_report_date: '2026-06-30'
@@ -8832,7 +8832,7 @@
   :pe_ttm: 9.49
   :pe_percentile: 0.039
   :valuation_label: 中位区域
-  :peg: 0.1182
+  :peg: 0.1191
   :peg_level: 1
   :net_profit_yoy: 79.4684
   :finance_report_date: '2026-06-30'
@@ -8954,7 +8954,7 @@
   :pe_ttm: 13.11
   :pe_percentile: 0.0903
   :valuation_label: 高位区域
-  :peg: 0.1941
+  :peg: 0.1965
   :peg_level: 1
   :net_profit_yoy: 45.4511
   :finance_report_date: '2026-06-30'
@@ -9072,19 +9072,19 @@
   :pe_ttm: 161.98
   :pe_percentile: 0.9754
   :valuation_label: 中位区域
-  :peg: 0.7654
-  :peg_level: 2
-  :net_profit_yoy: 108.891
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -43.1418
+  :finance_report_date: '2026-06-30'
   :pb: 1.28
   :pb_percentile: 0.1211
   :drop_30d: 6.8586
-  :asset_liability_ratio: 51.4253
-  :interest_debt_ratio: 19.5577
-  :fcf_yield: -2.0341
-  :fcf_ev: -1.7475
-  :fcff_back: -534476248.909
-  :roe_jq: 1.98
+  :asset_liability_ratio: 51.759
+  :interest_debt_ratio: 20.9489
+  :fcf_yield: 0.7795
+  :fcf_ev: 0.6616
+  :fcff_back: 204821426.2006
+  :roe_jq: 3.02
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 2388727272.0
@@ -9189,14 +9189,14 @@
   :net_profit_yoy: 12.0715
   :finance_report_date: '2026-06-30'
   :pb: 0.59
-  :pb_percentile: 0.2955
+  :pb_percentile: 0.285
   :drop_30d: 3.75
   :asset_liability_ratio: 78.8258
   :interest_debt_ratio: 25.0033
   :fcf_yield: 50.8227
   :fcf_ev: 6.5246
   :fcff_back: 12481534750.5297
-  :roe_jq: 3.97
+  :roe_jq: 1.68
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 2899527744.0
@@ -9327,19 +9327,19 @@
   :pe_ttm: 13.67
   :pe_percentile: 0.6413
   :valuation_label: 偏低区域
-  :peg: 6.1949
-  :peg_level: 4
-  :net_profit_yoy: 1.5076
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -16.5304
+  :finance_report_date: '2026-06-30'
   :pb: 1.59
-  :pb_percentile: 0.1292
+  :pb_percentile: 0.1178
   :drop_30d: 2.8007
-  :asset_liability_ratio: 41.8604
-  :interest_debt_ratio: 4.7953
-  :fcf_yield: -4.7644
-  :fcf_ev: -4.654
-  :fcff_back: -1350034339.0361
-  :roe_jq: 5.05
+  :asset_liability_ratio: 42.9635
+  :interest_debt_ratio: 5.1616
+  :fcf_yield: 3.9695
+  :fcf_ev: 3.8736
+  :fcff_back: 1124802253.881
+  :roe_jq: 8.09
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 4802711864.0
@@ -9466,17 +9466,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -18.062
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -50.135
+  :finance_report_date: '2026-06-30'
   :pb: 1.09
-  :pb_percentile: 0.391
+  :pb_percentile: 0.3815
   :drop_30d: 9.788
-  :asset_liability_ratio: 48.797
-  :interest_debt_ratio: 14.5624
-  :fcf_yield: -5.5955
-  :fcf_ev: -4.914
-  :fcff_back: -1445610264.1947
-  :roe_jq: 3.62
+  :asset_liability_ratio: 51.576
+  :interest_debt_ratio: 15.5351
+  :fcf_yield: -0.1691
+  :fcf_ev: -0.1462
+  :fcff_back: -43698632.0689
+  :roe_jq: 7.02
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1785418106.0
@@ -9571,19 +9571,19 @@
   :pe_ttm: 21.36
   :pe_percentile: 0.2485
   :valuation_label: 中位区域
-  :peg: 0.2813
+  :peg: 0.1638
   :peg_level: 1
-  :net_profit_yoy: 82.5678
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 232.5556
+  :finance_report_date: '2026-06-30'
   :pb: 2.36
-  :pb_percentile: 0.0257
+  :pb_percentile: 0.0109
   :drop_30d: 4.6623
-  :asset_liability_ratio: 34.3133
-  :interest_debt_ratio: 0.2221
-  :fcf_yield: -0.1965
-  :fcf_ev: -0.1964
-  :fcff_back: -548983740.5799
-  :roe_jq: 6.5
+  :asset_liability_ratio: 34.6244
+  :interest_debt_ratio: 0.1891
+  :fcf_yield: 4.5255
+  :fcf_ev: 4.5236
+  :fcff_back: 12644261269.8883
+  :roe_jq: 7.14
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: false
   :total_shares: 3881606001.0
@@ -9715,17 +9715,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: 3.0096
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -15.4269
+  :finance_report_date: '2026-06-30'
   :pb: 1.47
-  :pb_percentile: 0.0413
+  :pb_percentile: 0.039
   :drop_30d: 3.2034
-  :asset_liability_ratio: 59.1541
-  :interest_debt_ratio: 19.357
-  :fcf_yield: -0.5835
-  :fcf_ev: -0.4862
-  :fcff_back: -1274115720.5409
-  :roe_jq: 4.07
+  :asset_liability_ratio: 61.837
+  :interest_debt_ratio: 21.0001
+  :fcf_yield: 6.7512
+  :fcf_ev: 5.456
+  :fcff_back: 14740715600.4016
+  :roe_jq: 8.68
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 5601410979.0
@@ -9865,19 +9865,19 @@
   :pe_ttm: 20.67
   :pe_percentile: 0.4698
   :valuation_label: 中位区域
-  :peg: 2.7249
-  :peg_level: 4
-  :net_profit_yoy: 57.6461
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -12.4938
+  :finance_report_date: '2026-06-30'
   :pb: 5.31
-  :pb_percentile: 0.2304
+  :pb_percentile: 0.2233
   :drop_30d: 7.5758
-  :asset_liability_ratio: 25.3028
-  :interest_debt_ratio: 13.3488
-  :fcf_yield: -0.5368
-  :fcf_ev: -0.5313
-  :fcff_back: -378297671.0236
-  :roe_jq: 12.13
+  :asset_liability_ratio: 35.6421
+  :interest_debt_ratio: 12.3561
+  :fcf_yield: 5.0133
+  :fcf_ev: 4.9439
+  :fcff_back: 3533281929.8532
+  :roe_jq: 20.44
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 14442213114.0
@@ -9990,19 +9990,19 @@
   :pe_ttm: 15.81
   :pe_percentile: 0.0052
   :valuation_label: 中位区域
-  :peg: 16.304
-  :peg_level: 4
-  :net_profit_yoy: 1.6796
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -18.2172
+  :finance_report_date: '2026-06-30'
   :pb: 6.34
-  :pb_percentile: 0.2812
+  :pb_percentile: 0.2632
   :drop_30d: 3.6127
-  :asset_liability_ratio: 48.7624
-  :interest_debt_ratio: 1.8869
-  :fcf_yield: 0.0798
-  :fcf_ev: 0.0795
-  :fcff_back: 25549878.411
-  :roe_jq: 7.73
+  :asset_liability_ratio: 60.4681
+  :interest_debt_ratio: 11.5013
+  :fcf_yield: 9.4448
+  :fcf_ev: 9.1882
+  :fcff_back: 3023463336.4539
+  :roe_jq: 14.42
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 799900049.0
@@ -10115,19 +10115,19 @@
   :pe_ttm: 12.91
   :pe_percentile: 0.5173
   :valuation_label: 偏高区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -9.128
-  :finance_report_date: '2026-03-31'
+  :peg: 2.7881
+  :peg_level: 4
+  :net_profit_yoy: 35.2273
+  :finance_report_date: '2026-06-30'
   :pb: 1.72
-  :pb_percentile: 0.1283
+  :pb_percentile: 0.1192
   :drop_30d: 1.8307
-  :asset_liability_ratio: 15.8224
-  :interest_debt_ratio: 4.7011
-  :fcf_yield: -0.5761
-  :fcf_ev: -0.5729
-  :fcff_back: -136649909.2635
-  :roe_jq: 2.7
+  :asset_liability_ratio: 18.7778
+  :interest_debt_ratio: 8.4363
+  :fcf_yield: 6.4659
+  :fcf_ev: 6.3933
+  :fcff_back: 1533587923.4003
+  :roe_jq: 5.33
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 921445221.0
@@ -10251,17 +10251,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -7.3964
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -8.6914
+  :finance_report_date: '2026-06-30'
   :pb: 12.22
-  :pb_percentile: 0.1121
+  :pb_percentile: 0.096
   :drop_30d: 10.6991
-  :asset_liability_ratio: 68.6642
-  :interest_debt_ratio: 1.0199
-  :fcf_yield: -1.0646
-  :fcf_ev: -1.06
-  :fcff_back: -205993802.7708
-  :roe_jq: 27.31
+  :asset_liability_ratio: 71.8781
+  :interest_debt_ratio: 1.0005
+  :fcf_yield: 5.2275
+  :fcf_ev: 5.2043
+  :fcff_back: 1011474837.8092
+  :roe_jq: 47.54
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 483966983.0
@@ -10395,19 +10395,19 @@
   :pe_ttm: 11.57
   :pe_percentile: 0.0684
   :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -12.6885
-  :finance_report_date: '2026-03-31'
+  :peg: 0.3748
+  :peg_level: 1
+  :net_profit_yoy: 2.3459
+  :finance_report_date: '2026-06-30'
   :pb: 4.89
-  :pb_percentile: 0.952
+  :pb_percentile: 0.9411
   :drop_30d: 11.1799
-  :asset_liability_ratio: 51.3262
-  :interest_debt_ratio: 0.5013
-  :fcf_yield: -0.744
-  :fcf_ev: -0.743
-  :fcff_back: -472403343.5235
-  :roe_jq: 4.14
+  :asset_liability_ratio: 57.5899
+  :interest_debt_ratio: 0.6751
+  :fcf_yield: 5.8891
+  :fcf_ev: 5.8779
+  :fcff_back: 3739345674.492
+  :roe_jq: 11.85
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: false
   :total_shares: 2213947001.0
@@ -10543,17 +10543,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -69.8589
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -53.1131
+  :finance_report_date: '2026-06-30'
   :pb: 0.78
-  :pb_percentile: 0.1577
+  :pb_percentile: 0.1444
   :drop_30d: 2.0661
-  :asset_liability_ratio: 44.4983
-  :interest_debt_ratio: 1.5278
-  :fcf_yield: -2.0685
-  :fcf_ev: -2.0269
-  :fcff_back: -405772946.8005
-  :roe_jq: 1.68
+  :asset_liability_ratio: 44.5638
+  :interest_debt_ratio: 0.9536
+  :fcf_yield: -5.8234
+  :fcf_ev: -5.7525
+  :fcff_back: -1142384955.2399
+  :roe_jq: 2.83
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 4138607594.0
@@ -10677,17 +10677,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -88.4244
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -27.4012
+  :finance_report_date: '2026-06-30'
   :pb: 1.4
-  :pb_percentile: 0.0285
+  :pb_percentile: 0.02
   :drop_30d: 1.3871
-  :asset_liability_ratio: 36.7807
-  :interest_debt_ratio: 15.5995
-  :fcf_yield: -3.2694
-  :fcf_ev: -3.0614
-  :fcff_back: -716944882.8089
-  :roe_jq: 0.72
+  :asset_liability_ratio: 41.4946
+  :interest_debt_ratio: 15.022
+  :fcf_yield: 3.5342
+  :fcf_ev: 3.2842
+  :fcff_back: 775014128.9056
+  :roe_jq: 4.03
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 2804219948.0
@@ -10832,17 +10832,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -7.5318
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -40.7396
+  :finance_report_date: '2026-06-30'
   :pb: 0.37
-  :pb_percentile: 0.0095
+  :pb_percentile: 0.0086
   :drop_30d: 3.9301
-  :asset_liability_ratio: 76.7999
-  :interest_debt_ratio: 27.2846
-  :fcf_yield: -10.2635
-  :fcf_ev: -1.9872
-  :fcff_back: -18660139745.562
-  :roe_jq: 2.77
+  :asset_liability_ratio: 77.1341
+  :interest_debt_ratio: 25.83
+  :fcf_yield: 18.2956
+  :fcf_ev: 3.6375
+  :fcff_back: 33263140708.6658
+  :roe_jq: 4.61
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 41320454545.0
@@ -10939,19 +10939,19 @@
   :pe_ttm: 16.46
   :pe_percentile: 0.2713
   :valuation_label: 偏高区域
-  :peg: 0.8365
-  :peg_level: 2
-  :net_profit_yoy: 13.5898
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -14.5134
+  :finance_report_date: '2026-06-30'
   :pb: 4.01
-  :pb_percentile: 0.1392
+  :pb_percentile: 0.1268
   :drop_30d: 4.5795
-  :asset_liability_ratio: 47.4843
-  :interest_debt_ratio: 31.9575
-  :fcf_yield: -0.4276
-  :fcf_ev: -0.3964
-  :fcff_back: -358105501.5139
-  :roe_jq: 5.87
+  :asset_liability_ratio: 48.3589
+  :interest_debt_ratio: 30.7917
+  :fcf_yield: 3.5836
+  :fcf_ev: 3.3409
+  :fcff_back: 3000982075.7616
+  :roe_jq: 10.68
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 3464666942.0
@@ -11082,19 +11082,19 @@
   :pe_ttm: 13.31
   :pe_percentile: 0.8877
   :valuation_label: 偏高区域
-  :peg: 1.4698
-  :peg_level: 3
-  :net_profit_yoy: 14.7265
-  :finance_report_date: '2026-03-31'
+  :peg: 0.3812
+  :peg_level: 1
+  :net_profit_yoy: 31.7731
+  :finance_report_date: '2026-06-30'
   :pb: 0.9
   :pb_percentile: 0.4527
   :drop_30d: -8.5865
-  :asset_liability_ratio: 39.454
-  :interest_debt_ratio: 31.5234
-  :fcf_yield: 10.8992
-  :fcf_ev: 8.8582
-  :fcff_back: 4142230788.6379
-  :roe_jq: 2.17
+  :asset_liability_ratio: 39.2477
+  :interest_debt_ratio: 31.1586
+  :fcf_yield: 22.3364
+  :fcf_ev: 18.2424
+  :fcff_back: 8488939219.1221
+  :roe_jq: 5.0
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 4623479318.0
@@ -11226,17 +11226,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -16.5266
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -37.9724
+  :finance_report_date: '2026-06-30'
   :pb: 1.1
-  :pb_percentile: 0.0627
+  :pb_percentile: 0.0618
   :drop_30d: 9.6134
-  :asset_liability_ratio: 33.3041
-  :interest_debt_ratio: 0.674
-  :fcf_yield: 5.0073
-  :fcf_ev: 4.9916
-  :fcff_back: 1102265487.1768
-  :roe_jq: 2.13
+  :asset_liability_ratio: 34.2882
+  :interest_debt_ratio: 0.6152
+  :fcf_yield: 7.2054
+  :fcf_ev: 7.1841
+  :fcff_back: 1586120452.8366
+  :roe_jq: 5.34
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 2544855491.0
@@ -11329,17 +11329,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -31.4265
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -36.8179
+  :finance_report_date: '2026-06-30'
   :pb: 0.91
-  :pb_percentile: 0.0276
+  :pb_percentile: 0.0228
   :drop_30d: 0.2558
-  :asset_liability_ratio: 60.7771
-  :interest_debt_ratio: 9.1649
-  :fcf_yield: 0.1582
-  :fcf_ev: 0.1347
-  :fcff_back: 32349151.4929
-  :roe_jq: 1.96
+  :asset_liability_ratio: 62.0263
+  :interest_debt_ratio: 11.4374
+  :fcf_yield: 8.8126
+  :fcf_ev: 7.2158
+  :fcff_back: 1802172800.241
+  :roe_jq: 4.07
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 2621794871.0
@@ -11454,17 +11454,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -14.7239
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -22.578
+  :finance_report_date: '2026-06-30'
   :pb: 0.3
   :pb_percentile: 0.0128
   :drop_30d: 1.6103
-  :asset_liability_ratio: 79.5691
-  :interest_debt_ratio: 32.9635
-  :fcf_yield: -32.8003
-  :fcf_ev: -4.22
-  :fcff_back: -27214728936.9336
-  :roe_jq: 1.38
+  :asset_liability_ratio: 79.653
+  :interest_debt_ratio: 33.9628
+  :fcf_yield: -13.036
+  :fcf_ev: -1.6164
+  :fcff_back: -10816094568.6281
+  :roe_jq: 2.7
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 13579541734.0
@@ -11568,19 +11568,19 @@
   :pe_ttm: 17.03
   :pe_percentile: 0.0194
   :valuation_label: 中位区域
-  :peg: 1.1572
-  :peg_level: 3
-  :net_profit_yoy: 8.5472
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: 0.7406
+  :finance_report_date: '2026-06-30'
   :pb: 4.67
-  :pb_percentile: 0.0932
+  :pb_percentile: 0.0819
   :drop_30d: 5.2784
-  :asset_liability_ratio: 26.8604
-  :interest_debt_ratio: 4.2905
-  :fcf_yield: -0.2528
-  :fcf_ev: -0.2518
-  :fcff_back: -179175331.4798
-  :roe_jq: 6.1
+  :asset_liability_ratio: 29.0496
+  :interest_debt_ratio: 4.3927
+  :fcf_yield: 5.219
+  :fcf_ev: 5.199
+  :fcff_back: 3698987219.1169
+  :roe_jq: 12.46
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1803435114.0
@@ -11650,17 +11650,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -2.6273
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -13.4395
+  :finance_report_date: '2026-06-30'
   :pb: 0.74
-  :pb_percentile: 0.0147
+  :pb_percentile: 0.0119
   :drop_30d: 3.1697
-  :asset_liability_ratio: 62.1208
-  :interest_debt_ratio: 10.1162
-  :fcf_yield: 0.9375
-  :fcf_ev: 0.7525
-  :fcff_back: 460472873.8504
-  :roe_jq: 1.84
+  :asset_liability_ratio: 64.0966
+  :interest_debt_ratio: 9.1522
+  :fcf_yield: 14.7146
+  :fcf_ev: 11.9076
+  :fcff_back: 7227661263.4696
+  :roe_jq: 3.87
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 3152695763.0
@@ -11797,19 +11797,19 @@
   :pe_ttm: 22.91
   :pe_percentile: 0.8365
   :valuation_label: 高位区域
-  :peg: 0.9008
-  :peg_level: 2
-  :net_profit_yoy: 23.8499
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: 2.5436
+  :finance_report_date: '2026-06-30'
   :pb: 1.92
   :pb_percentile: 0.7164
   :drop_30d: -6.8792
-  :asset_liability_ratio: 57.1809
-  :interest_debt_ratio: 31.8884
-  :fcf_yield: -2.1335
-  :fcf_ev: -1.6348
-  :fcff_back: -505138603.1873
-  :roe_jq: 3.28
+  :asset_liability_ratio: 59.1748
+  :interest_debt_ratio: 36.7597
+  :fcf_yield: -6.7406
+  :fcf_ev: -4.928
+  :fcff_back: -1595901018.5078
+  :roe_jq: 6.41
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: false
   :total_shares: 3716797488.0
@@ -11947,17 +11947,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -65.8037
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -48.8768
+  :finance_report_date: '2026-06-30'
   :pb: 1.6
   :pb_percentile: 0.3591
   :drop_30d: 17.2946
-  :asset_liability_ratio: 52.9055
-  :interest_debt_ratio: 24.1659
-  :fcf_yield: 1.4059
-  :fcf_ev: 1.1992
-  :fcff_back: 264530417.7107
-  :roe_jq: 1.44
+  :asset_liability_ratio: 48.9566
+  :interest_debt_ratio: 15.3681
+  :fcf_yield: 24.7285
+  :fcf_ev: 22.6051
+  :fcff_back: 4652909034.9999
+  :roe_jq: 4.69
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: false
   :total_shares: 1405227781.0
@@ -12047,21 +12047,21 @@
   :dividend_payout_ratio: 24.5527
   :pos_30d: 0.4091
   :pe_ttm: 9.17
-  :pe_percentile: 0.5724
+  :pe_percentile: 0.5729
   :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -49.7463
-  :finance_report_date: '2026-03-31'
+  :peg: 0.3135
+  :peg_level: 1
+  :net_profit_yoy: 29.1092
+  :finance_report_date: '2026-06-30'
   :pb: 1.05
   :pb_percentile: 0.4029
   :drop_30d: -4.2857
-  :asset_liability_ratio: 40.8954
-  :interest_debt_ratio: 15.1469
-  :fcf_yield: -0.3133
-  :fcf_ev: -0.279
-  :fcff_back: -768237782.5606
-  :roe_jq: 2.51
+  :asset_liability_ratio: 41.0063
+  :interest_debt_ratio: 14.7199
+  :fcf_yield: 7.1947
+  :fcf_ev: 6.4293
+  :fcff_back: 17641955862.9324
+  :roe_jq: 5.7
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 15268119551.0
@@ -12167,19 +12167,19 @@
   :pe_ttm: 10.47
   :pe_percentile: 0.6637
   :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -15.7154
-  :finance_report_date: '2026-03-31'
+  :peg: 0.1547
+  :peg_level: 1
+  :net_profit_yoy: 58.6881
+  :finance_report_date: '2026-06-30'
   :pb: 1.58
-  :pb_percentile: 0.6765
+  :pb_percentile: 0.6755
   :drop_30d: -6.3879
-  :asset_liability_ratio: 78.1159
-  :interest_debt_ratio: 29.113
-  :fcf_yield: 0.2429
-  :fcf_ev: 0.1391
-  :fcff_back: 193455641.9744
-  :roe_jq: 2.8
+  :asset_liability_ratio: 79.3768
+  :interest_debt_ratio: 29.0777
+  :fcf_yield: 8.8067
+  :fcf_ev: 5.0061
+  :fcff_back: 7014740024.0911
+  :roe_jq: 5.7
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 8695633187.0
@@ -12295,19 +12295,19 @@
   :pe_ttm: 16.78
   :pe_percentile: 0.2043
   :valuation_label: 偏高区域
-  :peg: 0.9205
-  :peg_level: 2
-  :net_profit_yoy: 10.6799
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -84.3543
+  :finance_report_date: '2026-06-30'
   :pb: 3.16
-  :pb_percentile: 0.1701
+  :pb_percentile: 0.1658
   :drop_30d: -1.8582
-  :asset_liability_ratio: 59.4984
-  :interest_debt_ratio: 39.6444
-  :fcf_yield: 4.8322
-  :fcf_ev: 3.9686
-  :fcff_back: 8209927310.4421
-  :roe_jq: 9.44
+  :asset_liability_ratio: 63.5566
+  :interest_debt_ratio: 41.5758
+  :fcf_yield: 10.8369
+  :fcf_ev: 8.7082
+  :fcff_back: 18411705913.4223
+  :roe_jq: 10.09
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 6325353685.0
@@ -12445,17 +12445,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -1.3032
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -3.9913
+  :finance_report_date: '2026-06-30'
   :pb: 0.62
-  :pb_percentile: 0.0717
+  :pb_percentile: 0.0708
   :drop_30d: 0.8016
-  :asset_liability_ratio: 73.3172
-  :interest_debt_ratio: 30.2198
-  :fcf_yield: 2.0395
-  :fcf_ev: 0.6649
-  :fcff_back: 522057751.2764
-  :roe_jq: 2.29
+  :asset_liability_ratio: 72.4799
+  :interest_debt_ratio: 32.4044
+  :fcf_yield: 2.4281
+  :fcf_ev: 0.7648
+  :fcff_back: 621508437.5741
+  :roe_jq: 4.75
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 5171111111.0
@@ -12592,19 +12592,19 @@
   :pe_ttm: 12.65
   :pe_percentile: 0.0532
   :valuation_label: 偏低区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -15.2917
-  :finance_report_date: '2026-03-31'
+  :peg: 0.8744
+  :peg_level: 2
+  :net_profit_yoy: 9.1236
+  :finance_report_date: '2026-06-30'
   :pb: 1.81
-  :pb_percentile: 0.1107
+  :pb_percentile: 0.1036
   :drop_30d: 1.6588
-  :asset_liability_ratio: 31.7612
-  :interest_debt_ratio: 9.7937
-  :fcf_yield: -0.7496
-  :fcf_ev: -0.7183
-  :fcff_back: -310630165.5053
-  :roe_jq: 4.74
+  :asset_liability_ratio: 29.9225
+  :interest_debt_ratio: 8.074
+  :fcf_yield: 5.4947
+  :fcf_ev: 5.3215
+  :fcff_back: 2276952315.1267
+  :roe_jq: 7.31
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1664216867.0
@@ -12741,7 +12741,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.5
+  :roe_jq: 9.0
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 18107640796.0
@@ -12849,17 +12849,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -9.3919
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -44.8632
+  :finance_report_date: '2026-06-30'
   :pb: 1.78
-  :pb_percentile: 0.0128
+  :pb_percentile: 0.0124
   :drop_30d: 11.8538
-  :asset_liability_ratio: 35.5889
-  :interest_debt_ratio: 12.2598
-  :fcf_yield: 7.7238
-  :fcf_ev: 7.3954
-  :fcff_back: 1835877562.9398
-  :roe_jq: 4.06
+  :asset_liability_ratio: 38.1229
+  :interest_debt_ratio: 14.6505
+  :fcf_yield: 22.9633
+  :fcf_ev: 21.7572
+  :fcff_back: 5458152541.574
+  :roe_jq: 6.64
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 887896899.0
@@ -13004,19 +13004,19 @@
   :pe_ttm: 14.76
   :pe_percentile: 0.7739
   :valuation_label: 高位区域
-  :peg: 0.3788
+  :peg: 0.362
   :peg_level: 1
-  :net_profit_yoy: 42.7989
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 43.5354
+  :finance_report_date: '2026-06-30'
   :pb: 1.92
   :pb_percentile: 0.8632
   :drop_30d: -20.871
-  :asset_liability_ratio: 41.3058
-  :interest_debt_ratio: 9.0202
-  :fcf_yield: -0.9968
-  :fcf_ev: -0.9564
-  :fcff_back: -410385697.943
-  :roe_jq: 2.96
+  :asset_liability_ratio: 43.6046
+  :interest_debt_ratio: 11.7586
+  :fcf_yield: 3.0526
+  :fcf_ev: 2.8852
+  :fcff_back: 1256770806.0723
+  :roe_jq: 6.27
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 2798776342.0
@@ -13152,7 +13152,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.23
+  :roe_jq: 6.64
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 5791839762.0
@@ -13228,17 +13228,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -18.9808
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -59.315
+  :finance_report_date: '2026-06-30'
   :pb: 0.49
-  :pb_percentile: 0.0223
+  :pb_percentile: 0.0185
   :drop_30d: -0.7892
-  :asset_liability_ratio: 18.9966
-  :interest_debt_ratio: 10.3448
-  :fcf_yield: -2.4155
-  :fcf_ev: -2.2945
-  :fcff_back: -2279151765.4049
-  :roe_jq: 0.76
+  :asset_liability_ratio: 20.0154
+  :interest_debt_ratio: 10.4143
+  :fcf_yield: 8.0904
+  :fcf_ev: 7.663
+  :fcff_back: 7633582228.9734
+  :roe_jq: 1.31
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 5277069351.0
@@ -13357,19 +13357,19 @@
   :pe_ttm: 12.67
   :pe_percentile: 0.4575
   :valuation_label: 中位区域
-  :peg: 1.7608
-  :peg_level: 4
-  :net_profit_yoy: -24.4052
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -1.7442
+  :finance_report_date: '2026-06-30'
   :pb: 0.94
-  :pb_percentile: 0.0561
+  :pb_percentile: 0.0489
   :drop_30d: -2.8513
-  :asset_liability_ratio: 69.1895
-  :interest_debt_ratio: 15.7502
-  :fcf_yield: -3.5916
-  :fcf_ev: -2.3615
-  :fcff_back: -914575908.541
-  :roe_jq: 2.62
+  :asset_liability_ratio: 69.2163
+  :interest_debt_ratio: 15.8002
+  :fcf_yield: 2.7876
+  :fcf_ev: 1.8355
+  :fcff_back: 709843665.7374
+  :roe_jq: 4.22
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 5042376237.0
@@ -13464,19 +13464,19 @@
   :pe_ttm: 11.61
   :pe_percentile: 0.4913
   :valuation_label: 偏高区域
-  :peg: 2.552
-  :peg_level: 4
-  :net_profit_yoy: 1.8588
-  :finance_report_date: '2026-03-31'
+  :peg: 0.2475
+  :peg_level: 1
+  :net_profit_yoy: 47.4033
+  :finance_report_date: '2026-06-30'
   :pb: 1.25
-  :pb_percentile: 0.9188
+  :pb_percentile: 0.9197
   :drop_30d: -5.08
-  :asset_liability_ratio: 39.5841
-  :interest_debt_ratio: 14.2522
-  :fcf_yield: -1.3851
-  :fcf_ev: -1.2779
-  :fcff_back: -28315781444.4736
-  :roe_jq: 3.0
+  :asset_liability_ratio: 38.8827
+  :interest_debt_ratio: 13.3044
+  :fcf_yield: -1.4344
+  :fcf_ev: -1.3324
+  :fcff_back: -29323371656.9105
+  :roe_jq: 6.3
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 183020948970.0
@@ -13579,19 +13579,19 @@
   :pe_ttm: 10.72
   :pe_percentile: 0.6366
   :valuation_label: 偏高区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: 3.2277
-  :finance_report_date: '2026-03-31'
+  :peg: 1.5378
+  :peg_level: 4
+  :net_profit_yoy: -18.0484
+  :finance_report_date: '2026-06-30'
   :pb: 1.05
-  :pb_percentile: 0.6252
+  :pb_percentile: 0.6238
   :drop_30d: 2.8689
-  :asset_liability_ratio: 57.5031
-  :interest_debt_ratio: 32.8922
-  :fcf_yield: 0.6901
-  :fcf_ev: 0.4746
-  :fcff_back: 201672940.7863
-  :roe_jq: 2.13
+  :asset_liability_ratio: 58.0774
+  :interest_debt_ratio: 33.5779
+  :fcf_yield: 6.9149
+  :fcf_ev: 4.71
+  :fcff_back: 2020745304.2548
+  :roe_jq: 4.71
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 6165189873.0
@@ -13716,19 +13716,19 @@
   :pe_ttm: 15.26
   :pe_percentile: 0.0086
   :valuation_label: 偏高区域
-  :peg: 2.4738
-  :peg_level: 4
-  :net_profit_yoy: 5.2286
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -3.3703
+  :finance_report_date: '2026-06-30'
   :pb: 2.24
-  :pb_percentile: 0.02
+  :pb_percentile: 0.0143
   :drop_30d: 4.6835
-  :asset_liability_ratio: 37.629
-  :interest_debt_ratio: 0.1945
-  :fcf_yield: -3.3909
-  :fcf_ev: -3.389
-  :fcff_back: -2381801921.0762
-  :roe_jq: 5.71
+  :asset_liability_ratio: 41.9168
+  :interest_debt_ratio: 0.1928
+  :fcf_yield: 1.9443
+  :fcf_ev: 1.9431
+  :fcff_back: 1365718485.1557
+  :roe_jq: 12.02
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1364187220.0
@@ -13876,17 +13876,17 @@
   :valuation_label: 偏低区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -27.6542
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -25.935
+  :finance_report_date: '2026-06-30'
   :pb: 0.33
-  :pb_percentile: 0.0067
+  :pb_percentile: 0.0076
   :drop_30d: 2.2272
-  :asset_liability_ratio: 77.4579
-  :interest_debt_ratio: 25.8613
-  :fcf_yield: 1.58
-  :fcf_ev: 0.2868
-  :fcff_back: 1701555462.1861
-  :roe_jq: 1.36
+  :asset_liability_ratio: 77.4452
+  :interest_debt_ratio: 25.6985
+  :fcf_yield: -1.8895
+  :fcf_ev: -0.3409
+  :fcff_back: -2034869313.484
+  :roe_jq: 2.45
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 24531207289.0
@@ -13992,17 +13992,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -72.745
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -6.0519
+  :finance_report_date: '2026-06-30'
   :pb: 1.66
   :pb_percentile: 0.0432
   :drop_30d: 5.0898
-  :asset_liability_ratio: 57.2121
-  :interest_debt_ratio: 37.4418
-  :fcf_yield: -2.5746
-  :fcf_ev: -1.8901
-  :fcff_back: -972953010.1105
-  :roe_jq: 0.81
+  :asset_liability_ratio: 55.5543
+  :interest_debt_ratio: 37.1975
+  :fcf_yield: 2.5746
+  :fcf_ev: 1.9257
+  :fcff_back: 972953365.7026
+  :roe_jq: 3.58
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: false
   :total_shares: 2384227129.0
@@ -14094,19 +14094,19 @@
   :pe_ttm: 11.88
   :pe_percentile: 0.0822
   :valuation_label: 偏高区域
-  :peg: 0.4476
-  :peg_level: 1
-  :net_profit_yoy: 26.2977
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -27.0591
+  :finance_report_date: '2026-06-30'
   :pb: 1.35
   :pb_percentile: 0.1669
   :drop_30d: 6.8999
-  :asset_liability_ratio: 53.1636
-  :interest_debt_ratio: 38.8804
-  :fcf_yield: -5.5073
-  :fcf_ev: -3.8229
-  :fcff_back: -1978505141.1896
-  :roe_jq: 3.3
+  :asset_liability_ratio: 55.4607
+  :interest_debt_ratio: 39.6185
+  :fcf_yield: 5.0613
+  :fcf_ev: 3.4535
+  :fcff_back: 1818259229.0034
+  :roe_jq: 4.99
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 3750000000.0
@@ -14165,19 +14165,19 @@
   :pe_ttm: 11.21
   :pe_percentile: 0.1829
   :valuation_label: 中位区域
-  :peg: 1.3398
-  :peg_level: 3
-  :net_profit_yoy: 9.2279
-  :finance_report_date: '2026-03-31'
+  :peg: 3.2613
+  :peg_level: 4
+  :net_profit_yoy: 4.5186
+  :finance_report_date: '2026-06-30'
   :pb: 1.56
-  :pb_percentile: 0.295
+  :pb_percentile: 0.2922
   :drop_30d: 4.0254
-  :asset_liability_ratio: 56.8833
-  :interest_debt_ratio: 29.3349
-  :fcf_yield: 6.6438
-  :fcf_ev: 5.2515
-  :fcff_back: 4557061130.2137
-  :roe_jq: 3.41
+  :asset_liability_ratio: 56.7621
+  :interest_debt_ratio: 28.6196
+  :fcf_yield: 10.5115
+  :fcf_ev: 8.3878
+  :fcff_back: 7209949698.086
+  :roe_jq: 6.74
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 5047167034.0
@@ -14316,17 +14316,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -32.7335
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -78.0398
+  :finance_report_date: '2026-06-30'
   :pb: 1.26
-  :pb_percentile: 0.0214
+  :pb_percentile: 0.0138
   :drop_30d: 4.1172
-  :asset_liability_ratio: 18.1694
-  :interest_debt_ratio: 0.3553
-  :fcf_yield: -0.641
-  :fcf_ev: -0.6406
-  :fcff_back: -382303520.586
-  :roe_jq: 5.09
+  :asset_liability_ratio: 15.5507
+  :interest_debt_ratio: 0.3851
+  :fcf_yield: 3.07
+  :fcf_ev: 3.0682
+  :fcff_back: 1830932669.7576
+  :roe_jq: 5.41
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: false
   :total_shares: 1506441020.0
@@ -14424,19 +14424,19 @@
   :pe_ttm: 12.84
   :pe_percentile: 0.2983
   :valuation_label: 底部区域
-  :peg: 6.9615
-  :peg_level: 4
-  :net_profit_yoy: -2.0621
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -55.0734
+  :finance_report_date: '2026-06-30'
   :pb: 0.84
-  :pb_percentile: 0.0033
+  :pb_percentile: 0.0029
   :drop_30d: 5.8167
-  :asset_liability_ratio: 53.3271
-  :interest_debt_ratio: 20.5535
-  :fcf_yield: -0.7407
-  :fcf_ev: -0.5702
-  :fcff_back: -243742472.108
-  :roe_jq: 4.61
+  :asset_liability_ratio: 52.7622
+  :interest_debt_ratio: 22.5931
+  :fcf_yield: -2.2699
+  :fcf_ev: -1.722
+  :fcff_back: -746920057.4731
+  :roe_jq: 5.4
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 1625790513.0
@@ -14561,19 +14561,19 @@
   :pe_ttm: 17.4
   :pe_percentile: 0.1944
   :valuation_label: 偏低区域
-  :peg: 2.4474
+  :peg: 17.1841
   :peg_level: 4
-  :net_profit_yoy: 7.1377
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 4.0466
+  :finance_report_date: '2026-06-30'
   :pb: 3.34
-  :pb_percentile: 0.801
+  :pb_percentile: 0.7962
   :drop_30d: 10.5069
-  :asset_liability_ratio: 20.0158
-  :interest_debt_ratio: 0.4795
-  :fcf_yield: -0.2278
-  :fcf_ev: -0.2277
-  :fcff_back: -70755182.3689
-  :roe_jq: 4.31
+  :asset_liability_ratio: 19.4912
+  :interest_debt_ratio: 0.6458
+  :fcf_yield: 3.6963
+  :fcf_ev: 3.6944
+  :fcff_back: 1148223561.3096
+  :roe_jq: 8.12
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 639835221.0
@@ -14715,17 +14715,17 @@
   :valuation_label: 底部区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -49.5957
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -37.4367
+  :finance_report_date: '2026-06-30'
   :pb: 2.48
-  :pb_percentile: 0.0415
+  :pb_percentile: 0.0292
   :drop_30d: 3.8056
-  :asset_liability_ratio: 28.4102
-  :interest_debt_ratio: 13.1437
-  :fcf_yield: -0.5695
-  :fcf_ev: -0.557
-  :fcff_back: -218383027.4646
-  :roe_jq: 2.35
+  :asset_liability_ratio: 34.384
+  :interest_debt_ratio: 13.5608
+  :fcf_yield: 3.8122
+  :fcf_ev: 3.7061
+  :fcff_back: 1461897842.6667
+  :roe_jq: 5.86
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1167011564.0
@@ -14787,19 +14787,19 @@
   :pe_ttm: 18.43
   :pe_percentile: 0.8746
   :valuation_label: 偏高区域
-  :peg: 0.603
-  :peg_level: 2
-  :net_profit_yoy: 28.2117
-  :finance_report_date: '2026-03-31'
+  :peg: 7.5924
+  :peg_level: 4
+  :net_profit_yoy: 4.8911
+  :finance_report_date: '2026-06-30'
   :pb: 0.79
   :pb_percentile: 0.4095
   :drop_30d: -10.0402
-  :asset_liability_ratio: 55.8931
-  :interest_debt_ratio: 25.5404
-  :fcf_yield: -6.2603
-  :fcf_ev: -4.213
-  :fcff_back: -41485436668.5864
-  :roe_jq: 2.04
+  :asset_liability_ratio: 54.2694
+  :interest_debt_ratio: 25.8637
+  :fcf_yield: -15.407
+  :fcf_ev: -10.5106
+  :fcff_back: -102097679019.754
+  :roe_jq: 3.06
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 120925547445.0
@@ -14923,17 +14923,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -15.2189
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -13.4691
+  :finance_report_date: '2026-06-30'
   :pb: 1.71
-  :pb_percentile: 0.0499
+  :pb_percentile: 0.0442
   :drop_30d: 1.5219
-  :asset_liability_ratio: 55.1547
-  :interest_debt_ratio: 15.7245
-  :fcf_yield: -5.0176
-  :fcf_ev: -4.4507
-  :fcff_back: -10269406083.5841
-  :roe_jq: 3.86
+  :asset_liability_ratio: 58.5218
+  :interest_debt_ratio: 15.0838
+  :fcf_yield: 0.7306
+  :fcf_ev: 0.644
+  :fcff_back: 1495292582.4414
+  :roe_jq: 8.36
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 9303090909.0
@@ -15080,17 +15080,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -8.2223
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -34.3299
+  :finance_report_date: '2026-06-30'
   :pb: 2.21
   :pb_percentile: 0.6238
   :drop_30d: -2.4247
-  :asset_liability_ratio: 69.4087
-  :interest_debt_ratio: 5.6949
-  :fcf_yield: -0.6833
-  :fcf_ev: -0.6343
-  :fcff_back: -263831898.5058
-  :roe_jq: 5.75
+  :asset_liability_ratio: 72.2127
+  :interest_debt_ratio: 5.29
+  :fcf_yield: 6.9347
+  :fcf_ev: 6.4373
+  :fcff_back: 2677486245.1972
+  :roe_jq: 9.05
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1384863701.0
@@ -15220,17 +15220,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -8.6087
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -4.0079
+  :finance_report_date: '2026-06-30'
   :pb: 0.62
-  :pb_percentile: 0.1002
+  :pb_percentile: 0.0983
   :drop_30d: 0.0
-  :asset_liability_ratio: 37.83
-  :interest_debt_ratio: 11.2248
-  :fcf_yield: 0.9042
-  :fcf_ev: 0.8061
-  :fcff_back: 1154205562.3229
-  :roe_jq: 1.07
+  :asset_liability_ratio: 39.0885
+  :interest_debt_ratio: 12.4401
+  :fcf_yield: 8.1706
+  :fcf_ev: 7.1616
+  :fcff_back: 10429252656.0983
+  :roe_jq: 2.21
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 21782081911.0
@@ -15357,17 +15357,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -19.0299
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -43.1085
+  :finance_report_date: '2026-06-30'
   :pb: 3.93
-  :pb_percentile: 0.0518
+  :pb_percentile: 0.0466
   :drop_30d: -1.2809
-  :asset_liability_ratio: 29.2569
-  :interest_debt_ratio: 0.0371
-  :fcf_yield: 0.1073
-  :fcf_ev: 0.1073
-  :fcff_back: 160497793.5141
-  :roe_jq: 12.57
+  :asset_liability_ratio: 39.3414
+  :interest_debt_ratio: 0.0182
+  :fcf_yield: 5.7752
+  :fcf_ev: 5.7751
+  :fcff_back: 8635075674.6623
+  :roe_jq: 15.02
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1219965731.0
@@ -15510,19 +15510,19 @@
   :pe_ttm: 32.65
   :pe_percentile: 0.9568
   :valuation_label: 高位区域
-  :peg: 1.1081
-  :peg_level: 3
-  :net_profit_yoy: 13.2413
-  :finance_report_date: '2026-03-31'
+  :peg: 105.1853
+  :peg_level: 4
+  :net_profit_yoy: -85.7765
+  :finance_report_date: '2026-06-30'
   :pb: 4.66
-  :pb_percentile: 0.9411
+  :pb_percentile: 0.9254
   :drop_30d: 3.5925
-  :asset_liability_ratio: 27.9198
-  :interest_debt_ratio: 0.5543
-  :fcf_yield: -0.8384
-  :fcf_ev: -0.8379
-  :fcff_back: -232188050.3779
-  :roe_jq: 5.8
+  :asset_liability_ratio: 43.6067
+  :interest_debt_ratio: 0.8438
+  :fcf_yield: 5.7726
+  :fcf_ev: 5.7646
+  :fcff_back: 1598617980.1984
+  :roe_jq: 9.06
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 770105672.0
@@ -15646,17 +15646,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -7.1628
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -10.0888
+  :finance_report_date: '2026-06-30'
   :pb: 1.12
-  :pb_percentile: 0.0943
+  :pb_percentile: 0.092
   :drop_30d: 0.8
-  :asset_liability_ratio: 54.542
-  :interest_debt_ratio: 7.7323
-  :fcf_yield: -0.9247
-  :fcf_ev: -0.8454
-  :fcff_back: -485717277.7469
-  :roe_jq: 1.04
+  :asset_liability_ratio: 55.2798
+  :interest_debt_ratio: 7.5476
+  :fcf_yield: 2.8622
+  :fcf_ev: 2.6183
+  :fcff_back: 1503401375.6807
+  :roe_jq: 2.97
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 10589919354.0
@@ -15725,17 +15725,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: 2.0312
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 1.3245
+  :finance_report_date: '2026-06-30'
   :pb: 3.15
-  :pb_percentile: 0.5197
+  :pb_percentile: 0.5188
   :drop_30d: -2.457
-  :asset_liability_ratio: 60.0182
-  :interest_debt_ratio: 9.5845
-  :fcf_yield: 1.5019
-  :fcf_ev: 1.4265
-  :fcff_back: 10033943337.0338
-  :roe_jq: 5.56
+  :asset_liability_ratio: 64.89
+  :interest_debt_ratio: 11.9791
+  :fcf_yield: 6.6507
+  :fcf_ev: 6.1877
+  :fcff_back: 44431749920.9935
+  :roe_jq: 11.33
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 7629028206.0
@@ -15820,19 +15820,19 @@
   :pe_ttm: 11.48
   :pe_percentile: 0.8512
   :valuation_label: 偏高区域
-  :peg: 2.1984
-  :peg_level: 4
-  :net_profit_yoy: 7.059
-  :finance_report_date: '2026-03-31'
+  :peg: 0.2583
+  :peg_level: 1
+  :net_profit_yoy: 41.5651
+  :finance_report_date: '2026-06-30'
   :pb: 1.85
-  :pb_percentile: 0.7571
+  :pb_percentile: 0.7627
   :drop_30d: -8.8628
-  :asset_liability_ratio: 27.0925
-  :interest_debt_ratio: 6.0224
-  :fcf_yield: -1.2606
-  :fcf_ev: -1.2459
-  :fcff_back: -20018160777.7228
-  :roe_jq: 4.77
+  :asset_liability_ratio: 28.6023
+  :interest_debt_ratio: 5.6622
+  :fcf_yield: 1.5729
+  :fcf_ev: 1.5539
+  :fcff_back: 24977636667.16
+  :roe_jq: 10.21
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 47529961089.0
@@ -15891,19 +15891,19 @@
   :pe_ttm: 14.16
   :pe_percentile: 0.2247
   :valuation_label: 偏低区域
-  :peg: 0.8096
-  :peg_level: 2
-  :net_profit_yoy: 6.8078
-  :finance_report_date: '2026-03-31'
+  :peg: 2.9028
+  :peg_level: 4
+  :net_profit_yoy: -7.5219
+  :finance_report_date: '2026-06-30'
   :pb: 1.36
-  :pb_percentile: 0.0309
+  :pb_percentile: 0.0323
   :drop_30d: 5.064
-  :asset_liability_ratio: 24.6759
-  :interest_debt_ratio: 1.7674
-  :fcf_yield: -1.8122
-  :fcf_ev: -1.8045
-  :fcff_back: -966302807.3708
-  :roe_jq: 1.83
+  :asset_liability_ratio: 28.0766
+  :interest_debt_ratio: 4.855
+  :fcf_yield: -3.6076
+  :fcf_ev: -3.557
+  :fcff_back: -1923634957.4312
+  :roe_jq: 6.15
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 3269282648.0
@@ -15998,24 +15998,24 @@
   :market_cap: 23305000000.0
   :volume: 711537.0
   :avg_price: 13.0221
-  :dividend_payout_ratio: 0.0
+  :dividend_payout_ratio:
   :pos_30d: 0.6818
-  :pe_ttm: 18.42
-  :pe_percentile: 0.1272
+  :pe_ttm:
+  :pe_percentile:
   :valuation_label: 偏高区域
-  :peg: 2.1675
-  :peg_level: 4
-  :net_profit_yoy: 7.8438
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -350.6546
+  :finance_report_date: '2026-06-30'
   :pb: 3.59
-  :pb_percentile: 0.7435
+  :pb_percentile: 0.742
   :drop_30d: -7.7239
-  :asset_liability_ratio: 45.4312
-  :interest_debt_ratio: 0.0577
-  :fcf_yield: -0.2734
-  :fcf_ev: -0.2733
-  :fcff_back: -63705813.5043
-  :roe_jq: 7.0
+  :asset_liability_ratio: 39.5167
+  :interest_debt_ratio: 0.0929
+  :fcf_yield: 4.2843
+  :fcf_ev: 4.2836
+  :fcff_back: 998457119.0157
+  :roe_jq: -7.09
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1777650648.0
@@ -16137,19 +16137,19 @@
   :pe_ttm: 18.48
   :pe_percentile: 0.1777
   :valuation_label: 中位区域
-  :peg: 1.2014
-  :peg_level: 3
-  :net_profit_yoy: 16.6764
-  :finance_report_date: '2026-03-31'
+  :peg: 0.5506
+  :peg_level: 2
+  :net_profit_yoy: 28.0947
+  :finance_report_date: '2026-06-30'
   :pb: 5.79
   :pb_percentile: 0.3268
   :drop_30d: -6.7208
-  :asset_liability_ratio: 7.5776
-  :interest_debt_ratio: 0.073
-  :fcf_yield: -0.0519
-  :fcf_ev: -0.0519
-  :fcff_back: -27658006.6231
-  :roe_jq: 6.79
+  :asset_liability_ratio: 9.7295
+  :interest_debt_ratio: 0.0667
+  :fcf_yield: 3.0214
+  :fcf_ev: 3.0213
+  :fcff_back: 1610744013.6961
+  :roe_jq: 15.11
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1266920152.0
@@ -16229,17 +16229,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -24.9549
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -22.6085
+  :finance_report_date: '2026-06-30'
   :pb: 0.33
   :pb_percentile: 0.0076
   :drop_30d: 2.7687
-  :asset_liability_ratio: 77.8674
-  :interest_debt_ratio: 36.3627
-  :fcf_yield: -4.2108
-  :fcf_ev: -0.5811
-  :fcff_back: -4075899009.2356
-  :roe_jq: 1.37
+  :asset_liability_ratio: 77.8678
+  :interest_debt_ratio: 39.6679
+  :fcf_yield: 13.5965
+  :fcf_ev: 1.7123
+  :fcff_back: 13160910561.1445
+  :roe_jq: 2.41
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 16213735343.0
@@ -16330,19 +16330,19 @@
   :pe_ttm: 10.54
   :pe_percentile: 0.4376
   :valuation_label: 高位区域
-  :peg: 1.0615
-  :peg_level: 3
-  :net_profit_yoy: 10.3918
-  :finance_report_date: '2026-03-31'
+  :peg: 2.777
+  :peg_level: 4
+  :net_profit_yoy: 2.4131
+  :finance_report_date: '2026-06-30'
   :pb: 2.21
-  :pb_percentile: 0.6371
+  :pb_percentile: 0.6361
   :drop_30d: -2.0882
-  :asset_liability_ratio: 46.6672
-  :interest_debt_ratio: 22.1271
-  :fcf_yield: -2.5225
-  :fcf_ev: -2.2993
-  :fcff_back: -1416340558.9146
-  :roe_jq: 5.63
+  :asset_liability_ratio: 47.4815
+  :interest_debt_ratio: 25.7061
+  :fcf_yield: 5.3354
+  :fcf_ev: 4.7898
+  :fcff_back: 2995707583.1654
+  :roe_jq: 11.41
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1822987012.0
@@ -16476,19 +16476,19 @@
   :pe_ttm: 15.68
   :pe_percentile: 0.1506
   :valuation_label: 偏高区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -15.7615
-  :finance_report_date: '2026-03-31'
+  :peg: 0.7075
+  :peg_level: 2
+  :net_profit_yoy: 19.1744
+  :finance_report_date: '2026-06-30'
   :pb: 2.25
   :pb_percentile: 0.0608
   :drop_30d: -12.5683
-  :asset_liability_ratio: 34.7358
-  :interest_debt_ratio: 5.5618
-  :fcf_yield: -1.0688
-  :fcf_ev: -1.0542
-  :fcff_back: -411760094.1752
-  :roe_jq: 8.03
+  :asset_liability_ratio: 33.7256
+  :interest_debt_ratio: 6.2298
+  :fcf_yield: 2.9285
+  :fcf_ev: 2.8877
+  :fcff_back: 1128215973.4557
+  :roe_jq: 11.83
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1246796116.0
@@ -16571,19 +16571,19 @@
   :pe_ttm: 12.88
   :pe_percentile: 0.0808
   :valuation_label: 中位区域
-  :peg: 1.0042
+  :peg: 1.2704
   :peg_level: 3
-  :net_profit_yoy: 10.6555
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 10.0073
+  :finance_report_date: '2026-06-30'
   :pb: 1.02
   :pb_percentile: 0.1758
   :drop_30d: -5.042
-  :asset_liability_ratio: 60.2639
-  :interest_debt_ratio: 5.6943
-  :fcf_yield: 0.0487
-  :fcf_ev: 0.044
-  :fcff_back: 87312944.3915
-  :roe_jq: 1.94
+  :asset_liability_ratio: 59.6774
+  :interest_debt_ratio: 5.2223
+  :fcf_yield: 4.5248
+  :fcf_ev: 4.133
+  :fcff_back: 8116107929.5812
+  :roe_jq: 4.54
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 28698880000.0
@@ -16684,19 +16684,19 @@
   :pe_ttm: 13.27
   :pe_percentile: 0.6599
   :valuation_label: 偏高区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -28.7821
-  :finance_report_date: '2026-03-31'
+  :peg: 1.8741
+  :peg_level: 4
+  :net_profit_yoy: 4.0363
+  :finance_report_date: '2026-06-30'
   :pb: 1.48
   :pb_percentile: 0.4304
   :drop_30d: -3.4335
-  :asset_liability_ratio: 28.4515
-  :interest_debt_ratio: 14.4212
-  :fcf_yield: -0.7307
-  :fcf_ev: -0.7005
-  :fcff_back: -297190494.3835
-  :roe_jq: 2.42
+  :asset_liability_ratio: 35.4679
+  :interest_debt_ratio: 13.6073
+  :fcf_yield: 10.6361
+  :fcf_ev: 10.1109
+  :fcff_back: 4325799883.1814
+  :roe_jq: 5.64
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 8437966804.0
@@ -16793,17 +16793,17 @@
   :valuation_label: 偏低区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -31.441
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -28.2831
+  :finance_report_date: '2026-06-30'
   :pb: 2.0
-  :pb_percentile: 0.0271
+  :pb_percentile: 0.0228
   :drop_30d: 6.4563
-  :asset_liability_ratio: 18.5046
-  :interest_debt_ratio: 0.1915
-  :fcf_yield: -8.1587
-  :fcf_ev: -8.1568
-  :fcff_back: -2109346148.8713
-  :roe_jq: 3.19
+  :asset_liability_ratio: 20.4193
+  :interest_debt_ratio: 0.1567
+  :fcf_yield: -13.0827
+  :fcf_ev: -13.0799
+  :fcff_back: -3382388866.7799
+  :roe_jq: 6.22
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1002481582.0
@@ -16919,7 +16919,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.2
+  :roe_jq: 9.7
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 9620344928.0
@@ -17023,19 +17023,19 @@
   :pe_ttm: 14.39
   :pe_percentile: 0.4793
   :valuation_label: 高位区域
-  :peg: 26.0621
-  :peg_level: 4
-  :net_profit_yoy: 6.7138
-  :finance_report_date: '2026-03-31'
+  :peg: 0.4015
+  :peg_level: 1
+  :net_profit_yoy: 20.4038
+  :finance_report_date: '2026-06-30'
   :pb: 1.69
   :pb_percentile: 0.9596
   :drop_30d: -5.0312
-  :asset_liability_ratio: 40.7544
-  :interest_debt_ratio: 2.6108
-  :fcf_yield: -0.9569
-  :fcf_ev: -0.9446
-  :fcff_back: -357138609.6415
-  :roe_jq: 2.75
+  :asset_liability_ratio: 42.1117
+  :interest_debt_ratio: 2.8568
+  :fcf_yield: 4.2776
+  :fcf_ev: 4.2131
+  :fcff_back: 1596471569.398
+  :roe_jq: 5.49
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 1304965034.0
@@ -17168,19 +17168,19 @@
   :pe_ttm: 10.24
   :pe_percentile: 0.0527
   :valuation_label: 高位区域
-  :peg: 0.6453
-  :peg_level: 2
-  :net_profit_yoy: 7.3095
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -0.386
+  :finance_report_date: '2026-06-30'
   :pb: 1.35
-  :pb_percentile: 0.348
+  :pb_percentile: 0.3463
   :drop_30d: -2.3316
-  :asset_liability_ratio: 36.9024
-  :interest_debt_ratio: 7.5739
-  :fcf_yield: 0.9705
-  :fcf_ev: 0.9387
-  :fcff_back: 389689268.2413
-  :roe_jq: 2.14
+  :asset_liability_ratio: 38.6767
+  :interest_debt_ratio: 7.565
+  :fcf_yield: 5.9262
+  :fcf_ev: 5.7199
+  :fcff_back: 2379478993.2685
+  :roe_jq: 6.14
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 10165063291.0
@@ -17250,17 +17250,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -64.8208
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -97.6732
+  :finance_report_date: '2026-06-30'
   :pb: 0.46
-  :pb_percentile: 0.0238
+  :pb_percentile: 0.0209
   :drop_30d: 5.2083
-  :asset_liability_ratio: 55.131
-  :interest_debt_ratio: 15.2116
-  :fcf_yield: -10.5814
-  :fcf_ev: -6.9614
-  :fcff_back: -2639315292.9518
-  :roe_jq: 0.36
+  :asset_liability_ratio: 57.3665
+  :interest_debt_ratio: 13.1574
+  :fcf_yield: -1.9842
+  :fcf_ev: -1.336
+  :fcff_back: -494930159.2466
+  :roe_jq: 0.41
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 6852472527.0
@@ -17393,14 +17393,14 @@
   :net_profit_yoy: 19.3677
   :finance_report_date: '2026-06-30'
   :pb: 1.08
-  :pb_percentile: 0.133
+  :pb_percentile: 0.1254
   :drop_30d: 0.3883
   :asset_liability_ratio: 78.9455
   :interest_debt_ratio: 29.1214
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 1.83
+  :roe_jq: 5.25
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 10241715399.0
@@ -17483,19 +17483,19 @@
   :pe_ttm: 12.97
   :pe_percentile: 0.4508
   :valuation_label: 中位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -35.3868
-  :finance_report_date: '2026-03-31'
+  :peg: 0.6207
+  :peg_level: 2
+  :net_profit_yoy: 24.3993
+  :finance_report_date: '2026-06-30'
   :pb: 1.13
-  :pb_percentile: 0.8428
+  :pb_percentile: 0.8418
   :drop_30d: -2.5
-  :asset_liability_ratio: 18.4404
-  :interest_debt_ratio: 7.5375
-  :fcf_yield: -3.7748
-  :fcf_ev: -3.7071
-  :fcff_back: -2132741731.7201
-  :roe_jq: 2.09
+  :asset_liability_ratio: 20.264
+  :interest_debt_ratio: 8.4385
+  :fcf_yield: 1.1436
+  :fcf_ev: 1.1185
+  :fcff_back: 646148853.7384
+  :roe_jq: 4.41
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 11483739837.0
@@ -17622,19 +17622,19 @@
   :pe_ttm: 13.09
   :pe_percentile: 0.2251
   :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -18.9352
-  :finance_report_date: '2026-03-31'
+  :peg: 1.8554
+  :peg_level: 4
+  :net_profit_yoy: 17.1146
+  :finance_report_date: '2026-06-30'
   :pb: 0.94
   :pb_percentile: 0.3981
   :drop_30d: -9.6257
-  :asset_liability_ratio: 39.8188
-  :interest_debt_ratio: 2.6193
-  :fcf_yield: -0.5313
-  :fcf_ev: -0.5217
-  :fcff_back: -144473417.1382
-  :roe_jq: 1.52
+  :asset_liability_ratio: 41.9116
+  :interest_debt_ratio: 2.4856
+  :fcf_yield: 5.5152
+  :fcf_ev: 5.4122
+  :fcff_back: 1499631744.946
+  :roe_jq: 3.88
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 4421300813.0
@@ -17754,21 +17754,21 @@
   :dividend_payout_ratio: 0.0
   :pos_30d: 0.8182
   :pe_ttm: 12.77
-  :pe_percentile: 0.9492
+  :pe_percentile: 0.9758
   :valuation_label: 高位区域
-  :peg: 0.466
+  :peg: 0.1785
   :peg_level: 1
-  :net_profit_yoy: 28.3545
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 65.4133
+  :finance_report_date: '2026-06-30'
   :pb: 1.73
-  :pb_percentile: 0.9359
+  :pb_percentile: 0.953
   :drop_30d: -7.8938
-  :asset_liability_ratio: 22.9248
-  :interest_debt_ratio: 12.5139
-  :fcf_yield: -0.7503
-  :fcf_ev: -0.7365
-  :fcff_back: -686096204.7151
-  :roe_jq: 5.13
+  :asset_liability_ratio: 33.8201
+  :interest_debt_ratio: 21.3783
+  :fcf_yield: 2.0411
+  :fcf_ev: 1.9064
+  :fcff_back: 1866565112.9738
+  :roe_jq: 10.58
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 3126461538.0
@@ -17872,19 +17872,19 @@
   :pe_ttm: 17.43
   :pe_percentile: 0.0337
   :valuation_label: 底部区域
-  :peg: 4.2376
-  :peg_level: 4
-  :net_profit_yoy: 5.3068
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -2.0261
+  :finance_report_date: '2026-06-30'
   :pb: 2.22
-  :pb_percentile: 0.0618
+  :pb_percentile: 0.0556
   :drop_30d: -0.2358
-  :asset_liability_ratio: 25.3069
-  :interest_debt_ratio: 0.5727
-  :fcf_yield: 0.2334
-  :fcf_ev: 0.2332
-  :fcff_back: 212464049.8152
-  :roe_jq: 4.96
+  :asset_liability_ratio: 25.5639
+  :interest_debt_ratio: 0.5896
+  :fcf_yield: 3.8917
+  :fcf_ev: 3.8882
+  :fcff_back: 3542757921.0267
+  :roe_jq: 9.04
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 1784261074.0
@@ -18027,19 +18027,19 @@
   :pe_ttm: 20.42
   :pe_percentile: 0.1173
   :valuation_label: 偏高区域
-  :peg: 13.7312
-  :peg_level: 4
-  :net_profit_yoy: 1.4714
-  :finance_report_date: '2026-03-31'
+  :peg:
+  :peg_level: 5
+  :net_profit_yoy: -6.9043
+  :finance_report_date: '2026-06-30'
   :pb: 6.62
-  :pb_percentile: 0.0461
+  :pb_percentile: 0.0428
   :drop_30d: -1.8026
-  :asset_liability_ratio: 12.1227
-  :interest_debt_ratio: 5.3012
-  :fcf_yield: -0.1624
-  :fcf_ev: -0.1622
-  :fcff_back: -2700571886.5165
-  :roe_jq: 10.57
+  :asset_liability_ratio: 15.1931
+  :interest_debt_ratio: 8.3061
+  :fcf_yield: 2.1083
+  :fcf_ev: 2.1034
+  :fcff_back: 35053196731.3997
+  :roe_jq: 16.75
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1250081954.0
@@ -18163,17 +18163,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -15.6769
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -18.6024
+  :finance_report_date: '2026-06-30'
   :pb: 3.92
-  :pb_percentile: 0.619
+  :pb_percentile: 0.6185
   :drop_30d: -1.3256
-  :asset_liability_ratio: 46.6335
-  :interest_debt_ratio: 27.8493
-  :fcf_yield: -2.9732
-  :fcf_ev: -2.7952
-  :fcff_back: -4448345151.8963
-  :roe_jq: 4.46
+  :asset_liability_ratio: 48.3823
+  :interest_debt_ratio: 28.8768
+  :fcf_yield: -0.6153
+  :fcf_ev: -0.5756
+  :fcff_back: -920658326.0721
+  :roe_jq: 10.34
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 2609750566.0
@@ -18324,14 +18324,14 @@
   :net_profit_yoy: 296.8657
   :finance_report_date: '2026-06-30'
   :pb: 0.95
-  :pb_percentile: 0.285
+  :pb_percentile: 0.2855
   :drop_30d: 0.7222
   :asset_liability_ratio: 84.4923
   :interest_debt_ratio: 26.4727
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 1.95
+  :roe_jq: 6.12
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 17581085618.0
@@ -18423,7 +18423,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 1.84
+  :roe_jq: 5.53
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 4968713105.0
@@ -18515,19 +18515,19 @@
   :pe_ttm: 15.76
   :pe_percentile: 0.0385
   :valuation_label: 偏低区域
-  :peg: 1.2535
-  :peg_level: 3
-  :net_profit_yoy: 11.1362
-  :finance_report_date: '2026-03-31'
+  :peg: 1.6624
+  :peg_level: 4
+  :net_profit_yoy: 7.8214
+  :finance_report_date: '2026-06-30'
   :pb: 2.33
   :pb_percentile: 0.0432
   :drop_30d: -1.2378
-  :asset_liability_ratio: 51.8562
-  :interest_debt_ratio: 15.936
-  :fcf_yield: -0.3861
-  :fcf_ev: -0.3576
-  :fcff_back: -107205502.6349
-  :roe_jq: 4.2
+  :asset_liability_ratio: 49.8245
+  :interest_debt_ratio: 16.0484
+  :fcf_yield: 3.9891
+  :fcf_ev: 3.7129
+  :fcff_back: 1107544145.9618
+  :roe_jq: 8.01
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1212401746.0
@@ -18607,19 +18607,19 @@
   :pe_ttm: 13.75
   :pe_percentile: 0.3245
   :valuation_label: 高位区域
-  :peg: 1.5047
-  :peg_level: 4
-  :net_profit_yoy: 17.5278
-  :finance_report_date: '2026-03-31'
+  :peg: 0.1441
+  :peg_level: 1
+  :net_profit_yoy: 101.3098
+  :finance_report_date: '2026-06-30'
   :pb: 1.88
   :pb_percentile: 0.9929
   :drop_30d: 0.5968
-  :asset_liability_ratio: 57.7408
-  :interest_debt_ratio: 40.5317
-  :fcf_yield: -0.9057
-  :fcf_ev: -0.6819
-  :fcff_back: -289768368.7163
-  :roe_jq: 2.39
+  :asset_liability_ratio: 57.7744
+  :interest_debt_ratio: 38.7141
+  :fcf_yield: 6.2387
+  :fcf_ev: 4.7315
+  :fcff_back: 1996000557.4849
+  :roe_jq: 7.89
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 2743910806.0
@@ -18738,19 +18738,19 @@
   :pe_ttm: 13.03
   :pe_percentile: 0.3644
   :valuation_label: 偏高区域
-  :peg: 0.2879
+  :peg: 0.256
   :peg_level: 1
-  :net_profit_yoy: 46.4972
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 44.5947
+  :finance_report_date: '2026-06-30'
   :pb: 1.55
-  :pb_percentile: 0.6451
+  :pb_percentile: 0.6428
   :drop_30d: 0.2725
-  :asset_liability_ratio: 67.733
+  :asset_liability_ratio: 68.4068
   :interest_debt_ratio: 0.0
-  :fcf_yield: -0.5691
-  :fcf_ev: -0.5691
-  :fcff_back: -146093087.3965
-  :roe_jq: 2.77
+  :fcf_yield: -0.4757
+  :fcf_ev: -0.4757
+  :fcff_back: -122114356.0656
+  :roe_jq: 5.88
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 1168989071.0
@@ -18878,19 +18878,19 @@
   :pe_ttm: 18.01
   :pe_percentile: 0.0055
   :valuation_label: 底部区域
-  :peg: 0.841
-  :peg_level: 2
-  :net_profit_yoy: 28.3072
-  :finance_report_date: '2026-03-31'
+  :peg: 2.7466
+  :peg_level: 4
+  :net_profit_yoy: 15.3891
+  :finance_report_date: '2026-06-30'
   :pb: 4.54
-  :pb_percentile: 0.0195
+  :pb_percentile: 0.0125
   :drop_30d: 1.7382
-  :asset_liability_ratio: 44.4817
-  :interest_debt_ratio: 19.5888
-  :fcf_yield: -11.6046
-  :fcf_ev: -11.1976
-  :fcff_back: -10259003593.3742
-  :roe_jq: 8.42
+  :asset_liability_ratio: 45.472
+  :interest_debt_ratio: 16.9246
+  :fcf_yield: -9.7113
+  :fcf_ev: -9.4178
+  :fcff_back: -8585288441.0008
+  :roe_jq: 19.03
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 734199817.0
@@ -18954,17 +18954,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -5.9646
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -12.5695
+  :finance_report_date: '2026-06-30'
   :pb: 1.98
-  :pb_percentile: 0.2257
+  :pb_percentile: 0.2204
   :drop_30d: 4.9228
-  :asset_liability_ratio: 44.1021
-  :interest_debt_ratio: 11.7934
-  :fcf_yield: 0.0662
-  :fcf_ev: 0.0625
-  :fcff_back: 16199346.4515
-  :roe_jq: 1.79
+  :asset_liability_ratio: 44.1446
+  :interest_debt_ratio: 13.4222
+  :fcf_yield: 6.2832
+  :fcf_ev: 5.8915
+  :fcff_back: 1536930161.591
+  :roe_jq: 3.38
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 2483350253.0
@@ -19068,7 +19068,7 @@
   :pe_ttm: 19.45
   :pe_percentile: 0.0912
   :valuation_label: 中位区域
-  :peg: 0.478
+  :peg: 0.4614
   :peg_level: 1
   :net_profit_yoy: 41.3375
   :finance_report_date: '2026-06-30'
@@ -19180,17 +19180,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -15.7553
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 0.0906
+  :finance_report_date: '2026-06-30'
   :pb: 3.02
-  :pb_percentile: 0.4461
+  :pb_percentile: 0.4451
   :drop_30d: 10.1185
-  :asset_liability_ratio: 60.5008
-  :interest_debt_ratio: 11.167
-  :fcf_yield: -0.322
-  :fcf_ev: -0.3035
-  :fcff_back: -103280549.2508
-  :roe_jq: 3.57
+  :asset_liability_ratio: 61.4329
+  :interest_debt_ratio: 13.1185
+  :fcf_yield: 2.2763
+  :fcf_ev: 2.1248
+  :fcff_back: 730212896.6634
+  :roe_jq: 8.8
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1626724137.0
@@ -19302,14 +19302,14 @@
   :net_profit_yoy: 104.1591
   :finance_report_date: '2026-06-30'
   :pb: 1.04
-  :pb_percentile: 0.3249
+  :pb_percentile: 0.327
   :drop_30d: -11.1266
   :asset_liability_ratio: 78.289
   :interest_debt_ratio: 4.1816
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.8
+  :roe_jq: 11.2
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 44224030037.0
@@ -19381,17 +19381,17 @@
   :valuation_label: 底部区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -6.0456
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 96.2645
+  :finance_report_date: '2026-06-30'
   :pb: 3.75
-  :pb_percentile: 0.0428
+  :pb_percentile: 0.0461
   :drop_30d: -7.0289
-  :asset_liability_ratio: 26.5195
-  :interest_debt_ratio: 10.3233
-  :fcf_yield: 0.5183
-  :fcf_ev: 0.5133
-  :fcff_back: 129377190.0678
-  :roe_jq: 5.78
+  :asset_liability_ratio: 33.6624
+  :interest_debt_ratio: 8.5525
+  :fcf_yield: 3.8804
+  :fcf_ev: 3.8324
+  :fcff_back: 968637825.3597
+  :roe_jq: 17.61
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 395970812.0
@@ -19464,19 +19464,19 @@
   :pe_ttm: 12.86
   :pe_percentile: 0.0993
   :valuation_label: 偏高区域
-  :peg: 0.1352
+  :peg: 0.2552
   :peg_level: 1
-  :net_profit_yoy: 82.6785
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 58.8368
+  :finance_report_date: '2026-06-30'
   :pb: 4.76
   :pb_percentile: 0.3967
   :drop_30d: -2.0153
-  :asset_liability_ratio: 21.6029
-  :interest_debt_ratio: 0.2343
-  :fcf_yield: 0.0121
-  :fcf_ev: 0.0121
-  :fcff_back: 3491962.0176
-  :roe_jq: 8.98
+  :asset_liability_ratio: 22.6105
+  :interest_debt_ratio: 0.2625
+  :fcf_yield: 2.2923
+  :fcf_ev: 2.2918
+  :fcff_back: 660374803.1843
+  :roe_jq: 18.57
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 72040510.0
@@ -19553,19 +19553,19 @@
   :pe_ttm: 11.51
   :pe_percentile: 0.1496
   :valuation_label: 偏高区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -2.8024
-  :finance_report_date: '2026-03-31'
+  :peg: 0.602
+  :peg_level: 2
+  :net_profit_yoy: 26.6966
+  :finance_report_date: '2026-06-30'
   :pb: 2.37
   :pb_percentile: 0.3292
   :drop_30d: 9.8658
-  :asset_liability_ratio: 25.6351
-  :interest_debt_ratio: 15.845
-  :fcf_yield: -0.4194
-  :fcf_ev: -0.4099
-  :fcff_back: -346259276.5763
-  :roe_jq: 5.37
+  :asset_liability_ratio: 24.9571
+  :interest_debt_ratio: 14.7404
+  :fcf_yield: 3.9311
+  :fcf_ev: 3.851
+  :fcff_back: 3245225209.513
+  :roe_jq: 11.39
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 3073417721.0
@@ -19696,7 +19696,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 1.94
+  :roe_jq: 5.5
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 8496655879.0
@@ -19781,17 +19781,17 @@
   :valuation_label: 偏低区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -26.438
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -24.525
+  :finance_report_date: '2026-06-30'
   :pb: 2.17
-  :pb_percentile: 0.0328
+  :pb_percentile: 0.0204
   :drop_30d: 1.9549
-  :asset_liability_ratio: 9.4642
-  :interest_debt_ratio: 0.0589
-  :fcf_yield: -0.5242
-  :fcf_ev: -0.5242
-  :fcff_back: -124801361.7455
-  :roe_jq: 1.98
+  :asset_liability_ratio: 12.6796
+  :interest_debt_ratio: 2.7377
+  :fcf_yield: 1.1923
+  :fcf_ev: 1.1898
+  :fcff_back: 283845444.0814
+  :roe_jq: 3.32
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 1825690184.0
@@ -19904,19 +19904,19 @@
   :pe_ttm: 16.02
   :pe_percentile: 0.1743
   :valuation_label: 高位区域
-  :peg: 0.7827
-  :peg_level: 2
-  :net_profit_yoy: 23.293
-  :finance_report_date: '2026-03-31'
+  :peg: 28.4132
+  :peg_level: 4
+  :net_profit_yoy: 11.3953
+  :finance_report_date: '2026-06-30'
   :pb: 3.26
   :pb_percentile: 0.8413
   :drop_30d: -5.8065
-  :asset_liability_ratio: 45.7309
-  :interest_debt_ratio: 7.5017
-  :fcf_yield: 0.5439
-  :fcf_ev: 0.5327
-  :fcff_back: 391291159.7314
-  :roe_jq: 4.23
+  :asset_liability_ratio: 48.611
+  :interest_debt_ratio: 7.6096
+  :fcf_yield: 5.4925
+  :fcf_ev: 5.3732
+  :fcff_back: 3951510833.1223
+  :roe_jq: 8.28
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: false
   :total_shares: 5483536585.0
@@ -20047,7 +20047,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 5.53
+  :roe_jq: 18.87
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: false
   :total_shares: 3119550200.0
@@ -20144,14 +20144,14 @@
   :net_profit_yoy: 155.4927
   :finance_report_date: '2026-06-30'
   :pb: 1.28
-  :pb_percentile: 0.3853
+  :pb_percentile: 0.3857
   :drop_30d: -3.3445
   :asset_liability_ratio: 83.3796
   :interest_debt_ratio: 33.7662
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 2.54
+  :roe_jq: 8.22
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 8696548004.0
@@ -20254,14 +20254,14 @@
   :net_profit_yoy: 87.0493
   :finance_report_date: '2026-06-30'
   :pb: 1.26
-  :pb_percentile: 0.7107
+  :pb_percentile: 0.7112
   :drop_30d: -3.8839
   :asset_liability_ratio: 84.5943
   :interest_debt_ratio: 29.6145
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.32
+  :roe_jq: 8.08
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 7824864864.0
@@ -20407,7 +20407,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 3.94
+  :roe_jq: 8.39
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 5530021598.0
@@ -20540,19 +20540,19 @@
   :pe_ttm: 8.79
   :pe_percentile: 0.0779
   :valuation_label: 中位区域
-  :peg: 0.0883
+  :peg: 0.0858
   :peg_level: 1
-  :net_profit_yoy: 109.6965
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 90.8892
+  :finance_report_date: '2026-06-30'
   :pb: 1.89
-  :pb_percentile: 0.5164
+  :pb_percentile: 0.5173
   :drop_30d: 2.4517
-  :asset_liability_ratio: 39.9421
-  :interest_debt_ratio: 22.0354
-  :fcf_yield: 3.0881
-  :fcf_ev: 2.8713
-  :fcff_back: 1876798307.3085
-  :roe_jq: 7.27
+  :asset_liability_ratio: 38.0147
+  :interest_debt_ratio: 19.369
+  :fcf_yield: 7.719
+  :fcf_ev: 7.2634
+  :fcff_back: 4691231896.4047
+  :roe_jq: 13.42
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 4628712871.0
@@ -20648,17 +20648,17 @@
   :valuation_label: 偏高区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -55.4184
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: 2.479
+  :finance_report_date: '2026-06-30'
   :pb: 4.53
   :pb_percentile: 0.1696
   :drop_30d: 5.5845
-  :asset_liability_ratio: 63.6306
-  :interest_debt_ratio: 1.5765
-  :fcf_yield: 0.2787
-  :fcf_ev: 0.2768
-  :fcff_back: 81833326.7835
-  :roe_jq: 2.79
+  :asset_liability_ratio: 67.9255
+  :interest_debt_ratio: 1.2941
+  :fcf_yield: 3.2937
+  :fcf_ev: 3.2707
+  :fcff_back: 967037935.9365
+  :roe_jq: 13.12
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 735839598.0
@@ -20724,17 +20724,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -7.0127
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -8.3657
+  :finance_report_date: '2026-06-30'
   :pb: 3.32
-  :pb_percentile: 0.9857
+  :pb_percentile: 0.9853
   :drop_30d: -1.3727
-  :asset_liability_ratio: 41.3414
-  :interest_debt_ratio: 1.7136
-  :fcf_yield: 0.7836
-  :fcf_ev: 0.7806
-  :fcff_back: 237683667.0163
-  :roe_jq: 4.87
+  :asset_liability_ratio: 46.9886
+  :interest_debt_ratio: 1.6246
+  :fcf_yield: 4.5063
+  :fcf_ev: 4.4867
+  :fcff_back: 1366793973.8661
+  :roe_jq: 10.1
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 2053554502.0
@@ -20818,24 +20818,24 @@
   :market_cap: 102204000000.0
   :volume: 1297929.0
   :avg_price: 15.1381
-  :dividend_payout_ratio: 0.0
+  :dividend_payout_ratio:
   :pos_30d: 1.0
-  :pe_ttm: 41.42
-  :pe_percentile: 0.7921
+  :pe_ttm:
+  :pe_percentile:
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -153.1524
-  :finance_report_date: '2026-03-31'
+  :net_profit_yoy: -325.5277
+  :finance_report_date: '2026-06-30'
   :pb: 2.92
   :pb_percentile: 0.314
   :drop_30d: -13.0243
-  :asset_liability_ratio: 53.1422
-  :interest_debt_ratio: 24.7531
-  :fcf_yield: 5.3382
-  :fcf_ev: 4.7722
-  :fcff_back: 5455868548.54
-  :roe_jq: -2.59
+  :asset_liability_ratio: 58.9389
+  :interest_debt_ratio: 30.6252
+  :fcf_yield: 1.823
+  :fcf_ev: 1.5644
+  :fcff_back: 1863221116.63
+  :roe_jq: -11.13
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 6653906250.0
@@ -20923,15 +20923,6 @@
   :dividend_yield_pct: 1.4822
   :progress: 实施分配
   :plan_description: 10派3.00元(含税,扣税后2.70元)
-- :code: '601318'
-  :name: 中国平安
-  :ex_dividend_date: '2026-09-10'
-  :equity_record_date: '2026-09-09'
-  :notice_date: '2026-08-21'
-  :cash_dividend_per_share: 0.98
-  :dividend_yield_pct: 1.7124
-  :progress: 董事会决议通过
-  :plan_description: 10派9.80元(含税)
 - :code: '601318'
   :name: 中国平安
   :ex_dividend_date: '2026-09-10'
