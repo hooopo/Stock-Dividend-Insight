@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-09-04'
+:generated_date_beijing: '2026-09-05'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -20896,15 +20896,6 @@
     :cash_dividend: 0.0
     :dividend_yield: 0.0
 :upcoming_dividends_6m:
-- :code: '002027'
-  :name: 分众传媒
-  :ex_dividend_date: '2026-09-04'
-  :equity_record_date: '2026-09-03'
-  :notice_date: '2026-08-28'
-  :cash_dividend_per_share: 0.05
-  :dividend_yield_pct: 1.0373
-  :progress: 实施分配
-  :plan_description: 10派0.50元(含税,扣税后0.45元)
 - :code: '603993'
   :name: 洛阳钼业
   :ex_dividend_date: '2026-09-09'
