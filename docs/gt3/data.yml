@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-09-11'
+:generated_date_beijing: '2026-09-12'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
