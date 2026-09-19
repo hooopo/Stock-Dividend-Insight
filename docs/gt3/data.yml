@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-09-18'
+:generated_date_beijing: '2026-09-19'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -14542,15 +14542,15 @@
   :dividend_cash_per_share_latest_year: 0.2
   :current_price: 5.16
   :turnover_rate: 0.19
-  :market_cap: 623438000000.0
+  :market_cap: 622887000000.0
   :volume: 1823465.0
   :avg_price: 5.1367
-  :dividend_payout_ratio: 35.2852
+  :dividend_payout_ratio: 35.2648
   :pos_30d: 0.1364
-  :pe_ttm: 17.34
+  :pe_ttm: 17.33
   :pe_percentile: 0.844
   :valuation_label: 中位区域
-  :peg: 7.1434
+  :peg: 7.1392
   :peg_level: 4
   :net_profit_yoy: 4.8911
   :finance_report_date: '2026-06-30'
@@ -14559,13 +14559,13 @@
   :drop_30d: 0.0
   :asset_liability_ratio: 54.2694
   :interest_debt_ratio: 25.8637
-  :fcf_yield: -6.1961
-  :fcf_ev: -4.1441
+  :fcf_yield: -6.2016
+  :fcf_ev: -4.1465
   :fcff_back: -38628679019.7541
   :roe_jq: 3.06
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
-  :total_shares: 120821317829.0
+  :total_shares: 120714534883.0
   :is_core: false
   :core_categories: []
   :is_whitelist: false
@@ -15955,13 +15955,13 @@
   :dividend_cash_per_share_latest_year: 4.3
   :current_price: 84.4
   :turnover_rate: 0.38
-  :market_cap: 643917000000.0
+  :market_cap: 643923000000.0
   :volume: 260873.0
   :avg_price: 84.4024
   :dividend_payout_ratio: 8.5957
   :pos_30d: 0.0455
   :pe_ttm: 14.51
-  :pe_percentile: 0.5083
+  :pe_percentile: 0.5078
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
@@ -15978,7 +15978,7 @@
   :roe_jq: 11.33
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
-  :total_shares: 7629348341.0
+  :total_shares: 7629419431.0
   :is_core: false
   :core_categories: []
   :is_whitelist: false
@@ -20896,24 +20896,6 @@
     :cash_dividend: 0.0
     :dividend_yield: 0.0
 :upcoming_dividends_6m:
-- :code: '600177'
-  :name: 雅戈尔
-  :ex_dividend_date: '2026-09-18'
-  :equity_record_date: '2026-09-17'
-  :notice_date: '2026-09-12'
-  :cash_dividend_per_share: 0.2
-  :dividend_yield_pct: 2.4096
-  :progress: 实施分配
-  :plan_description: 10派2.00元(含税,扣税后1.80元)
-- :code: '601838'
-  :name: 成都银行
-  :ex_dividend_date: '2026-09-18'
-  :equity_record_date: '2026-09-17'
-  :notice_date: '2026-09-12'
-  :cash_dividend_per_share: 0.489
-  :dividend_yield_pct: 2.4672
-  :progress: 实施分配
-  :plan_description: 10派4.89元(含税,扣税后4.401元)
 - :code: '300628'
   :name: 亿联网络
   :ex_dividend_date: '2026-09-21'
@@ -20947,7 +20929,7 @@
   :equity_record_date: '2026-09-23'
   :notice_date: '2026-09-17'
   :cash_dividend_per_share: 0.249
-  :dividend_yield_pct:
+  :dividend_yield_pct: 2.1282
   :progress: 实施分配
   :plan_description: 10派2.49元(含税,扣税后2.241元)
 - :code: '600660'
