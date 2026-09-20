@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-09-19'
+:generated_date_beijing: '2026-09-20'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -20929,7 +20929,7 @@
   :equity_record_date: '2026-09-23'
   :notice_date: '2026-09-17'
   :cash_dividend_per_share: 0.249
-  :dividend_yield_pct: 2.1282
+  :dividend_yield_pct:
   :progress: 实施分配
   :plan_description: 10派2.49元(含税,扣税后2.241元)
 - :code: '600660'
@@ -20968,6 +20968,15 @@
   :dividend_yield_pct: 2.6838
   :progress: 实施分配
   :plan_description: 10派4.60元(含税,扣税后4.14元)
+- :code: '600941'
+  :name: 中国移动
+  :ex_dividend_date: '2026-09-30'
+  :equity_record_date: '2026-09-29'
+  :notice_date: '2026-09-21'
+  :cash_dividend_per_share: 2.51
+  :dividend_yield_pct: 2.5975
+  :progress: 实施分配
+  :plan_description: 10派25.10元(含税,扣税后22.59元)
 - :code: '601390'
   :name: 中国中铁
   :ex_dividend_date: '2026-10-08'
