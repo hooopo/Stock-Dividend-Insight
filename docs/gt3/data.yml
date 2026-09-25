@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-09-24'
+:generated_date_beijing: '2026-09-25'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -15599,7 +15599,7 @@
   :dividend_cash_per_share_latest_year: 4.3
   :current_price: 82.65
   :turnover_rate: 0.21
-  :market_cap: 630604000000.0
+  :market_cap: 630606000000.0
   :volume: 143155.0
   :avg_price: 82.7592
   :dividend_payout_ratio: 8.5971
@@ -15622,7 +15622,7 @@
   :roe_jq: 11.33
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
-  :total_shares: 7629812462.0
+  :total_shares: 7629836660.0
   :is_core: false
   :core_categories: []
   :is_whitelist: false
@@ -20896,42 +20896,6 @@
     :cash_dividend: 0.0
     :dividend_yield: 0.0
 :upcoming_dividends_6m:
-- :code: '000001'
-  :name: 平安银行
-  :ex_dividend_date: '2026-09-24'
-  :equity_record_date: '2026-09-23'
-  :notice_date: '2026-09-17'
-  :cash_dividend_per_share: 0.249
-  :dividend_yield_pct: 2.1466
-  :progress: 实施分配
-  :plan_description: 10派2.49元(含税,扣税后2.241元)
-- :code: '600660'
-  :name: 福耀玻璃
-  :ex_dividend_date: '2026-09-24'
-  :equity_record_date: '2026-09-23'
-  :notice_date: '2026-09-17'
-  :cash_dividend_per_share: 1.0
-  :dividend_yield_pct: 1.8587
-  :progress: 实施分配
-  :plan_description: 10派10.00元(含税,扣税后9.00元)
-- :code: '601825'
-  :name: 沪农商行
-  :ex_dividend_date: '2026-09-24'
-  :equity_record_date: '2026-09-23'
-  :notice_date: '2026-09-17'
-  :cash_dividend_per_share: 0.2499
-  :dividend_yield_pct: 2.8142
-  :progress: 实施分配
-  :plan_description: 10派2.499元(含税,扣税后2.2491元)
-- :code: '605499'
-  :name: 东鹏饮料
-  :ex_dividend_date: '2026-09-24'
-  :equity_record_date: '2026-09-23'
-  :notice_date: '2026-09-18'
-  :cash_dividend_per_share: 3.0
-  :dividend_yield_pct: 2.6212
-  :progress: 实施分配
-  :plan_description: 10派30.00元(含税,扣税后27.00元)
 - :code: '600926'
   :name: 杭州银行
   :ex_dividend_date: '2026-09-28'
