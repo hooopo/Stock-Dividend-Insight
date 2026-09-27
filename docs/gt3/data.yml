@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-09-26'
+:generated_date_beijing: '2026-09-27'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -20968,3 +20968,12 @@
   :dividend_yield_pct: 1.4998
   :progress: 实施分配
   :plan_description: 10派0.6374元(含税,扣税后0.5737元)
+- :code: '002056'
+  :name: 横店东磁
+  :ex_dividend_date: '2026-10-12'
+  :equity_record_date: '2026-10-09'
+  :notice_date: '2026-09-28'
+  :cash_dividend_per_share: 0.23
+  :dividend_yield_pct: 1.1477
+  :progress: 实施分配
+  :plan_description: 10派2.299934元(含税,扣税后2.069941元)
