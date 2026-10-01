@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-09-30'
+:generated_date_beijing: '2026-10-01'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -15133,7 +15133,7 @@
   :dividend_cash_per_share_latest_year: 4.3
   :current_price: 80.1
   :turnover_rate: 0.58
-  :market_cap: 611156000000.0
+  :market_cap: 611158000000.0
   :volume: 401712.0
   :avg_price: 80.4479
   :dividend_payout_ratio: 8.5952
@@ -15156,7 +15156,7 @@
   :roe_jq: 11.33
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
-  :total_shares: 7629912609.0
+  :total_shares: 7629937578.0
   :is_core: false
   :core_categories: []
   :is_whitelist: false
@@ -20896,51 +20896,6 @@
     :cash_dividend: 0.0
     :dividend_yield: 0.0
 :upcoming_dividends_6m:
-- :code: '600028'
-  :name: 中国石化
-  :ex_dividend_date: '2026-09-30'
-  :equity_record_date: '2026-09-29'
-  :notice_date: '2026-09-23'
-  :cash_dividend_per_share: 0.105
-  :dividend_yield_pct: 1.9886
-  :progress: 实施分配
-  :plan_description: 10派1.05元(含税,扣税后0.945元)
-- :code: '600585'
-  :name: 海螺水泥
-  :ex_dividend_date: '2026-09-30'
-  :equity_record_date: '2026-09-29'
-  :notice_date: '2026-09-23'
-  :cash_dividend_per_share: 0.13
-  :dividend_yield_pct: 0.7656
-  :progress: 实施分配
-  :plan_description: 10派1.30元(含税,扣税后1.17元)
-- :code: '600941'
-  :name: 中国移动
-  :ex_dividend_date: '2026-09-30'
-  :equity_record_date: '2026-09-29'
-  :notice_date: '2026-09-21'
-  :cash_dividend_per_share: 2.51
-  :dividend_yield_pct: 2.5781
-  :progress: 实施分配
-  :plan_description: 10派25.10元(含税,扣税后22.59元)
-- :code: '601577'
-  :name: 长沙银行
-  :ex_dividend_date: '2026-09-30'
-  :equity_record_date: '2026-09-29'
-  :notice_date: '2026-09-23'
-  :cash_dividend_per_share: 0.22
-  :dividend_yield_pct: 2.268
-  :progress: 实施分配
-  :plan_description: 10派2.20元(含税,扣税后1.98元)
-- :code: '603939'
-  :name: 益丰药房
-  :ex_dividend_date: '2026-09-30'
-  :equity_record_date: '2026-09-29'
-  :notice_date: '2026-09-23'
-  :cash_dividend_per_share: 0.3
-  :dividend_yield_pct: 1.3038
-  :progress: 实施分配
-  :plan_description: 10派3.00元(含税,扣税后2.70元)
 - :code: '601390'
   :name: 中国中铁
   :ex_dividend_date: '2026-10-08'
