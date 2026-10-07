@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-10-06'
+:generated_date_beijing: '2026-10-07'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -978,7 +978,7 @@
   :dividend_payout_ratio: 41.3174
   :pos_30d: 0.0
   :pe_ttm: 15.77
-  :pe_percentile: 0.4713
+  :pe_percentile: 0.4704
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
@@ -20941,6 +20941,15 @@
   :dividend_yield_pct: 1.2575
   :progress: 实施分配
   :plan_description: 10派2.50元(含税,扣税后2.25元)
+- :code: '600398'
+  :name: 海澜之家
+  :ex_dividend_date: '2026-10-14'
+  :equity_record_date: '2026-10-13'
+  :notice_date: '2026-10-08'
+  :cash_dividend_per_share: 0.27
+  :dividend_yield_pct: 4.7788
+  :progress: 实施分配
+  :plan_description: 10派2.70元(含税,扣税后2.43元)
 - :code: '600018'
   :name: 上港集团
   :ex_dividend_date: '2026-10-15'
