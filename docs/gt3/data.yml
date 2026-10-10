@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-10-09'
+:generated_date_beijing: '2026-10-10'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -15062,7 +15062,7 @@
   :dividend_cash_per_share_latest_year: 4.3
   :current_price: 82.46
   :turnover_rate: 0.52
-  :market_cap: 629173000000.0
+  :market_cap: 629178000000.0
   :volume: 356378.0
   :avg_price: 82.8202
   :dividend_payout_ratio: 8.5988
@@ -15085,7 +15085,7 @@
   :roe_jq: 11.33
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
-  :total_shares: 7630038806.0
+  :total_shares: 7630099442.0
   :is_core: false
   :core_categories: []
   :is_whitelist: false
