@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-10-10'
+:generated_date_beijing: '2026-10-11'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -21004,3 +21004,12 @@
   :dividend_yield_pct: 1.7847
   :progress: 实施分配
   :plan_description: 10派3.00元(含税,扣税后2.70元)
+- :code: '603605'
+  :name: 珀莱雅
+  :ex_dividend_date: '2026-10-16'
+  :equity_record_date: '2026-10-15'
+  :notice_date: '2026-10-12'
+  :cash_dividend_per_share: 1.18
+  :dividend_yield_pct: 2.0989
+  :progress: 实施分配
+  :plan_description: 10派11.80元(含税)
