@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-10-16'
+:generated_date_beijing: '2026-10-17'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -13326,7 +13326,7 @@
   :dividend_cash_per_share_latest_year: 1.1607
   :current_price: 20.33
   :turnover_rate: 0.53
-  :market_cap: 189132000000.0
+  :market_cap: 189039000000.0
   :volume: 327301.0
   :avg_price: 20.34
   :dividend_payout_ratio: 0.0
@@ -13343,13 +13343,13 @@
   :drop_30d: 2.0713
   :asset_liability_ratio: 58.5218
   :interest_debt_ratio: 15.0838
-  :fcf_yield: 0.7906
-  :fcf_ev: 0.6901
+  :fcf_yield: 0.791
+  :fcf_ev: 0.6904
   :fcff_back: 1495292582.4414
   :roe_jq: 8.36
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
-  :total_shares: 9303098868.0
+  :total_shares: 9298524348.0
   :is_core: false
   :core_categories: []
   :is_whitelist: false
@@ -15451,7 +15451,7 @@
   :dividend_cash_per_share_latest_year: 4.3
   :current_price: 84.6
   :turnover_rate: 0.34
-  :market_cap: 645511000000.0
+  :market_cap: 645512000000.0
   :volume: 230739.0
   :avg_price: 84.8274
   :dividend_payout_ratio: 8.5991
@@ -15469,12 +15469,12 @@
   :asset_liability_ratio: 64.89
   :interest_debt_ratio: 11.9791
   :fcf_yield: 6.8832
-  :fcf_ev: 6.3885
+  :fcf_ev: 6.3884
   :fcff_back: 44431749920.9935
   :roe_jq: 11.33
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
-  :total_shares: 7630153664.0
+  :total_shares: 7630165484.0
   :is_core: false
   :core_categories: []
   :is_whitelist: false
@@ -20896,51 +20896,6 @@
     :cash_dividend: 0.0
     :dividend_yield: 0.0
 :upcoming_dividends_6m:
-- :code: '000999'
-  :name: 华润三九
-  :ex_dividend_date: '2026-10-16'
-  :equity_record_date: '2026-10-15'
-  :notice_date: '2026-10-09'
-  :cash_dividend_per_share: 0.415
-  :dividend_yield_pct: 1.6011
-  :progress: 实施分配
-  :plan_description: 10派4.15元(含税,扣税后3.735元)
-- :code: '600039'
-  :name: 四川路桥
-  :ex_dividend_date: '2026-10-16'
-  :equity_record_date: '2026-10-15'
-  :notice_date: '2026-10-09'
-  :cash_dividend_per_share: 0.036
-  :dividend_yield_pct: 0.3991
-  :progress: 实施分配
-  :plan_description: 10派0.36元(含税,扣税后0.324元)
-- :code: '600938'
-  :name: 中国海油
-  :ex_dividend_date: '2026-10-16'
-  :equity_record_date: '2026-10-15'
-  :notice_date: '2026-10-09'
-  :cash_dividend_per_share: 0.8132
-  :dividend_yield_pct: 2.3382
-  :progress: 实施分配
-  :plan_description: 10派8.1324元(含税,扣税后7.3192元)
-- :code: '601211'
-  :name: 国泰海通
-  :ex_dividend_date: '2026-10-16'
-  :equity_record_date: '2026-10-15'
-  :notice_date: '2026-10-10'
-  :cash_dividend_per_share: 0.3
-  :dividend_yield_pct: 1.7699
-  :progress: 实施分配
-  :plan_description: 10派3.00元(含税,扣税后2.70元)
-- :code: '603605'
-  :name: 珀莱雅
-  :ex_dividend_date: '2026-10-16'
-  :equity_record_date: '2026-10-15'
-  :notice_date: '2026-10-12'
-  :cash_dividend_per_share: 1.18
-  :dividend_yield_pct: 2.0778
-  :progress: 实施分配
-  :plan_description: 10派11.80元(含税,扣税后10.62元)
 - :code: '601006'
   :name: 大秦铁路
   :ex_dividend_date: '2026-10-19'
