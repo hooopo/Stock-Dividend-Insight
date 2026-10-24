@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-10-23'
+:generated_date_beijing: '2026-10-24'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -560,8 +560,8 @@
   :peg_level: 4
   :net_profit_yoy: 0.1559
   :finance_report_date: '2026-09-30'
-  :pb: 0.47
-  :pb_percentile: 0.0829
+  :pb: 0.46
+  :pb_percentile: 0.0398
   :drop_30d: 3.4483
   :asset_liability_ratio: 90.6474
   :interest_debt_ratio: 87.702
@@ -17057,8 +17057,8 @@
   :peg_level: 4
   :net_profit_yoy: 9.5483
   :finance_report_date: '2026-09-30'
-  :pb: 2.13
-  :pb_percentile: 0.0511
+  :pb: 2.11
+  :pb_percentile: 0.0497
   :drop_30d: -1.9791
   :asset_liability_ratio: 19.5448
   :interest_debt_ratio: 0.1439
@@ -20896,60 +20896,6 @@
     :cash_dividend: 0.0
     :dividend_yield: 0.0
 :upcoming_dividends_6m:
-- :code: '600023'
-  :name: 浙能电力
-  :ex_dividend_date: '2026-10-23'
-  :equity_record_date: '2026-10-22'
-  :notice_date: '2026-10-16'
-  :cash_dividend_per_share: 0.02
-  :dividend_yield_pct: 0.3795
-  :progress: 实施分配
-  :plan_description: 10派0.20元(含税,扣税后0.18元)
-- :code: '601600'
-  :name: 中国铝业
-  :ex_dividend_date: '2026-10-23'
-  :equity_record_date: '2026-10-22'
-  :notice_date: '2026-10-16'
-  :cash_dividend_per_share: 0.276
-  :dividend_yield_pct: 3.1579
-  :progress: 实施分配
-  :plan_description: 10派2.76元(含税,扣税后2.484元)
-- :code: '601601'
-  :name: 中国太保
-  :ex_dividend_date: '2026-10-23'
-  :equity_record_date: '2026-10-22'
-  :notice_date: '2026-10-15'
-  :cash_dividend_per_share: 0.42
-  :dividend_yield_pct: 1.4685
-  :progress: 实施分配
-  :plan_description: 10派4.20元(含税,扣税后3.78元)
-- :code: '601919'
-  :name: 中远海控
-  :ex_dividend_date: '2026-10-23'
-  :equity_record_date: '2026-10-22'
-  :notice_date: '2026-10-16'
-  :cash_dividend_per_share: 0.43
-  :dividend_yield_pct: 2.6462
-  :progress: 实施分配
-  :plan_description: 10派4.30元(含税,扣税后3.87元)
-- :code: '601928'
-  :name: 凤凰传媒
-  :ex_dividend_date: '2026-10-23'
-  :equity_record_date: '2026-10-22'
-  :notice_date: '2026-10-16'
-  :cash_dividend_per_share: 0.1
-  :dividend_yield_pct: 1.1468
-  :progress: 实施分配
-  :plan_description: 10派1.00元(含税,扣税后0.90元)
-- :code: '601985'
-  :name: 中国核电
-  :ex_dividend_date: '2026-10-23'
-  :equity_record_date: '2026-10-22'
-  :notice_date: '2026-10-16'
-  :cash_dividend_per_share: 0.02
-  :dividend_yield_pct: 0.2119
-  :progress: 实施分配
-  :plan_description: 10派0.20元(含税,扣税后0.18元)
 - :code: '601088'
   :name: 中国神华
   :ex_dividend_date: '2026-10-26'
