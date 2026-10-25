@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-10-24'
+:generated_date_beijing: '2026-10-25'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -7418,19 +7418,19 @@
   :pe_ttm: 22.86
   :pe_percentile: 0.8318
   :valuation_label: 高位区域
-  :peg:
-  :peg_level: 5
-  :net_profit_yoy: -8.6348
-  :finance_report_date: '2026-06-30'
+  :peg: 2.4792
+  :peg_level: 4
+  :net_profit_yoy: 8.4334
+  :finance_report_date: '2026-09-30'
   :pb: 2.7
-  :pb_percentile: 0.7769
+  :pb_percentile: 0.7812
   :drop_30d: -5.7292
-  :asset_liability_ratio: 60.1578
-  :interest_debt_ratio: 50.3326
-  :fcf_yield: -0.3313
-  :fcf_ev: -0.2414
-  :fcff_back: -626442202.1302
-  :roe_jq: 5.91
+  :asset_liability_ratio: 58.8466
+  :interest_debt_ratio: 50.0201
+  :fcf_yield: -3.463
+  :fcf_ev: -2.5418
+  :fcff_back: -6548784078.9863
+  :roe_jq: 10.19
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 18631133004.0
@@ -9074,17 +9074,17 @@
   :valuation_label: 中位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -43.1418
-  :finance_report_date: '2026-06-30'
+  :net_profit_yoy: -81.9868
+  :finance_report_date: '2026-09-30'
   :pb: 1.24
   :pb_percentile: 0.0965
   :drop_30d: 0.4673
-  :asset_liability_ratio: 51.759
-  :interest_debt_ratio: 20.9489
-  :fcf_yield: 0.8051
-  :fcf_ev: 0.6799
-  :fcff_back: 204821426.2006
-  :roe_jq: 3.02
+  :asset_liability_ratio: 51.4147
+  :interest_debt_ratio: 19.2309
+  :fcf_yield: -3.3236
+  :fcf_ev: -2.8485
+  :fcff_back: -845527359.0614
+  :roe_jq: 3.23
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: false
   :total_shares: 2388732394.0
@@ -12415,17 +12415,17 @@
   :valuation_label: 高位区域
   :peg:
   :peg_level: 5
-  :net_profit_yoy: -34.3299
-  :finance_report_date: '2026-06-30'
+  :net_profit_yoy: -73.9962
+  :finance_report_date: '2026-09-30'
   :pb: 1.83
   :pb_percentile: 0.2887
   :drop_30d: 12.9958
-  :asset_liability_ratio: 72.2127
-  :interest_debt_ratio: 5.29
-  :fcf_yield: 8.3952
-  :fcf_ev: 7.6771
-  :fcff_back: 2677486245.1972
-  :roe_jq: 9.05
+  :asset_liability_ratio: 70.5382
+  :interest_debt_ratio: 5.6175
+  :fcf_yield: 9.782
+  :fcf_ev: 8.9681
+  :fcff_back: 3119760407.2446
+  :roe_jq: 10.39
   :roe_5y_avg_ge_12: true
   :roe_5y_min_ge_8: true
   :total_shares: 1384845853.0
