@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-10-30'
+:generated_date_beijing: '2026-10-31'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -919,7 +919,7 @@
   :fcf_yield:
   :fcf_ev:
   :fcff_back:
-  :roe_jq: 5.96
+  :roe_jq: 5.4
   :roe_5y_avg_ge_12: false
   :roe_5y_min_ge_8: true
   :total_shares: 14317185821.0
@@ -20899,15 +20899,6 @@
     :cash_dividend: 0.0
     :dividend_yield: 0.0
 :upcoming_dividends_6m:
-- :code: '000807'
-  :name: 云铝股份
-  :ex_dividend_date: '2026-10-30'
-  :equity_record_date: '2026-10-29'
-  :notice_date: '2026-10-23'
-  :cash_dividend_per_share: 0.887
-  :dividend_yield_pct: 3.4142
-  :progress: 实施分配
-  :plan_description: 10派8.87元(含税,扣税后7.983元)
 - :code: '002142'
   :name: 宁波银行
   :ex_dividend_date: '2026-11-05'
