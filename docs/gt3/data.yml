@@ -20899,33 +20899,6 @@
     :cash_dividend: 0.0
     :dividend_yield: 0.0
 :upcoming_dividends_6m:
-- :code: '001872'
-  :name: 招商港口
-  :ex_dividend_date: '2026-11-06'
-  :equity_record_date: '2026-11-05'
-  :notice_date: '2026-10-30'
-  :cash_dividend_per_share: 0.2
-  :dividend_yield_pct: 0.7971
-  :progress: 实施分配
-  :plan_description: 10派2.00元(含税,扣税后1.80元)
-- :code: '002736'
-  :name: 国信证券
-  :ex_dividend_date: '2026-11-06'
-  :equity_record_date: '2026-11-05'
-  :notice_date: '2026-10-30'
-  :cash_dividend_per_share: 0.1
-  :dividend_yield_pct: 1.0917
-  :progress: 实施分配
-  :plan_description: 10派1.00元(含税,扣税后0.90元)
-- :code: '601319'
-  :name: 中国人保
-  :ex_dividend_date: '2026-11-06'
-  :equity_record_date: '2026-11-05'
-  :notice_date: '2026-10-30'
-  :cash_dividend_per_share: 0.11
-  :dividend_yield_pct: 1.4845
-  :progress: 实施分配
-  :plan_description: 10派1.10元(含税,扣税后0.99元)
 - :code: '002152'
   :name: 广电运通
   :ex_dividend_date: '2026-11-11'
