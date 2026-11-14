@@ -20899,24 +20899,6 @@
     :cash_dividend: 0.0
     :dividend_yield: 0.0
 :upcoming_dividends_6m:
-- :code: '601128'
-  :name: 常熟银行
-  :ex_dividend_date: '2026-11-13'
-  :equity_record_date: '2026-11-12'
-  :notice_date: '2026-11-09'
-  :cash_dividend_per_share: 0.13
-  :dividend_yield_pct: 2.0281
-  :progress: 实施分配
-  :plan_description: 10派1.30元(含税,扣税后1.17元)
-- :code: '603444'
-  :name: 吉比特
-  :ex_dividend_date: '2026-11-13'
-  :equity_record_date: '2026-11-12'
-  :notice_date: '2026-11-07'
-  :cash_dividend_per_share: 6.0
-  :dividend_yield_pct: 1.7676
-  :progress: 实施分配
-  :plan_description: 10派60.00元(含税,扣税后54.00元)
 - :code: '002007'
   :name: 华兰生物
   :ex_dividend_date: '2026-11-17'
