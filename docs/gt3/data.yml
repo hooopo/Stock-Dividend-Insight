@@ -1,5 +1,5 @@
 ---
-:generated_date_beijing: '2026-11-22'
+:generated_date_beijing: '2026-11-23'
 :source_yml: stocks-dividend-gt3.yml
 :filter:
   :dividend_yield_gt:
@@ -20932,7 +20932,7 @@
   :equity_record_date: '2026-11-26'
   :notice_date: '2026-11-20'
   :cash_dividend_per_share: 0.2
-  :dividend_yield_pct:
+  :dividend_yield_pct: 0.7927
   :progress: 实施分配
   :plan_description: 10派2.00元(含税,扣税后1.80元)
 - :code: '002532'
